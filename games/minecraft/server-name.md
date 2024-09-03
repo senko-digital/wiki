@@ -1,0 +1,27 @@
+<script setup>
+import minecraftLogo from '/components/minecraftLogo.vue';
+</script>
+
+# <minecraftLogo>Изменение MOTD сервера</minecraftLogo>
+
+Краткое руководство по изменению MOTD Minecraft сервера в игровой панели управления.
+
+***
+
+::: tip
+Для генерации красивого MOTD рекомендуем воспользоваться **[MCTools](https://mctools.org/motd-creator)**
+:::
+
+Перейдите в управление нужным сервером.
+
+Войдите в файловый менеджер, и откройте файл `server.properties`.
+
+![old server name](/images/games/minecraft/server-name/old-name.png){data-zoomable}
+
+Введите новое название сервера либо сгенерируйте его с помощью раннее упомянутого сервиса и замените старое название.
+
+![new server name](/images/games/minecraft/server-name/new-name.png){data-zoomable}
+
+Готово! Теперь название вашего сервера будет сверкать по настоящему :sparkles:
+
+![server name in minecraft](/images/games/minecraft/server-icon/old.png){data-zoomable}
