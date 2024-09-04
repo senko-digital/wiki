@@ -1,8 +1,8 @@
 <script setup>
-import gmodLogo from '/components/gmodLogo.vue';
+import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <gmodLogo>Настройка server.cfg</gmodLogo>
+# <GmodLogo>Настройка server.cfg</GmodLogo>
 
 Краткое руководство по настройке файла `server.cfg` игрового сервера Garry's Mod.
 

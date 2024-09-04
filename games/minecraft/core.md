@@ -1,8 +1,8 @@
 <script setup>
-import minecraftLogo from '/components/minecraftLogo.vue';
+import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <minecraftLogo>Установка кастомного ядра</minecraftLogo>
+# <MinecraftLogo>Установка кастомного ядра</MinecraftLogo>
 
 Краткое руководство по установке кастомного ядра на сервер Minecraft.
 

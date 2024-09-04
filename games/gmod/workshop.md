@@ -1,8 +1,8 @@
 <script setup>
-import gmodLogo from '/components/gmodLogo.vue';
+import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <gmodLogo>Установка своей коллекции</gmodLogo>
+# <GmodLogo>Установка своей коллекции</GmodLogo>
 
 Краткое руководство по установке своей коллекции на игровой сервер Garry's Mod.
 

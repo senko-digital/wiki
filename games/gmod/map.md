@@ -1,8 +1,8 @@
 <script setup>
-import gmodLogo from '/components/gmodLogo.vue';
+import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <gmodLogo>Изменение карты при запуске</gmodLogo>
+# <GmodLogo>Изменение карты при запуске</GmodLogo>
 
 Краткое руководство по изменению карты по умолчанию на игровом сервере Garry's Mod.
 

@@ -1,8 +1,8 @@
 <script setup>
-import minecraftLogo from '/components/minecraftLogo.vue';
+import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <minecraftLogo>Настройка server.properties</minecraftLogo>
+# <MinecraftLogo>Настройка server.properties</MinecraftLogo>
 
 Краткое руководство по настройке файла `server.properties` игрового сервера Minecraft.
 

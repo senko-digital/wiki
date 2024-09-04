@@ -1,8 +1,8 @@
 <script setup>
-import minecraftLogo from '/components/minecraftLogo.vue';
+import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <minecraftLogo>Изменение иконки сервера</minecraftLogo>
+# <MinecraftLogo>Изменение иконки сервера</MinecraftLogo>
 
 Краткое руководство по изменению иконки сервера в игровой панели управления.
 

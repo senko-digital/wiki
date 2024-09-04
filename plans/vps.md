@@ -1,6 +1,6 @@
 <script setup>
-import intelLogo from '/components/intelLogo.vue';
-import amdLogo from '/components/amdLogo.vue';
+import IntelLogo from '/components/IntelLogo.vue';
+import AMDLogo from '/components/AMDLogo.vue';
 </script>
 
 # 💻 Виртуальные сервера
@@ -15,7 +15,7 @@ import amdLogo from '/components/amdLogo.vue';
 
 <small>Стоимость дополнительного IP-адреса: €1,99 (₽200) в месяц</small>
 
-### <intelLogo>Core i9-10900K</intelLogo>
+### <IntelLogo>Core i9-10900K</IntelLogo>
 
 | Количество ядер | ОЗУ        | Накопитель  | Сеть     | Цена (в месяц)      |
 | --------------- | ---------- | ----------- | -------- | ------------------- |
@@ -25,7 +25,7 @@ import amdLogo from '/components/amdLogo.vue';
 | 6 vCore 5.1 GHz | 24 GB DDR4 | 300 GB NVMe | 100 Mbps | €54 / ₴2400 / ₽5100 |
 | 8 vCore 5.1 GHz | 32 GB DDR4 | 400 GB NVMe | 100 Mbps | €70 / ₴3000 / ₽6600 |
 
-### <intelLogo>Core i9-12900K (Water Cooling)</intelLogo>
+### <IntelLogo>Core i9-12900K (Water Cooling)</IntelLogo>
 
 | Количество ядер   | ОЗУ        | Накопитель  | Сеть     | Цена (в месяц)      |
 | ----------------- | ---------- | ----------- | -------- | ------------------- |
@@ -35,7 +35,7 @@ import amdLogo from '/components/amdLogo.vue';
 | 6 vCore _5.2 GHz_ | 24 GB DDR4 | 300 GB NVMe | 100 Mbps | €60 / ₴2650 / ₽5700 |
 | 8 vCore _5.2 GHz_ | 32 GB DDR4 | 400 GB NVMe | 100 Mbps | €78 / ₴3400 / ₽7400 |
 
-### <amdLogo>Ryzen 9 7950X (Water Cooling)</amdLogo>
+### <AMDLogo>Ryzen 9 7950X (Water Cooling)</AMDLogo>
 
 | Количество ядер       | ОЗУ        | Накопитель  | Сеть     | Цена (в месяц)      |
 | --------------------- | ---------- | ----------- | -------- | ------------------- |
@@ -45,7 +45,7 @@ import amdLogo from '/components/amdLogo.vue';
 | 6 vCore **_5.7 GHz_** | 24 GB DDR5 | 300 GB NVMe | 100 Mbps | €62 / ₴2580 / ₽5900 |
 | 8 vCore **_5.7 GHz_** | 32 GB DDR5 | 400 GB NVMe | 100 Mbps | €80 / ₴3350 / ₽7600 |
 
-### <intelLogo>Core i9-14900K</intelLogo>
+### <IntelLogo>Core i9-14900K</IntelLogo>
 
 | Количество ядер       | ОЗУ       | Накопитель  | Сеть      | Цена (в месяц)      |
 | --------------------- | --------- | ----------- | --------- | ------------------- |
@@ -60,7 +60,7 @@ import amdLogo from '/components/amdLogo.vue';
 
 <small>Стоимость дополнительного IP-адреса: €2,7 (₽270) в месяц</small>
 
-### <intelLogo>Core i9-9900K</intelLogo>
+### <IntelLogo>Core i9-9900K</IntelLogo>
 
 | Количество ядер   | ОЗУ        | Накопитель  | Сеть      | Цена (в месяц)      |
 | ----------------- | ---------- | ----------- | --------- | ------------------- |

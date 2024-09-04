@@ -1,17 +1,17 @@
 <script setup>
-import gmodLogo from '/components/gmodLogo.vue';
+import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
 # Навигация по статьям
 
-#### <gmodLogo>[Изменение названия сервера](/games/gmod/server-name)</gmodLogo>
+#### <GmodLogo>[Изменение названия сервера](/games/gmod/server-name)</GmodLogo>
 
-#### <gmodLogo>[Настройка server.cfg](/games/gmod/server-cfg)</gmodLogo>
+#### <GmodLogo>[Настройка server.cfg](/games/gmod/server-cfg)</GmodLogo>
 
-#### <gmodLogo>[Изменение карты при запуске](/games/gmod/map)</gmodLogo>
+#### <GmodLogo>[Изменение карты при запуске](/games/gmod/map)</GmodLogo>
 
-#### <gmodLogo>[Установка своей коллекции](/games/gmod/workshop)</gmodLogo>
+#### <GmodLogo>[Установка своей коллекции](/games/gmod/workshop)</GmodLogo>
 
-#### <gmodLogo>[Установка и настройка DarkRP](/games/gmod/darkrp)</gmodLogo>
+#### <GmodLogo>[Установка и настройка DarkRP](/games/gmod/darkrp)</GmodLogo>
 
-#### <gmodLogo>[Установка и настройка ULX](/games/gmod/ulx)</gmodLogo>
+#### <GmodLogo>[Установка и настройка ULX](/games/gmod/ulx)</GmodLogo>

@@ -6,14 +6,14 @@
 
 <template>
     <div class="logoHeader">
-        <img src="/images/games/minecraft/minecraft.png" alt="minecraft logo" class="minecraftLogo" />
+        <img src="/images/games/minecraft/minecraft.png" alt="minecraft logo" class="MinecraftLogo" />
         <slot></slot>
     </div>
 </template>
   
 <script>
 export default {
-    name: 'minecraftLogo',
+    name: 'MinecraftLogo',
     props: {},
 };
 </script>
@@ -25,7 +25,7 @@ export default {
     gap: 10px;
 }
 
-.minecraftLogo {
+.MinecraftLogo {
     display: inline-block;
     vertical-align: middle;
     width: 32px;

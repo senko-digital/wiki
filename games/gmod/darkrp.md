@@ -1,8 +1,8 @@
 <script setup>
-import gmodLogo from '/components/gmodLogo.vue';
+import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <gmodLogo>Установка и настройка DarkRP</gmodLogo>
+# <GmodLogo>Установка и настройка DarkRP</GmodLogo>
 
 Краткое руководство по установке и настройке DarkRP на вашем Garry's Mod сервере.
 

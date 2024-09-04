@@ -6,14 +6,14 @@
 
 <template>
     <div class="logoHeader">
-        <img src="/images/logos/intel.png" alt="intel logo" class="intelLogo" />
+        <img src="/images/logos/intel.png" alt="intel logo" class="IntelLogo" />
         <slot></slot>
     </div>
 </template>
   
 <script>
 export default {
-    name: 'intelLogo',
+    name: 'IntelLogo',
     props: {},
 };
 </script>
@@ -25,7 +25,7 @@ export default {
     gap: 5px;
 }
 
-.intelLogo {
+.IntelLogo {
     display: inline-block;
     vertical-align: middle;
     width: 64px;

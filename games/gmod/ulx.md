@@ -1,8 +1,8 @@
 <script setup>
-import gmodLogo from '/components/gmodLogo.vue';
+import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <gmodLogo>Установка и настройка ULX</gmodLogo>
+# <GmodLogo>Установка и настройка ULX</GmodLogo>
 
 Краткое руководство по установке и настройке админ-системы **ULX** на вашем Garry's Mod сервере.
 

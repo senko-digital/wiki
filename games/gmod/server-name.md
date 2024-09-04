@@ -1,8 +1,8 @@
 <script setup>
-import gmodLogo from '/components/gmodLogo.vue';
+import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <gmodLogo>Изменение названия сервера</gmodLogo>
+# <GmodLogo>Изменение названия сервера</GmodLogo>
 
 Краткое руководство по изменению названия игрового сервера Garry's Mod.
 

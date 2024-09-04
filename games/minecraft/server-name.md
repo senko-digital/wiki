@@ -1,8 +1,8 @@
 <script setup>
-import minecraftLogo from '/components/minecraftLogo.vue';
+import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <minecraftLogo>Изменение MOTD сервера</minecraftLogo>
+# <MinecraftLogo>Изменение MOTD сервера</MinecraftLogo>
 
 Краткое руководство по изменению MOTD Minecraft сервера в игровой панели управления.
 

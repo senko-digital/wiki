@@ -6,14 +6,14 @@
 
 <template>
     <div class="logoHeader">
-        <img src="/images/games/gmod/gmod.svg" alt="garry's mod logo" class="gmodLogo" />
+        <img src="/images/games/gmod/gmod.svg" alt="garry's mod logo" class="GmodLogo" />
         <slot></slot>
     </div>
 </template>
   
 <script>
 export default {
-    name: 'gmodLogo',
+    name: 'GmodLogo',
     props: {},
 };
 </script>
@@ -25,7 +25,7 @@ export default {
     gap: 10px;
 }
 
-.gmodLogo {
+.GmodLogo {
     display: inline-block;
     vertical-align: middle;
     width: 32px;

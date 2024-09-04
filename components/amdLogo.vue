@@ -6,14 +6,14 @@
 
 <template>
     <div class="logoHeader">
-        <img src="/images/logos/amd.png" alt="intel logo" class="amdLogo" />
+        <img src="/images/logos/amd.png" alt="AMD logo" class="AMDLogo" />
         <slot></slot>
     </div>
 </template>
   
 <script>
 export default {
-    name: 'amdLogo',
+    name: 'AMDLogo',
     props: {},
 };
 </script>
@@ -25,7 +25,7 @@ export default {
     gap: 5px;
 }
 
-.amdLogo {
+.AMDLogo {
     display: inline-block;
     vertical-align: middle;
     width: 64px;

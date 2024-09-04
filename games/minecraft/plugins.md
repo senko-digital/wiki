@@ -1,8 +1,8 @@
 <script setup>
-import minecraftLogo from '/components/minecraftLogo.vue';
+import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <minecraftLogo>Установка плагинов</minecraftLogo>
+# <MinecraftLogo>Установка плагинов</MinecraftLogo>
 
 Краткое руководство по установке плагинов на сервер Minecraft.
 
