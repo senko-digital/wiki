@@ -1,5 +1,5 @@
 ---
-title: "Установка иконки сервера › Senko Digital Wiki"
+title: "Установка иконки сервера"
 description: "Руководство по установке и настройке иконки для сервера Minecraft. Создание привлекательного отображения в списке серверов."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: minecraft, server icon, иконка сервера, server.properties, настройка сервера
   - - meta
     - property: og:title 
-      content: "Установка иконки сервера › Senko Digital Wiki"
+      content: "Установка иконки сервера"
   - - meta
     - property: og:description
       content: "Руководство по установке и настройке иконки для сервера Minecraft. Создание привлекательного отображения в списке серверов."

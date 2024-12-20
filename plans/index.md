@@ -1,5 +1,5 @@
 ---
-title: "Тарифы › Senko Digital Wiki"
+title: "Тарифы"
 description: "Тарифы на игровой хостинг и виртуальные сервера от Senko Digital. Выгодные цены, мощное оборудование и защита от DDoS-атак."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: тарифы, цены, хостинг, vps, игровой хостинг, ddos защита, сервера
   - - meta
     - property: og:title 
-      content: "Тарифы › Senko Digital Wiki"
+      content: "Тарифы"
   - - meta
     - property: og:description
       content: "Тарифы на игровой хостинг и виртуальные сервера от Senko Digital. Выгодные цены, мощное оборудование и защита от DDoS-атак."

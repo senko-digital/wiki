@@ -1,5 +1,5 @@
 ---
-title: "Авторизация в боте Discord › Senko Digital Wiki"
+title: "Авторизация в боте Discord"
 description: "Руководство по авторизации в Discord боте Senko Digital. Подключение бота к панели управления для мониторинга серверов."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: discord бот, авторизация, api токен, senko bot, игровая панель, мониторинг серверов
   - - meta
     - property: og:title 
-      content: "Discord бот - Авторизация › Senko Digital Wiki"
+      content: "Discord бот - Авторизация"
   - - meta
     - property: og:description
       content: "Руководство по авторизации в Discord боте Senko Digital. Подключение бота к панели управления для мониторинга серверов."

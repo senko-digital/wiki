@@ -1,5 +1,5 @@
 ---
-title: "Отправка команд через Discord › Senko Digital Wiki"
+title: "Отправка команд через Discord"
 description: "Руководство по отправке команд на игровой сервер через Discord бота. Управление сервером прямо из Discord."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: discord бот, отправка команд, управление сервером, senko bot, игровые сервера
   - - meta
     - property: og:title 
-      content: "Discord бот - Отправка команд › Senko Digital Wiki"
+      content: "Discord бот - Отправка команд"
   - - meta
     - property: og:description
       content: "Руководство по отправке команд на игровой сервер через Discord бота. Управление сервером прямо из Discord."

@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress"
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   cleanUrls: true,
-  title: "Senko Digital › Вики",
+  title: "Senko Digital Wiki",
   description: "Официальная вики хостинг-провайдера Senko Digital - самого пушистого хостинга в мире!",
   head: [
     ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicons/apple-touch-icon.png"}],

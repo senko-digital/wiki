@@ -1,5 +1,5 @@
 ---
-title: "Установка плагинов Minecraft › Senko Digital Wiki"
+title: "Установка плагинов Minecraft"
 description: "Руководство по установке и настройке плагинов на сервере Minecraft. Поддержка PaperMC, CraftBukkit, Mohist и других популярных ядер."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: minecraft, plugins, bukkit, spigot, paper, mohist, плагины майнкрафт
   - - meta
     - property: og:title 
-      content: "Minecraft - Установка плагинов › Senko Digital Wiki"
+      content: "Minecraft - Установка плагинов"
   - - meta
     - property: og:description
       content: "Руководство по установке и настройке плагинов на сервере Minecraft. Поддержка PaperMC, CraftBukkit, Mohist и других популярных ядер."

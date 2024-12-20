@@ -1,5 +1,5 @@
 ---
-title: "Приглашение бота на сервер › Senko Digital Wiki"
+title: "Приглашение бота на сервер"
 description: "Инструкция по добавлению Discord бота Senko Digital на ваш сервер. Настройка прав и разрешений для бота."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: discord бот, приглашение бота, настройка бота, senko bot, discord сервер
   - - meta
     - property: og:title 
-      content: "Discord бот - Приглашение на сервер › Senko Digital Wiki"
+      content: "Discord бот - Приглашение на сервер"
   - - meta
     - property: og:description
       content: "Инструкция по добавлению Discord бота Senko Digital на ваш сервер. Настройка прав и разрешений для бота."

@@ -1,5 +1,5 @@
 ---
-title: "Установка и настройка DarkRP › Senko Digital Wiki"
+title: "Установка и настройка DarkRP"
 description: "Полное руководство по установке и настройке режима DarkRP на сервере Garry's Mod. Настройка профессий, предметов и игровой экономики."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: gmod, darkrp, garry's mod, darkrpmodification, установка darkrp, настройка darkrp
   - - meta
     - property: og:title 
-      content: "Garry's Mod - Установка и настройка DarkRP › Senko Digital Wiki"
+      content: "Garry's Mod - Установка и настройка DarkRP"
   - - meta
     - property: og:description
       content: "Полное руководство по установке и настройке режима DarkRP на сервере Garry's Mod. Настройка профессий, предметов и игровой экономики."

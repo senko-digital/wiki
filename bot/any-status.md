@@ -1,5 +1,5 @@
 ---
-title: "Статус любого сервера › Senko Digital Wiki"
+title: "Статус любого сервера"
 description: "Мониторинг статуса любых игровых серверов через Discord бота Senko Digital. Поддержка Garry's Mod, Minecraft, CS2 и других игр."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: discord бот, статус сервера, мониторинг, gmod, minecraft, cs2, игровые сервера
   - - meta
     - property: og:title 
-      content: "Discord бот - Статус любого сервера › Senko Digital Wiki"
+      content: "Discord бот - Статус любого сервера"
   - - meta
     - property: og:description
       content: "Мониторинг статуса любых игровых серверов через Discord бота Senko Digital. Поддержка Garry's Mod, Minecraft, CS2 и других игр."

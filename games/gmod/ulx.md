@@ -11,7 +11,7 @@ head:
       content: gmod, ulx, ulib, админка, garry's mod, admin system, права администратора
   - - meta
     - property: og:title 
-      content: "Garry's Mod - Установка и настройка ULX › Senko Digital Wiki"
+      content: "Garry's Mod - Установка и настройка ULX"
   - - meta
     - property: og:description
       content: "Подробное руководство по установке и настройке админ-системы ULX на сервере Garry's Mod. Управление правами и командами администраторов."

@@ -1,5 +1,5 @@
 ---
-title: "Discord бот › Senko Digital Wiki"
+title: "Discord бот"
 description: "Руководство по использованию Discord бота Senko Digital. Мониторинг серверов, отправка команд и управление через Discord."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: discord бот, мониторинг серверов, управление сервером, senko bot, игровые сервера
   - - meta
     - property: og:title 
-      content: "Discord бот - Начало работы › Senko Digital Wiki"
+      content: "Discord бот - Начало работы"
   - - meta
     - property: og:description
       content: "Руководство по использованию Discord бота Senko Digital. Мониторинг серверов, отправка команд и управление через Discord."

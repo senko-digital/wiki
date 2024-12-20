@@ -1,5 +1,5 @@
 ---
-title: "Статус сервера из панели › Senko Digital Wiki"
+title: "Статус сервера из панели"
 description: "Руководство по просмотру статуса игровых серверов через Discord бота Senko Digital. Мониторинг состояния серверов и управление ими через Discord."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: discord бот, статус сервера, мониторинг, управление сервером, senko bot, игровой сервер
   - - meta
     - property: og:title 
-      content: "Discord бот - Статус сервера из панели › Senko Digital Wiki"
+      content: "Discord бот - Статус сервера из панели"
   - - meta
     - property: og:description
       content: "Руководство по просмотру статуса игровых серверов через Discord бота Senko Digital. Мониторинг состояния серверов и управление ими через Discord."

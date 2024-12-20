@@ -1,5 +1,5 @@
 ---
-title: "Тарифы - Игровой хостинг › Senko Digital Wiki"
+title: "Тарифы - Игровой хостинг"
 description: "Тарифы на игровой хостинг от Senko Digital. Размещение серверов Garry's Mod, Minecraft, CS2 и других игр на мощном оборудовании с защитой от DDoS."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: игровой хостинг, gmod хостинг, minecraft хостинг, cs2 хостинг, защита от ddos, игровые сервера, хостинг серверов
   - - meta
     - property: og:title 
-      content: "Тарифы - Игровой хостинг › Senko Digital Wiki"
+      content: "Тарифы - Игровой хостинг"
   - - meta
     - property: og:description
       content: "Тарифы на игровой хостинг от Senko Digital. Размещение серверов Garry's Mod, Minecraft, CS2 и других игр на мощном оборудовании с защитой от DDoS."

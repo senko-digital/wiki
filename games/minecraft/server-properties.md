@@ -1,5 +1,5 @@
 ---
-title: "Настройка server.properties › Senko Digital Wiki"
+title: "Настройка server.properties"
 description: "Подробное руководство по настройке файла server.properties в Minecraft. Оптимизация и конфигурация параметров сервера."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: minecraft, server.properties, настройка сервера, конфигурация, оптимизация
   - - meta
     - property: og:title 
-      content: "Minecraft - Настройка server.properties › Senko Digital Wiki"
+      content: "Minecraft - Настройка server.properties"
   - - meta
     - property: og:description
       content: "Подробное руководство по настройке файла server.properties в Minecraft. Оптимизация и конфигурация параметров сервера."

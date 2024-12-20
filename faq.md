@@ -7,7 +7,7 @@ head:
       content: faq, вопросы, хостинг, оплата, ddos защита, установка сервера, техподдержка
   - - meta
     - property: og:title 
-      content: "FAQ › Senko Digital Wiki"
+      content: "FAQ"
   - - meta
     - property: og:description
       content: "Ответы на частые вопросы о хостинге Senko Digital. Информация о тарифах, способах оплаты, защите от DDoS-атак и сроках установки серверов."

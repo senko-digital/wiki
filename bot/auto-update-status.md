@@ -1,5 +1,5 @@
 ---
-title: "Автообновляемый статус › Senko Digital Wiki"
+title: "Автообновляемый статус"
 description: "Настройка автоматического обновления статуса игровых серверов в Discord. Мониторинг серверов в реальном времени."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: discord бот, автообновление статуса, мониторинг серверов, senko bot, игровые сервера
   - - meta
     - property: og:title 
-      content: "Discord бот - Автообновляемый статус › Senko Digital Wiki"
+      content: "Discord бот - Автообновляемый статус"
   - - meta
     - property: og:description
       content: "Настройка автоматического обновления статуса игровых серверов в Discord. Мониторинг серверов в реальном времени."

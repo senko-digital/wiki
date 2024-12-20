@@ -1,5 +1,5 @@
 ---
-title: "Установка кастомного ядра › Senko Digital Wiki"
+title: "Установка кастомного ядра"
 description: "Руководство по установке и настройке кастомных ядер на сервере Minecraft. PaperMC, CraftBukkit, Mohist и другие популярные ядра."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: minecraft, paper, bukkit, spigot, mohist, fabric, forge, ядро сервера
   - - meta
     - property: og:title 
-      content: "Minecraft - Установка кастомного ядра › Senko Digital Wiki"
+      content: "Minecraft - Установка кастомного ядра"
   - - meta
     - property: og:description
       content: "Руководство по установке и настройке кастомных ядер на сервере Minecraft. PaperMC, CraftBukkit, Mohist и другие популярные ядра."

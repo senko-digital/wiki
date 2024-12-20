@@ -1,5 +1,5 @@
 ---
-title: "Изменение названия сервера Garry's Mod › Senko Digital Wiki"
+title: "Изменение названия сервера Garry's Mod"
 description: "Руководство по изменению названия сервера Garry's Mod. Узнайте, как быстро и легко изменить название вашего сервера через файл server.cfg."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: gmod, garrys mod, server name, server.cfg, hostname, название сервера, гаррис мод
   - - meta
     - property: og:title 
-      content: "Изменение названия сервера Garry's Mod › Senko Digital Wiki"
+      content: "Изменение названия сервера Garry's Mod"
   - - meta
     - property: og:description
       content: "Руководство по изменению названия сервера Garry's Mod. Узнайте, как быстро и легко изменить название вашего сервера через файл server.cfg."

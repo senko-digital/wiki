@@ -11,7 +11,7 @@ head:
       content: gmod, workshop, steam workshop, аддоны, моды, garry's mod, установка аддонов
   - - meta
     - property: og:title 
-      content: "Garry's Mod - Установка аддонов из Workshop › Senko Digital Wiki"
+      content: "Garry's Mod - Установка аддонов из Workshop"
   - - meta
     - property: og:description
       content: "Руководство по установке и настройке аддонов из Steam Workshop на сервере Garry's Mod. Управление коллекцией аддонов и их конфигурация."

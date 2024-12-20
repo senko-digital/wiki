@@ -1,5 +1,5 @@
 ---
-title: "Тарифы - Виртуальные сервера › Senko Digital Wiki"
+title: "Тарифы - Виртуальные сервера"
 description: "Тарифы на Виртуальные сервера от Senko Digital. Мощные VPS на базе процессоров Intel Core i9 и AMD Ryzen 9 с NVMe накопителями."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: vps, хостинг, виртуальный сервер, vds, i9-9900k, i9-12900k, ryzen 9 7950x, nvme, ddr4, ddr5, vps хостинг
   - - meta
     - property: og:title 
-      content: "Тарифы - Виртуальные сервера › Senko Digital Wiki"
+      content: "Тарифы - Виртуальные сервера"
   - - meta
     - property: og:description
       content: "Тарифы на Виртуальные сервера от Senko Digital. Мощные VPS на базе процессоров Intel Core i9 и AMD Ryzen 9 с NVMe накопителями."

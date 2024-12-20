@@ -7,7 +7,7 @@ head:
       content: хостинг, документация, вики, игровые сервера, vps хостинг, панель управления, senko digital
   - - meta
     - property: og:title 
-      content: "Главная › Senko Digital Wiki"
+      content: "Главная"
   - - meta
     - property: og:description
       content: "Официальная вики хостинг-провайдера Senko Digital. Руководства по настройке серверов, использованию панели управления и управлению игровыми серверами."

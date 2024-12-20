@@ -1,5 +1,5 @@
 ---
-title: "Настройка server.cfg › Senko Digital Wiki"
+title: "Настройка server.cfg"
 description: "Полное руководство по настройке файла server.cfg в Garry's Mod. Оптимизация производительности и настройка параметров сервера."
 head:
   - - meta
@@ -7,7 +7,7 @@ head:
       content: gmod, server.cfg, конфигурация сервера, настройка сервера, garry's mod
   - - meta
     - property: og:title 
-      content: "Garry's Mod - Настройка server.cfg › Senko Digital Wiki"
+      content: "Garry's Mod - Настройка server.cfg"
   - - meta
     - property: og:description
       content: "Полное руководство по настройке файла server.cfg в Garry's Mod. Оптимизация производительности и настройка параметров сервера."
