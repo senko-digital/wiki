@@ -1,3 +1,18 @@
+---
+title: "Настройка server.properties › Senko Digital Wiki"
+description: "Подробное руководство по настройке файла server.properties в Minecraft. Оптимизация и конфигурация параметров сервера."
+head:
+  - - meta
+    - name: keywords
+      content: minecraft, server.properties, настройка сервера, конфигурация, оптимизация
+  - - meta
+    - property: og:title 
+      content: "Minecraft - Настройка server.properties › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Подробное руководство по настройке файла server.properties в Minecraft. Оптимизация и конфигурация параметров сервера."
+---
+
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>

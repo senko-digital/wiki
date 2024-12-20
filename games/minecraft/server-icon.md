@@ -1,3 +1,18 @@
+---
+title: "Установка иконки сервера › Senko Digital Wiki"
+description: "Руководство по установке и настройке иконки для сервера Minecraft. Создание привлекательного отображения в списке серверов."
+head:
+  - - meta
+    - name: keywords
+      content: minecraft, server icon, иконка сервера, server.properties, настройка сервера
+  - - meta
+    - property: og:title 
+      content: "Установка иконки сервера › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Руководство по установке и настройке иконки для сервера Minecraft. Создание привлекательного отображения в списке серверов."
+---
+
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>

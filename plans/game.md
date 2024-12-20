@@ -1,3 +1,18 @@
+---
+title: "Тарифы - Игровой хостинг › Senko Digital Wiki"
+description: "Тарифы на игровой хостинг от Senko Digital. Размещение серверов Garry's Mod, Minecraft, CS2 и других игр на мощном оборудовании с защитой от DDoS."
+head:
+  - - meta
+    - name: keywords
+      content: игровой хостинг, gmod хостинг, minecraft хостинг, cs2 хостинг, защита от ddos, игровые сервера, хостинг серверов
+  - - meta
+    - property: og:title 
+      content: "Тарифы - Игровой хостинг › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Тарифы на игровой хостинг от Senko Digital. Размещение серверов Garry's Mod, Minecraft, CS2 и других игр на мощном оборудовании с защитой от DDoS."
+---
+
 <script setup>
 import IntelLogo from '/components/IntelLogo.vue';
 import AMDLogo from '/components/AMDLogo.vue';

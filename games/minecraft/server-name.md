@@ -1,3 +1,18 @@
+---
+title: "Изменение MOTD сервера Minecraft › Senko Digital Wiki"
+description: "Пошаговая инструкция по изменению MOTD сервера Minecraft. Научитесь создавать красивые и привлекательные названия для вашего сервера."
+head:
+  - - meta
+    - name: keywords
+      content: minecraft, motd, server.properties, название сервера, майнкрафт сервер, minecraft server, изменение motd
+  - - meta
+    - property: og:title 
+      content: "Minecraft - Изменение MOTD сервера › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Пошаговая инструкция по изменению MOTD сервера Minecraft. Научитесь создавать красивые и привлекательные названия для вашего сервера."
+---
+
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>

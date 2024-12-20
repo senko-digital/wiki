@@ -1,3 +1,18 @@
+---
+title: "Изменение названия сервера Garry's Mod › Senko Digital Wiki"
+description: "Руководство по изменению названия сервера Garry's Mod. Узнайте, как быстро и легко изменить название вашего сервера через файл server.cfg."
+head:
+  - - meta
+    - name: keywords
+      content: gmod, garrys mod, server name, server.cfg, hostname, название сервера, гаррис мод
+  - - meta
+    - property: og:title 
+      content: "Изменение названия сервера Garry's Mod › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Руководство по изменению названия сервера Garry's Mod. Узнайте, как быстро и легко изменить название вашего сервера через файл server.cfg."
+---
+
 <script setup>
 import GmodLogo from '/components/GmodLogo.vue';
 </script>

@@ -1,3 +1,18 @@
+---
+title: "Настройка server.cfg › Senko Digital Wiki"
+description: "Полное руководство по настройке файла server.cfg в Garry's Mod. Оптимизация производительности и настройка параметров сервера."
+head:
+  - - meta
+    - name: keywords
+      content: gmod, server.cfg, конфигурация сервера, настройка сервера, garry's mod
+  - - meta
+    - property: og:title 
+      content: "Garry's Mod - Настройка server.cfg › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Полное руководство по настройке файла server.cfg в Garry's Mod. Оптимизация производительности и настройка параметров сервера."
+---
+
 <script setup>
 import GmodLogo from '/components/GmodLogo.vue';
 </script>
@@ -141,7 +156,7 @@ exec banned_user.cfg
 
 ### `sbox_maxsents` <Badge type="warning" text="обратите внимание" />
 
-Ограничивает количество скриптовых объектов (scripted entities), которые может создать игрок. Скриптовые объекты — это объекты с уникальной логикой и поведением, созданные с помощью Lua-скриптов.
+Ограничивает количество скриптовых объектов (scripted entities), которые могут создать игрок. Скриптовые объекты — это объекты с уникальной логикой и поведением, созданные с помощью Lua-скриптов.
 
 ### `sbox_maxemitters` <Badge type="warning" text="обратите внимание" />
 
@@ -163,7 +178,7 @@ exec banned_user.cfg
 
 ### `decalfrequency`
 
-Определяет частоту обновления декалей (например, следов от пуль) на сервере.
+Определяет частоту обновления декалей (например, следов о пуль) на сервере.
 
 ### `sv_parallel_sendsnapshot` и `sv_parallel_packentities`
 

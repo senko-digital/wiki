@@ -2,6 +2,21 @@
 import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
+---
+title: "Установка аддонов из Workshop"
+description: "Руководство по установке и настройке аддонов из Steam Workshop на сервере Garry's Mod. Управление коллекцией аддонов и их конфигурация."
+head:
+  - - meta
+    - name: keywords
+      content: gmod, workshop, steam workshop, аддоны, моды, garry's mod, установка аддонов
+  - - meta
+    - property: og:title 
+      content: "Garry's Mod - Установка аддонов из Workshop › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Руководство по установке и настройке аддонов из Steam Workshop на сервере Garry's Mod. Управление коллекцией аддонов и их конфигурация."
+---
+
 # <GmodLogo>Установка своей коллекции</GmodLogo>
 
 Краткое руководство по установке своей коллекции на игровой сервер Garry's Mod.

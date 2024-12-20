@@ -1,3 +1,18 @@
+---
+title: "Discord бот › Senko Digital Wiki"
+description: "Руководство по использованию Discord бота Senko Digital. Мониторинг серверов, отправка команд и управление через Discord."
+head:
+  - - meta
+    - name: keywords
+      content: discord бот, мониторинг серверов, управление сервером, senko bot, игровые сервера
+  - - meta
+    - property: og:title 
+      content: "Discord бот - Начало работы › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Руководство по использованию Discord бота Senko Digital. Мониторинг серверов, отправка команд и управление через Discord."
+---
+
 # ❓ Начало работы
 
 С помощью нашего бота Discord вы можете просматривать статус своих игровых серверов из панели управления, а так же отправлять команды на них и управлять их питанием.

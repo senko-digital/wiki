@@ -16,6 +16,17 @@ export default defineConfig({
     ['link', { rel: 'stylesheet', href: '/custom.css' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap' }],
+    ['meta', { name: 'keywords', content: 'хостинг, vps, игровой хостинг, gmod, minecraft, cs2, защита от ddos' }],
+    ['meta', { property: 'og:site_name', content: 'Senko Digital Wiki' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { name: 'theme-color', content: '#ff8c00' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/favicons/apple-touch-icon.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/assets/favicons/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/assets/favicons/favicon-16x16.png' }],
+    ['link', { rel: 'manifest', href: '/assets/favicons/site.webmanifest' }],
+    ['link', { rel: 'mask-icon', href: '/assets/favicons/safari-pinned-tab.svg', color: '#ff8c00' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#ff8c00' }],
+    ['meta', { name: 'theme-color', content: '#ffffff' }]
   ],
   locales: {
     root: {
@@ -42,7 +53,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Главная", link: "/" },
-      { text: "Поддержка", link: "https://snk.wtf/d" },
+      { text: "Поддержка", link: "https://senko.digital/contacts" },
     ],
     logo: "/logo.svg",
     siteTitle: false,
@@ -131,7 +142,7 @@ export default defineConfig({
       //   items: [
       //     { text: "Изменение названия сервера", link: "/games/cs2/server-name" },
       //     { text: "Настройка server.cfg", link: "/games/cs2/server-cfg" },
-      //     { text: "Установка кар��ы из Workshop", link: "/games/cs2/workshop" },
+      //     { text: "Установка карты из Workshop", link: "/games/cs2/workshop" },
       //     // { text: "Настройка и изменение режимов", link: "/games/cs2/gamemodes" },
       //     // { text: "Установка SourceMod и MetaMod", link: "/games/cs2/sourcemod-metamod" },
       //     // { text: "Подключение базы данных", link: "/games/cs2/mysql" },

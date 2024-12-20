@@ -2,6 +2,21 @@
 import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
+---
+title: "Установка и настройка ULX"
+description: "Подробное руководство по установке и настройке админ-системы ULX на сервере Garry's Mod. Управление правами и командами администраторов."
+head:
+  - - meta
+    - name: keywords
+      content: gmod, ulx, ulib, админка, garry's mod, admin system, права администратора
+  - - meta
+    - property: og:title 
+      content: "Garry's Mod - Установка и настройка ULX › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Подробное руководство по установке и настройке админ-системы ULX на сервере Garry's Mod. Управление правами и командами администраторов."
+---
+
 # <GmodLogo>Установка и настройка ULX</GmodLogo>
 
 Краткое руководство по установке и настройке админ-системы **ULX** на вашем Garry's Mod сервере.

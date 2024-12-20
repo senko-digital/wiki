@@ -1,3 +1,18 @@
+---
+title: "Установка плагинов Minecraft › Senko Digital Wiki"
+description: "Руководство по установке и настройке плагинов на сервере Minecraft. Поддержка PaperMC, CraftBukkit, Mohist и других популярных ядер."
+head:
+  - - meta
+    - name: keywords
+      content: minecraft, plugins, bukkit, spigot, paper, mohist, плагины майнкрафт
+  - - meta
+    - property: og:title 
+      content: "Minecraft - Установка плагинов › Senko Digital Wiki"
+  - - meta
+    - property: og:description
+      content: "Руководство по установке и настройке плагинов на сервере Minecraft. Поддержка PaperMC, CraftBukkit, Mohist и других популярных ядер."
+---
+
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
