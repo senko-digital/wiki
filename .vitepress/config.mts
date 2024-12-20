@@ -2,6 +2,7 @@ import { defineConfig } from "vitepress"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  cleanUrls: true,
   title: "Senko Digital › Вики",
   description: "Официальная вики хостинг-провайдера Senko Digital - самого пушистого хостинга в мире!",
   head: [
