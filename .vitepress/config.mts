@@ -13,7 +13,9 @@ export default defineConfig({
     ['meta', { name: "msapplication-TileColor", content: "#3a0839"}],
     ['meta', { name: "msapplication-config", content: "/assets/favicons/browserconfig.xml"}],
     ['meta', { name: "theme-color", content: "#ffffff"}],
-    ['link', { rel: 'stylesheet', href: '/custom.css' }]
+    ['link', { rel: 'stylesheet', href: '/custom.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap' }],
   ],
   locales: {
     root: {
@@ -52,8 +54,13 @@ export default defineConfig({
     lastUpdated: {
       text: 'Последнее редактирование',
       formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        locale: 'ru-RU',
+        timeZone: 'Europe/Moscow'
       }
     },
     docFooter: {
@@ -124,7 +131,7 @@ export default defineConfig({
       //   items: [
       //     { text: "Изменение названия сервера", link: "/games/cs2/server-name" },
       //     { text: "Настройка server.cfg", link: "/games/cs2/server-cfg" },
-      //     { text: "Установка карты из Workshop", link: "/games/cs2/workshop" },
+      //     { text: "Установка кар��ы из Workshop", link: "/games/cs2/workshop" },
       //     // { text: "Настройка и изменение режимов", link: "/games/cs2/gamemodes" },
       //     // { text: "Установка SourceMod и MetaMod", link: "/games/cs2/sourcemod-metamod" },
       //     // { text: "Подключение базы данных", link: "/games/cs2/mysql" },
