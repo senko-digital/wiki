@@ -92,6 +92,13 @@ export default defineConfig({
         collapsed: false,
       },
       {
+        text: "💻 VPS сервера",
+        items: [
+          { text: "❓ Начало работы", link: "/virtual-servers/getting-started" },
+        ],
+        collapsed: false,
+      },
+      {
         text: "💻 Панель управления",
         items: [
           { text: "❓ Начало работы", link: "/panel/" },
