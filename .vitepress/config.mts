@@ -165,7 +165,7 @@ export default defineConfig({
       },
     ],
     footer: {
-      copyright: '© 2021 — 2024 <a href="https://senko.digital">senko://digital</a>',
+      copyright: '© 2021 — 2024 <a href="https://senko.digital">Senko Digital</a>',
     },
 
     socialLinks: [
