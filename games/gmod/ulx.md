@@ -1,7 +1,3 @@
-<script setup>
-import GmodLogo from '/components/GmodLogo.vue';
-</script>
-
 ---
 title: "Установка и настройка ULX"
 description: "Подробное руководство по установке и настройке админ-системы ULX на сервере Garry's Mod. Управление правами и командами администраторов."
@@ -10,12 +6,16 @@ head:
     - name: keywords
       content: gmod, ulx, ulib, админка, garry's mod, admin system, права администратора
   - - meta
-    - property: og:title 
+    - property: og:title
       content: "Garry's Mod - Установка и настройка ULX"
   - - meta
     - property: og:description
       content: "Подробное руководство по установке и настройке админ-системы ULX на сервере Garry's Mod. Управление правами и командами администраторов."
 ---
+
+<script setup>
+import GmodLogo from '/components/GmodLogo.vue';
+</script>
 
 # <GmodLogo>Установка и настройка ULX</GmodLogo>
 
