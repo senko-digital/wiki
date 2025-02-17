@@ -15,6 +15,34 @@
   --custom-gradient: linear-gradient(120deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-2) 100%);
 }
 
+/* Light theme colors */
+:root {
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-soft: #f9f9f9;
+  --vp-c-bg-mute: #f1f1f1;
+  
+  --vp-c-divider: #e2e2e2;
+  --vp-c-divider-light: #e2e2e2;
+  
+  --vp-c-text-1: #213547;
+  --vp-c-text-2: #394e6a;
+  --vp-c-text-3: #8091a5;
+}
+
+/* Dark theme colors */
+.dark {
+  --vp-c-bg: #1a1a1a;
+  --vp-c-bg-soft: #242424;
+  --vp-c-bg-mute: #2f2f2f;
+  
+  --vp-c-divider: #3a3a3a;
+  --vp-c-divider-light: #3a3a3a;
+  
+  --vp-c-text-1: rgba(255, 255, 255, 0.87);
+  --vp-c-text-2: rgba(255, 255, 255, 0.6);
+  --vp-c-text-3: rgba(255, 255, 255, 0.38);
+}
+
 html {
   scroll-behavior: smooth;
 }
