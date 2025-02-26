@@ -54,6 +54,7 @@ export default defineConfig({
     nav: [
       { text: "Главная", link: "/" },
       { text: "Поддержка", link: "https://senko.digital/contacts" },
+      { text: "Личный кабинет", link: "https://my.senko.digital/billmgr" },
     ],
     logo: "/logo.svg",
     siteTitle: false,
@@ -83,6 +84,17 @@ export default defineConfig({
       { text: "🤔 Частозадаваемые вопросы", link: "/faq" },
       { text: "🤝 Заявка на партнёрство", link: "/partners" },
       {
+        text: "💻 Личный кабинет",
+        items: [
+          { text: "👤 Регистрация", link: "/personal-area/register" },
+          { text: "💲 Заказ сервера", link: "/personal-area/vps-order" },
+          { text: "❓ Обращение в поддержку", link: "/personal-area/new-ticket" },
+          { text: "🫂 Реферальная программа", link: "/personal-area/referral" },
+
+        ],
+        collapsed: false,
+      },
+      {
         text: "🛒 Тарифы",
         items: [
           { text: "🎮 Игровой хостинг", link: "/plans/game" },
@@ -92,7 +104,7 @@ export default defineConfig({
         collapsed: false,
       },
       {
-        text: "💻 VPS сервера",
+        text: "💻 VPS серверы",
         items: [
           { text: "❓ Начало работы", link: "/vps/getting-started" },
           { text: "❓ Getting started (EN)", link: "/vps/en/getting-started" },
@@ -174,12 +186,13 @@ export default defineConfig({
       },
     ],
     footer: {
-      copyright: '© 2021 — 2024 <a href="https://senko.digital">Senko Digital</a>',
+      copyright: '© 2021 — 2025 <a href="https://senko.digital">Senko Digital</a>',
     },
 
     socialLinks: [
       { icon: "discord", link: "https://snk.wtf/d" },
-      { icon: "mastodon", link: "https://c.im/@senkodigital" },
+      { icon: 'twitter', link: 'https://x.com/senkodigital' },
+      // { icon: "mastodon", link: "https://c.im/@senkodigital" },
     ],
   },
 });
