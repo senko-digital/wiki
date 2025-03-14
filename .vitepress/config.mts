@@ -83,6 +83,7 @@ export default defineConfig({
       { text: "🦊 Главная", link: "/" },
       { text: "🤔 Частозадаваемые вопросы", link: "/faq" },
       { text: "🤝 Заявка на партнёрство", link: "/partners" },
+      { text: "🤔 Как выбрать хостинг-провайдера", link: "/how-to-choose-a-provider" },
       {
         text: "💻 Личный кабинет",
         items: [
@@ -108,7 +109,15 @@ export default defineConfig({
         items: [
           { text: "❓ Начало работы", link: "/vps/getting-started" },
           { text: "❓ Getting started (EN)", link: "/vps/en/getting-started" },
-
+          { text: "🔒 Настройка Let's Encrypt", link: "/vps/letsencrypt-ssl" },
+          { text: "🚀 Деплой Node.js с PM2", link: "/vps/nodejs-pm2-deploy" },
+        ],
+        collapsed: false,
+      },
+      {
+        text: "🔐 Настройка VPN",
+        items: [
+          { text: "🔒 3X-UI", link: "/vpn/3x-ui" },
         ],
         collapsed: false,
       },
