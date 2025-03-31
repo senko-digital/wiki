@@ -115,6 +115,15 @@ export default defineConfig({
         collapsed: false,
       },
       {
+        text: "💻 Решение проблем",
+        items: [
+          { text: "🚀 Тест скорости сети на виртуальном сервере", link: "/troubleshooting/speedtest-cli" },
+          { text: "📉 Низкая частота процессора", link: "/troubleshooting/low-cpu-frequency" },
+          { text: "❓ Низкая скорость VPN", link: "/troubleshooting/low-speed-through-vpn" },
+        ],
+        collapsed: false,
+      },
+      {
         text: "🔐 Настройка VPN",
         items: [
           { text: "🔒 3X-UI", link: "/vpn/3x-ui" },
