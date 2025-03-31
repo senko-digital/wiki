@@ -39,61 +39,62 @@ Let's Encrypt — это бесплатный, автоматизированн�
 
 Certbot — это утилита, которая взаимодействует с Let's Encrypt для получения сертификатов и настройки вашего веб-сервера.
 
-### Для Ubuntu/Debian
+::: code-group
 
-```bash
+```bash [Ubuntu/Debian]
+# Установка Certbot
 sudo apt update -y
 sudo apt install certbot -y
-```
 
-Дополнительно установим плагин для нашего веб-сервера:
-
-**Для Nginx:**
-
-```bash
+# Установка плагина для Nginx
 sudo apt install python3-certbot-nginx -y
-```
 
-**Для Apache:**
-
-```bash
+# Установка плагина для Apache
 sudo apt install python3-certbot-apache -y
 ```
 
-### Для CentOS/RHEL
-
-```bash
+```bash [CentOS/RHEL]
+# Установка EPEL репозитория
 sudo dnf install epel-release
+
+# Установка Certbot
 sudo dnf install certbot
-```
 
-И плагин для веб-сервера:
-
-**Для Nginx:**
-
-```bash
+# Установка плагина для Nginx
 sudo dnf install python3-certbot-nginx
-```
 
-**Для Apache:**
-
-```bash
+# Установка плагина для Apache
 sudo dnf install python3-certbot-apache
 ```
 
+```bash [Fedora]
+# Установка Certbot
+sudo dnf install certbot
+
+# Установка плагина для Nginx
+sudo dnf install python3-certbot-nginx
+
+# Установка плагина для Apache
+sudo dnf install python3-certbot-apache
+```
+
+:::
+
 ## Получение сертификата
 
-### Для Nginx
+::: code-group
 
-```bash
+```bash [Nginx]
+# Получение сертификата для Nginx
 sudo certbot --nginx -d example.com -d www.example.com
 ```
 
-### Для Apache
-
-```bash
+```bash [Apache]
+# Получение сертификата для Apache
 sudo certbot --apache -d example.com -d www.example.com
 ```
+
+:::
 
 ::: tip
 Замените `example.com` и `www.example.com` на ваши доменные имена. Вы можете указать несколько доменов, добавляя параметр `-d домен` для выпуска SSL к каждому новому домену.
