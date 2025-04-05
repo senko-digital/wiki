@@ -30,6 +30,10 @@ export default defineConfig({
   ],
   locales: {
     root: {
+      label: "English",
+      lang: "en",
+    },
+    en: {
       label: "Русский",
       lang: "ru",
     },
