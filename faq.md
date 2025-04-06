@@ -15,30 +15,6 @@ head:
 
 # 🤔 Frequently asked questions
 
-## 🤔 Which plan should I choose for my game server?
-
-### Garry's Mod
-
-Since Garry's Mod was built on the Source Engine, most CPU operations run on just one core.
-
-We strongly recommend using plans with the highest single-core performance, namely **i9-12900K** or **i9-14900K**.
-
-For a development server, the `i9-9900K 1 vCore / 2 GB DDR4 / 30 GB NVMe` plan would be ideal - its power will be more than sufficient for hosting a test server.
-
-For a medium-load server (with 30-40 online players), the `R9-7950X 1 vCore / 4 GB DDR4 / 50 GB NVMe` plan would be suitable.
-
-For a high-load server (with over 50 online players), it is strongly recommended to choose at least the `i9-14900K 1 vCore / 4 GB DDR4 / 60 GB NVMe` plan.
-
-### Minecraft
-
-Minecraft, unlike Garry's Mod, actively utilizes multi-threading - especially if the server is configured for large worlds with many plugins or mods. Therefore, it's important to choose plans that offer the highest number of cores and RAM.
-
-We recommend using plans with processors that provide high per-core performance and a significant number of threads, such as **i9-12900K** or **Ryzen 9 7950X**.
-
-For small servers with a limited number of players and basic configuration, the `i9-9900K 2 vCore / 8 GB DDR4 / 200 GB NVMe` plan is an excellent choice.
-
-If you need support for a large number of players or complex modifications, consider the `Ryzen 9 7950X 4 vCore / 16 GB DDR5 / 200 GB NVMe` plan or higher.
-
 ## 🌐 Where are your servers located?
 
 Our servers are currently located in one main location: **Germany**, **Frankfurt**. We plan to expand in the future, so stay tuned for updates.
