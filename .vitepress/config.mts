@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress"
 export default defineConfig({
   cleanUrls: true,
   title: "Senko Digital Wiki",
-  description: "Официальная вики хостинг-провайдера Senko Digital - самого пушистого хостинга в мире!",
+  description: "Official wiki of Senko Digital hosting provider - the fluffiest hosting in the world!",
   head: [
     ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicons/apple-touch-icon.png"}],
     ['link', { rel: "manifest", href: "/assets/favicons/site.webmanifest"}],
@@ -26,187 +26,284 @@ export default defineConfig({
     ['link', { rel: 'manifest', href: '/assets/favicons/site.webmanifest' }],
     ['link', { rel: 'mask-icon', href: '/assets/favicons/safari-pinned-tab.svg', color: '#ff8c00' }],
     ['meta', { name: 'msapplication-TileColor', content: '#ff8c00' }],
-    ['meta', { name: 'theme-color', content: '#ffffff' }]
+    ['meta', { name: 'theme-color', content: '#ff8c00' }]
   ],
   locales: {
     root: {
-      label: "English",
-      lang: "en",
+      label: 'English',
+      lang: 'en',
+      description: 'Official wiki of Senko Digital hosting provider - the fluffiest hosting in the world!',
+      themeConfig: {
+        nav: [
+          { text: "Home", link: "/" },
+          { text: "Support", link: "https://senko.digital/contacts" },
+          { text: "Client Area", link: "https://my.senko.digital/billmgr" },
+        ],
+        outlineTitle: "On this page",
+        lastUpdated: {
+          text: 'Last updated',
+          formatOptions: {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Europe/London'
+          }
+        },
+        docFooter: {
+          prev: 'Previous page',
+          next: 'Next page'
+        },
+        sidebar: [
+          { text: "🦊 Home", link: "/" },
+          { text: "🤔 Frequently Asked Questions", link: "/faq" },
+          { text: "🤝 Partnership Application", link: "/partners" },
+          { text: "🤔 How to Choose a Hosting Provider", link: "/how-to-choose-a-provider" },
+          {
+            text: "💻 Client Area",
+            items: [
+              { text: "👤 Registration", link: "/personal-area/register" },
+              { text: "💲 Server Order", link: "/personal-area/vps-order" },
+              { text: "❓ Support Ticket", link: "/personal-area/new-ticket" },
+              { text: "🫂 Referral Program", link: "/personal-area/referral" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🛒 Plans",
+            items: [
+              { text: "🎮 Game Hosting", link: "/plans/game" },
+              { text: "💻 Virtual Servers", link: "/plans/vps" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "💻 VPS Servers",
+            items: [
+              { text: "❓ Getting Started", link: "/vps/getting-started" },
+              { text: "🔒 Let's Encrypt Configuration", link: "/vps/letsencrypt-ssl" },
+              { text: "🚀 Node.js Deployment with PM2", link: "/vps/nodejs-pm2-deploy" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "💻 Troubleshooting",
+            items: [
+              { text: "🚀 Network Speed Test", link: "/troubleshooting/speedtest-cli" },
+              { text: "📉 Low CPU Frequency", link: "/troubleshooting/low-cpu-frequency" },
+              { text: "❓ Low VPN Speed", link: "/troubleshooting/low-speed-through-vpn" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🔐 VPN Configuration",
+            items: [
+              { text: "🔒 3X-UI", link: "/vpn/3x-ui" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "💻 Control Panel",
+            items: [
+              { text: "❓ Getting Started", link: "/panel/" },
+              { text: "💻 Console", link: "/panel/console" },
+              { text: "📁 File Manager", link: "/panel/file-manager" },
+              { text: "💿 Databases", link: "/panel/databases" },
+              { text: "❗️ Backups", link: "/panel/backups" },
+              { text: "🕰️ Schedules", link: "/panel/schedules" },
+              { text: "👥 Users", link: "/panel/users" },
+              { text: "🛠️ Startup Parameters", link: "/panel/startup" },
+              { text: "⚙️ Settings", link: "/panel/settings" },
+              { text: "📖 Logs", link: "/panel/activity-logs" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🤖 Discord Bot",
+            items: [
+              { text: "❓ Getting Started", link: "/bot/" },
+              { text: "👤 Authorization", link: "/bot/auth" },
+              { text: "🔁 Panel Server Status", link: "/bot/panel-status" },
+              { text: "🔁 Any Server Status", link: "/bot/any-status" },
+              { text: "🔁 Auto-updated Status", link: "/bot/auto-update-status" },
+              { text: "📩 Send Commands", link: "/bot/send-command" },
+              { text: "🌐 Invite Bot to Your Server", link: "/bot/invite" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🎮 Garry's Mod",
+            items: [
+              { text: "Changing Server Name", link: "/games/gmod/server-name" },
+              { text: "Configuring server.cfg", link: "/games/gmod/server-cfg" },
+              { text: "Changing Map at Startup", link: "/games/gmod/map" },
+              { text: "Installing Workshop Collection", link: "/games/gmod/workshop" },
+              { text: "Installing and Configuring DarkRP", link: "/games/gmod/darkrp" },
+              { text: "Installing and Configuring ULX", link: "/games/gmod/ulx" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🎮 Minecraft",
+            items: [
+              { text: "Changing Server MOTD", link: "/games/minecraft/server-name" },
+              { text: "Changing Server Icon", link: "/games/minecraft/server-icon" },
+              { text: "Configuring server.properties", link: "/games/minecraft/server-properties" },
+              { text: "Installing Custom Core", link: "/games/minecraft/core" },
+              { text: "Installing Plugins", link: "/games/minecraft/plugins" },
+            ],
+            collapsed: false,
+          },
+        ],
+      }
     },
-    en: {
-      label: "Русский",
-      lang: "ru",
-    },
+    ru: {
+      label: 'Русский',
+      lang: 'ru',
+      description: 'Официальная вики хостинг-провайдера Senko Digital - самого пушистого хостинга в мире!',
+      themeConfig: {
+        nav: [
+          { text: "Главная", link: "/ru/" },
+          { text: "Поддержка", link: "https://senko.digital/contacts" },
+          { text: "Личный кабинет", link: "https://my.senko.digital/billmgr" },
+        ],
+        outlineTitle: "Содержимое",
+        lastUpdated: {
+          text: 'Последнее редактирование',
+          formatOptions: {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Europe/Moscow'
+          }
+        },
+        docFooter: {
+          prev: 'Предыдущая статья',
+          next: 'Следующая статья'
+        },
+        sidebar: [
+          { text: "🦊 Главная", link: "/ru/" },
+          { text: "🤔 Частозадаваемые вопросы", link: "/ru/faq" },
+          { text: "🤝 Заявка на партнёрство", link: "/ru/partners" },
+          { text: "🤔 Как выбрать хостинг-провайдера", link: "/ru/how-to-choose-a-provider" },
+          {
+            text: "💻 Личный кабинет",
+            items: [
+              { text: "👤 Регистрация", link: "/ru/personal-area/register" },
+              { text: "💲 Заказ сервера", link: "/ru/personal-area/vps-order" },
+              { text: "❓ Обращение в поддержку", link: "/ru/personal-area/new-ticket" },
+              { text: "🫂 Реферальная программа", link: "/ru/personal-area/referral" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🛒 Тарифы",
+            items: [
+              { text: "🎮 Игровой хостинг", link: "/ru/plans/game" },
+              { text: "💻 Виртуальные сервера", link: "/ru/plans/vps" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "💻 VPS серверы",
+            items: [
+              { text: "❓ Начало работы", link: "/ru/vps/getting-started" },
+              { text: "🔒 Настройка Let's Encrypt", link: "/ru/vps/letsencrypt-ssl" },
+              { text: "🚀 Деплой Node.js с PM2", link: "/ru/vps/nodejs-pm2-deploy" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "💻 Решение проблем",
+            items: [
+              { text: "🚀 Тест скорости сети на виртуальном сервере", link: "/ru/troubleshooting/speedtest-cli" },
+              { text: "📉 Низкая частота процессора", link: "/ru/troubleshooting/low-cpu-frequency" },
+              { text: "❓ Низкая скорость VPN", link: "/ru/troubleshooting/low-speed-through-vpn" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🔐 Настройка VPN",
+            items: [
+              { text: "🔒 3X-UI", link: "/ru/vpn/3x-ui" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "💻 Панель управления",
+            items: [
+              { text: "❓ Начало работы", link: "/ru/panel/" },
+              { text: "💻 Консоль", link: "/ru/panel/console" },
+              { text: "📁 Файловый менеджер", link: "/ru/panel/file-manager" },
+              { text: "💿 Базы данных", link: "/ru/panel/databases" },
+              { text: "❗️ Бэкапы", link: "/ru/panel/backups" },
+              { text: "🕰️ Расписания", link: "/ru/panel/schedules" },
+              { text: "👥 Пользователи", link: "/ru/panel/users" },
+              { text: "🛠️ Параметры запуска", link: "/ru/panel/startup.md" },
+              { text: "⚙️ Настройки", link: "/ru/panel/settings" },
+              { text: "📖 Логи", link: "/ru/panel/activity-logs" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🤖 Бот Discord",
+            items: [
+              { text: "❓ Начало работы", link: "/ru/bot/" },
+              { text: "👤 Авторизация", link: "/ru/bot/auth" },
+              { text: "🔁 Статус сервера из панели", link: "/ru/bot/panel-status" },
+              { text: "🔁 Статус любого сервера", link: "/ru/bot/any-status" },
+              { text: "🔁 Автообновляемый статус", link: "/ru/bot/auto-update-status" },
+              { text: "📩 Отправка команд", link: "/ru/bot/send-command" },
+              { text: "🌐 Приглашение бота на свой сервер", link: "/ru/bot/invite" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🎮 Garry's Mod",
+            items: [
+              { text: "Изменение названия сервера", link: "/ru/games/gmod/server-name" },
+              { text: "Настройка server.cfg", link: "/ru/games/gmod/server-cfg" },
+              { text: "Изменение карты при запуске", link: "/ru/games/gmod/map" },
+              { text: "Установка своей коллекции", link: "/ru/games/gmod/workshop" },
+              { text: "Установка и настройка DarkRP", link: "/ru/games/gmod/darkrp" },
+              { text: "Установка и настройка ULX", link: "/ru/games/gmod/ulx" },
+            ],
+            collapsed: false,
+          },
+          {
+            text: "🎮 Minecraft",
+            items: [
+              { text: "Изменение MOTD сервера", link: "/ru/games/minecraft/server-name" },
+              { text: "Изменение иконки сервера", link: "/ru/games/minecraft/server-icon" },
+              { text: "Настройка server.properties", link: "/ru/games/minecraft/server-properties" },
+              { text: "Установка кастомного ядра", link: "/ru/games/minecraft/core" },
+              { text: "Установка плагинов", link: "/ru/games/minecraft/plugins" },
+            ],
+            collapsed: false,
+          },
+        ],
+      }
+    }
   },
   sitemap: {
     hostname: "https://wiki.senko.digital",
   },
   lastUpdated: true,
   markdown: {
-    container: {
-      tipLabel: "ПОДСКАЗКА",
-      warningLabel: "ОСТОРОЖНО",
-      dangerLabel: "ВНИМАНИЕ",
-      infoLabel: "ИНФОРМАЦИЯ",
-      detailsLabel: "ПОДРОБНОСТИ",
-    },
     image: {
       lazyLoading: true,
     },
   },
   themeConfig: {
-    nav: [
-      { text: "Главная", link: "/" },
-      { text: "Поддержка", link: "https://senko.digital/contacts" },
-      { text: "Личный кабинет", link: "https://my.senko.digital/billmgr" },
-    ],
     logo: "/logo.svg",
     siteTitle: false,
     search: {
       provider: "local"
     },
     outline: [1,3],
-    outlineTitle: "Содержимое",
-    lastUpdated: {
-      text: 'Последнее редактирование',
-      formatOptions: {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        locale: 'ru-RU',
-        timeZone: 'Europe/Moscow'
-      }
-    },
-    docFooter: {
-      prev: 'Предыдущая статья',
-      next: 'Следующая статья'
-    },
-    sidebar: [
-      { text: "🦊 Главная", link: "/" },
-      { text: "🤔 Частозадаваемые вопросы", link: "/faq" },
-      { text: "🤝 Заявка на партнёрство", link: "/partners" },
-      { text: "🤔 Как выбрать хостинг-провайдера", link: "/how-to-choose-a-provider" },
-      {
-        text: "💻 Личный кабинет",
-        items: [
-          { text: "👤 Регистрация", link: "/personal-area/register" },
-          { text: "💲 Заказ сервера", link: "/personal-area/vps-order" },
-          { text: "❓ Обращение в поддержку", link: "/personal-area/new-ticket" },
-          { text: "🫂 Реферальная программа", link: "/personal-area/referral" },
-
-        ],
-        collapsed: false,
-      },
-      {
-        text: "🛒 Тарифы",
-        items: [
-          { text: "🎮 Игровой хостинг", link: "/plans/game" },
-          { text: "💻 Виртуальные сервера", link: "/plans/vps" },
-          // { text: "🖥️ Выделенные сервера", link: "/plans/dedicated" },
-        ],
-        collapsed: false,
-      },
-      {
-        text: "💻 VPS серверы",
-        items: [
-          { text: "❓ Начало работы", link: "/vps/getting-started" },
-          { text: "❓ Getting started (EN)", link: "/vps/en/getting-started" },
-          { text: "🔒 Настройка Let's Encrypt", link: "/vps/letsencrypt-ssl" },
-          { text: "🚀 Деплой Node.js с PM2", link: "/vps/nodejs-pm2-deploy" },
-        ],
-        collapsed: false,
-      },
-      {
-        text: "💻 Решение проблем",
-        items: [
-          { text: "🚀 Тест скорости сети на виртуальном сервере", link: "/troubleshooting/speedtest-cli" },
-          { text: "📉 Низкая частота процессора", link: "/troubleshooting/low-cpu-frequency" },
-          { text: "❓ Низкая скорость VPN", link: "/troubleshooting/low-speed-through-vpn" },
-        ],
-        collapsed: false,
-      },
-      {
-        text: "🔐 Настройка VPN",
-        items: [
-          { text: "🔒 3X-UI", link: "/vpn/3x-ui" },
-        ],
-        collapsed: false,
-      },
-      {
-        text: "💻 Панель управления",
-        items: [
-          { text: "❓ Начало работы", link: "/panel/" },
-          { text: "💻 Консоль", link: "/panel/console" },
-          { text: "📁 Файловый менеджер", link: "/panel/file-manager" },
-          { text: "💿 Базы данных", link: "/panel/databases" },
-          { text: "❗️ Бэкапы", link: "/panel/backups" },
-          { text: "🕰️ Расписания", link: "/panel/schedules" },
-          { text: "👥 Пользователи", link: "/panel/users" },
-          { text: "🛠️ Параметры запуска", link: "/panel/startup.md" },
-          { text: "⚙️ Настройки", link: "/panel/settings" },
-          { text: "📖 Логи", link: "/panel/activity-logs" },
-        ],
-        collapsed: false,
-      },
-      {
-        text: "🤖 Бот Discord",
-        items: [
-          { text: "❓ Начало работы", link: "/bot/" },
-          { text: "👤 Авторизация", link: "/bot/auth" },
-          { text: "🔁 Статус сервера из панели", link: "/bot/panel-status" },
-          { text: "🔁 Статус любого сервера", link: "/bot/any-status" },
-          { text: "🔁 Автообновляемый статус", link: "/bot/auto-update-status" },
-          { text: "📩 Отправка команд", link: "/bot/send-command" },
-          { text: "🌐 Приглашение бота на свой сервер", link: "/bot/invite" },
-
-        ],
-        collapsed: false,
-      },
-      {
-        text: "🎮 Garry's Mod",
-        items: [
-          { text: "Изменение названия сервера", link: "/games/gmod/server-name" },
-          { text: "Настройка server.cfg", link: "/games/gmod/server-cfg" },
-          { text: "Изменение карты при запуске", link: "/games/gmod/map" },
-          { text: "Установка своей коллекции", link: "/games/gmod/workshop" },
-          { text: "Установка и настройка DarkRP", link: "/games/gmod/darkrp" },
-          { text: "Установка и настройка ULX", link: "/games/gmod/ulx" },
-          // { text: "Подключение по SFTP", link: "/games/gmod/sftp" },
-          // { text: "Анализ производительности сервера", link: "/games/gmod/fprofiler" },
-          // { text: "Установка и настройка GMDonate", link: "/games/gmod/gmdonate" },
-          // { text: "Режим отладки и журналирование консоли сервера в файл", link: "/games/gmod/logging" },
-        ],
-        collapsed: false,
-      },
-      // {
-      //   text: "🎮 Counter Strike 2",
-      //   items: [
-      //     { text: "Изменение названия сервера", link: "/games/cs2/server-name" },
-      //     { text: "Настройка server.cfg", link: "/games/cs2/server-cfg" },
-      //     { text: "Установка карты из Workshop", link: "/games/cs2/workshop" },
-      //     // { text: "Настройка и изменение режимов", link: "/games/cs2/gamemodes" },
-      //     // { text: "Установка SourceMod и MetaMod", link: "/games/cs2/sourcemod-metamod" },
-      //     // { text: "Подключение базы данных", link: "/games/cs2/mysql" },
-      //     // { text: "Подключение по SFTP", link: "/games/cs2/sftp" },
-      //   ],
-      //   collapsed: false,
-      // },
-      {
-        text: "🎮 Minecraft",
-        items: [
-          { text: "Изменение MOTD сервера", link: "/games/minecraft/server-name" },
-          { text: "Изменение иконки сервера", link: "/games/minecraft/server-icon" },
-          { text: "Настройка server.properties", link: "/games/minecraft/server-properties" },
-          { text: "Установка кастомного ядра", link: "/games/minecraft/core" },
-          { text: "Установка плагинов", link: "/games/minecraft/plugins" },
-          // { text: "Подключение базы данных", link: "/games/minecraft/mysql" },
-          // { text: "Подключение по SFTP", link: "/games/minecraft/sftp" },
-        ],
-        collapsed: false,
-      },
-    ],
     footer: {
       copyright: '© 2021 — 2025 <a href="https://senko.digital">Senko Digital</a>',
     },
@@ -214,7 +311,6 @@ export default defineConfig({
     socialLinks: [
       { icon: "discord", link: "https://snk.wtf/d" },
       { icon: 'twitter', link: 'https://x.com/senkodigital' },
-      // { icon: "mastodon", link: "https://c.im/@senkodigital" },
     ],
   },
 });

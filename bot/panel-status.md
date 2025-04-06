@@ -1,30 +1,30 @@
 ---
-title: "Статус сервера из панели"
-description: "Руководство по просмотру статуса игровых серверов через Discord бота Senko Digital. Мониторинг состояния серверов и управление ими через Discord."
+title: "Server Status from Panel"
+description: "Guide to viewing game server status through the Senko Digital Discord bot. Monitoring server conditions and managing them through Discord."
 head:
   - - meta
     - name: keywords
-      content: discord бот, статус сервера, мониторинг, управление сервером, senko bot, игровой сервер
+      content: discord bot, server status, monitoring, server management, senko bot, game server
   - - meta
     - property: og:title 
-      content: "Discord бот - Статус сервера из панели"
+      content: "Discord Bot - Server Status from Panel"
   - - meta
     - property: og:description
-      content: "Руководство по просмотру статуса игровых серверов через Discord бота Senko Digital. Мониторинг состояния серверов и управление ими через Discord."
+      content: "Guide to viewing game server status through the Senko Digital Discord bot. Monitoring server conditions and managing them through Discord."
 ---
 
-# 🔁 Статус сервера из панели
+# 🔁 Server Status from Panel
 
-С помощью бота так же можно просматривать статус своих серверов из панели управления.
+With the bot, you can also view the status of your servers from the control panel.
 
-Для использования команды нужно быть [авторизованным с помощью API ключа из панели управления](/bot/auth).
+To use this command, you need to be [authorized with an API key from the control panel](/bot/auth).
 
-С помощью команды `/servers-list` можно вывести список серверов с их ID и статусом.
+You can use the `/servers-list` command to display a list of servers with their IDs and status.
 
 ![server status from the panel in a discord bot](/images/bot/servers-list.png){data-zoomable}
 
 ::: tip
-Просим вас обратить внимание, что даже если сервер показывается как включённый, это не является гарантией того, что он действительно работает. Для полноценной проверки статуса сервера рекомендуется использовать [**[🔁 Статус любого сервера](/bot/any-status)**].
+Please note that even if a server is shown as running, this does not guarantee that it is actually working. For a complete server status check, it is recommended to use [**[🔁 Any Server Status](/bot/any-status)**].
 :::
 
-Эта команда так же крайне полезна, если у вас есть несколько серверов в панели управления, и вам нужно управлять питанием или отправлять команды на определённый сервер.
+This command is also very useful if you have several servers in the control panel and need to manage power or send commands to a specific server.

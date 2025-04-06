@@ -1,96 +1,96 @@
 ---
-title: "Резервное копирование"
-description: "Руководство по созданию и управлению резервными копиями игрового сервера. Защита данных и быстрое восстановление сервера."
+title: "Backup"
+description: "Guide to creating and managing game server backups. Data protection and quick server recovery."
 head:
   - - meta
     - name: keywords
-      content: бэкапы, резервные копии, игровая панель, восстановление сервера, backup
+      content: backups, backup copies, game panel, server recovery, backup
   - - meta
     - property: og:title 
-      content: "Панель управления - Резервное копирование"
+      content: "Control Panel - Backup"
   - - meta
     - property: og:description
-      content: "Руководство по созданию и управлению резервными копиями игрового сервера. Защита данных и быстрое восстановление сервера."
+      content: "Guide to creating and managing game server backups. Data protection and quick server recovery."
 ---
 
-# ❗️ Бэкапы
+# ❗️ Backups
 
-Краткое руководство по созданию и использованию бэкапов в игровой панели управления.
+Quick guide to creating and using backups in the game control panel.
 
-## Описание страницы
+## Page Description
 
-С помощью данной вкладки можно создавать новые и восстанавливать старые бэкапы файлов вашего игрового сервера.
+With this tab, you can create new and restore old backups of your game server files.
 
-Эта функция очень полезна, если вам нужны регулярные резервные копии данных вашего сервера, или нужно выгрузить сборку самых важных файлов на вашем сервере.
+This function is very useful if you need regular backups of your server data, or if you need to export a collection of the most important files on your server.
 
-По умолчанию к каждой услуге предоставляется одна резервная копия с размером не более 20 GB. Для запроса дополнительного места обратитесь в поддержку.
+By default, each service is provided with one backup with a size of no more than 20 GB. Contact support to request additional space.
 
 ![backup management](/images/panel/backups.png){data-zoomable}
 
-## Создание нового бэкапа
+## Creating a New Backup
 
-Для создания нового бэкапа нажмите на кнопку **«Создать бэкап»**.
+To create a new backup, click on the **"Create Backup"** button.
 
-В открывшемся окне введите желаемое название бэкапа латиницей, остальные поля рекомендуется оставить пустыми.
+In the window that opens, enter the desired backup name in Latin characters; it's recommended to leave the other fields empty.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/create-backup.mp4" type="video/mp4" />
 </video>
 
-## Скачивание бэкапа
+## Downloading a Backup
 
-Напротив названия сервера нажмите на выпадающее меню, и выберите опцию **«скачать»**.
+Next to the server name, click on the dropdown menu and select the **"download"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/download-backup.mp4" type="video/mp4" />
 </video>
 
-## Удаление бэкапа
+## Deleting a Backup
 
-Напротив названия сервера нажмите на выпадающее меню, и выберите опцию **«удалить»**.
+Next to the server name, click on the dropdown menu and select the **"delete"** option.
 
 ::: danger
-**Внимание**: при удалении бэкапа потеряются все данные из него, настоятельно рекомендуем загрузить его перед совершением данной операции.
+**Warning**: when deleting a backup, all data from it will be lost; we strongly recommend downloading it before performing this operation.
 :::
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/delete-backup.mp4" type="video/mp4" />
 </video>
 
-## Восстановление из бэкапа
+## Restoring from a Backup
 
-Напротив названия сервера нажмите на выпадающее меню, и выберите опцию **«восстановить»**.
+Next to the server name, click on the dropdown menu and select the **"restore"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/restore-backup.mp4" type="video/mp4" />
 </video>
 
 ::: warning
-При восстановлении из бэкапа не рекомендуется удалять все файлы сервера.
+When restoring from a backup, it is not recommended to delete all server files.
 :::
 
-Сервер мгновенно начнёт скачивание и восстановится из созданного вами бэкапа в течение пары минут.
+The server will immediately start downloading and will be restored from your created backup within a couple of minutes.
 
-## Запрет удаления бэкапа
+## Restricting Backup Deletion
 
-Напротив названия сервера нажмите на выпадающее меню, и выберите опцию **«запретить удаление»**.
+Next to the server name, click on the dropdown menu and select the **"restrict deletion"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/restrict-delete.mp4" type="video/mp4" />
 </video>
 
 ::: tip
-Теперь вы и другие пользователи не смогут случайно удалить бэкап.
+Now you and other users will not be able to accidentally delete the backup.
 :::
 
-## Разрешение удаления бэкапа
+## Allowing Backup Deletion
 
-Напротив названия сервера нажмите на выпадающее меню, и выберите опцию **«разрешить удаление»**.
+Next to the server name, click on the dropdown menu and select the **"allow deletion"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/allow-delete.mp4" type="video/mp4" />
 </video>
 
 ::: tip
-Теперь вы и другие пользователи смогут удалить бэкап в любое время.
+Now you and other users will be able to delete the backup at any time.
 :::

@@ -1,54 +1,54 @@
 ---
-title: "Управление пользователями"
-description: "Руководство по управлению пользователями в игровой панели. Приглашение новых пользователей, настройка прав доступа и управление разрешениями."
+title: "User Management"
+description: "Guide to managing users in the game panel. Inviting new users, configuring access rights, and managing permissions."
 head:
   - - meta
     - name: keywords
-      content: пользователи, права доступа, игровая панель, управление сервером, приглашение пользователей
+      content: users, access rights, game panel, server management, inviting users
   - - meta
     - property: og:title 
-      content: "Панель управления - Управление пользователями"
+      content: "Control Panel - User Management"
   - - meta
     - property: og:description
-      content: "Руководство по управлению пользователями в игровой панели. Приглашение новых пользователей, настройка прав доступа и управление разрешениями."
+      content: "Guide to managing users in the game panel. Inviting new users, configuring access rights, and managing permissions."
 ---
 
-# 👥 Пользователи
+# 👥 Users
 
-Краткое руководство по приглашению пользователей и их управлению в игровой панели управления.
+Quick guide to inviting and managing users in the game control panel.
 
-## Описание страницы
+## Page Description
 
-С помощью данной вкладки можно приглашать новых пользователей с различными правами, будь то управление питанием или вовсе переустановка сервера.
+With this tab, you can invite new users with various permissions, from power management to complete server reinstallation.
 
 ![schedules management](/images/panel/users.png){data-zoomable}
 
-## Приглашение нового пользователя
+## Inviting a New User
 
-Для приглашения нового пользователя нажмите на кнопку **«пригласить пользователя»**.
+To invite a new user, click on the **"invite user"** button.
 
-В открывшемся окне введите e-mail адрес пользователя, которого нужно пригласить. Убедитесь, что e-mail адрес правильный, иначе пользователю не удастся завершить процесс регистрации.
+In the window that opens, enter the e-mail address of the user you want to invite. Make sure the e-mail address is correct, otherwise the user will not be able to complete the registration process.
 
-Выберите права, которые вы хотели бы предоставить своему пользователю. Права на переустановку сервера или просмотр паролей рекомендуем предоставлять олько доверенным пользователям во избежание потери данных или проблем с сервером.
+Select the permissions you would like to grant to your user. We recommend granting server reinstallation or password viewing permissions only to trusted users to avoid data loss or server problems.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/users/invite-user.mp4" type="video/mp4" />
 </video>
 
-После ввода всех данных, нажмите на кнопку **«пригласить пользователя»**. Если пользователь впервые регистрируется в панели управления под этим e-mail адресом, ему придёт письмо на указанный вам e-mail адрес для завершения регистрации аккаунта.
+After entering all the data, click on the **"invite user"** button. If the user is registering in the control panel for the first time with this e-mail address, they will receive an email at the specified address to complete the account registration.
 
 ![mail to confirm registration](/images/panel/users/email.png){data-zoomable}
 
-## Удаление пользователя
+## Deleting a User
 
-Напротив e-mail адреса пользователя, которого нужно удалить, нажмите на иконку удаления и подтвердите операцию.
+Next to the e-mail address of the user you want to delete, click on the delete icon and confirm the operation.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/users/delete-user.mp4" type="video/mp4" />
 </video>
 
-При удалении пользователя у него останется аккаунт в панели управления, но полностью пропадёт доступ к вашему серверу.
+When deleting a user, they will keep their account in the control panel, but will completely lose access to your server.
 
-Пользователь так же он будет уведомлён соответстующим письмом:
+The user will also be notified by a corresponding email:
 
 ![email that shows that the user was removed](/images/panel/users/email-removed.png){data-zoomable}

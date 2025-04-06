@@ -1,61 +1,61 @@
-# 🕰️ Расписания
+# 🕰️ Schedules
 
-Краткое руководство по использованию функции расписаний в игровой панели управления.
+Quick guide to using the scheduling function in the game control panel.
 
-## Описание страницы
+## Page Description
 
-С помощью данной вкладки можно создавать новые и управлять другими расписаниями команд, которые будут выполняться на вашем сервере.
+With this tab, you can create new and manage other command schedules that will be executed on your server.
 
-Эта функция очень полезна, если вам нужно регулярно перезапускать сервер, вводить какие-то команды или делать бэкапы сервера каждый день или каждые n-минут/часов.
+This function is very useful if you need to regularly restart the server, input certain commands, or make server backups every day or every n-minutes/hours.
 
-В данном гайде мы покажем как создать расписание и настроить его.
+In this guide, we will show you how to create a schedule and configure it.
 
 ![schedules management](/images/panel/schedules.png){data-zoomable}
 
 ::: tip
-Для настройки времени для расписания рекомендуем воспользоваться **[Crontab.online](https://crontab.online/ru/)**
+For setting up time for scheduling, we recommend using **[Crontab.online](https://crontab.online/ru/)**
 :::
 
-## Создание нового расписания
+## Creating a New Schedule
 
-Для создания нового расписания нажмите на кнопку **«Создать расписание»**.
+To create a new schedule, click on the **"Create Schedule"** button.
 
-В открывшемся окне введите желаемое название расписания на любом, удобном вам языке.
+In the window that opens, enter the desired schedule name in any language that is convenient for you.
 
-В поля со временем нужно указывать значения которые вам больше всего удобны.
+In the time fields, you need to specify the values that are most convenient for you.
 
-Например, для выполнения команды каждый день в 4 утра нужно будет указать следующие значения:
+For example, to execute a command every day at 4 AM, you would need to specify the following values:
 
 ![restart server at 4am](/images/panel/schedules/4am-restart.png){data-zoomable}
 
-Для настройки времени расписания рекомендуем воспользоваться **[Crontab.online](https://crontab.online/ru/)**
+For setting up the schedule time, we recommend using **[Crontab.online](https://crontab.online/ru/)**
 
-## Создание задач в расписании
+## Creating Tasks in the Schedule
 
-Нажмите на нужное вам расписание, и в открывшемся окне нажмите на **«новая задача»**.
+Click on the schedule you need, and in the window that opens, click on **"new task"**.
 
-Выберите нужную вам задачу - в нашем случае это будет «управление питанием» с параметром **«перезагрузить»**, так как мы делаем задачу на перезапуск сервера каждый день в 4 утра.
+Select the task you need - in our case, it will be "power management" with the **"restart"** parameter, as we are creating a task to restart the server every day at 4 AM.
 
 ![task to restart server](/images/panel/schedules/restart.png){data-zoomable}
 
-Так же укажите интервал, если вы хотите чтобы задача выполнялась с небольшой задержкой от того времени, которое вы настроили в расписании.
+Also specify the interval if you want the task to be executed with a small delay from the time you set in the schedule.
 
-## Удаление расписания
+## Deleting a Schedule
 
-Перейдите в управление нужным расписанием и нажмите на кнопку **«удалить»**.
+Go to the management of the desired schedule and click on the **"delete"** button.
 
 ![delete schedule](/images/panel/schedules/delete.png){data-zoomable}
 
-## Автоматизация бэкапов сервера
+## Automating Server Backups
 
-Перейдите в управление уже созданного расписания, и создайте новую задачу.
+Go to manage an already created schedule, and create a new task.
 
-Выберите задачу на создание бэкапа.
+Select the task to create a backup.
 
 ![backup schedule](/images/panel/schedules/backup.png){data-zoomable}
 
 ::: tip
-Так как по умолчанию на каждый сервер предоставляется всего один бэкап, при выполнении этого сценария старый бэкап будет заменён более новым автоматически.
+Since by default only one backup is provided for each server, when executing this scenario, the old backup will be automatically replaced with a newer one.
 :::
 
-Поле «проигнорированные файлы» рекомендуется оставить пустым.
+It's recommended to leave the "ignored files" field empty.

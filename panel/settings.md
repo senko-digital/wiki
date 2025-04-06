@@ -1,44 +1,44 @@
 ---
-title: "Настройки сервера"
-description: "Руководство по настройке игрового сервера. Управление SFTP доступом, переименование сервера и другие базовые настройки."
+title: "Server Settings"
+description: "Guide to configuring a game server. Managing SFTP access, renaming the server, and other basic settings."
 head:
   - - meta
     - name: keywords
-      content: настройки сервера, sftp доступ, игровая панель, конфигурация, управление сервером
+      content: server settings, sftp access, game panel, configuration, server management
   - - meta
     - property: og:title 
-      content: "Настройки сервера"
+      content: "Server Settings"
   - - meta
     - property: og:description
-      content: "Руководство по настройке игрового сервера. Управление SFTP доступом, переименование сервера и другие базовые настройки."
+      content: "Guide to configuring a game server. Managing SFTP access, renaming the server, and other basic settings."
 ---
 
-# ⚙️ Настройки
+# ⚙️ Settings
 
-Информация про страницу настроек в игровой панели управления.
+Information about the settings page in the game control panel.
 
-## О странице
+## About the Page
 
-На данной странице вы можете изменить название своего сервера в панели управления, просмотреть данные для подключения к серверу по протоколу SFTP (Secure File Transportation Protocol), просмотреть информацию о том, на каком узле располагается ваш сервер, а так же переустановить его.
+On this page, you can change the name of your server in the control panel, view the data for connecting to the server via SFTP (Secure File Transportation Protocol), view information about which node your server is located on, as well as reinstall it.
 
 ![settings page](/images/panel/settings/showcase.png){data-zoomable}
 
-## Данные от SFTP
+## SFTP Data
 
-Все предоставленные в форме данные следует использовать для подключения к серверу по протоколу SFTP. Для ОС Windows существуют программы [WinSCP](https://winscp.net/eng/download.php) и [FileZilla](https://filezilla-project.org/download.php), которые позволяют установить такое подключение.
+All the data provided in the form should be used to connect to the server via SFTP protocol. For Windows OS, there are programs [WinSCP](https://winscp.net/eng/download.php) and [FileZilla](https://filezilla-project.org/download.php) that allow you to establish such a connection.
 
-При подключении обязательно нужно использовать именно тот пароль, который используется для входа в панель управления.
+When connecting, it's necessary to use the same password that is used to log into the control panel.
 
-## Отображение в панели
+## Display in the Panel
 
-Вы можете свободно менять название вашего игрового сервера, но обратите внимание, что это меняет его название только в панели управления. Для изменения названия сервера в самой игре вам нужно будет сделать соответствущие изменения в конфиге сервера.
+You can freely change the name of your game server, but note that this only changes its name in the control panel. To change the server name in the game itself, you will need to make the corresponding changes in the server config.
 
-Так же не рекомендуется редактировать описание вашего игрового сервера, так как там указываются данные об ID услуги и её тарифе. При переименовании описания он может вернуться в исходное состояние автоматически через некоторое время.
+It's also not recommended to edit the description of your game server, as it contains information about the service ID and its plan. When renaming the description, it may automatically revert to its original state after some time.
 
-## Переустановка сервера
+## Server Reinstallation
 
-При переустановке сервера будут удалены все данные, которые вы могли загрузить или изменить на сервере. Он будет возвращён в исходное состояние, то есть таком, в котором вы его изначально получили. Перед установкой рекомендуем убедиться в том, что вы сохранили все важные данные.
+When reinstalling the server, all data that you could have uploaded or changed on the server will be deleted. It will be returned to its original state, that is, the state in which you initially received it. Before installation, we recommend making sure that you have saved all important data.
 
 ![settings page](/images/panel/settings/reinstall.png){data-zoomable}
 
-Параметры запуска, бэкапы и базы данных при этом удалены не будут.
+Startup parameters, backups, and databases will not be deleted.

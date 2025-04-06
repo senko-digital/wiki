@@ -1,19 +1,19 @@
 ---
-title: "Приглашение бота на сервер"
-description: "Инструкция по добавлению Discord бота Senko Digital на ваш сервер. Настройка прав и разрешений для бота."
+title: "Inviting the Bot to Your Server"
+description: "Instructions for adding the Senko Digital Discord bot to your server. Setting up permissions and rights for the bot."
 head:
   - - meta
     - name: keywords
-      content: discord бот, приглашение бота, настройка бота, senko bot, discord сервер
+      content: discord bot, inviting bot, bot setup, senko bot, discord server
   - - meta
     - property: og:title 
-      content: "Discord бот - Приглашение на сервер"
+      content: "Discord Bot - Inviting to Server"
   - - meta
     - property: og:description
-      content: "Инструкция по добавлению Discord бота Senko Digital на ваш сервер. Настройка прав и разрешений для бота."
+      content: "Instructions for adding the Senko Digital Discord bot to your server. Setting up permissions and rights for the bot."
 ---
 
 
-# 🌐 Приглашение бота на свой сервер
+# 🌐 Inviting the Bot to Your Server
 
-Для приглашения бота на свой сервер вы можете воспользоваться следующими опциями: [приглашение бота с правами администратора](https://snk.wtf/b-full) или [приглашение бота с правами на выбор](https://snk.wtf/b-limited).
+To invite the bot to your server, you can use the following options: [invite the bot with administrator permissions](https://snk.wtf/b-full) or [invite the bot with customizable permissions](https://snk.wtf/b-limited).

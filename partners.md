@@ -1,48 +1,48 @@
-# 🤝 Заявка на партнёрство
+# 🤝 Partnership Application
 
-### Подача заявки на присоединение к партнёрам проекта Senko Digital
+### Submitting an application to join Senko Digital project partners
 
-Форма доступна по [следующей ссылке](https://forms.gle/F2F6XAnVVcV4vBu88).
+The form is available at the [following link](https://forms.gle/F2F6XAnVVcV4vBu88).
 
-В случае положительного решения, с вами обязательно свяжутся для дальнейшего обсуждения персональных условий партнёрской программы.
+In case of a positive decision, you will be contacted to further discuss the personal terms of the partnership program.
 
-В случае отказа у вас будет шанс вернуться и пересдать форму через один месяц.
+In case of rejection, you will have a chance to return and resubmit the form after one month.
 
-### Требования к партнёрам
+### Requirements for partners
 
-- Минимальный возраст: 18 лет
-- Наличие активного сообщества или бизнеса
-- Соблюдение правил Senko Digital
-- Регулярная активность в вашем коммьюнити
-- Отсутствие конфликтов с другими партнёрами
-- Готовность к долгосрочному сотрудничеству
-- Наличие базовых знаний о продуктах и услугах Senko Digital
+- Minimum age: 18 years
+- Active community or business
+- Compliance with Senko Digital rules
+- Regular activity in your community
+- No conflicts with other partners
+- Readiness for long-term cooperation
+- Basic knowledge of Senko Digital products and services
 
-### Почему вы должны стать нашим партнёром?
+### Why you should become our partner?
 
-- Скидки на заказ и продление услуг - от **10%** до **90%**
-- Выделенная линия поддержки
-- Роль партнёра на нашем Discord сервере
-- Размещение ссылок на ваше сообщество в канале `партнёры`
-- Скидки для вашего игрового сообщества
-- Увеличение охвата аудитории
-- Возможность получения дохода с помощью реферальной системы
-- Персональные тарифы и предложения
+- Discounts on ordering and renewing services - from **10%** to **90%**
+- Dedicated support line
+- Partner role on our Discord server
+- Placement of links to your community in the `partners` channel
+- Discounts for your gaming community
+- Increased audience reach
+- Opportunity to earn income through the referral system
+- Personalized plans and offers
 
-### Обязанности партнёра
+### Partner responsibilities
 
-- Активное продвижение услуг Senko Digital
-- Участие в развитии сообщества
-- Своевременное информирование о проблемах и предложениях
-- Соблюдение конфиденциальности информации
-- Регулярное участие в партнёрских мероприятиях
-- Поддержание позитивного имиджа бренда
+- Active promotion of Senko Digital services
+- Participation in community development
+- Timely reporting of issues and suggestions
+- Maintaining confidentiality of information
+- Regular participation in partner events
+- Maintaining a positive brand image
 
-### Процесс рассмотрения заявки
+### Application review process
 
-1. Заполнение заявки
-2. Первичная проверка данных (до 5 рабочих дней)
-3. Текстовое интервью с представителем Senko Digital
-4. Принятие решения (до 3 рабочих дней)
-5. Заключение партнёрского соглашения
-6. Начало сотрудничества
+1. Filling out the application
+2. Initial data verification (up to 5 business days)
+3. Text interview with a Senko Digital representative
+4. Decision making (up to 3 business days)
+5. Conclusion of a partnership agreement
+6. Start of cooperation

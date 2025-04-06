@@ -1,16 +1,16 @@
 ---
-title: "Тарифы - Игровой хостинг"
-description: "Тарифы на игровой хостинг от Senko Digital. Размещение серверов Garry's Mod, Minecraft, CS2 и других игр на мощном оборудовании с защитой от DDoS."
+title: "Plans - Game Hosting"
+description: "Game hosting plans from Senko Digital. Host Garry's Mod, Minecraft, CS2 and other game servers on powerful hardware with DDoS protection."
 head:
   - - meta
     - name: keywords
-      content: игровой хостинг, gmod хостинг, minecraft хостинг, cs2 хостинг, защита от ddos, игровые сервера, хостинг серверов
+      content: game hosting, gmod hosting, minecraft hosting, cs2 hosting, ddos protection, game servers, server hosting
   - - meta
     - property: og:title 
-      content: "Тарифы - Игровой хостинг"
+      content: "Plans - Game Hosting"
   - - meta
     - property: og:description
-      content: "Тарифы на игровой хостинг от Senko Digital. Размещение серверов Garry's Mod, Minecraft, CS2 и других игр на мощном оборудовании с защитой от DDoS."
+      content: "Game hosting plans from Senko Digital. Host Garry's Mod, Minecraft, CS2 and other game servers on powerful hardware with DDoS protection."
 ---
 
 <script setup>
@@ -18,10 +18,10 @@ import IntelLogo from '/components/IntelLogo.vue';
 import AMDLogo from '/components/AMDLogo.vue';
 </script>
 
-# 🎮 Игровой хостинг
+# 🎮 Game Hosting
 
-На нашем хостинге вы можете без каких-либо проблем разместить свой игровой сервер с помощью нашей игровой панели управления.
+On our hosting service, you can easily set up your game server using our game control panel.
 
-В панели доступно безмерное количество функций, которые облегчат вашу жизнь и процесс создания игрового сервера.
+The panel offers countless features that will make your life easier and streamline the process of creating a game server.
 
-Полный список тарифов доступен на [нашем сайте](https://senko.digital/game-hosting).
+The complete list of plans is available on [our website](https://senko.digital/game-hosting).

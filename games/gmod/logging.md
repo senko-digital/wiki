@@ -1,3 +1,3 @@
-# Режим отладки и журналирование консоли сервера
+# Debug Mode and Server Console Logging
 
-В этом гайде мы расскажем как включить режим отладки на сервере, а так же объясним как включить вывод консоли сервера в файл `console.log`.
+In this guide, we'll explain how to enable debug mode on the server, as well as explain how to enable server console output to the `console.log` file.

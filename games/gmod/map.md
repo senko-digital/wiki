@@ -2,28 +2,28 @@
 import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <GmodLogo>Изменение карты при запуске</GmodLogo>
+# <GmodLogo>Changing Map at Startup</GmodLogo>
 
-Краткое руководство по изменению карты по умолчанию на игровом сервере Garry's Mod.
+A quick guide to changing the default map on your Garry's Mod game server.
 
-## Установка переменной в параметрах запуска
+## Setting a Variable in Startup Parameters
 
-Перейдите в управление нужным сервером.
+Go to the management page of your server.
 
-Перейдите в параметры запуска сервера и найдите параметр "Карта".
+Navigate to the server startup parameters and find the "Map" parameter.
 
-Введите полное название карты, например `gm_construct`.
+Enter the full name of the map, for example `gm_construct`.
 
 ![map in startup parameters](/images/games/gmod/map.png){data-zoomable}
 
-Готово! Теперь сервер будет загружаться с этой картой при каждом запуске сервера.
+Done! Now the server will load with this map every time it starts.
 
-## Установка карты из Steam Workshop
+## Installing Maps from Steam Workshop
 
-Если вы используете карту со Steam Workshop, её рекомендуется скачать вручную и загрузить по пути `/garrysmod/maps/`, иначе сервер может не запуститься.
+If you're using a map from the Steam Workshop, it's recommended to download it manually and upload it to the `/garrysmod/maps/` path, otherwise the server may not start.
 
-Сделать это можно посредством утилиты [SteamWorkshopDownloader](https://steamworkshopdownloader.io) - переходите на сайт, вводите ссылку на страницу карты в Steam Workshop, и скачиваете файлы к себе на ПК.
+You can do this using the [SteamWorkshopDownloader](https://steamworkshopdownloader.io) utility - go to the website, enter the link to the map page in the Steam Workshop, and download the files to your PC.
 
-Распакуйте архив, перейдите в папку `maps`, и загрузите все файлы с неё в папку `/garrysmod/maps/`.
+Extract the archive, go to the `maps` folder, and upload all files from it to the `/garrysmod/maps/` folder.
 
-Точно так же установите переменную с названием карты в параметрах запуска.
+Set the map variable in the startup parameters the same way as described above.

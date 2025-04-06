@@ -1,26 +1,26 @@
 ---
-title: "Журнал активности"
-description: "Мониторинг действий пользователей на сервере через журнал активности. Отслеживание изменений и аудит безопасности."
+title: "Activity Log"
+description: "Monitoring user actions on the server through the activity log. Tracking changes and security auditing."
 head:
   - - meta
     - name: keywords
-      content: журнал активности, логи, аудит, игровая панель, безопасность сервера
+      content: activity log, logs, audit, game panel, server security
   - - meta
     - property: og:title 
-      content: "Панель управления - Журнал активности"
+      content: "Control Panel - Activity Log"
   - - meta
     - property: og:description
-      content: "Мониторинг действий пользователей на сервере через журнал активности. Отслеживание изменений и аудит безопасности."
+      content: "Monitoring user actions on the server through the activity log. Tracking changes and security auditing."
 ---
 
-# 📖 Логи
+# 📖 Logs
 
-Краткое описание страницы с логами (журналом активности) в игровой панели управления.
+Brief description of the logs (activity journal) page in the game control panel.
 
-## Описание страницы
+## Page Description
 
-С помощью данной страницы вы можете просматривать недавно выполненные действия на сервере, будь то вами, или другими пользователями, а так же проследить за IP-адресами с которых выполнялся запрос (что может быть очень полезно для избежания неприятных ситуаций при взломе аккаунта).
+With this page, you can view recent actions performed on the server, whether by you or other users, as well as track the IP addresses from which the request was made (which can be very useful for avoiding unpleasant situations in case of account hacking).
 
 ![logs page in the game panel](/images/panel/logs.png){data-zoomable}
 
-В журнале активности отображаются практически все действия выполненные на сервере: будь то запуск сервера, просмотр или редактирование файла, загрузка файлов через SFTP или вовсе полная переустановка сервера.
+The activity log displays almost all actions performed on the server: whether it's starting the server, viewing or editing a file, uploading files via SFTP, or even a complete server reinstallation.

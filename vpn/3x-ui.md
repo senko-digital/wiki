@@ -1,19 +1,19 @@
 ---
-title: "Руководство по установке и использованию панели 3x-ui"
-description: "Краткое руководство по настройке вашего нового VPS сервера. Будет полезно для новичков, и даже опытных пользователей."
+title: "Installation and Usage Guide for 3x-ui Panel"
+description: "Quick guide to setting up your new VPS server. Useful for beginners and even experienced users."
 head:
   - - meta
     - name: keywords
-      content: игровая панель, управление сервером, начало работы, pterodactyl, руководство
+      content: game panel, server management, getting started, pterodactyl, guide
   - - meta
     - property: og:title 
-      content: "VPN - Руководство по установке и использованию панели 3x-ui"
+      content: "VPN - Installation and Usage Guide for 3x-ui Panel"
   - - meta
     - property: og:description
-      content: "Краткое руководство по настройке вашего нового VPS сервера. Будет полезно для новичков, и даже опытных пользователей."
+      content: "Quick guide to setting up your new VPS server. Useful for beginners and even experienced users."
 ---
 
-# Руководство по установке и использованию панели 3x-ui
+# Installation and Usage Guide for 3x-ui Panel
 
 <p align="center">
   <picture>
@@ -22,67 +22,67 @@ head:
   </picture>
 </p>
 
-3x-ui - это многофункциональная веб-панель для управления VPN-серверами, поддерживающая множество протоколов, таких как VMess, VLESS, Trojan, ShadowSocks и WireGuard. 
+3x-ui is a multifunctional web panel for managing VPN servers, supporting various protocols such as VMess, VLESS, Trojan, ShadowSocks, and WireGuard.
 
-Эта панель обеспечивает легкое управление VPN-соединениями, настройку нескольких пользователей и установку ограничений по трафику, сроку действия и IP-адресам.
+This panel provides easy management of VPN connections, configuration of multiple users, and setting limits on traffic, expiration dates, and IP addresses.
 
-## Особенности 3x-ui
+## 3x-ui Features
 
-- Многоязычный интерфейс (английский, фарси, китайский, русский, вьетнамский, испанский)
-- Поддержка множества протоколов (VMess, VLESS, Trojan, ShadowSocks, WireGuard)
-- Управление несколькими пользователями
-- Установка лимитов трафика, срока действия и IP-адресов
-- Автоматическое управление SSL-сертификатами
-- Интуитивно понятный веб-интерфейс
-- Статистика использования трафика
-- Возможность блокировки рекламы и маршрутизации трафика
-- Поддержка технологии Reality для обхода блокировок
+- Multilingual interface (English, Persian, Chinese, Russian, Vietnamese, Spanish)
+- Support for multiple protocols (VMess, VLESS, Trojan, ShadowSocks, WireGuard)
+- Multiple user management
+- Setting limits for traffic, expiration dates, and IP addresses
+- Automatic SSL certificate management
+- Intuitive web interface
+- Traffic usage statistics
+- Ad blocking and traffic routing capabilities
+- Support for Reality technology to bypass restrictions
 
-## Установка
+## Installation
 
-### Стандартная установка
+### Standard Installation
 
-Для установки 3x-ui выполните следующую команду:
+To install 3x-ui, run the following command:
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 
-Во время установки вам будет предложено:
+During installation, you will be prompted to:
 
-1. Изменить настройки панели (рекомендуется ответить `y` для повышения безопасности)
-2. Указать порт панели (рекомендуется использовать нестандартный)
+1. Change panel settings (recommended to answer `y` for increased security)
+2. Specify the panel port (recommended to use a non-standard one)
 
-### Установка определенной версии
+### Installing a Specific Version
 
-Для установки определенной версии добавьте номер версии в конец команды установки. Например, для версии v1.7.9:
+To install a specific version, add the version number at the end of the installation command. For example, for version v1.7.9:
 
 ```bash
 VERSION=v1.7.9 && bash <(curl -Ls "https://raw.githubusercontent.com/mhsanaei/3x-ui/$VERSION/install.sh") $VERSION
 ```
 
-### Установка через Docker
+### Docker Installation
 
-1. Установите Docker:
+1. Install Docker:
 
 ```bash
 bash <(curl -sSL https://get.docker.com)
 ```
 
-2. Склонируйте репозиторий проекта:
+2. Clone the project repository:
 
 ```bash
 git clone https://github.com/mhsanaei/3x-ui.git
 cd 3x-ui
 ```
 
-3. Запустите сервис:
+3. Start the service:
 
 ```bash
 docker compose up -d
 ```
 
-Или альтернативный вариант:
+Or alternatively:
 
 ```bash
 docker run -itd \
@@ -95,26 +95,26 @@ docker run -itd \
    ghcr.io/mhsanaei/3x-ui:latest
 ```
 
-## Настройка SSL-сертификата
+## SSL Certificate Configuration
 
-Существует несколько способов настройки SSL-сертификата в 3x-ui
+There are several ways to configure an SSL certificate in 3x-ui
 
 ### ACME
 
-**Для управления SSL-сертификатами с помощью ACME:**
+**To manage SSL certificates using ACME:**
 
-1. Убедитесь, что ваш домен корректно указывает на этот сервер (т.е. А-запись в DNS настроена правильно).
-2. Запустите команду `x-ui` в терминале, затем выберите пункт `Управление SSL-сертификатами`.
-3. Вам будут предложены следующие варианты:
-    - **Получить SSL:** Получить SSL-сертификаты.
-    - **Отозвать:** Отозвать существующие SSL-сертификаты.
-    - **Принудительное продление:** Принудительно продлить SSL-сертификаты.
-    - **Показать существующие домены:** Отобразить все сертификаты доменов, доступные на сервере.
-    - **Указать пути к сертификатам для панели:** Указать сертификат для вашего домена, который будет использоваться панелью управления.
+1. Make sure your domain correctly points to this server (i.e., the A record in DNS is configured correctly).
+2. Run the `x-ui` command in the terminal, then select `SSL Certificate Management`.
+3. You will be presented with the following options:
+    - **Get SSL:** Obtain SSL certificates.
+    - **Revoke:** Revoke existing SSL certificates.
+    - **Force Renewal:** Force renewal of SSL certificates.
+    - **Show Existing Domains:** Display all domain certificates available on the server.
+    - **Specify Certificate Paths for the Panel:** Specify a certificate for your domain to be used by the control panel.
 
 ### Certbot
 
-**Чтобы установить и использовать Certbot, достаточно ввести эти команды:**
+**To install and use Certbot, simply enter these commands:**
 
 ```bash
 apt-get install certbot -y
@@ -122,125 +122,125 @@ certbot certonly --standalone --agree-tos --register-unsafely-without-email -d y
 certbot renew --dry-run
 ```
 
-- где `yourdomain.com` — ваш домен
+- where `yourdomain.com` is your domain
 
-## Вход в веб-панель
+## Logging into the Web Panel
 
-После установки панели управления, следуйте инструкциям ниже:
+After installing the control panel, follow the instructions below:
 
-1. Введите команду `x-ui`
-2. Выберите опцию `10`, введя соответствующее число в терминал.
+1. Enter the command `x-ui`
+2. Select option `10` by entering the corresponding number in the terminal.
 
-Вам будут предоставлены данные для входа в панель в таком виде:
+You will be provided with login data in this format:
 ![console](/images/vpn/3x-ui/view-current-settings.png){data-zoomable}
 
-Вам нужно будет перейти по ссылке, которая указывается в `Access URL` и авторизоваться под своими `username` и `password`
+You will need to go to the link specified in `Access URL` and log in with your `username` and `password`
 
-## Настройка подключений (Inbounds)
+## Setting Up Connections (Inbounds)
 
-### Создание нового подключения
+### Creating a New Connection
 
-1. Перейдите на страницу "Inbounds"
-2. Нажмите кнопку "Add inbound" для создания нового подключения
-3. В открывшемся окне укажите любое удобное название в поле "Remark"
-4. Выберите тип протокола (VMess, VLESS, Trojan, ShadowSocks или WireGuard)
+1. Go to the "Inbounds" page
+2. Click the "Add inbound" button to create a new connection
+3. In the opened window, enter any convenient name in the "Remark" field
+4. Select the protocol type (VMess, VLESS, Trojan, ShadowSocks, or WireGuard)
 
-### Настройка протоколов
+### Protocol Configuration
 
-#### Для VLESS + Reality (рекомендуется для обхода блокировок):
+#### For VLESS + Reality (recommended for bypassing restrictions):
 
-1. Выберите тип безопасности - `Reality`
-2. Установите uTLS - `chrome`
-3. В поле "Dest" укажите значение, например `dl.google.com:443`
-4. В поле "SNI" укажите значение, например `dl.google.com`
-5. Нажмите `Get New Cert` для автоматической генерации случайных ключей
-6. Нажмите на кнопку Create для сохранения и создания подключения
+1. Select security type - `Reality`
+2. Set uTLS - `chrome`
+3. In the "Dest" field, enter a value, for example `dl.google.com:443`
+4. In the "SNI" field, enter a value, for example `dl.google.com`
+5. Click `Get New Cert` to automatically generate random keys
+6. Click the Create button to save and create the connection
 
-### Настройка ограничений
+### Setting Limits
 
-Для каждого подключения можно настроить:
+For each connection, you can configure:
 
-- Лимит трафика (в гигабайтах)
-- Срок действия (в днях)
-- Лимит IP-адресов (количество одновременных подключений)
-- Включить или отключить ограничения
+- Traffic limit (in gigabytes)
+- Expiration date (in days)
+- IP address limit (number of simultaneous connections)
+- Enable or disable restrictions
 
-## Управление пользователями
+## User Management
 
-В разделе `Inbounds`:
+In the `Inbounds` section:
 
-1. Для просмотра дополнительных настроек нажмите на значок `+` рядом с созданным подключением
-2. Для создания нового пользователя выберите опцию "Add Client"
+1. To view additional settings, click the `+` icon next to the created connection
+2. To create a new user, select the "Add Client" option
 ![add client](/images/vpn/3x-ui/add_client.png){data-zoomable}
-3. Для каждого пользователя можно настроить:
-   - Имя (удобное вам название)
-   - Лимит трафика
-   - Срок действия
-   - Уникальный ID
+3. For each user, you can configure:
+   - Name (a name convenient for you)
+   - Traffic limit
+   - Expiration date
+   - Unique ID
 
-## Подключение клиентов
+## Client Connection
 
-### Windows, macOS и Linux
+### Windows, macOS, and Linux
 
-Рекомендуемые клиенты:
+Recommended clients:
 
 - `Hiddify` (Windows, Linux, macOS)
 - `NekoRay` (Windows, Linux)
 
-Для подключения:
+To connect:
 
-1. В веб-панели 3x-ui нажмите на QR-код нужного пользователя
-2. Скопируйте конфигурацию либо отсканируйте QR-код с помощью VPN-клиента
-3. Импортируйте конфигурацию в клиент и совершите подключение
+1. In the 3x-ui web panel, click on the QR code of the desired user
+2. Copy the configuration or scan the QR code using a VPN client
+3. Import the configuration into the client and make the connection
 
 ### Android
 
-Рекомендуемые клиенты:
+Recommended clients:
 
 - `Hiddify`
 - `v2rayNG`
 
-Для подключения:
+To connect:
 
-1. Установите клиент из Google Play
-2. В веб-панели 3x-ui нажмите на QR-код нужного пользователя
-3. Отсканируйте QR-код с помощью VPN-клиента либо скопируйте и импортируйте конфигурацию
-4. Совершите подключение используя импортированную конфигурацию
+1. Install the client from Google Play
+2. In the 3x-ui web panel, click on the QR code of the desired user
+3. Scan the QR code using the VPN client or copy and import the configuration
+4. Connect using the imported configuration
 
 ### iOS
 
-Рекомендуемые клиенты:
+Recommended clients:
 
 - `FoXray`
 - `v2box`
 - `ShadowRocket`
 
-Для подключения:
+To connect:
 
-1. Установите клиент из App Store
-2. В веб-панели 3x-ui нажмите на QR-код нужного пользователя
-3. Отсканируйте QR-код с помощью клиента либо скопируйте и импортируйте конфигурацию
-4. Совершите подключение используя импортированную конфигурацию
+1. Install the client from the App Store
+2. In the 3x-ui web panel, click on the QR code of the desired user
+3. Scan the QR code using the client or copy and import the configuration
+4. Connect using the imported configuration
 
-## Мониторинг и статистика
+## Monitoring and Statistics
 
-В веб-панели 3x-ui вы можете следить за активностью клиентов:
+In the 3x-ui web panel, you can monitor client activity:
 
-- Общее потребление трафика
-- Использование трафика по пользователям
-- Статус подключений
-- Срок действия подписок пользователей
-- Использование IP-адресов
+- Total traffic consumption
+- Traffic usage by user
+- Connection status
+- User subscription expiration dates
+- IP address usage
 
-## Обновление 3x-ui
+## Updating 3x-ui
 
-Для обновления панели до последней версии выполните следующую команду:
+To update the panel to the latest version, run the following command:
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 
-Если вы используете Docker, нужно будет выполнить следующие команды:
+If you're using Docker, you'll need to run the following commands:
 
 ```bash
 cd 3x-ui
@@ -249,26 +249,26 @@ docker compose pull 3x-ui
 docker compose up -d
 ```
 
-## Решение проблем
+## Troubleshooting
 
-### Стандартные настройки
+### Default Settings
 
-- Порт: `2053`
-- Путь к базе данных: `/etc/x-ui/x-ui.db`
-- Путь к конфигурации xray: `/usr/local/x-ui/bin/config.json`
+- Port: `2053`
+- Database path: `/etc/x-ui/x-ui.db`
+- Xray configuration path: `/usr/local/x-ui/bin/config.json`
 
-### Дополнительные настройки Xray
+### Additional Xray Settings
 
-В веб-панели можно настроить дополнительные опции Xray:
+In the web panel, you can configure additional Xray options:
 
-- Блокировка рекламы
-- Блокировка IP-адресов определенных стран
-- Блокировка доменов
-- Маршрутизация Google, Netflix, Spotify, OpenAI (ChatGPT) через WARP
+- Ad blocking
+- Blocking IP addresses from specific countries
+- Domain blocking
+- Routing Google, Netflix, Spotify, OpenAI (ChatGPT) through WARP
 
-### Настройка WARP
+### WARP Configuration
 
-Для версий `v2.1.0` и более поздних — WARP встроен и не требует дополнительной установки.
+For versions `v2.1.0` and later - WARP is built-in and does not require additional installation.
 
-Просто включите нужную конфигурацию в панели.
+Simply enable the desired configuration in the panel.
 ![warp](/images/vpn/3x-ui/warp.png){data-zoomable}

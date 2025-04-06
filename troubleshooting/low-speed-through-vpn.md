@@ -1,75 +1,75 @@
 ---
-title: "Решение проблем с низкой скоростью VPN"
-description: "Подробное руководство по диагностике и устранению проблем с низкой скоростью при использовании VPS в качестве VPN-сервера. Включает проверку сетевых настроек, оптимизацию конфигурации и рекомендации по улучшению производительности."
+title: "Solving Low VPN Speed Issues"
+description: "Detailed guide for diagnosing and fixing low speed issues when using VPS as a VPN server. Includes network settings checks, configuration optimization, and performance improvement recommendations."
 head:
   - - meta
     - name: keywords
-      content: vpn, скорость vpn, оптимизация vpn, vps, сетевые настройки, устранение неполадок
+      content: vpn, vpn speed, vpn optimization, vps, network settings, troubleshooting
   - - meta
     - property: og:title
-      content: "Решение проблем с низкой скоростью VPN"
+      content: "Solving Low VPN Speed Issues"
   - - meta
     - property: og:description
-      content: "Подробное руководство по диагностике и устранению проблем с низкой скоростью при использовании VPS в качестве VPN-сервера."
+      content: "Detailed guide for diagnosing and fixing low speed issues when using VPS as a VPN server."
 ---
 
-# Решение проблем с низкой скоростью VPN
+# Solving Low VPN Speed Issues
 
-## Введение
+## Introduction
 
-При размещении собственного VPN на базе наших виртуальных серверов, нередко могут возникать проблемы со скоростью или стабильностью соединения.
+When hosting your own VPN on our virtual servers, you may sometimes encounter issues with connection speed or stability.
 
-В данной статье мы рассказываем об основных причинах снижения скорости и методы их устранения. Перед началом оптимизации необходимо провести диагностику для определения источника проблемы.
+In this article, we explain the main causes of speed reduction and methods to resolve them. Before starting optimization, it's necessary to perform diagnostics to determine the source of the problem.
 
-## Диагностика скорости
+## Speed Diagnostics
 
-Первым делом нужно провести тесты скорости с вашего устройства и самого сервера.
+First, you need to run speed tests from both your device and the server itself.
 
-Для тестирования скорости вашей сети, рекомендуется использовать официальные приложения от Ookla. Ссылки для загрузки приложений: [Windows/macOS](https://www.speedtest.net/apps/desktop), [iOS](https://itunes.apple.com/us/app/speedtest-by-ookla/id300704847?mt=8), [Android](https://www.speedtest.net/apps/android)
+To test your network speed, we recommend using official applications from Ookla. Download links: [Windows/macOS](https://www.speedtest.net/apps/desktop), [iOS](https://itunes.apple.com/us/app/speedtest-by-ookla/id300704847?mt=8), [Android](https://www.speedtest.net/apps/android)
 
-На сервере также рекомендуется использовать официальную утилиту от Ookla - Speedtest CLI. Подробная инструкция по использованию Speedtest CLI доступна в статье [Тестирование скорости сервера](/troubleshooting/speedtest-cli).
+On the server, we also recommend using Ookla's official utility - Speedtest CLI. Detailed instructions for using Speedtest CLI are available in the article [Server Speed Testing](/troubleshooting/speedtest-cli).
 
-При тестировании скорости рекомендуется выбирать серверы, расположенные в том же регионе, где находится ваш сервер. Это позволит получить более точные результаты измерений.
+When testing speed, it's recommended to choose servers located in the same region as your server. This will provide more accurate measurement results.
 
-При выявлении проблем со скоростью на сервере, рекомендуется обратиться в службу поддержки для проведения диагностики и устранения проблемы.
+If you identify speed issues on the server, we recommend contacting our support team for diagnostics and troubleshooting.
 
-## Сетевые настройки
+## Network Settings
 
 ### MTU
 
-В силу особенности нашей сети, для протоколов, использующих UDP (WireGuard, AmneziaWG, OpenVPN и другие), оптимальным значением MTU на стороне сервера является `1368`. Данное значение предотвращает фрагментацию пакетов и обеспечивает более стабильное соединение, в сравнении с MTU установленным по умолчанию.
+Due to the specifics of our network, for protocols using UDP (WireGuard, AmneziaWG, OpenVPN and others), the optimal MTU value on the server side is `1368`. This value prevents packet fragmentation and provides a more stable connection compared to the default MTU.
 
-Для выявления оптимального MTU на стороне вашего VPN-клиента рекомендуется вручную подобрать значение между 1320 и 1390.
+To find the optimal MTU on your VPN client side, it's recommended to manually select a value between 1320 and 1390.
 
 ### SNI
 
-При использовании протоколов VLESS, V2Ray и других, требующих SNI (Server Name Indication), необходимо учитывать следующие рекомендации:
+When using protocols like VLESS, V2Ray, and others that require SNI (Server Name Indication), consider the following recommendations:
 
-- Использовать домены с положительной репутацией
-- Избегать подозрительных имен
-- Обеспечить «свежесть» SSL-сертификатов
-- Выбирать домены с наиболее низким пингом, для уменьшения задержки при установке соединения
+- Use domains with a positive reputation
+- Avoid suspicious names
+- Ensure SSL certificates are "fresh"
+- Choose domains with the lowest ping to reduce connection setup latency
 
-## Оптимизация производительности
+## Performance Optimization
 
-### Протоколы VPN
+### VPN Protocols
 
-Различные VPN-протоколы характеризуются разной производительностью:
+Different VPN protocols have different performance characteristics:
 
-- WireGuard: оптимальная производительность, высокая скорость, стабильное соединение
-- OpenVPN: стабильное соединение, простая настройка
-- VLESS/V2Ray: высокая производительность при корректной настройке
+- WireGuard: optimal performance, high speed, stable connection
+- OpenVPN: stable connection, easy setup
+- VLESS/V2Ray: high performance when configured correctly
 
-### Системные настройки
+### System Settings
 
-1. Настройка TCP BBR:
+1. TCP BBR configuration:
 ```bash
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p
 ```
 
-2. Оптимизация сетевых настроек:
+2. Network settings optimization:
 ```bash
 cat >> /etc/sysctl.conf << EOF
 net.ipv4.tcp_fastopen = 3
@@ -77,7 +77,7 @@ net.ipv4.tcp_syncookies = 1
 net.ipv4.tcp_tw_reuse = 1
 net.ipv4.tcp_fin_timeout = 30
 net.ipv4.tcp_keepalive_time = 1200
-net.ipv4.ip_local_port_range = 10000 65000
+net.ipv4.tcp_local_port_range = 10000 65000
 net.ipv4.tcp_max_syn_backlog = 8192
 net.ipv4.tcp_max_tw_buckets = 5000
 net.ipv4.tcp_fack = 1
@@ -88,18 +88,18 @@ EOF
 sysctl -p
 ```
 
-### Мониторинг
+### Monitoring
 
-Для поддержания оптимальной производительности рекомендуется регулярно проверять:
+To maintain optimal performance, it's recommended to regularly check:
 
-- Нагрузку на процессор
-- Использование оперативной памяти
-- Сетевую активность
-- Логи системы
+- CPU load
+- RAM usage
+- Network activity
+- System logs
 
-Благодаря регулярной проверке данных параметров, вы сможете быть уверены в отсутствии проблем со стороны самого сервера.
+By regularly checking these parameters, you can be confident there are no issues with the server itself.
 
-## Заключение
+## Conclusion
 
-Оптимизация скорости VPN требует особого подхода. Следование рекомендациям из данной статьи позволит улучшить производительность VPN-сервера. При сохранении проблем со скоростью после применения всех рекомендаций рекомендуется обратиться в службу поддержки для дальнейшей диагностики.
+Optimizing VPN speed requires a special approach. Following the recommendations in this article will help improve your VPN server's performance. If speed issues persist after applying all recommendations, we recommend contacting our support team for further diagnostics.
 

@@ -1,182 +1,182 @@
 ---
-title: "Тестирование скорости сервера"
-description: "Инструкция по установке и использованию Speedtest CLI для тестирования скорости сервера на различных операционных системах."
+title: "Server Speed Testing"
+description: "Instructions for installing and using Speedtest CLI to test server speed on various operating systems."
 head:
   - - meta
     - name: keywords
-      content: speedtest, тест скорости, ookla, cli, ubuntu, debian, fedora, centos, freebsd
+      content: speedtest, speed test, ookla, cli, ubuntu, debian, fedora, centos, freebsd
   - - meta
     - property: og:title
-      content: "Тестирование скорости сервера"
+      content: "Server Speed Testing"
   - - meta
     - property: og:description
-      content: "Инструкция по установке и использованию Speedtest CLI для тестирования скорости сервера на различных операционных системах."
+      content: "Instructions for installing and using Speedtest CLI to test server speed on various operating systems."
 ---
 
-# Тестирование скорости сервера
+# Server Speed Testing
 
-Speedtest CLI - это официальная утилита от Ookla для тестирования скорости соединения через командную строку вашего сервера.
+Speedtest CLI is the official utility from Ookla for testing connection speed through your server's command line.
 
-Данная инструкция поможет установить и использовать Speedtest CLI на различных операционных системах.
+This guide will help you install and use Speedtest CLI on various operating systems.
 
-## Установка
+## Installation
 
 ::: code-group
 
 ```bash [Ubuntu/Debian]
-# Удаление неофициальных версий Speedtest CLI
+# Removing unofficial versions of Speedtest CLI
 sudo rm /etc/apt/sources.list.d/speedtest.list
 sudo apt-get update
 sudo apt-get remove speedtest
 sudo apt-get remove speedtest-cli
 
-# Установка sudo, если он ещё не установлен
+# Installing sudo if not already installed
 apt install sudo -y
 
-# Установка Speedtest CLI
+# Installing Speedtest CLI
 sudo apt-get install curl
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 sudo apt-get install speedtest
 ```
 
 ```bash [Fedora/CentOS/RedHat]
-# Удаление неофициальных версий Speedtest CLI
+# Removing unofficial versions of Speedtest CLI
 sudo rm /etc/yum.repos.d/bintray-ookla-rhel.repo
 sudo yum remove speedtest
 rpm -qa | grep speedtest | xargs -I {} sudo yum -y remove {}
 
-# Установка Speedtest CLI
+# Installing Speedtest CLI
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
 sudo yum install speedtest
 ```
 
 ```bash [FreeBSD]
-# Обновление системы и установка зависимостей
+# Updating the system and installing dependencies
 sudo pkg update && sudo pkg install -g libidn2 ca_root_nss
 
-# Установка Speedtest CLI для FreeBSD 12
+# Installing Speedtest CLI for FreeBSD 12
 sudo pkg add "https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-freebsd12-x86_64.pkg"
 
-# Установка Speedtest CLI для FreeBSD 13
+# Installing Speedtest CLI for FreeBSD 13
 sudo pkg add "https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-freebsd13-x86_64.pkg"
 ```
 
 :::
 
-## Использование
+## Usage
 
-Для запуска теста скорости выполните команду:
+To run a speed test, execute the command:
 
 ```bash
 speedtest
 ```
 
-При первом запуске утилиты требуется принять лицензионное соглашение и [политику конфиденциальности](https://www.speedtest.net/privacy):
+When starting the utility for the first time, you need to accept the license agreement and [privacy policy](https://www.speedtest.net/privacy):
 
-![лицензионное соглашение](/images/troubleshooting/speedtest-cli/1.png){data-zoomable}
+![license agreement](/images/troubleshooting/speedtest-cli/1.png){data-zoomable}
 
-Для принятия условий введите `YES` и нажмите `[Enter]`
+To accept the terms, type `YES` and press `[Enter]`
 
-После принятия условий утилита автоматически начнёт тестирование скорости сети:
+After accepting the terms, the utility will automatically start testing the network speed:
 
-![форма регистрации](/images/troubleshooting/speedtest-cli/2.png){data-zoomable}
+![registration form](/images/troubleshooting/speedtest-cli/2.png){data-zoomable}
 
-По завершению тестирования утилита сгенерирует ссылку на результаты теста, которую можно использовать для отправки в службу поддержки или обмена результатов с друзьями.
+Upon completing the test, the utility will generate a link to the test results, which you can use to send to support or share with friends.
 
 ---
 
-Для выбора конкретного сервера используйте:
+To select a specific server, use:
 
 ```bash
 speedtest --server-id=1234
 ```
 
-где `1234` - ID сервера Speedtest
+where `1234` is the Speedtest server ID
 
 ---
 
-Для просмотра списка доступных серверов используйте команду:
+To view a list of available servers, use the command:
 
 ```bash
 speedtest --servers
 ```
 
-## Дополнительные параметры
+## Additional Parameters
 
-### Основные параметры
+### Basic Parameters
 
-- `-h, --help` - вывод справки
-- `-v` - уровень подробности логов (можно указать несколько раз, например `-vvv`)
-- `-V, --version` - вывод версии утилиты
-- `-L, --servers` - вывод списка ближайших серверов
-- `--selection-details` - вывод деталей выбора сервера
-- `-s id, --server-id=id` - указание конкретного сервера по ID
-- `-o hostname, --host=hostname` - указание сервера по имени хоста
-- `-f format_type, --format=format_type` - формат вывода (по умолчанию `human-readable`)
-- `--progress=yes|no` - включение/отключение индикатора прогресса
-- `-I interface, --interface=interface` - привязка к определённому сетевому интерфейсу
-- `-i ip_address, --ip=ip_address` - привязка к определённому IP-адресу
-- `--ca-certificate=path` - путь к сертификату CA
+- `-h, --help` - display help
+- `-v` - verbosity level (can be specified multiple times, e.g. `-vvv`)
+- `-V, --version` - display utility version
+- `-L, --servers` - display list of nearest servers
+- `--selection-details` - display server selection details
+- `-s id, --server-id=id` - specify a particular server by ID
+- `-o hostname, --host=hostname` - specify server by hostname
+- `-f format_type, --format=format_type` - output format (default `human-readable`)
+- `--progress=yes|no` - enable/disable progress indicator
+- `-I interface, --interface=interface` - bind to a specific network interface
+- `-i ip_address, --ip=ip_address` - bind to a specific IP address
+- `--ca-certificate=path` - path to CA certificate
 
-### Форматы вывода
+### Output Formats
 
-- `human-readable` - человекочитаемый формат (установлен по умолчанию)
-- `csv` - значения, разделенные запятыми
-- `tsv` - значения, разделенные табуляцией
-- `json` - JavaScript Object Notation (компактный)
-- `jsonl` - JavaScript Object Notation (построчный)
-- `json-pretty` - JavaScript Object Notation (форматированный)
+- `human-readable` - human-readable format (default)
+- `csv` - comma-separated values
+- `tsv` - tab-separated values
+- `json` - JavaScript Object Notation (compact)
+- `jsonl` - JavaScript Object Notation (line-oriented)
+- `json-pretty` - JavaScript Object Notation (formatted)
 
-### Единицы измерения скорости
+### Speed Measurement Units
 
-#### Десятичные единицы
-- `bps` - бит в секунду
-- `kbps` - килобит в секунду
-- `Mbps` - мегабит в секунду
-- `Gbps` - гигабит в секунду
-- `B/s` - байт в секунду
-- `kB/s` - килобайт в секунду
-- `MB/s` - мегабайт в секунду
-- `GB/s` - гигабайт в секунду
+#### Decimal Units
+- `bps` - bits per second
+- `kbps` - kilobits per second
+- `Mbps` - megabits per second
+- `Gbps` - gigabits per second
+- `B/s` - bytes per second
+- `kB/s` - kilobytes per second
+- `MB/s` - megabytes per second
+- `GB/s` - gigabytes per second
 
-#### Двоичные единицы
-- `kibps` - кибибит в секунду
-- `Mibps` - мебибит в секунду
-- `Gibps` - гибибит в секунду
-- `kiB/s` - кибибайт в секунду
-- `MiB/s` - мебибайт в секунду
-- `GiB/s` - гибибайт в секунду
+#### Binary Units
+- `kibps` - kibibits per second
+- `Mibps` - mebibits per second
+- `Gibps` - gibibits per second
+- `kiB/s` - kibibytes per second
+- `MiB/s` - mebibytes per second
+- `GiB/s` - gibibytes per second
 
-### Сокращения для единиц измерения
+### Abbreviations for Measurement Units
 
-- `-a` - сокращение для `-u auto-decimal-bits`
-- `-A` - сокращение для `-u auto-decimal-bytes`
-- `-b` - сокращение для `-u auto-binary-bits`
-- `-B` - сокращение для `-u auto-binary-bytes`
+- `-a` - abbreviation for `-u auto-decimal-bits`
+- `-A` - abbreviation for `-u auto-decimal-bytes`
+- `-b` - abbreviation for `-u auto-binary-bits`
+- `-B` - abbreviation for `-u auto-binary-bytes`
 
-## Пример использования
+## Usage Examples
 
 ```bash
-# Базовый тест скорости к ближайшему серверу, авто-подбор
+# Basic speed test to the nearest server, auto-selected
 speedtest
 ```
 
 ```bash
-# Тест скорости с выбором сервера и выводом в JSON
+# Speed test with server selection and JSON output
 speedtest --server-id=1234 --format=json
 ```
 
 ```bash
-# Тест скорости с отключенным индикатором прогресса
+# Speed test with progress indicator disabled
 speedtest --progress=no
 ```
 
 ```bash
-# Тест скорости с выводом в мегабайтах в секунду
+# Speed test with output in megabytes per second
 speedtest --unit=MB/s
 ```
 
 ```bash
-# Тест скорости с привязкой к конкретному сетевому интерфейсу
+# Speed test with binding to a specific network interface
 speedtest --interface=eth0
 ```

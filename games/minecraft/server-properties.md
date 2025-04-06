@@ -1,253 +1,253 @@
 ---
-title: "Настройка server.properties"
-description: "Подробное руководство по настройке файла server.properties в Minecraft. Оптимизация и конфигурация параметров сервера."
+title: "Configuring server.properties"
+description: "Detailed guide for configuring the server.properties file in Minecraft. Optimization and configuration of server parameters."
 head:
   - - meta
     - name: keywords
-      content: minecraft, server.properties, настройка сервера, конфигурация, оптимизация
+      content: minecraft, server.properties, server configuration, configuration, optimization
   - - meta
     - property: og:title 
-      content: "Minecraft - Настройка server.properties"
+      content: "Minecraft - Configuring server.properties"
   - - meta
     - property: og:description
-      content: "Подробное руководство по настройке файла server.properties в Minecraft. Оптимизация и конфигурация параметров сервера."
+      content: "Detailed guide for configuring the server.properties file in Minecraft. Optimization and configuration of server parameters."
 ---
 
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <MinecraftLogo>Настройка server.properties</MinecraftLogo>
+# <MinecraftLogo>Configuring server.properties</MinecraftLogo>
 
-Краткое руководство по настройке файла `server.properties` игрового сервера Minecraft.
+Quick guide for configuring the `server.properties` file of a Minecraft game server.
 
 ***
 
-Конфигурационный файл server.properties управляет основными настройками Minecraft-сервера. Вот описание каждого параметра:
+The server.properties configuration file controls the basic settings of a Minecraft server. Here's a description of each parameter:
 
 ### `enable-jmx-monitoring=false`
-Включает мониторинг через JMX (Java Management Extensions) для управления сервером.
+Enables monitoring via JMX (Java Management Extensions) for server management.
 
 ### `rcon.port=25575`
 
-Указывает порт для подключения удаленной консоли RCON.
+Specifies the port for connecting to the RCON remote console.
 
 ### `level-seed=`
 
-Устанавливает seed для генерации мира.
+Sets the seed for world generation.
 
 ### `gamemode=survival`
 
-Устанавливает режим игры по умолчанию (выживание).
+Sets the default game mode (survival).
 
 ### `enable-command-block=false`
 
-Включает использование командных блоков.
+Enables the use of command blocks.
 
 ### `enable-query=false`
 
-Включает серверный запрос статуса (Query).
+Enables the server status query (Query).
 
 ### `generator-settings={}`
 
-Определяет параметры генерации мира, используется с некоторыми типами миров.
+Defines world generation parameters, used with some world types.
 
 ### `enforce-secure-profile=true`
 
-Требует безопасного профиля для игроков (дополнительная проверка).
+Requires a secure profile for players (additional verification).
 
 ### `level-name=world`
 
-Задает название папки с миром.
+Sets the name of the world folder.
 
 ### `motd=`
 
-Устанавливает сообщение дня (MOTD) для сервера.
+Sets the message of the day (MOTD) for the server.
 
 ### `query.port=25565`
 
-Указывает порт для серверного запроса статуса.
+Specifies the port for the server status query.
 
 ### `pvp=true`
 
-Включает PvP (бои между игроками).
+Enables PvP (player versus player combat).
 
 ### `generate-structures=true`
 
-Включает генерацию структур (деревни, храмы и т.д.).
+Enables the generation of structures (villages, temples, etc.).
 
 ### `max-chained-neighbor-updates=1000000`
 
-Определяет максимальное количество обновлений соседних блоков, вызываемых цепными реакциями.
+Defines the maximum number of neighbor block updates triggered by chain reactions.
 
 ### `difficulty=easy`
 
-Устанавливает уровень сложности игры.
+Sets the game difficulty level.
 
 ### `network-compression-threshold=256`
 
-Определяет минимальный размер пакетов, подлежащих сжатию.
+Defines the minimum size of packets subject to compression.
 
 ### `max-tick-time=60000`
 
-Максимальное время выполнения тикта в миллисекундах перед аварийной остановкой сервера.
+Maximum tick execution time in milliseconds before the server crashes.
 
 ### `require-resource-pack=false`
 
-Требует загрузки ресурспака при входе на сервер.
+Requires downloading the resource pack when joining the server.
 
 ### `use-native-transport=true`
 
-Использует нативный транспорт для улучшения производительности сети.
+Uses native transport to improve network performance.
 
 ### `max-players=20`
 
-Максимальное количество игроков на сервере.
+Maximum number of players on the server.
 
 ### `online-mode=true`
 
-Проверяет учетные записи игроков через сервера Mojang (True — требуется авторизация).
+Verifies player accounts through Mojang servers (True - authentication required).
 
 ### `enable-status=true`
 
-Включает отображение статуса сервера.
+Enables server status display.
 
 ### `allow-flight=false`
 
-Разрешает игрокам летать (только если установлено в модах или в креативе).
+Allows players to fly (only if set in mods or in creative mode).
 
 ### `initial-disabled-packs=`
 
-Список отключенных ресурсов, при запуске сервера.
+List of disabled resources when starting the server.
 
 ### `broadcast-rcon-to-ops=true`
 
-Разрешает отправку сообщений RCON операторам сервера.
+Allows sending RCON messages to server operators.
 
 ### `view-distance=10`
 
-Устанавливает радиус прогрузки чанков для игроков.
+Sets the chunk loading radius for players.
 
 ### `server-ip=0.0.0.0`
 
-IP-адрес, на котором сервер будет слушать подключения (по умолчанию на всех интерфейсах).
+IP address on which the server will listen for connections (default on all interfaces).
 
 ### `resource-pack-prompt=`
 
-Сообщение, которое будет отображаться игрокам при запросе установки ресурспака.
+Message that will be displayed to players when requesting resource pack installation.
 
 ### `allow-nether=true`
 
-Разрешает доступ к Нижнему миру (Nether).
+Allows access to the Nether.
 
 ### `server-port=25565`
 
-Порт, на котором сервер принимает подключения.
+Port on which the server accepts connections.
 
 ### `enable-rcon=false`
 
-Включает удаленную консоль управления (RCON).
+Enables the remote console management (RCON).
 
 ### `sync-chunk-writes=true`
 
-Синхронизирует запись чанков на диск.
+Synchronizes chunk writes to disk.
 
 ### `op-permission-level=4`
 
-Уровень прав операторов (максимальный — 4).
+Operator permission level (maximum - 4).
 
 ### `prevent-proxy-connections=false`
 
-Запрещает подключение через прокси (защита от ботов и DDoS).
+Prevents connections through proxies (protection against bots and DDoS).
 
 ### `hide-online-players=false`
 
-Скрывает список онлайн-игроков на сервере.
+Hides the list of online players on the server.
 
 ### `resource-pack=`
 
-URL на ресурспак, который сервер будет предлагать игрокам.
+URL to the resource pack that the server will offer to players.
 
 ### `entity-broadcast-range-percentage=100`
 
-Процент радиуса видимости для сущностей (мобов, игроков).
+Percentage of visibility radius for entities (mobs, players).
 
 ### `simulation-distance=10`
 
-Дистанция симуляции мира (зона активности сущностей и других процессов).
+World simulation distance (activity zone for entities and other processes).
 
 ### `rcon.password=`
 
-Пароль для доступа к RCON.
+Password for RCON access.
 
 ### `player-idle-timeout=0`
 
-Время простоя игрока до автоматического кика (0 — без ограничения).
+Player idle time before automatic kick (0 - no limit).
 
 ### `debug=false`
 
-Включает режим отладки.
+Enables debug mode.
 
 ### `force-gamemode=false`
 
-Принудительно переключает игроков в режим игры сервера при входе.
+Forcibly switches players to the server's game mode upon joining.
 
 ### `rate-limit=0`
 
-Лимит времени между пакетами от одного клиента (0 — без лимита).
+Time limit between packets from a single client (0 - no limit).
 
 ### `hardcore=false`
 
-Включает режим хардкора (перманентная смерть).
+Enables hardcore mode (permanent death).
 
 ### `white-list=false`
 
-Включает белый список (разрешает подключение только определенным игрокам).
+Enables the white list (allows connection only for specific players).
 
 ### `broadcast-console-to-ops=true`
 
-Передает сообщения консоли операторам сервера.
+Forwards console messages to server operators.
 
 ### `spawn-npcs=true`
 
-Включает спаун NPC (жители деревень).
+Enables NPC spawning (villagers).
 
 ### `spawn-animals=true`
 
-Включает спаун животных.
+Enables animal spawning.
 
 ### `function-permission-level=2`
 
-Уровень прав на выполнение команд функциями (минимум — 1, максимум — 4).
+Permission level for executing commands by functions (minimum - 1, maximum - 4).
 
 ### `initial-enabled-packs=vanilla`
 
-Начальные ресурспаки, включенные на сервере.
+Initial resource packs enabled on the server.
 
 ### `level-type=minecraft\:normal`
 
-Тип мира (обычный, суперплоский и т.д.).
+World type (normal, superflat, etc.).
 
 ### `text-filtering-config=`
 
-Настройки фильтрации текста (чат, книги и т.д.).
+Text filtering settings (chat, books, etc.).
 
 ### `spawn-monsters=true`
 
-Включает спаун враждебных мобов.
+Enables hostile mob spawning.
 
 ### `enforce-whitelist=false`
 
-Принудительно включает белый список для всех подключений.
+Forcibly enables the white list for all connections.
 
 ### `spawn-protection=16`
 
-Радиус защиты спауна, где обычные игроки не могут изменять мир.
+Spawn protection radius, where regular players cannot modify the world.
 
 ### `resource-pack-sha1=`
 
-SHA-1 хеш ресурспака для проверки его целостности.
+SHA-1 hash of the resource pack to verify its integrity.
 
 ### `max-world-size=29999984`
 
-Максимальный размер мира в блоках.
+Maximum world size in blocks.

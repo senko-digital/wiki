@@ -1,56 +1,56 @@
 ---
-title: "Заказ VPS сервера"
-description: "Краткое руководство по заказу VPS сервера на хостинге Senko Digital."
+title: "VPS Server Order"
+description: "Quick guide for ordering a VPS server on Senko Digital hosting."
 head:
   - - meta
     - name: keywords
-      content: заказ vps, заказ виртуального сервера, заказ сервера, заказ сервера в германии, заказ сервера в сша, заказ сервера в сша, заказ сервера в германии
+      content: vps order, virtual server order, server order, server order in germany, server order in usa, server order in germany
   - - meta
     - property: og:title 
-      content: "Заказ VPS сервера"
+      content: "VPS Server Order"
   - - meta
     - property: og:description
-      content: "Краткое руководство по заказу VPS сервера на хостинге Senko Digital."
+      content: "Quick guide for ordering a VPS server on Senko Digital hosting."
 ---
 
-# Заказ VPS сервера
+# VPS Server Order
 
-Краткое руководство по заказу VPS сервера на хостинге Senko Digital.
+Quick guide for ordering a VPS server on Senko Digital hosting.
 
-## Как заказать сервер?
+## How to order a server?
 
-Для того чтобы заказать VPS сервер, следуйте этой простой инструкции:
+To order a VPS server, follow this simple instruction:
 
-### Шаг 1: Выбор тарифа
+### Step 1: Choose a plan
 
-Перейдите на страницу [тарифов](https://senko.digital/virtual-servers) и выберите подходящий вам тариф.
+Go to the [plans page](https://senko.digital/virtual-servers) and select the plan that suits you.
 
-![Выбор тарифа VPS](/images/personal-area/ordering/1.png){data-zoomable}
+![VPS Plan Selection](/images/personal-area/ordering/1.png){data-zoomable}
 
-### Шаг 2: Авторизация
+### Step 2: Authorization
 
-После выбора тарифа вам будет предложено войти в существующий аккаунт или зарегистрировать новый.
+After selecting a plan, you'll be prompted to log in to an existing account or register a new one.
 
-![Страница авторизации](/images/personal-area/ordering/2.png){data-zoomable}
+![Authorization page](/images/personal-area/ordering/2.png){data-zoomable}
 
-- **Если у вас уже есть аккаунт**: Войдите, используя ваш email и пароль
-- **Если у вас нет аккаунта**: Пройдите быструю регистрацию
-- **Если вы уже вошли в аккаунт**: Система автоматически переведет вас к форме заказа
+- **If you already have an account**: Log in using your email and password
+- **If you don't have an account**: Complete the quick registration
+- **If you're already logged in**: The system will automatically take you to the order form
 
-### Шаг 3: Заполнение формы заказа
+### Step 3: Complete the order form
 
-После авторизации заполните форму заказа, указав необходимые параметры, такие как операционная система и PTR запись (необязательно).
+After authorization, fill out the order form, specifying the necessary parameters such as the operating system and PTR record (optional).
 
-![Форма заказа сервера](/images/personal-area/ordering/3.png){data-zoomable}
+![Server order form](/images/personal-area/ordering/3.png){data-zoomable}
 
-### Шаг 4: Оплата
+### Step 4: Payment
 
-Выберите удобный способ оплаты, оплатите и завершите заказ.
+Choose a convenient payment method, make the payment, and complete your order.
 
-![Выбор способа оплаты](/images/personal-area/ordering/4.png){data-zoomable}
+![Payment method selection](/images/personal-area/ordering/4.png){data-zoomable}
 
-После успешной оплаты ваш VPS сервер будет установлен в течение 120 секунд.
+After successful payment, your VPS server will be set up within 120 seconds.
 
-Доступ к панели управления и данные для входа на сервер будут отправлены на указанный вами email.
+Access to the control panel and server login credentials will be sent to the email you provided.
 
-![Письмо](/images/personal-area/ordering/5.png){data-zoomable}
+![Email](/images/vps/getting-started/2.png){data-zoomable}

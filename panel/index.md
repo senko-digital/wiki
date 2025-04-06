@@ -1,42 +1,42 @@
 ---
-title: "Начало работы"
-description: "Руководство по началу работы с игровой панелью управления. Основные функции и возможности панели для управления игровыми серверами."
+title: "Getting Started"
+description: "Guide to getting started with the game control panel. Main functions and features of the panel for managing game servers."
 head:
   - - meta
     - name: keywords
-      content: игровая панель, управление сервером, начало работы, pterodactyl, руководство
+      content: game panel, server management, getting started, pterodactyl, guide
   - - meta
     - property: og:title 
-      content: "Панель управления - Начало работы"
+      content: "Control Panel - Getting Started"
   - - meta
     - property: og:description
-      content: "Руководство по началу работы с игровой панелью управления. Основные функции и возможности панели для управления игровыми серверами."
+      content: "Guide to getting started with the game control panel. Main functions and features of the panel for managing game servers."
 ---
 
-# ❓ Начало работы с игровой панелью управления
+# ❓ Getting Started with the Game Control Panel
 
-Краткая инструкция для новых пользователей игровой панели управления.
+Quick instructions for new users of the game control panel.
 
-## Для чего нужна игровая панель управления?
+## What is the Game Control Panel For?
 
-Игровая панель управления хостинга **Senko Digital** предоставляет нашим пользователям максимально облегчённое и удобное решение для управления их игровыми серверами, без необходимости особых технических знаний.
+The **Senko Digital** hosting game control panel provides our users with a streamlined and convenient solution for managing their game servers, without the need for special technical knowledge.
 
-## Кто является разработчиком панели?
+## Who Developed the Panel?
 
-Мы взяли за основу open-source проект [Pterodactyl](https://pterodactyl.io), отчего в нашей панели управления есть столько схожестей с оригинальной панелью управления.
+We based our panel on the open-source [Pterodactyl](https://pterodactyl.io) project, which is why our control panel has so many similarities with the original control panel.
 
-Мы постоянно добавляем новый функционал и дизайн в панель управления, дабы обеспечить наиболее лёгкий и удобный опыт работы с ней.
+We continually add new functionality and design elements to the control panel to ensure the easiest and most convenient user experience.
 
-## Какие функции доступны в панели?
+## What Functions are Available in the Panel?
 
-**На момент написания статьи в панели доступны следующие вкладки:**
+**At the time of writing this article, the following tabs are available in the panel:**
 
-- 💻 **[Консоль](./console)** - отправка команд и просмотр консоли сервера; информация о его текущей нагрузке; управление питанием;
-- 📁 **[Файловый менеджер](./file-manager)** - позволяет управлять файлами сервера, создавать новые, редактировать существующие и многое другое
-- 💿 **[Базы данных](./databases)** - управление базами данных MySQL для игрового сервера, смена данных для входа
-- ❗️ **[Бэкапы](./backups)** - резервные копии данных сервера, можно настроить вместе с планировщиком для регулярных бэкапов
-- 🕰️ **[Планировщик](./schedules)** - позволяет автоматизировать многие функции, например ввод команды или бэкап сервера в определённое или регулярное время
-- 👥 **[Пользователи](./users)** - добавление новых пользователей, гибкая настройка доступных для них прав
-- 🛠️ **[Параметры запуска](./startup)** - управление параметрами которые будут использоваться при каждом запуске сервера
-- ⚙️ **[Настройки](./settings)** - информация для подключения к серверу по SFTP, смена его названия в панели и прочее
-- 📖 **[Логи](./activity-logs)** - инструмент для отслеживания изменений на сервере, которые производятся другими пользователями
+- 💻 **[Console](./console)** - sending commands and viewing the server console; information about its current load; power management;
+- 📁 **[File Manager](./file-manager)** - allows you to manage server files, create new ones, edit existing ones, and much more
+- 💿 **[Databases](./databases)** - managing MySQL databases for the game server, changing login credentials
+- ❗️ **[Backups](./backups)** - server data backups, can be set up with the scheduler for regular backups
+- 🕰️ **[Scheduler](./schedules)** - allows you to automate many functions, such as inputting commands or backing up the server at a specific or regular time
+- 👥 **[Users](./users)** - adding new users, flexible configuration of their available permissions
+- 🛠️ **[Startup Parameters](./startup)** - managing parameters that will be used each time the server starts
+- ⚙️ **[Settings](./settings)** - information for connecting to the server via SFTP, changing its name in the panel, and more
+- 📖 **[Logs](./activity-logs)** - a tool for tracking changes on the server made by other users

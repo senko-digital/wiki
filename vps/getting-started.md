@@ -1,211 +1,211 @@
 ---
-title: "Начало работы с VPS сервером"
-description: "Краткое руководство по настройке вашего нового VPS сервера. Будет полезно для новичков, и даже опытных пользователей."
+title: "Getting Started with Your VPS Server"
+description: "A brief guide to setting up your new VPS server. Useful for both beginners and experienced users."
 head:
   - - meta
     - name: keywords
-      content: игровая панель, управление сервером, начало работы, pterodactyl, руководство
+      content: game panel, server management, getting started, pterodactyl, guide
   - - meta
     - property: og:title 
-      content: "VPS сервера - Начало работы с VPS сервером"
+      content: "VPS Servers - Getting Started with Your VPS Server"
   - - meta
     - property: og:description
-      content: "Краткое руководство по настройке вашего нового VPS сервера. Будет полезно для новичков, и даже опытных пользователей."
+      content: "A brief guide to setting up your new VPS server. Useful for both beginners and experienced users."
 ---
 
-# Начало работы с VPS сервером
+# Getting Started with Your VPS Server
 
-Краткое руководство по настройке вашего нового VPS сервера. Будет полезно для новичков, и даже опытных пользователей.
+A brief guide to setting up your new VPS server. Useful for both beginners and experienced users.
 
 ---
 
-Только начали работу с вашим новым сервером? Эта инструкция поможет вам настроить и обезопасить ваш сервер — даже если вы только начали пользоваться серверами.
-А если вы уже опытный пользователь, возможно, найдёте для себя что-то полезное!
+Just starting with your new server? This guide will help you configure and secure your server — whether you're new to servers or not.
+And if you're an experienced user, you still might find something useful here!
 
-## Установить Ubuntu для простоты и надёжности
+## Install Ubuntu for Simplicity and Reliability
 
-Использование последней версии ОС Ubuntu LTS (Long-Term Support) — это надёжный способ обеспечить стабильную и безопасную работу вашего проекта. В этой инструкции описывается процесс установки ОС Ubuntu на VPS сервер размещённый у нас.
+Using the latest Ubuntu LTS (Long-Term Support) version is a reliable way to ensure stable and secure operation of your project. This guide explains how to install Ubuntu OS on a VPS server hosted with us.
 
-### Если вы планируете заказать новый сервер
+### If You Plan to Order a New Server
 
-При заказе нового сервера вам будет доступна возможность выбрать операционную систему своего нового сервера.
+When ordering a new server, you'll have the option to choose the operating system for your new server.
 
-Для этого щелкните на выпадающий список с выбором ОС, и выберите самую последнюю доступную версию Ubuntu:  
+Click on the OS selection dropdown and choose the latest available Ubuntu version:  
 
 ![ordering a server with ubuntu](/images/vps/getting-started/1.png){data-zoomable}
 
-После вы можете продолжить процесс заказа и оплаты услуги.
+You can then continue with the ordering and payment process.
 
-После активации сервера вы получите данные для входа на сервер по SSH-протоколу:
+After your server is activated, you'll receive the SSH login credentials:
 
 ![new server login instructions](/images/vps/getting-started/2.png){data-zoomable}
 
-### Если у вас уже есть активный сервер
+### If You Already Have an Active Server
 
-В таком случае нужно будет переустановить ОС вашего сервера, если у вас ещё не установлена ОС Ubuntu на сервере.
+In this case, you'll need to reinstall the OS if Ubuntu isn't already installed on your server.
 
-Для этого нужно будет перейти в панель управления виртуальными серверами. Самый простой способ попасть туда - через личный кабинет.
-Перейдите в список серверов с помощью бокового меню, выберите любой сервер, и нажмите на кнопку "Перейти" (на англ. - "To panel"):
+You'll need to access the virtual server control panel. The easiest way is through your account dashboard.
+Go to the server list using the side menu, select any server, and click the "To panel" button:
 
 ![getting into the vm panel](/images/vps/getting-started/3.png){data-zoomable}
 
-В открывшемся окне выберите нужный вам сервер и щелкните на кнопку параметры:
+In the opened window, select your server and click on the settings button:
 
 ![getting into the server management](/images/vps/getting-started/4.png){data-zoomable}
 
-Далее нужно будет раскрыть меню и выбрать опцию "Переустановить ОС" (на англ. - "Reinstall OS"):
+Then expand the menu and select "Reinstall OS":
 
 ![selecting the reinstall os option](/images/vps/getting-started/5.png){data-zoomable}
 
-Выберите последнюю доступную версию Ubuntu, введите предпочитаемый пароль (либо воспользуйтесь уже сгенерированным), выберите скрипт ПО, которое вы хотели бы установить на сервер (если требуется) и смело нажмите на кнопку "Переустановить" ("Reinstall").
+Choose the latest available Ubuntu version, enter your preferred password (or use the generated one), select any software scripts you'd like to install (if needed), and click "Reinstall".
 
 ![selecting ubuntu as the operating system](/images/vps/getting-started/6.png){data-zoomable}
 
 ::: danger
-При переустановке ОС **будут удалены все данные с сервера**. Это действие никак **невозвратимо**, и данные восстановить будет **нельзя**. Рекомендуем проверить, сохранены ли важные данные с сервера у вас локально или в облаке во избежание потери важных данных.
+When reinstalling the OS, **all data on the server will be deleted**. This action is **irreversible**, and the data **cannot be recovered**. We recommend checking that important data from the server is saved locally or in the cloud to avoid losing important information.
 :::
 
-## Настройка firewall с помощью UFW
+## Setting Up Firewall with UFW
 
-**Uncomplicated Firewall (UFW)** — это удобный инструмент для управления доступом по сети к вашему серверу.
+**Uncomplicated Firewall (UFW)** is a convenient tool for managing network access to your server.
 
-Настройте его следующим образом:
+Set it up as follows:
 
-1. Убедитесь, что UFW установлен:
+1. Make sure UFW is installed:
 
    ```bash
    sudo apt install ufw
    ```
 
-2. Разрешите соединения по SSH:
+2. Allow SSH connections:
 
    ```bash
    sudo ufw allow OpenSSH
    ```
 
-3. Активируйте UFW:
+3. Enable UFW:
 
    ```bash
    sudo ufw enable
    ```
 
-4. Проверьте статус (включён ли он)
+4. Check status (if it's enabled)
 
    ```bash
    sudo ufw status
    ```
 
-Если ufw ответил:
+If ufw responds:
 
 ```bash
 root@servername:~# ufw status
 Status: active
 ```
 
-Тогда брандмауэр уже работает и блокирует подключения к неразрешённым портам.
+Then the firewall is working and blocking connections to unauthorized ports.
 
-Если вы планируете размещать веб-сервер, игровой сервер, или какое-то другое приложение, которое выходит в Интернет - вы можете разрешить подключения к порту с помощью команды:
+If you plan to host a web server, game server, or any other application that needs internet access, you can allow connections to a port using:
 
 ```bash
 ufw allow [port]
 ```
 
-Например:
+For example:
 
 ```bash
 ufw allow 80
 ```
 
-С помощью этой команды вы откроете 80-й порт для вашего веб-сервера.
+This will open port 80 for your web server.
 
-## Создание нового пользователя вместо root
+## Creating a New User Instead of Root
 
-Работа под root небезопасна. Вместо использования root-пользователя, давайте создадим нового пользователя и предоставим ему права суперпользователя.
+Working as root is unsafe. Instead of using the root user, let's create a new user and give them superuser privileges.
 
-### Создание нового пользователя
+### Creating a New User
 
-От root-пользователя введите следующие команды:
+From the root user, enter:
 
 ```bash
 sudo adduser username
 ```
 
-В команде замените `username` на имя вашего нового пользователя.
+Replace `username` with your new user's name.
 
-При создании пользователя вас попросят ввести пароль - рекомендуется использовать пароль минимум из 8 символов, 1 цифрой и 1 специальным символом - так его будет подобрать намного сложнее.
+When creating the user, you'll need to enter a password - it's recommended to use a password with at least 8 characters, 1 number, and 1 special character - this makes it much harder to crack.
 
 ::: tip
-Утилита так же попросит вас предоставить множество необязательных данных, таких как `Полное Имя`, `Номер Комнаты`, `Рабочий Телефон`, `Домашний Телефон` и прочую ненужную информацию.
+The utility will also ask for optional information like `Full Name`, `Room Number`, `Work Phone`, `Home Phone`, and other details.
 
-Эти данные необязательны в заполнении, и их заполнение может быть пропущено с помощью клавиши `[Enter]`, пока вы не дойдёте до диалога с подтверждением.
+This data is optional, and you can skip it by pressing `[Enter]` until you reach the confirmation dialog.
 :::
 
-После ввода всех данных, утилита спросит, подтверждаете ли вы создание нового пользователя.
+After entering all the data, the utility will ask if you want to create the new user.
 
-Если вы ввели все данные так, как вам нужно - согласитесь с утилитой нажав на английскую клавишу `[Y]` на клавиатуре.
+If you entered everything as needed - confirm by pressing `[Y]`.
 
-### Предоставление прав sudo пользователю
+### Granting sudo Rights to the User
 
-Для предоставления прав суперпользователя нашему новому пользователю, воспользуйтесь командой:
+To give superuser privileges to your new user, use:
 
 ```bash
 sudo usermod -aG sudo username
 ```
 
-Готово! Теперь вы можете войти под вашим новым пользователем с помощью команды:
+Done! Now you can log in as your new user with:
 
 ```bash
 sudo login
 ```
 
-## Отключение root-доступа по SSH
+## Disabling Root SSH Access
 
-Для повышения безопасности отключите вход под root:
+To increase security, disable root login:
 
-1. Отредактируйте конфигурацию SSH:
+1. Edit the SSH configuration:
 
    ```bash
    sudo nano /etc/ssh/sshd_config
    ```
 
-2. Найдите и измените параметр `PermitRootLogin` на `no`:
+2. Find and change the `PermitRootLogin` parameter to `no`:
 
    ```bash
    PermitRootLogin no
    ```
 
-3. Сохраните изменения в файле.
-Сделать это можно нажав на связку клавиш `[CTRL]`+`[X]`, позже нажать на английскую букву `[Y]` для подтверждения и нажать на `[Enter]`.
+3. Save the changes.
+Do this by pressing `[CTRL]`+`[X]`, then `[Y]`, and `[Enter]`.
 
-4. Перезапустите службу SSH с помощью команды:
+4. Restart the SSH service:
 
    ```bash
    sudo systemctl restart sshd
    ```
 
-## Использование SSH-ключей вместо пароля
+## Using SSH Keys Instead of Password
 
-SSH-ключи обеспечивают более безопасную авторизацию, заменяя устаревшую технологию паролей на длинный приватный ключ, который будет использоваться при авторизации.
+SSH keys provide more secure authentication, replacing passwords with a long private key for authentication.
 
-Ключи хранятся локально на вашем ПК, и могут быть использованы различными приложениями, включая SSH-клиенты и Visual Studio Code.
+Keys are stored locally on your PC and can be used by various applications, including SSH clients and Visual Studio Code.
 
-Для установки входа по ключу, следуйте за указанными шагами:
+To set up key-based login, follow these steps:
 
-### Сгенерируйте новый приватный ключ
+### Generate a New Private Key
 
-Введите эту команду на своём ПК для генерации новой связки ключей:
+On your PC, generate a new key pair:
 
    ```bash
    ssh-keygen -t rsa -b 4096
    ```
 
-При процессе генерации ключа вы можете указать своё название ключа для более удобного доступа к нему.
+During key generation, you can specify a name for your key for easier access.
 
-Утилита так же попросит вас ввести кодовую фразу (пароль) для усиленной защиты вашего сервера.
+The utility will also ask for a passphrase (password) for extra security.
 
-Этот шаг необязателен, но **настоятельно рекомендуется**. Если вы решите установить пароль на ключ, рекомендуем **очень хорошо запомнить его**, либо **записать на лист бумаги** и **беречь его в безопасном месте**, так как пароль изменить будет нельзя.
+This step is optional but **strongly recommended**. If you set a key password, make sure to **remember it well** or **write it down and keep it safe**, as it cannot be changed later.
 
-После генерации ключа утилита должна будет ответить примерно вот так:
+After generating the key, you should see something like this:
 
 ```bash
 Your identification has been saved in test
@@ -226,39 +226,37 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-### Скопируйте публичный ключ на свой сервер
+### Copy the Public Key to Your Server
 
    ```bash
    ssh-copy-id username@server_ip
    ```
 
-вместо `username` - имя уже существующего пользователя под которым вы хотите входить на сервер через ключ
+Replace `username` with your user's name and `server_ip` with your server's IP address.
 
-вместо `server_ip` - IP-адрес вашего сервера
+### Test the Server Connection
 
-### Проверьте подключение к серверу
+Connect to the server using your SSH client (on Windows, you can use Termius, Bitvise SSH Client, or others), specifying your generated private key in the settings.
 
-Подключитесь к серверу с помощью вашего SSH-клиента (на Windows доступны Termius, Bitvise SSH Client и другие), при этом в настройках укажите ваш приватный ключ который вы сгенерировали.
+#### If Using OpenSSH
 
-#### В случае использования OpenSSH
+If you're using the built-in OpenSSH in Windows or Linux, follow these steps:
 
-Если вы не пользуетесь сторонним клиентом, и полагаетесь на встроенный OpenSSH в ОС Windows или Linux, проследуйте нижеуказанным шагам:
+##### 1. Go to the `.ssh` folder
 
-##### 1. Перейдите в папку `.ssh`
+In Windows, it's at `C:\Users\%username%\.ssh`
 
-В ОС Windows она находиться по пути `C:\Users\%username%\.ssh`
+In Linux, it's in your home directory at `/home/username/.ssh`
 
-В ОС семейства Linux папка должна находиться в домашней директории пользователя - `/home/username/.ssh`
+##### 2. Create OpenSSH Configuration File
 
-##### 2. Создайте конфигурационный файл OpenSSH
+Create a new file named `config` (without any extension).
 
-Создайте новый файл под названием `config` (обязательно без расширения).
+If the file exists, just edit it and continue to the next step.
 
-Если файл уже существует, перейдите в режим редактирования и проследуйте по следующему шагу.
+##### 3. Configure OpenSSH
 
-##### 3. Настройте конфиг OpenSSH
-
-В файл `config` нужно внести вот такую информацию:
+Add this to the `config` file:
 
    ```bash
    Host ConnectionName
@@ -268,69 +266,67 @@ The key's randomart image is:
     IdentityFile ~/.ssh/private-key-name
    ```
 
-`ConnectionName` - алиас, название вашего подключения. Например: `discord-bot`, `website-prod`, `gmod-server` и так далее. Будет использоваться для быстрого подключения к серверу без ввода IP, логина и пароля (`ssh aliasname`).
+`ConnectionName` - an alias for your connection. Examples: `discord-bot`, `website-prod`, `gmod-server`. Used for quick connection without typing IP and login (`ssh aliasname`).
 
-`server-ip` - IP-адрес вашего сервера.
+`server-ip` - your server's IP address.
 
-`username` - имя пользователя к которому нужно будет устанавливать подключение.
+`username` - the username to connect with.
 
-`ssh-port` - порт SSH, который используется на вашем сервере.
+`ssh-port` - SSH port on your server.
 
-`private-key-name` - название вашего приватного ключа, которое вы указывали при его генерации
+`private-key-name` - name of your private key from generation
 
-После можете сохранить файл и попробовать подключиться к серверу с помощью команды:
+After saving, try connecting:
 
    ```bash
     ssh aliasname
    ```
 
-### Отключите вход по паролю в файле `sshd_config`
+### Disable Password Login in `sshd_config`
 
-Для этого перейдите в файл, введя на сервере команду:
+On the server, edit the file:
 
    ```bash
    sudo nano /etc/ssh/sshd_config
    ```
 
-В файле найдите строчку с `PasswordAuthentication` и выставьте её на `no`:
+Find `PasswordAuthentication` and set it to `no`:
 
    ```bash
    PasswordAuthentication no
    ```
 
-Сохраните изменения в файле.
+Save the changes.
 
-### Перезапустите SSH
+### Restart SSH
 
    ```bash
    sudo systemctl restart sshd
    ```
 
-Готово! Теперь авторизация по паролю пользователя отключена, и зайти на сервер можно будет только с помощью приватного ключа.
+Done! Now password login is disabled, and you can only connect using your private key.
 
-## Регулярное обновление ОС
+## Regular OS Updates
 
-Регулярные обновления критически важны для безопасности вашего сервера. Рекомендуется обновлять сервер и ПО на нём хотя бы раз в неделю.
-
-Вы можете обновить список репозиторий и скачать последние версии ПО и ОС с помощью команды:
+Regular updates are crucial for security. Update your server and software at least weekly with:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Мониторинг нагрузки на сервер с помощью htop
+## Monitoring Server Load with htop
 
-Для мониторинга ресурсов сервера, вы можете воспользоваться утилитой `htop`. Она во многом похожа на привычный нам "Диспетчер задач" из ОС Windows.
+For monitoring server resources, use `htop`. It's similar to Task Manager in Windows.
 
-Программа выводит различную информацию про сервер, включая нагрузку на процессор, степень свободности оперативной памяти, количество и список запущенных процессов, аптайм и многое другое.
+The program shows CPU load, RAM usage, running processes, uptime, and more.
 
-1. Установите htop на сервер:
+1. Install htop:
 
    ```bash
    sudo apt install htop
    ```
 
-2. Запустите утилиту:
+2. Run it:
 
    ```bash
    htop
@@ -340,6 +336,6 @@ sudo apt update && sudo apt upgrade -y
 
 ---
 
-Следуя этому руководству, вы получите безопасный и надёжный сервер, готовый для выполнения различных задач.
+Following this guide will give you a secure and reliable server ready for your tasks.
 
-Не забывайте регулярно обновлять систему и мониторить её состояние для поддержания стабильной работы.
+Remember to update regularly and monitor your system to keep it running smoothly.

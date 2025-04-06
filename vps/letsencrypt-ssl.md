@@ -1,143 +1,143 @@
 ---
-title: "Настройка Let's Encrypt для автоматического обновления SSL-сертификатов"
-description: "Подробное руководство по настройке бесплатных SSL-сертификатов Let's Encrypt с автоматическим обновлением на вашем VPS сервере."
+title: "Setting Up Let's Encrypt for Automatic SSL Certificate Renewal"
+description: "Detailed guide on configuring free Let's Encrypt SSL certificates with automatic renewal on your VPS server."
 head:
   - - meta
     - name: keywords
-      content: lets encrypt, ssl сертификат, https, автоматическое обновление сертификатов, certbot, vps, nginx, apache, безопасность, шифрование
+      content: lets encrypt, ssl certificate, https, automatic certificate renewal, certbot, vps, nginx, apache, security, encryption
   - - meta
     - property: og:title 
-      content: "Настройка Let's Encrypt для автоматического обновления SSL-сертификатов"
+      content: "Setting Up Let's Encrypt for Automatic SSL Certificate Renewal"
   - - meta
     - property: og:description
-      content: "Подробное руководство по настройке бесплатных SSL-сертификатов Let's Encrypt с автоматическим обновлением на вашем VPS сервере."
+      content: "Detailed guide on configuring free Let's Encrypt SSL certificates with automatic renewal on your VPS server."
 ---
 
-# Настройка Let's Encrypt для автоматического обновления SSL-сертификатов
+# Setting Up Let's Encrypt for Automatic SSL Certificate Renewal
 
-В этом руководстве мы рассмотрим, как настроить бесплатные SSL-сертификаты от Let's Encrypt с автоматическим обновлением для вашего веб-сервера на VPS.
+In this guide, we'll look at how to set up free SSL certificates from Let's Encrypt with automatic renewal for your web server on a VPS.
 
-## Что такое Let's Encrypt и почему это важно
+## What is Let's Encrypt and Why It Matters
 
-Let's Encrypt — это бесплатный, автоматизированный и открытый центр сертификации, позволяющий получить SSL-сертификаты для шифрования соединений через HTTPS. 
+Let's Encrypt is a free, automated, and open certificate authority that provides SSL certificates for encrypting connections via HTTPS.
 
-Использование HTTPS имеет несколько преимуществ:
+Using HTTPS has several advantages:
 
-- Защита данных пользователей при передаче информации
-- Улучшение поисковой выдачи (Google, Yandex и другие поисковики отдают предпочтение сайтам с HTTPS)
-- Повышение доверия посетителей
-- Поддержка современных веб-технологий (HTTP/2, WebSockets и др.)
+- Protection of user data during information transmission
+- Improved search engine rankings (Google, Yandex, and other search engines prioritize HTTPS sites)
+- Increased visitor trust
+- Support for modern web technologies (HTTP/2, WebSockets, etc.)
 
-## Предварительные требования
+## Prerequisites
 
-- VPS с установленной ОС Linux (как пример, используется ОС Ubuntu 24)
-- Уже настроенный веб-сервер (Nginx или Apache)
-- Доменное имя, направленное на IP-адрес вашего сервера
-- SSH-доступ к серверу с правами root
+- VPS with Linux OS installed (Ubuntu 24 used as an example)
+- Already configured web server (Nginx or Apache)
+- Domain name pointing to your server's IP address
+- SSH access to the server with root privileges
 
-## Установка Certbot
+## Installing Certbot
 
-Certbot — это утилита, которая взаимодействует с Let's Encrypt для получения сертификатов и настройки вашего веб-сервера.
+Certbot is a utility that interacts with Let's Encrypt to obtain certificates and configure your web server.
 
 ::: code-group
 
 ```bash [Ubuntu/Debian]
-# Установка Certbot
+# Installing Certbot
 sudo apt update -y
 sudo apt install certbot -y
 
-# Установка плагина для Nginx
+# Installing plugin for Nginx
 sudo apt install python3-certbot-nginx -y
 
-# Установка плагина для Apache
+# Installing plugin for Apache
 sudo apt install python3-certbot-apache -y
 ```
 
 ```bash [CentOS/RHEL]
-# Установка EPEL репозитория
+# Installing EPEL repository
 sudo dnf install epel-release
 
-# Установка Certbot
+# Installing Certbot
 sudo dnf install certbot
 
-# Установка плагина для Nginx
+# Installing plugin for Nginx
 sudo dnf install python3-certbot-nginx
 
-# Установка плагина для Apache
+# Installing plugin for Apache
 sudo dnf install python3-certbot-apache
 ```
 
 ```bash [Fedora]
-# Установка Certbot
+# Installing Certbot
 sudo dnf install certbot
 
-# Установка плагина для Nginx
+# Installing plugin for Nginx
 sudo dnf install python3-certbot-nginx
 
-# Установка плагина для Apache
+# Installing plugin for Apache
 sudo dnf install python3-certbot-apache
 ```
 
 :::
 
-## Получение сертификата
+## Obtaining a Certificate
 
 ::: code-group
 
 ```bash [Nginx]
-# Получение сертификата для Nginx
+# Obtaining a certificate for Nginx
 sudo certbot --nginx -d example.com -d www.example.com
 ```
 
 ```bash [Apache]
-# Получение сертификата для Apache
+# Obtaining a certificate for Apache
 sudo certbot --apache -d example.com -d www.example.com
 ```
 
 :::
 
 ::: tip
-Замените `example.com` и `www.example.com` на ваши доменные имена. Вы можете указать несколько доменов, добавляя параметр `-d домен` для выпуска SSL к каждому новому домену.
+Replace `example.com` and `www.example.com` with your domain names. You can specify multiple domains by adding the `-d domain` parameter for each new domain you want to issue an SSL certificate for.
 :::
 
-Certbot предложит вам указать email для уведомлений, принять условия использования и выбрать, хотите ли вы перенаправлять HTTP на HTTPS.
+Certbot will ask you to provide an email for notifications, accept the terms of service, and choose whether you want to redirect HTTP to HTTPS.
 
-Вы также можете не указывать email адрес, добавив параметр `--register-unsafely-without-email`.
+You can also omit the email address by adding the `--register-unsafely-without-email` parameter.
 
-## Проверка автоматического обновления
+## Verifying Automatic Renewal
 
-Let's Encrypt выдаёт сертификаты, действительные только на 90 дней, поэтому автоматическое обновление сертификатов критически важно для обеспечения бесперебойной работы сайта.
+Let's Encrypt issues certificates that are only valid for 90 days, so automatic certificate renewal is critical to ensure your site operates without interruption.
 
-Проверьте, настроено ли автоматическое обновление:
+Check if automatic renewal is configured:
 
 ```bash
 sudo systemctl list-timers | grep certbot
 ```
 
-Если таймера не существует, его нужно будет создать вручную:
+If the timer doesn't exist, you'll need to create it manually:
 
 ```bash
 sudo systemctl enable certbot.timer
 sudo systemctl start certbot.timer
 ```
 
-Вы также можете проверить корректность уже существующих настроек, запустив пробное обновление сертификата:
+You can also check the correctness of existing settings by running a test certificate renewal:
 
 ```bash
 sudo certbot renew --dry-run
 ```
 
-## Настройка веб-сервера для оптимального использования SSL
+## Configuring Your Web Server for Optimal SSL Usage
 
-### Оптимизация Nginx
+### Optimizing Nginx
 
-Создайте файл с настройками SSL для включения в конфигурацию серверов:
+Create a file with SSL settings to include in server configurations:
 
 ```bash
 sudo nano /etc/nginx/snippets/ssl-params.conf
 ```
 
-И добавьте следующие параметры:
+And add the following parameters:
 
 ```nginx
 ssl_protocols TLSv1.2 TLSv1.3;
@@ -156,7 +156,7 @@ add_header X-Content-Type-Options nosniff;
 add_header X-XSS-Protection "1; mode=block";
 ```
 
-И включите его в конфигурацию сервера:
+And include it in your server configuration:
 
 ```nginx
 server {
@@ -167,19 +167,19 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
     include snippets/ssl-params.conf;
     
-    # Ваша конфигурация ниже
+    # Your configuration below
 }
 ```
 
-### Оптимизация Apache
+### Optimizing Apache
 
-Для Apache создайте или отредактируйте файл:
+For Apache, create or edit the file:
 
 ```bash
 sudo nano /etc/apache2/conf-available/ssl-params.conf
 ```
 
-И добавьте следующие параметры:
+And add the following parameters:
 
 ```apache
 SSLProtocol -all +TLSv1.2 +TLSv1.3
@@ -195,7 +195,7 @@ Header always set X-Content-Type-Options nosniff
 Header always set X-XSS-Protection "1; mode=block"
 ```
 
-Включите нужные модули и конфигурацию:
+Enable the necessary modules and configuration:
 
 ```bash
 sudo a2enmod ssl headers http2
@@ -203,47 +203,47 @@ sudo a2enconf ssl-params
 sudo systemctl restart apache2
 ```
 
-## Устранение проблем
+## Troubleshooting
 
-### Срок действия сертификата истёк
+### Certificate Has Expired
 
-Если срок действия сертификата истёк, выполните принудительное обновление:
+If your certificate has expired, perform a forced renewal:
 
 ```bash
 sudo certbot renew --force-renewal
 ```
 
-### Certbot не может проверить владение доменом
+### Certbot Cannot Verify Domain Ownership
 
-- Убедитесь, что DNS-записи правильно настроены и указывают на ваш IP
-- Проверьте, что порты 80 и 443 открыты в фаерволе
-- Убедитесь, что веб-сервер правильно настроен и запущен
+- Make sure DNS records are correctly configured and point to your IP
+- Check that ports 80 and 443 are open in the firewall
+- Ensure the web server is properly configured and running
 
 ```bash
 sudo ufw status
-sudo systemctl status nginx # или apache2
+sudo systemctl status nginx # or apache2
 ```
 
-### Ошибки в файлах конфигурации веб-сервера
+### Errors in Web Server Configuration Files
 
-Проверьте конфигурацию на ошибки:
+Check the configuration for errors:
 
-**Для Nginx:**
+**For Nginx:**
 
 ```bash
 sudo nginx -t
 ```
 
-**Для Apache:**
+**For Apache:**
 
 ```bash
 sudo apachectl configtest
 ```
 
-В случае возникновения ошибок, советуем внимательно ознакомиться с ними и поправить конфигурационные файлы для решения проблемы.
+If errors occur, we recommend carefully reviewing them and correcting the configuration files to resolve the issue.
 
-## Заключение
+## Conclusion
 
-Настройка автоматического обновления SSL-сертификатов с Let's Encrypt — это надёжный и бесплатный способ обеспечить безопасность вашего веб-сайта. Благодаря правильной настройке, сертификаты будут обновляться автоматически, избавляя вас от необходимости следить за сроком действия и их ручного продления.
+Setting up automatic SSL certificate renewal with Let's Encrypt is a reliable and free way to secure your website. With proper configuration, certificates will be renewed automatically, freeing you from the need to monitor expiration dates and manually renew them.
 
-При возникновении любых вопросов или проблем вы всегда можете обратиться в нашу [службу поддержки](https://senko.digital/contacts).
+If you have any questions or issues, you can always contact our [support team](https://senko.digital/contacts).

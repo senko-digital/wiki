@@ -1,54 +1,54 @@
 ---
-title: "Регистрация в личном кабинете"
-description: "Краткое руководство по регистрации и началу работы в личном кабинете хостинг-провайдера Senko Digital."
+title: "Registration in Personal Account"
+description: "Quick guide on registration and getting started with the personal account of Senko Digital hosting provider."
 head:
   - - meta
     - name: keywords
-      content: регистрация, личный кабинет, vps, начало работы, руководство
+      content: registration, personal account, vps, getting started, guide
   - - meta
     - property: og:title
-      content: "Регистрация в личном кабинете"
+      content: "Registration in Personal Account"
   - - meta
     - property: og:description
-      content: "Краткое руководство по регистрации и началу работы в личном кабинете хостинг-провайдера Senko Digital."
+      content: "Quick guide on registration and getting started with the personal account of Senko Digital hosting provider."
 ---
 
-# Регистрация в личном кабинете
+# Registration in Personal Account
 
-Краткое руководство по регистрации и началу работы в личном кабинете хостинг-провайдера Senko Digital.
+Quick guide on registration and getting started with the personal account of Senko Digital hosting provider.
 
-## Регистрация аккаунта
+## Account Registration
 
-Перейдите в [личный кабинет](https://my.senko.digital/billmgr) и нажмите кнопку «Регистрация».
+Go to the [personal account](https://my.senko.digital/billmgr) and click the "Register" button.
 
-После этого вы будете перенаправлены на страницу создания аккаунта.
+After that, you will be redirected to the account creation page.
 
-![форма регистрации](/images/personal-area/register/1.png){data-zoomable}
+![registration form](/images/personal-area/register/1.png){data-zoomable}
 
-Заполните все контактные данные. Обязательными требованиеми являются действительный e-mail адрес и страна аккаунта для правильного учёта НДС.
+Fill in all contact information. The mandatory requirements are a valid email address and the country of the account for proper VAT accounting.
 
-Ознакомьтесь с приложенными документами в форме регистрации - условиями использования и политикой конфиденциальности. Примите условия, если вы согласны с ними.
+Review the attached documents in the registration form - terms of use and privacy policy. Accept the terms if you agree with them.
 
-После нажатия кнопки «Зарегистрироваться» вы автоматически будете перенаправлены на главную страницу личного кабинета.
+After clicking the "Register" button, you will be automatically redirected to the main page of your personal account.
 
-![личный кабинет](/images/personal-area/register/2.png){data-zoomable}
+![personal account](/images/personal-area/register/2.png){data-zoomable}
 
-Поздравляем! Аккаунт был успешно создан.
+Congratulations! Your account has been successfully created.
 
-## Подтверждение e-mail адреса
+## Email Confirmation
 
-Мы настоятельно рекомендуем подтвердить ваш e-mail адрес, дабы получать важные уведомления от нашей компании, включая уведомления об окончании услуг, специальных предложениях и технических работах.
+We strongly recommend confirming your email address to receive important notifications from our company, including notifications about service expiration, special offers, and technical maintenance.
 
-Сделать это можно щелкнув по тексту в уведомлении в верхней части сайта:
+You can do this by clicking on the text in the notification at the top of the site:
 
-![уведомление о подтверждении e-mail](/images/personal-area/register/3.png){data-zoomable}
+![email confirmation notification](/images/personal-area/register/3.png){data-zoomable}
 
-В открывшемся окне подтвердите отправку письма нажав на кнопку «Ok».
+In the opened window, confirm sending the email by clicking the "Ok" button.
 
-В течение пары минут на указанный вами при регистрации e-mail будет отправлено письмо для подтверждения e-mail.
+Within a few minutes, a confirmation email will be sent to the email address you provided during registration.
 
-После получения письма, откройте его и подтвердите e-mail с помощью соответствующей кнопки.
+After receiving the email, open it and confirm your email address using the corresponding button.
 
 ---
 
-Приятного использования!
+Enjoy using our services!

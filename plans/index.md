@@ -1,20 +1,20 @@
 ---
-title: "Тарифы"
-description: "Тарифы на игровой хостинг и виртуальные сервера от Senko Digital. Выгодные цены, мощное оборудование и защита от DDoS-атак."
+title: "Plans"
+description: "Game hosting and virtual server plans from Senko Digital. Competitive prices, powerful hardware, and DDoS protection."
 head:
   - - meta
     - name: keywords
-      content: тарифы, цены, хостинг, vps, игровой хостинг, ddos защита, сервера
+      content: plans, prices, hosting, vps, game hosting, ddos protection, servers
   - - meta
     - property: og:title 
-      content: "Тарифы"
+      content: "Plans"
   - - meta
     - property: og:description
-      content: "Тарифы на игровой хостинг и виртуальные сервера от Senko Digital. Выгодные цены, мощное оборудование и защита от DDoS-атак."
+      content: "Game hosting and virtual server plans from Senko Digital. Competitive prices, powerful hardware, and DDoS protection."
 ---
 
-# Навигация по статьям
+# Article Navigation
 
-#### [Игровой хостинг](/plans/game)
+#### [Game Hosting](/plans/game)
 
-#### [Виртуальные сервера](/plans/vps)
+#### [Virtual Servers](/plans/vps)

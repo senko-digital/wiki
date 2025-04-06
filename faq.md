@@ -1,77 +1,75 @@
 ---
-title: "Частозадаваемые вопросы"
-description: "Ответы на частые вопросы о хостинге Senko Digital. Информация о тарифах, способах оплаты, защите от DDoS-атак и сроках установки серверов."
+title: "Frequently asked questions"
+description: "Replies to the most frequently asked questions about Senko Digital. Information about various plans, payment methods, DDoS protection and more."
 head:
   - - meta
     - name: keywords
       content: faq, вопросы, хостинг, оплата, ddos защита, установка сервера, техподдержка, игровой хостинг, minecraft сервер, garrys mod сервер
   - - meta
     - property: og:title 
-      content: "Частозадаваемые вопросы | Senko Digital"
+      content: "Frequently Asked Questions | Senko Digital Wiki"
   - - meta
     - property: og:description
-      content: "Ответы на частые вопросы о хостинге Senko Digital. Информация о тарифах, способах оплаты, защите от DDoS-атак и сроках установки серверов."
+      content: "Replies to the most frequently asked questions about Senko Digital. Information about various plans, payment methods, DDoS protection and more."
 ---
 
-# 🤔 Частозадаваемые вопросы
+# 🤔 Frequently asked questions
 
-## 🤔 Какой тариф мне стоит выбрать для игрового сервера?
+## 🤔 Which plan should I choose for my game server?
 
 ### Garry's Mod
 
-Так как Garry's Mod был сделан на движке Source Engine, большинство процессорных операций проходят всего лишь на одном ядре.
+Since Garry's Mod was built on the Source Engine, most CPU operations run on just one core.
 
-Мы настоятельно рекомендуем использовать тарифы с наибольшей мощностью на одно ядро, а то есть **i9-12900K** или **i9-14900K**.
+We strongly recommend using plans with the highest single-core performance, namely **i9-12900K** or **i9-14900K**.
 
-Для dev-сервера идеально подошёл бы тариф `i9-9900K 1 vCore / 2 GB DDR4 / 30 GB NVMe` - его мощности будет более чем достаточно для размещения тестового сервера.
+For a development server, the `i9-9900K 1 vCore / 2 GB DDR4 / 30 GB NVMe` plan would be ideal - its power will be more than sufficient for hosting a test server.
 
-Для средненагруженного сервера (с онлайном в 30-40 человек) подходил бы тариф `R9-7950X 1 vCore / 4 GB DDR4 / 50 GB NVMe`.
+For a medium-load server (with 30-40 online players), the `R9-7950X 1 vCore / 4 GB DDR4 / 50 GB NVMe` plan would be suitable.
 
-Для высоконагруженного сервера (с онлайном свыше 50 человек) настоятельно рекомендуется как минимум выбрать тариф с `i9-14900K 1 vCore / 4 GB DDR4 / 60 GB NVMe`.
+For a high-load server (with over 50 online players), it is strongly recommended to choose at least the `i9-14900K 1 vCore / 4 GB DDR4 / 60 GB NVMe` plan.
 
 ### Minecraft
 
-Minecraft, в отличие от Garry's Mod, активно использует многопоточность - в особенности если сервер настроен для больших миров с множеством плагинов или модов. Поэтому важно выбирать тарифы, которые предлагают наибольшее количество ядер и оперативной памяти.
+Minecraft, unlike Garry's Mod, actively utilizes multi-threading - especially if the server is configured for large worlds with many plugins or mods. Therefore, it's important to choose plans that offer the highest number of cores and RAM.
 
-Мы рекомендуем использовать тарифы с процессорами, обеспечивающими высокую производительность на ядро и значительное количество потоков, такие как **i9-12900K** или **Ryzen 9 7950X**.
+We recommend using plans with processors that provide high per-core performance and a significant number of threads, such as **i9-12900K** or **Ryzen 9 7950X**.
 
-Для небольших серверов, где планируется ограниченное количество игроков и базовая конфигурация, отлично подойдёт тариф `i9-9900K 2 vCore / 8 GB DDR4 / 200 GB NVMe`.
+For small servers with a limited number of players and basic configuration, the `i9-9900K 2 vCore / 8 GB DDR4 / 200 GB NVMe` plan is an excellent choice.
 
-Если же вам необходима поддержка большого числа игроков или сложных модификаций, обратите внимание на тарифы `Ryzen 9 7950X 4 vCore / 16 GB DDR5 / 200 GB NVMe` и выше.
+If you need support for a large number of players or complex modifications, consider the `Ryzen 9 7950X 4 vCore / 16 GB DDR5 / 200 GB NVMe` plan or higher.
 
-## 🌐 Где располагаются ваши серверы?
+## 🌐 Where are your servers located?
 
-Наши серверы пока что располагаются  двух главных локациях: **Германия**, **Франкфурт**; **Россия**, **Москва**. В будущем планируем расширяться, следите за новостями.
+Our servers are currently located in one main location: **Germany**, **Frankfurt**. We plan to expand in the future, so stay tuned for updates.
 
-## 🛡️ Есть ли защита от DDoS-атак?
+## 🛡️ Do you offer any DDos protection?
 
-В Германии в данный момент предоставляется **только** базовая L4-защита от DDoS-атак.
+In Germany, we currently provide basic L4 DDoS protection **only**.
 
-Все серверы в РФ оснащаются круглосуточной защитой от DDoS-атак (**L3**/**L4**/**L7**), возможна установка защиты и под игровые серверы, если потребуется.
+## 💵 What payment methods are available?
 
-## 💵 Какие способы оплаты у вас доступны?
+We accept payments from cards worldwide, including cards issued in the **European Union**, **Ukraine** and **Russia**. Payment is also possible through **PayPal**, **YooMoney wallets**, and cryptocurrencies **USDT**/**TON**/**BTC**/**LTC**.
 
-Мы принимаем оплату с карт всего мира, включая карты **Украины** и **России**, а так же доступна оплата через СБП. Так же возможна оплата через **PayPal**, **кошельки ЮMoney** и криптовалюты **USDT**/**TON**/**BTC**/**LTC**.
+## 🕒 How long does server setup take?
 
-## 🕒 Сколько занимает установка сервера?
+Virtual servers are set up within 120 seconds after payment.
 
-Виртуальные серверы устанавливаются в течение 120 секунд после оплаты.
+For game servers, processing often takes just 15 minutes after payment.
+Please note that timelines can always extend up to 48 hours due to the lack of available slots and/or IP addresses.
 
-У игровых серверов зачастую обработка проходит всего в течении 15 минут после оплаты.
-Учтите, что сроки всегда могут расшириться вплоть до 48 часов, в связи с отсутствием свободных мест и/или IP-адресов.
+If your order is being processed for more than 48 hours, you will be given the opportunity to request a full refund for the service or receive compensation in the form of additional days of server operation.
 
-Если ваш заказ обрабатывается более 48 часов, то вам будет предоставлена возможность запросить полный возврат средств за услугу или получить компенсацию в виде дополнительных дней к работе сервера.
+## 🛒 How do I order a service?
 
-## 🛒 Как заказать услугу?
+Detailed instructions for ordering a service are [available in this article](/personal-area/vps-order).
 
-Подрбоные инструкции по заказу услуги [доступны в этой статье](/personal-area/vps-order).
+## 💻 How do I access the game control panel?
 
-## 💻 Как войти в игровую панель управления?
+The control panel is [available here](https://panel.senko.digital/auth/login).
 
-Панель управления [доступна тут](https://panel.senko.digital/auth/login).
+To log in, you need to use the email address you provided when registering in your personal account, as well as the password you set yourself when initially ordering the server (or have already used in the control panel).
 
-Для входа нужно использовать e-mail адрес который вы указывали при регистрации в личном кабинете, а так же пароль который вы самостоятельно установили при первичном заказе сервера (или уже использовали в панели управления).
+## 📊 Can I change my plan after purchase?
 
-## 📊 Могу ли я изменить тариф после покупки?
-
-Да, вы всегда можете изменить тариф вашего сервера на более мощный в рамках одной и той же линейки тарифов. Изменения тарифа применяются в течение пары минут и не требуют переустановки сервера.
+Yes, you can always upgrade your server plan to a more powerful one within the same line of plans. Plan changes are applied within a couple of minutes and do not require server reinstallation.

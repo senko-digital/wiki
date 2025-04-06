@@ -1,59 +1,59 @@
 ---
-title: "Как создать запрос в поддержку"
-description: "Инструкция по созданию обращения в техническую поддержку Senko Digital."
+title: "How to Create a Support Request"
+description: "Instructions for creating a support ticket with Senko Digital technical support."
 head:
   - - meta
     - name: keywords
-      content: поддержка, тикет, обращение, помощь, Senko Digital, техподдержка
+      content: support, ticket, request, help, Senko Digital, technical support
   - - meta
     - property: og:title
-      content: "Как обратиться в поддержку Senko Digital"
+      content: "How to Contact Senko Digital Support"
   - - meta
     - property: og:description
-      content: "Подробная инструкция по созданию запроса в службу поддержки."
+      content: "Detailed instructions for creating a support request."
 ---
 
 
-# Как создать запрос в поддержку
+# How to Create a Support Request
 
-Инструкция по созданию обращения в техническую поддержку Senko Digital.
+Instructions for creating a support ticket with Senko Digital technical support.
 
 ---
 
-Если у вас возникли вопросы или проблемы, вы всегда можете обратиться в службу поддержки Senko Digital. Для этого выполните несколько простых шагов.
+If you have questions or problems, you can always contact Senko Digital support. Follow these simple steps.
 
-### Войдите в личный кабинет
+### Log in to your account
 
-Перейдите в [личный кабинет](https://my.senko.digital/billmgr) и авторизуйтесь в системе. Если у вас ещё нет аккаунта, [создайте его](/personal-area/register.md).
+Go to your [personal account](https://my.senko.digital/billmgr) and log in to the system. If you don't have an account yet, [create one](/personal-area/register.md).
 
-![вход в систему](/images/personal-area/new-ticket/1.png){data-zoomable}
+![system login](/images/personal-area/ordering/2.png){data-zoomable}
 
-### Откройте раздел поддержки
+### Open the support section
 
-В боковом меню найдите раздел **«Поддержка»** и выберите **«Запросы»**.
+In the side menu, find the **"Support"** section and select **"Requests"**.
 
-![боковое меню](/images/personal-area/new-ticket/2.png){data-zoomable}
+![side menu](/images/personal-area/new-ticket/2.png){data-zoomable}
 
-### Создайте новый тикет  
+### Create a new ticket
 
-Перед вами откроется список ваших обращений. Чтобы отправить новый запрос, нажмите на кнопку **«Создать»**.
+You will see a list of your requests. To send a new request, click the **"Create"** button.
 
-![создание тикета](/images/personal-area/new-ticket/3.png){data-zoomable}
+![creating a ticket](/images/personal-area/new-ticket/3.png){data-zoomable}
 
-### Опишите проблему  
+### Describe the problem
 
-Укажите тему обращения, подробно опишите ситуацию и приложите необходимые файлы, если это нужно.
+Specify the subject of your request, describe the situation in detail, and attach necessary files if needed.
 
-![заполнение тикета](/images/personal-area/new-ticket/4.png){data-zoomable}
+![filling out the ticket](/images/personal-area/new-ticket/4.png){data-zoomable}
 
-После заполнения всех полей отправьте запрос.
+After filling in all fields, send the request.
 
-Наши специалисты рассмотрят ваш тикет и дадут ответ в ближайшее время.  
+Our specialists will review your ticket and respond as soon as possible.
 
 ::: tip
-Система запросов поддерживает разметку текста с помощью Markdown.
+The request system supports text formatting using Markdown.
 :::
 
 ::: tip
-Мы предоставляем нашим клиентам возможность выбрать приоритет запроса - выберите тот, который больше всего подходит под ваш вопрос.
+We provide our clients with the ability to choose the priority of the request - select the one that suits your question best.
 :::

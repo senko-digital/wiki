@@ -1,118 +1,118 @@
 ---
-title: "Развертывание Node.js приложения на VPS с PM2"
-description: "Подробное руководство по настройке и развертыванию Node.js приложений на VPS с использованием PM2 для обеспечения надежности и отказоустойчивости."
+title: "Deploying Node.js Application on VPS with PM2"
+description: "Detailed guide for setting up and deploying Node.js applications on a VPS using PM2 to ensure reliability and fault tolerance."
 head:
   - - meta
     - name: keywords
-      content: node.js, pm2, процесс менеджер, vps, развертывание приложений, деплой, масштабирование, мониторинг, nodejs, express, javascript
+      content: node.js, pm2, process manager, vps, application deployment, deploy, scaling, monitoring, nodejs, express, javascript
   - - meta
     - property: og:title 
-      content: "Развертывание Node.js приложения на VPS с PM2"
+      content: "Deploying Node.js Application on VPS with PM2"
   - - meta
     - property: og:description
-      content: "Подробное руководство по настройке и развертыванию Node.js приложений на VPS с использованием PM2 для обеспечения надежности и отказоустойчивости."
+      content: "Detailed guide for setting up and deploying Node.js applications on a VPS using PM2 to ensure reliability and fault tolerance."
 ---
 
-# Развертывание Node.js приложения на VPS с PM2
+# Deploying Node.js Application on VPS with PM2
 
-В этом руководстве мы рассмотрим процесс развёртывания Node.js приложения на VPS сервере с использованием менеджера процессов PM2 для обеспечения надежности, автоматического перезапуска и масштабирования приложений.
+In this guide, we'll cover the process of deploying a Node.js application on a VPS server using the PM2 process manager to ensure reliability, automatic restart, and application scaling.
 
-## Что такое PM2 и почему его стоит использовать
+## What is PM2 and why you should use it
 
-PM2 (Process Manager 2) — это продвинутый менеджер процессов для Node.js приложений, который предоставляет:
+PM2 (Process Manager 2) is an advanced process manager for Node.js applications that provides:
 
-- Автоматический перезапуск при краше приложения
-- Балансировку нагрузки через кластеризацию
-- Мониторинг процессов в реальном времени
-- Управление логами
-- Автоматический запуск при старте системы
-- Развертывание без простоя (zero-downtime deployment)
+- Automatic restart when an application crashes
+- Load balancing through clustering
+- Real-time process monitoring
+- Log management
+- Automatic startup on system boot
+- Zero-downtime deployment
 
-## Предварительные требования
+## Prerequisites
 
-- VPS сервер с Linux (как пример, используется Ubuntu 24)
-- Права root
-- Базовые знания командной строки Linux
-- Проект на Node.js для деплоя
+- VPS server with Linux (Ubuntu 24 is used as an example)
+- Root access
+- Basic knowledge of Linux command line
+- Node.js project ready for deployment
 
-## Установка Node.js и npm
+## Installing Node.js and npm
 
-Для начала установим Node.js и npm с использованием менеджера версий NVM (Node Version Manager), который позволяет легко переключаться между разными версиями Node.js.
+First, let's install Node.js and npm using NVM (Node Version Manager), which allows you to easily switch between different Node.js versions.
 
 ```bash
-# Установка curl, если его нет
+# Install curl if you don't have it
 sudo apt update
 sudo apt install curl
 
-# Установка NVM
+# Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 
 source ~/.bashrc
 
-# Проверяем, ли NVM установился успешно
+# Check if NVM was successfully installed
 nvm --version
 
-# Установка последней LTS версии Node.js
+# Install the latest LTS version of Node.js
 nvm install --lts
 
-# Проверка версий Node.js и npm
+# Check Node.js and npm versions
 node --version
 npm --version
 ```
 
 ::: tip
-Рекомендуется использовать LTS (Long Term Support) версии Node.js для критических важных приложений, так как на данных версиях предоставляется долгосрочная поддержка и стабильность.
+It's recommended to use LTS (Long Term Support) versions of Node.js for mission-critical applications, as these versions provide long-term support and stability.
 :::
 
-## Установка PM2
+## Installing PM2
 
-Давайте установим PM2 глобально для удобства:
+Let's install PM2 globally for convenience:
 
 ```bash
 npm install -g pm2
 ```
 
-## Подготовка приложения Node.js
+## Preparing the Node.js Application
 
-### Клонирование проекта из репозитория
+### Cloning the project from a repository
 
-Склонируйте ваш проект из репозитория Git или загрузите его на сервер вручную:
+Clone your project from a Git repository or upload it to the server manually:
 
 ```bash
-# Клонирование проекта
+# Clone the project
 git clone https://github.com/username/your-project.git
 cd your-project
 
-# Установка dependencies
+# Install dependencies
 npm install
 ```
 
-## Настройка и запуск приложения с PM2
+## Configuring and launching the application with PM2
 
-### Базовый запуск
+### Basic launch
 
-Самый простой способ запустить приложение с PM2:
+The simplest way to start an application with PM2:
 
 ```bash
 pm2 start app.js --name "my-app"
 ```
 
-Где `my-app` - название вашего приложения, по которому вы сможете обращаться к PM2 для дальнейшего управления.
+Where `my-app` is the name of your application, which you'll use to refer to PM2 for further management.
 
-### Запуск в кластерном режиме
+### Launching in cluster mode
 
-Для использования нескольких ядер процессора и обеспечения высокой доступности вы можете воспользоваться следующей командой:
+To use multiple CPU cores and ensure high availability, you can use the following command:
 
 ```bash
-# Автоматически создаст оптимальное количество процессов в зависимости от числа ядер CPU
+# Automatically creates the optimal number of processes depending on the number of CPU cores
 pm2 start app.js --name "my-app" -i max
 ```
 
-Обратите внимание: ваше приложение должно поддерживать кластеризацию.
+Note: your application must support clustering.
 
-### Создание файла конфигурации PM2
+### Creating a PM2 configuration file
 
-Для более детальной настройки, давайте создадим файл конфигурации `ecosystem.config.js`:
+For more detailed configuration, let's create an `ecosystem.config.js` file:
 
 ```bash
 cat > ecosystem.config.js << 'EOL'
@@ -137,43 +137,43 @@ module.exports = {
 EOL
 ```
 
-Запуск приложения с помощью файла конфигурации:
+Starting the application using the configuration file:
 
 ```bash
 pm2 start ecosystem.config.js --env production
 ```
 
-## Настройка автозапуска PM2 при перезагрузке сервера
+## Configuring PM2 autostart on server reboot
 
-Чтобы приложение автоматически запускалось при перезагрузке сервера, выполните следующую команду:
+To make your application start automatically when the server reboots, run the following command:
 
 ```bash
 pm2 startup
 ```
 
-Выполните команду, которую PM2 выведет в консоль.
+Execute the command that PM2 displays in the console.
 
-После этого сохраните текущий список процессов:
+Then save the current list of processes:
 
 ```bash
 pm2 save
 ```
 
-Теперь ваше приложение (или приложения) будет запускаться даже после перезагрузки сервера без ручного вмешательства.
+Now your application(s) will start even after server reboot without manual intervention.
 
-## Настройка Nginx как обратного прокси
+## Setting up Nginx as a reverse proxy
 
-Для предоставления публичного доступа к приложению (например, через домен), нужно настроить Nginx:
+To provide public access to your application (for example, through a domain), you need to configure Nginx:
 
 ```bash
-# Установка Nginx
+# Install Nginx
 sudo apt install nginx
 
-# Создание конфигурации сайта
+# Create a site configuration
 sudo nano /etc/nginx/sites-available/my-app
 ```
 
-Добавьте следующую конфигурацию:
+Add the following configuration:
 
 ```nginx
 server {
@@ -191,7 +191,7 @@ server {
 }
 ```
 
-Активируйте конфигурацию и перезапустите Nginx:
+Activate the configuration and restart Nginx:
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/my-app /etc/nginx/sites-enabled/
@@ -200,109 +200,109 @@ sudo systemctl restart nginx
 ```
 
 ::: tip
-После настройки Nginx, рекомендуется настроить SSL-сертификат с помощью Let's Encrypt для безопасного соединения. Инструкцию можно найти в нашей [статье о настройке Let's Encrypt](/vps/letsencrypt-ssl).
+After configuring Nginx, it's recommended to set up an SSL certificate using Let's Encrypt for secure connections. Instructions can be found in our [Let's Encrypt setup article](/vps/letsencrypt-ssl).
 :::
 
-## Базовые команды PM2
+## Basic PM2 commands
 
-### Мониторинг процессов
+### Process monitoring
 
 ```bash
-# Мониторинг в режиме реального времени
+# Real-time monitoring
 pm2 monit
 
-# Просмотр списка процессов
+# View the process list
 pm2 list
 
-# Детальная информация о процессе
+# Detailed information about a process
 pm2 show my-app
 ```
 
-### Управление процессами
+### Process management
 
 ```bash
-# Перезапуск приложения
+# Restart the application
 pm2 restart my-app
 
-# Остановка приложения
+# Stop the application
 pm2 stop my-app
 
-# Удаление процесса из списка PM2
+# Remove the process from the PM2 list
 pm2 delete my-app
 ```
 
-### Работа с логами
+### Working with logs
 
 ```bash
-# Просмотр общих логов, от всех приложений
+# View general logs from all applications
 pm2 logs
 
-# Просмотр логов конкретного приложения
+# View logs for a specific application
 pm2 logs my-app
 
-# Просмотр последних 200 строк логов
+# View the last 200 lines of logs
 pm2 logs --lines 200
 ```
 
-## Обновление приложения без простоя (Zero-Downtime Deployment)
+## Updating the application without downtime (Zero-Downtime Deployment)
 
-Для обновления приложения без прерывания работы:
+To update the application without interrupting its operation:
 
-1. Обновите код (например, через git pull)
-2. Выполните перезапуск приложения:
+1. Update the code (e.g., through git pull)
+2. Perform an application reload:
 
 ```bash
 pm2 reload my-app
 ```
 
-## Мониторинг и статистика
+## Monitoring and statistics
 
-PM2 предоставляет базовый бесплатный мониторинг, но для критически важных приложений рекомендуется настроить более продвинутый мониторинг:
+PM2 provides basic free monitoring, but for mission-critical applications, it's recommended to set up more advanced monitoring:
 
-### PM2 Plus (платное решение)
+### PM2 Plus (paid solution)
 
 ```bash
 pm2 plus
 ```
 
-### Интеграция с Prometheus + Grafana
+### Integration with Prometheus + Grafana
 
-Установите pm2-prometheus:
+Install pm2-prometheus:
 
 ```bash
 npm install -g pm2-prometheus
 pm2 install pm2-prometheus
 ```
 
-Затем настройте Prometheus для сбора метрик с endpoint `/metrics` и Grafana для визуализации данных.
+Then configure Prometheus to collect metrics from the `/metrics` endpoint and Grafana for data visualization.
 
-## Устранение проблем
+## Troubleshooting
 
-### Приложение не запускается
+### Application won't start
 
-Проверьте логи:
+Check the logs:
 
 ```bash
 pm2 logs my-app
 ```
 
-Популярные причины проблем:
+Common causes of problems:
 
-- Ошибки в коде приложения
-- Порт уже занят
-- Недостаточно прав доступа к файлам
-- Зависимости не установлены
+- Errors in the application code
+- Port already in use
+- Insufficient file access permissions
+- Dependencies not installed
 
-### Приложение падает при высокой нагрузке
+### Application crashes under high load
 
-- Проверьте использование памяти: `pm2 monit`
-- Возможно, стоит увеличить лимит памяти в конфигурации
-- Рассмотрите возможность масштабирования приложения сразу на несколько серверов
-- Увеличьте тариф вашего сервера, если не хватает ресурсов
+- Check memory usage: `pm2 monit`
+- Consider increasing the memory limit in the configuration
+- Consider scaling the application across multiple servers
+- Upgrade your server plan if resources are insufficient
 
-### Проблема: PM2 не перезапускается после перезагрузки сервера
+### Problem: PM2 doesn't restart after server reboot
 
-Повторно настройте автозапуск:
+Reconfigure autostart:
 
 ```bash
 pm2 unstartup
@@ -310,10 +310,10 @@ pm2 startup
 pm2 save
 ```
 
-## Заключение
+## Conclusion
 
-Правильная настройка Node.js приложения с PM2 на VPS обеспечивает надежность, отказоустойчивость и лёгкость в управлении.
+Proper configuration of a Node.js application with PM2 on a VPS ensures reliability, fault tolerance, and ease of management.
 
-PM2 предоставляет множество инструментов для мониторинга и управления процессами, что делает его незаменимым для ваших проектов.
+PM2 provides many tools for monitoring and managing processes, making it indispensable for your projects.
 
-Для получения дополнительной помощи по настройке вашего Node.js приложения на нашем VPS, обратитесь в [службу поддержки](https://senko.digital/contacts).
+For additional help setting up your Node.js application on our VPS, contact our [support team](https://senko.digital/contacts).

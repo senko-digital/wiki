@@ -1,42 +1,42 @@
 ---
-title: "Discord бот"
-description: "Руководство по использованию Discord бота Senko Digital. Мониторинг серверов, отправка команд и управление через Discord."
+title: "Discord Bot"
+description: "Guide to using the Senko Digital Discord bot. Server monitoring, command sending, and management through Discord."
 head:
   - - meta
     - name: keywords
-      content: discord бот, мониторинг серверов, управление сервером, senko bot, игровые сервера
+      content: discord bot, server monitoring, server management, senko bot, game servers
   - - meta
     - property: og:title 
-      content: "Discord бот - Начало работы"
+      content: "Discord Bot - Getting Started"
   - - meta
     - property: og:description
-      content: "Руководство по использованию Discord бота Senko Digital. Мониторинг серверов, отправка команд и управление через Discord."
+      content: "Guide to using the Senko Digital Discord bot. Server monitoring, command sending, and management through Discord."
 ---
 
-# ❓ Начало работы
+# ❓ Getting Started
 
-С помощью нашего бота Discord вы можете просматривать статус своих игровых серверов из панели управления, а так же отправлять команды на них и управлять их питанием.
+With our Discord bot, you can view the status of your game servers from the control panel, as well as send commands to them and control their power.
 
-Так же имеется поддержка проверки статуса серверов вне панели управления.
+We also support checking the status of servers outside the control panel.
 
-## Навигация по статьям
+## Article Navigation
 
-#### ❓ [Начало работы](/bot/)
+#### ❓ [Getting Started](/bot/)
 
-#### 🤖 [Авторизация в боте Discord](/bot/auth)
+#### 🤖 [Discord Bot Authorization](/bot/auth)
 
-#### 🔁 [Статус сервера из панели](/bot/panel-status)
+#### 🔁 [Server Status from Panel](/bot/panel-status)
 
-#### 🔁 [Статус любого сервера](/bot/any-status)
+#### 🔁 [Any Server Status](/bot/any-status)
 
-#### 🔁 [Автообновляемый статус](/bot/auto-update-status)
+#### 🔁 [Auto-updating Status](/bot/auto-update-status)
 
-#### 📩 [Отправка команд](/bot/send-command)
+#### 📩 [Sending Commands](/bot/send-command)
 
-#### 🌐 [Приглашение бота на свой сервер](/bot/invite)
+#### 🌐 [Inviting the Bot to Your Server](/bot/invite)
 
-## Нужно ли платить за использование бота?
+## Do I Need to Pay to Use the Bot?
 
-Бот полностью бесплатен в использовании и доступен всем пользователям Discord.
+The bot is completely free to use and available to all Discord users.
 
-Некоторые функции доступны только для наших клиентов.
+Some features are only available to our customers.

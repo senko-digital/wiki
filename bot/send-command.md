@@ -1,27 +1,27 @@
 ---
-title: "Отправка команд через Discord"
-description: "Руководство по отправке команд на игровой сервер через Discord бота. Управление сервером прямо из Discord."
+title: "Sending Commands via Discord"
+description: "Guide to sending commands to a game server through Discord bot. Control your server directly from Discord."
 head:
   - - meta
     - name: keywords
-      content: discord бот, отправка команд, управление сервером, senko bot, игровые сервера
+      content: discord bot, sending commands, server management, senko bot, game servers
   - - meta
     - property: og:title 
-      content: "Discord бот - Отправка команд"
+      content: "Discord Bot - Sending Commands"
   - - meta
     - property: og:description
-      content: "Руководство по отправке команд на игровой сервер через Discord бота. Управление сервером прямо из Discord."
+      content: "Guide to sending commands to a game server through Discord bot. Control your server directly from Discord."
 ---
 
-# 📩 Отправка команд
+# 📩 Sending Commands
 
-С помощью бота вы можете отправлять команды на свой сервер из игровой панели управления.
+With the bot, you can send commands to your server from the game control panel.
 
-Для использования команды нужно обязательно [авторизоваться в боте Discord](/bot/auth).
+To use this command, you must first [authorize with the Discord bot](/bot/auth).
 
-Для использования команды достаточно проследовать указанному нами синтаксису команды и всё заработает.
+To use the command, simply follow the syntax we've provided and everything will work.
 
-Пример использования:
+Example usage:
 
 ```lua
 /send-command server_id: 64710835 command: start

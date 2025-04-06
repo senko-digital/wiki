@@ -1,40 +1,40 @@
 ---
-title: "Установка иконки сервера"
-description: "Руководство по установке и настройке иконки для сервера Minecraft. Создание привлекательного отображения в списке серверов."
+title: "Installing Server Icon"
+description: "Guide for installing and configuring an icon for a Minecraft server. Creating an attractive display in the server list."
 head:
   - - meta
     - name: keywords
-      content: minecraft, server icon, иконка сервера, server.properties, настройка сервера
+      content: minecraft, server icon, server.properties, server configuration
   - - meta
     - property: og:title 
-      content: "Установка иконки сервера"
+      content: "Installing Server Icon"
   - - meta
     - property: og:description
-      content: "Руководство по установке и настройке иконки для сервера Minecraft. Создание привлекательного отображения в списке серверов."
+      content: "Guide for installing and configuring an icon for a Minecraft server. Creating an attractive display in the server list."
 ---
 
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <MinecraftLogo>Изменение иконки сервера</MinecraftLogo>
+# <MinecraftLogo>Changing Server Icon</MinecraftLogo>
 
-Краткое руководство по изменению иконки сервера в игровой панели управления.
+Quick guide for changing the server icon in the game control panel.
 
 ***
 
-По умолчанию у Minecraft серверов стоит несколько депрессивная, чёрно-белая картинка которая явно не подходит под ваш прекрасный сервер. Давайте же исправим это!
+By default, Minecraft servers have a somewhat depressing, black and white picture that clearly doesn't suit your wonderful server. Let's fix that!
 
 ![old server icon](/images/games/minecraft/server-icon/old.png){data-zoomable}
 
-Для начала выберите предпочитаемую картинку для логотипа вашего сервера. Уменьшите её размер до 64x64, конвертируйте её в формат .png и сохраните её под названием `server-icon.png`.
+First, choose your preferred image for your server's logo. Reduce its size to 64x64, convert it to .png format, and save it as `server-icon.png`.
 
-Теперь перейдите в управление нужным сервером.
+Now go to the management of the server you need.
 
-Войдите в файловый менеджер.
+Enter the file manager.
 
-Загрузите иконку в корневую папку.
+Upload the icon to the root folder.
 
-Перезапустите сервер, и вуаля, теперь у вашего сервера должна была появиться иконка. Разве ли так не лучше? :wink:
+Restart the server, and voilà, your server should now have an icon. Isn't that better? :wink:
 
 ![new server icon](/images/games/minecraft/server-icon/new.png){data-zoomable}

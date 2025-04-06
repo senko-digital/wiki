@@ -1,159 +1,159 @@
 ---
-title: "Установка и настройка DarkRP"
-description: "Полное руководство по установке и настройке режима DarkRP на сервере Garry's Mod. Настройка профессий, предметов и игровой экономики."
+title: "Installing and Configuring DarkRP"
+description: "Complete guide for installing and configuring DarkRP mode on a Garry's Mod server. Setting up jobs, items, and game economy."
 head:
   - - meta
     - name: keywords
-      content: gmod, darkrp, garry's mod, darkrpmodification, установка darkrp, настройка darkrp
+      content: gmod, darkrp, garry's mod, darkrpmodification, installing darkrp, configuring darkrp
   - - meta
     - property: og:title 
-      content: "Garry's Mod - Установка и настройка DarkRP"
+      content: "Garry's Mod - Installing and Configuring DarkRP"
   - - meta
     - property: og:description
-      content: "Полное руководство по установке и настройке режима DarkRP на сервере Garry's Mod. Настройка профессий, предметов и игровой экономики."
+      content: "Complete guide for installing and configuring DarkRP mode on a Garry's Mod server. Setting up jobs, items, and game economy."
 ---
 
 <script setup>
 import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <GmodLogo>Установка и настройка DarkRP</GmodLogo>
+# <GmodLogo>Installing and Configuring DarkRP</GmodLogo>
 
-Краткое руководство по установке и настройке DarkRP на вашем Garry's Mod сервере.
+Quick guide for installing and configuring DarkRP on your Garry's Mod server.
 
-## Вступление
+## Introduction
 
-Давно мечтали создать свой собственный DarkRP сервер? Проследуйте указанными нами шагами дабы начать работу со своим новоиспечённым DarkRP сервером как можно скорее.
+Have you always dreamed of creating your own DarkRP server? Follow our steps to start working with your new DarkRP server as soon as possible.
 
-Рекомендуем пользоваться боковым меню справа для навигации по статье, так как все конфиги мы расписали максимально подробно для более глубокой настройки сервера.
+We recommend using the right sidebar for navigation in the article, as we have described all configs as detailed as possible for deeper server customization.
 
-## Загрузка аддонов
+## Downloading addons
 
-Первым делом нам нужно будет скачать файлы самого режима.
-DarkRP имеет два аддона, которые важны для его существования - `DarkRP` и `DarkRP-modification`.
+First, we need to download the files of the mode.
+DarkRP has two addons that are important for its existence - `DarkRP` and `DarkRP-modification`.
 
-DarkRP это база, основа самого режима, а с помощью DarkRP-modification уже производятся все изменения в режиме: добавление профессий, вещей и оружия, включение/отключение различных функций и многое другое.
+DarkRP is the base, the foundation of the mode, and with the help of DarkRP-modification, all changes in the mode are made: adding professions, items, and weapons, enabling/disabling various functions and much more.
 
-[**[Скачать DarkRP](https://github.com/FPtje/DarkRP/archive/refs/heads/master.zip)**]
+[**[Download DarkRP](https://github.com/FPtje/DarkRP/archive/refs/heads/master.zip)**]
 
-[**[Скачать DarkRP-modification](https://github.com/FPtje/darkrpmodification/archive/refs/heads/master.zip)**]
+[**[Download DarkRP-modification](https://github.com/FPtje/darkrpmodification/archive/refs/heads/master.zip)**]
 
 ::: tip
-Ссылки безопасны, и ссылаются на официальный GitHub репозиторий от оригинального разработчика режима - FPTje.
+These links are safe and point to the official GitHub repository from the original mode developer - FPTje.
 :::
 
-## Установка аддонов
+## Installing addons
 
-После скачивания этих файлов пройдите в управление нужным вам сервером, и загрузите архив `DarkRP-master.zip` по пути `/garrysmod/gamemodes`, а `darkrpmodification-master.zip` - `/garrysmod/addons`.
+After downloading these files, go to the management of the server you need, and upload the `DarkRP-master.zip` archive to the path `/garrysmod/gamemodes`, and `darkrpmodification-master.zip` - `/garrysmod/addons`.
 
-Распакуйте эти архивы.
+Unzip these archives.
 
-Для экономии места, после распаковки загруженные архивы можно удалить.
+To save space, after unzipping, you can delete the uploaded archives.
 
-Папку `DarkRP-master` нужно обязательно переименовать под `darkrp`.
+The folder `DarkRP-master` must be renamed to `darkrp`.
 
-После установки аддонов не забудьте перейти в "параметры запуска" и изменить режим с `sandbox` на `darkrp`.
+After installing the addons, don't forget to go to "launch parameters" and change the mode from `sandbox` to `darkrp`.
 
-## Разбор файлов darkrpmodification
+## Analyzing darkrpmodification files
 
-Теперь давайте же настроим наш новоиспечённый сервер.
-С помощью аддона `darkrpmodification` можно кастомизировать различные аспекты DarkRP - будь то профессии, функции режима, оружия, и многое другое.
+Now let's configure our new server.
+With the help of the `darkrpmodification` addon, you can customize various aspects of DarkRP - whether it's professions, mode functions, weapons, and much more.
 
 ### `settings.lua`
 
-Этот файл позволяет вам настроить базовые параметры режима DarkRP, такие как стартовый баланс, наказания, правила и многое другое.
+This file allows you to configure the basic parameters of the DarkRP gamemode, such as starting balance, punishments, rules, and much more.
 
-Находится по пути: `/garrysmod/addons/darkrpmodification/lua/darkrp_config/settings.lua`.
+Located at: `/garrysmod/addons/darkrpmodification/lua/darkrp_config/settings.lua`.
 
 ### `jobs.lua`
 
-Этот файл отвечает за профессии на вашем сервере. Вы можете настроить существующие профессии или добавить новые.
+This file is responsible for professions on your server. You can configure existing professions or add new ones.
 
-Находится по пути `/garrysmod/addons/darkrpmodification/lua/darkrp_customthings/jobs.lua`.
+Located at `/garrysmod/addons/darkrpmodification/lua/darkrp_customthings/jobs.lua`.
 
 ### `entities.lua`
 
-Этот файл отвеачет за настройку энтити (предметов) в DarkRP. Например, можно добавить магазины оружия или улучшить существующие.
+This file is responsible for setting up entities (items) in DarkRP. For example, you can add weapon shops or improve existing ones.
 
-Путь к файлу: `/garrysmod/addons/darkrpmodification/lua/darkrp_customthings/entities.lua`.
+Path to the file: `/garrysmod/addons/darkrpmodification/lua/darkrp_customthings/entities.lua`.
 
 ### `mysql.lua`
 
-Этот файл отвеачет за настройку базы данных MySQL. С её помощью вы сможете хранить данные сервера в более безопасном, отдельном от игрового сервера месте.
+This file is responsible for setting up the MySQL database. With it, you can store server data in a more secure, separate place from the game server.
 
-Путь к файлу: `/garrysmod/addons/darkrpmodification/lua/darkrp_config/mysql.lua`.
+Path to the file: `/garrysmod/addons/darkrpmodification/lua/darkrp_config/mysql.lua`.
 
-## Настройка `settings.lua`
+## Configuring `settings.lua`
 
 ### Toggle settings
 
-Этот раздел содержит параметры, которые могут быть включены или выключены (т.е. поддерживаются значения `true` или `false`).
+This section contains parameters that can be turned on or off (i.e. support values `true` or `false`).
 
 #### `voice3D`
 
-Включает или выключает 3D звук в голосовом чате.
+Enables or disables 3D sound in voice chat.
 
-Рекомендуется оставить значение по умолчанию.
+It's recommended to leave the default value.
 
-#### `AdminsCopWeapons` <Badge type="warning" text="обратите внимание" />
+#### `AdminsCopWeapons` <Badge type="warning" text="pay attention" />
 
-Включает или выключает возможность администраторам использовать полицейское оружие.
+Enables or disables the ability for administrators to use police weapons.
 
-#### `adminBypassJobRestrictions` <Badge type="warning" text="обратите внимание" />
+#### `adminBypassJobRestrictions` <Badge type="warning" text="pay attention" />
 
-Включает или выключает возможность администраторам принудительно устанавливать профессии в обход привелегий по типу `VIP`.
+Enables or disables the ability for administrators to forcefully set professions in bypassing privileges like `VIP`.
 
-#### `allowActs` <Badge type="warning" text="обратите внимание" />
+#### `allowActs` <Badge type="warning" text="pay attention" />
 
-Включает или выключает возможность использования анимаций (например, приветствия или танцы).
+Enables or disables the ability to use animations (for example, greetings or dances).
 
 #### `allowjobswitch`
 
-Позволяет игрокам переключаться на свои собственные пользовательские рабочие профессии.
+Allows players to switch to their own custom working professions.
 
-#### `allowrpnames` <Badge type="warning" text="обратите внимание" />
+#### `allowrpnames` <Badge type="warning" text="pay attention" />
 
-Позволяет игрокам устанавливать свои RP имена с помощью команды `/rpname`.
+Allows players to set their RP names using the `/rpname` command.
 
-#### `allowsprays` <Badge type="warning" text="обратите внимание" />
+#### `allowsprays` <Badge type="warning" text="pay attention" />
 
-Включает или выключает возможность использования граффити на сервере.
+Enables or disables the ability to use graffiti on the server.
 
-Рекомендуется оставить значение по умолчанию.
+It's recommended to leave the default value.
 
 #### `allowvehicleowning`
 
-Включает или выключает возможность владения транспортными средствами.
+Enables or disables the ability to own vehicles.
 
 #### `allowvnocollide`
 
-Включает или выключает возможность обхода коллизий для транспортных средств (для безопасности).
+Enables or disables the ability to bypass collisions for vehicles (for safety).
 
 #### `alltalk`
 
-Включает глобальный чат, отключает локальный чат.
+Enables global chat, disables local chat.
 
-Рекомендуется оставить значение по умолчанию.
+It's recommended to leave the default value.
 
-#### `antimultirun` <Badge type="warning" text="обратите внимание" />
+#### `antimultirun` <Badge type="warning" text="pay attention" />
 
-Запрещает игрокам заходить на сервер дважды с одного и того же аккаунта.
+Prevents players from logging in twice from the same account.
 
 #### `autovehiclelock`
 
-Включать ли автоматическую блокировку транспортного средства при выходе игрока из него.
+Enables or disables automatic vehicle lock when a player exits it.
 
-#### `babygod` <Badge type="warning" text="обратите внимание" />
+#### `babygod` <Badge type="warning" text="pay attention" />
 
-Спаун игроков в режиме бога (предотвращает убийства при спауне).
+Spawns players in god mode (prevents killing when spawning).
 
 #### `canforcedooropen`
 
-Позволяет игрокам открывать непринадлежащие им двери с помощью отмычек, ломов и т.д.
+Allows players to open doors that don't belong to them using lock picks, hammers, etc.
 
-#### `chatsounds` <Badge type="warning" text="обратите внимание" />
+#### `chatsounds` <Badge type="warning" text="pay attention" />
 
-Проигрывать ли звуки, когда игроки в чате пишут определенные фразы, например `cheese`.
+Plays sounds when players in chat say certain phrases, for example `cheese`.
 
 <video width="1440" loop controls>
   <source src="/videos/games/gmod/darkrp/cheese.mp4" type="video/mp4" />
@@ -161,765 +161,765 @@ DarkRP это база, основа самого режима, а с помощ
 
 #### `chiefjailpos`
 
-Позволяет начальнику устанавливать позиции тюремных камер.
+Allows the chief to set positions of jail cells.
 
 #### `cit_propertytax`
 
-Включает или выключает налог на имущество, который применяется только к гражданам.
+Enables or disables property tax that applies only to citizens.
 
-#### `copscanunfreeze` <Badge type="warning" text="обратите внимание" />
+#### `copscanunfreeze` <Badge type="warning" text="pay attention" />
 
-Включает или выключает возможность полицейским размораживать чужие предметы.
+Enables or disables the ability for police to unfreeze other players' items.
 
-#### `copscanunweld` <Badge type="warning" text="обратите внимание" />
+#### `copscanunweld` <Badge type="warning" text="pay attention" />
 
-Включает или выключает возможность полицейским распаивать чужие предметы.
+Enables or disables the ability for police to weld other players' items.
 
-#### `cpcanarrestcp` <Badge type="danger" text="осторожно" />
+#### `cpcanarrestcp` <Badge type="danger" text="be careful" />
 
-Разрешает/запрещает полицейским арестовывать других полицейских.
+Allows/prevents police to arrest other police.
 
 #### `currencyLeft`
 
-Позиция символа валюты. `true` для отображения слева, `false` для отображения справа.
+Position of the currency symbol. `true` for left, `false` for right.
 
 #### `customjobs`
 
-Включает или выключает команду `/job` (пользовательские имена у профессий).
+Enables or disables the `/job` command (user names for professions).
 
-#### `customspawns` <Badge type="danger" text="осторожно" />
+#### `customspawns` <Badge type="danger" text="be careful" />
 
-Включает или выключает использование пользовательских точек спауна.
+Enables or disables the use of custom spawn points.
 
 #### `deathblack`
 
-Определяет, видит ли игрок черный экран при смерти.
+Determines if a player sees a black screen when dying.
 
 #### `showdeaths`
 
-Отображает информацию о смертях игроков в верхнем правом углу экрана у каждого игрока (killfeed).
+Shows player death information in the top right corner of the screen for each player (killfeed).
 
 ![server killfeed](/images/games/gmod/darkrp/killfeed.png){data-zoomable}
 
 #### `deadtalk`
 
-Включает или выключает возможность говорить и использовать команды, будучи мертвым.
+Enables or disables the ability to speak and use commands while dead.
 
 #### `deadvoice`
 
-Включает или выключает возможность говорить через микрофон, будучи мертвым.
+Enables or disables the ability to speak through a microphone while dead.
 
 #### `deathpov`
 
-Включает или выключает возможность видеть свою смерть от первого лица.
+Enables or disables the ability to see your death from first person.
 
 ![first person death](/images/games/gmod/darkrp/deathpov.png){data-zoomable}
 
 #### `decalcleaner`
 
-Включает или выключает автоочистку всех декалей игроков.
+Enables or disables automatic cleaning of all decals from players.
 
-#### `disallowClientsideScripts` <Badge type="danger" text="осторожно" />
+#### `disallowClientsideScripts` <Badge type="danger" text="be careful" />
 
-Запрещает использование клиентских скриптов.
+Prevents the use of client scripts.
 
 #### `doorwarrants`
 
-Включает или выключает требование наличия ордера для вылома дверей.
+Enables or disables the requirement for a warrant to break into doors.
 
 #### `dropmoneyondeath`
 
-Включает или выключает возможность выпадения денег при смерти.
+Enables or disables the ability to drop money when dying.
 
-Осторожно: может вызвать зависания на сервере.
+Be careful: it may cause server crashes.
 
 #### `droppocketarrest`
 
-Включает или выключает возможность выпадения вещей из карманов при аресте.
+Enables or disables the ability to drop items from pockets when arrested.
 
 #### `droppocketdeath`
 
-Включает или выключает возможность выпадения вещей из карманов при смерти.
+Enables or disables the ability to drop items from pockets when dying.
 
 #### `dropweapondeath`
 
-Включает или выключает возможность выпадения текущего оружия при смерти.
+Enables or disables the ability to drop current weapon when dying.
 
 #### `dropspawnedweapons`
 
-Позволяет или запрещает выпадение оружия, с которым игрок спаунился.
+Allows or prevents weapon dropping when a player spawns.
 
 #### `dynamicvoice`
 
-Включает или выключает возможность того, чтобы только игроки в одной комнате могли слышать микрофон.
+Enables or disables the ability for only players in one room to hear the microphone.
 
-#### `earthquakes` <Badge type="danger" text="осторожно" />
+#### `earthquakes` <Badge type="danger" text="be careful" />
 
-Включает или выключает землетрясения.
+Enables or disables earthquakes.
 
 #### `enablebuypistol`
 
-Включает или выключает команду `/buy`.
+Enables or disables the `/buy` command.
 
 #### `enforceplayermodel`
 
-Определяет, нужно ли принудительно использовать модели персонажей, соответствующие роли игрока.
+Determines if players must use character models that correspond to their role.
 
 #### `globalshow`
 
-Определяет, нужно ли отображать информацию о игроках над их головами в игре.
+Determines if information about players should be displayed above their heads in the game.
 
 ![show or hide user info](/images/games/gmod/darkrp/globalshow.png){data-zoomable}
 
 #### `ironshoot`
 
-Включает или выключает необходимость прицеливания для использования оружия.
+Enables or disables the need for aiming to use weapons.
 
 ![aim down sights to shoot](/images/games/gmod/darkrp/ads.jpg){data-zoomable}
 
 #### `showjob`
 
-Определяет, нужно ли отображать рабочую должность игрока над его головой в игре.
+Determines if player work information should be displayed above their head in the game.
 
 ![show or hide user profession](/images/games/gmod/darkrp/globalshow.png){data-zoomable}
 
 #### `letters`
 
-Включает или выключает возможность написания писем друг-другу.
+Enables or disables the ability to write letters to each other.
 
 #### `license`
 
-Включает или выключает необходимость наличия лицензии для того, чтобы подбирать оружие.
+Enables or disables the need for a license to pick up weapons.
 
 #### `lockdown`
 
-Включает или выключает возможность начала и завершения комендантского часа для мэров с помощью команд `/lockdown` и `/unlockdown`.
+Enables or disables the ability to start and end the mayor's hour using the `/lockdown` and `/unlockdown` commands.
 
 ![mayor lockdown](/images/games/gmod/darkrp/lockdown.png){data-zoomable}
 
-Рекомендуется оставить значение по умолчанию.
+It's recommended to leave the default value.
 
 #### `lockpickfading`
 
-Включает или выключает возможность подбора замков на исчезающих дверях (Fading Doors).
+Enables or disables the ability to pick locks on disappearing doors (Fading Doors).
 
 #### `logging`
 
-Включает или выключает логирование всего, что происходит на сервере.
+Enables or disables logging everything that happens on the server.
 
 #### `lottery`
 
-Включает или выключает создание лотерей для мэров.
+Enables or disables creating lotteries for mayors.
 
 #### `showname`
 
-Определяет, нужно ли отображать имя игрока над его головой в игре.
+Determines if player name should be displayed above their head in the game.
 
 ![show or hide user name](/images/games/gmod/darkrp/globalshow.png){data-zoomable}
 
 #### `showhealth`
 
-Определяет, нужно ли отображать здоровье игрока над его головой в игре.
+Determines if player health should be displayed above their head in the game.
 
 ![show or hide user health](/images/games/gmod/darkrp/globalshow.png){data-zoomable}
 
 #### `needwantedforarrest`
 
-Включает или выключает возможность ареста только тех игроков, которые находятся в розыске.
+Enables or disables the ability to arrest only those players who are wanted.
 
 #### `noguns`
 
-Включает или выключает запрет на оружие и оружейные лавки.
+Enables or disables weapon and weapon shops.
 
 #### `norespawn`
 
-Включает или выключает необходимость респауна игрока при смене профессии.
+Enables or disables the need for a player to respawn when changing profession.
 
 #### `keepPickedUp`
 
-Включает или выключает сохранение подобраного оружия при смене профессии.
+Enables or disables saving picked up weapons when changing profession.
 
 #### `instantjob`
 
-Включает или выключает мгновенный респаун, когда `norespawn` выключен.
+Enables or disables instant respawn when `norespawn` is off.
 
 #### `npcarrest`
 
-Включает или выключает возможность ареста NPC.
+Enables or disables the ability to arrest NPCs.
 
-#### `ooc` <Badge type="warning" text="обратите внимание" />
+#### `ooc` <Badge type="warning" text="pay attention" />
 
-Определяет, включен ли OOC (глобальный) чат.
+Determines if OOC (global) chat is enabled.
 
 #### `propertytax`
 
-Включает или выключает налог на имущество.
+Enables or disables property tax.
 
 #### `proppaying`
 
-Определяет, нужно ли игрокам платить за спаун пропов.
+Determines if players should pay for spawning props.
 
 #### `propspawning`
 
-Включает или выключает спаун предметов. Применимо также к администраторам.
+Enables or disables spawning items. Applies also to administrators.
 
 #### `removeclassitems`
 
-Включает или выключает удаление предметов, связанных с профессией (например, посылок, микроволновок и т.д.), при смене профессии.
+Enables or disables removing items related to a profession (for example, packages, microwaves, etc.), when changing profession.
 
 #### `removeondisconnect`
 
-Включает или выключает удаление предметов, связанных с профессией (например, посылок, микроволновок и т.д.), при отключении.
+Enables or disables removing items related to a profession (for example, packages, microwaves, etc.), when disconnecting.
 
-#### `respawninjail` <Badge type="danger" text="осторожно" />
+#### `respawninjail` <Badge type="danger" text="be careful" />
 
-Включает или выключает возможность респауна в тюрьме при смерти.
+Enables or disables the ability to respawn in jail when dying.
 
 #### `restrictallteams`
 
-Определяет, могут ли игроки быть только гражданами до тех пор, пока администратор не разрешит им выбор профессий.
+Determines if players can only be citizens until an administrator allows them to choose professions.
 
 #### `restrictbuypistol`
 
-Включает или выключает возможность использования команды `/buy` только для оружейных торговцев.
+Enables or disables the ability to use the `/buy` command only for weapon traders.
 
 #### `restrictdrop`
 
-Включает или выключает ограничение на возможность сбрасывать оружие. Установка этого значения в `true` запрещает сброс оружия из посылок.
+Enables or disables restriction on weapon dropping. Setting this value to `true` prevents weapon dropping from packages.
 
 #### `revokeLicenseOnJobChange`
 
-Определяет, отзываются ли лицензии, когда игрок меняет рабочую должность.
+Determines if licenses are revoked when a player changes profession.
 
 #### `shouldResetLaws`
 
-Включает или выключает сброс законов до значений по умолчанию, когда мэр меняется.
+Enables or disables resetting laws to default values when mayor changes.
 
-#### `strictsuicide` <Badge type="danger" text="осторожно" />
+#### `strictsuicide` <Badge type="danger" text="be careful" />
 
-Определяет, должны ли игроки респауниться в месте, где они совершили самоубийство.
+Determines if players should respawn in the place where they committed suicide.
 
-#### `telefromjail` <Badge type="danger" text="осторожно" />
+#### `telefromjail` <Badge type="danger" text="be careful" />
 
-Включает или выключает возможность телепортации из тюрьмы.
+Enables or disables the ability to teleport from jail.
 
-#### `teletojail` <Badge type="danger" text="осторожно" />
+#### `teletojail` <Badge type="danger" text="be careful" />
 
-Включает или выключает возможность телепортации в тюрьму.
+Enables or disables the ability to teleport to jail.
 
 #### `unlockdoorsonstart`
 
-Включает или выключает разблокировку всех дверей при старте карты.
+Enables or disables unlocking all doors when the map starts.
 
 #### `voiceradius`
 
-Включает или выключает локальный голосовой чат.
+Enables or disables local voice chat.
 
 #### `wallettax`
 
-Определяет, должны ли игроки платить налог на свой баланс.
+Determines if players should pay tax on their balance.
 
 #### `wantedrespawn`
 
-Определяет, остаются ли игроки в розыске при респауне.
+Determines if players are wanted when respawning.
 
 #### `wantedsuicide`
 
-Включает или выключает возможность самоубийства, будучи в розыске полицией.
+Enables or disables suicide while being wanted by police.
 
 #### `realisticfalldamage`
 
-Включает или выключает динамический урон от падений. Установка `mp_falldamage` на `1` переопределяет это значение.
+Enables or disables dynamic fall damage. Setting `mp_falldamage` to `1` overrides this value.
 
 #### `printeroverheat`
 
-Определяет, может ли денежный принтер перегреваться самостоятельно.
+Determines if a money printer can overheat on its own.
 
 #### `weaponCheckerHideDefault`
 
-Скрывать ли оружие выдаваемое профессии при проверке оружия.
+Hides weapon given to profession when checking weapon.
 
 #### `weaponCheckerHideNoLicense`
 
-Скрывать ли оружие, для которого не требуется лицензия.
+Hides weapon that doesn't require a license.
 
 ### Value settings
 
-Этот раздел содержит параметры, значение которых может быть только циферным.
+This section contains parameters whose value can only be numeric.
 
-#### `adminnpcs` <Badge type="danger" text="осторожно" />
+#### `adminnpcs` <Badge type="danger" text="be careful" />
 
-Определяет, должны ли NPC быть доступны только для администраторов. Значения: `0` = все, `1` = администратор или выше, `2` = суперадмин или выше, `3` = только RCON.
+Determines if NPCs should be accessible only to administrators. Values: `0` = all, `1` = administrator or higher, `2` = superadmin or higher, `3` = only RCON.
 
-Значение по умолчанию: `3`
+Default value: `3`
 
-#### `adminsents` <Badge type="danger" text="осторожно" />
+#### `adminsents` <Badge type="danger" text="be careful" />
 
-Определяет, должны ли SENT быть доступны только для администраторов. Значения: `0` = все, `1` = администратор или выше, `2` = суперадмин или выше, `3` = только RCON.
+Determines if SENTs should be accessible only to administrators. Values: `0` = all, `1` = administrator or higher, `2` = superadmin or higher, `3` = only RCON.
 
-Значение по умолчанию: `1`
+Default value: `1`
 
-#### `adminvehicles` <Badge type="danger" text="осторожно" />
+#### `adminvehicles` <Badge type="danger" text="be careful" />
 
-Определяет, должны ли транспортные средства быть доступны только для администраторов. Значения: `0` = все, `1` = администратор или выше, `2` = суперадмин или выше, `3` = только RCON.
+Determines if vehicles should be accessible only to administrators. Values: `0` = all, `1` = administrator or higher, `2` = superadmin or higher, `3` = only RCON.
 
-Значение по умолчанию: `3`
+Default value: `3`
 
-#### `adminweapons` <Badge type="danger" text="осторожно" />
+#### `adminweapons` <Badge type="danger" text="be careful" />
 
-Определяет, кто может спаунить оружие: `0` = только администраторы, `1` = только суперадмины, `2` = никто, `3` = все.
+Determines who can spawn weapons: `0` = only administrators, `1` = only superadmins, `2` = nobody, `3` = all.
 
-Значение по умолчанию: `1`
+Default value: `1`
 
 #### `arrestspeed`
 
-Устанавливает максимальную скорость ареста.
+Sets maximum arrest speed.
 
-Значение по умолчанию: `120`
+Default value: `120`
 
-#### `babygodtime` <Badge type="warning" text="обратите внимание" />
+#### `babygodtime` <Badge type="warning" text="pay attention" />
 
-Устанавливает продолжительность действия режима неуязвимости для только заспаунишхся игроков.
+Sets duration of immunity mode for only just spawned players.
 
-Значение по умолчанию: `5`
+Default value: `5`
 
-#### `chatsoundsdelay` <Badge type="warning" text="обратите внимание" />
+#### `chatsoundsdelay` <Badge type="warning" text="pay attention" />
 
-Устанавливает время ожидания перед тем, как игрок сможет снова издать звук через чат.
+Sets wait time before player can speak again through chat.
 
-Рекомендуем установить это значение хотя бы на 5 секунд, дабы предотвратить спам звуками.
+We recommend setting this value to at least 5 seconds to prevent spamming sounds.
 
-Установите значение на `0` для отключения.
+Set value to `0` to disable.
 
-Значение по умолчанию: `5`
+Default value: `5`
 
 #### `deathfee`
 
-Сумма денег, которую теряет игрок при смерти.
+Amount of money a player loses when dying.
 
-Значение по умолчанию: `30`
+Default value: `30`
 
 #### `decaltimer`
 
-Устанавливает периодничность очистки клиентских декалей (в секундах).
+Sets period of cleaning client decals (in seconds).
 
-Значение по умолчанию: `120`
+Default value: `120`
 
 #### `demotetime`
 
-Количество секунд, через которое игрок сможет снова перейти на профессию после понижения.
+Amount of seconds a player can switch to profession after lowering.
 
-Значение по умолчанию: `120`
+Default value: `120`
 
-#### `doorcost` <Badge type="warning" text="обратите внимание" />
+#### `doorcost` <Badge type="warning" text="pay attention" />
 
-Устанавливает стоимость одной двери.
+Sets cost of one door.
 
-Значение по умолчанию: `30`
+Default value: `30`
 
 #### `entremovedelay`
 
-Время ожидания перед удалением купленного объекта после отключения.
+Wait time before removing bought object after disconnecting.
 
-Значение по умолчанию: `0`
+Default value: `0`
 
 #### `gunlabweapon`
 
-Оружие, которое спаунится в оружейной лаборатории.
+Weapon that will spawn in weapon shop.
 
-Значение по умолчанию: `"weapon_p2282"`
+Default value: `"weapon_p2282"`
 
 #### `jailtimer`
 
-Устанавливает срок нахождения в тюрьме (в секундах).
+Sets jail stay time (in seconds).
 
-Значение по умолчанию: `120`
+Default value: `120`
 
 #### `lockdowndelay`
 
-Время, которое мэр должен подождать перед началом следующего комендантского часа.
+Wait time mayor should wait before starting next mayor's hour.
 
-Значение по умолчанию: `120`
+Default value: `120`
 
 #### `maxadvertbillboards`
 
-Максимальное количество рекламных щитов, которые игрок может разместить.
+Maximum amount of billboards a player can place.
 
-Значение по умолчанию: `3`
+Default value: `3`
 
 #### `maxCheques`
 
-Максимальное количество чеков, которые игрок может выписать.
+Maximum amount of checks a player can write.
 
-Значение по умолчанию: `5`
+Default value: `5`
 
 #### `maxdoors`
 
-Максимальное количество дверей, которыми можно владеть один игрок.
+Maximum amount of doors one player can own.
 
-Значение по умолчанию: `20`
+Default value: `20`
 
 #### `maxdrugs`
 
-Максимальное количество наркотиков которое может быть у одного игрока.
+Maximum amount of drugs one player can have.
 
-Значение по умолчанию: `2`
+Default value: `2`
 
 #### `maxfoods`
 
-Максимальное количество упаковок еды на одного владельца микроволновой печи.
+Maximum amount of food packages one microwave owner can have.
 
-Значение по умолчанию: `2`
+Default value: `2`
 
 #### `maxfooditems`
 
-Максимальное количество предметов еды, которые игрок может купить через F4-меню.
+Maximum amount of food items a player can buy through F4 menu.
 
-Значение по умолчанию: `20`
+Default value: `20`
 
 #### `maxlawboards`
 
-Максимальное количество досок с законами, которые мэр может разместить.
+Maximum amount of law boards a mayor can place.
 
-Значение по умолчанию: `2`
+Default value: `2`
 
 #### `maxletters`
 
-Максимальное количество писем на одного игрока.
+Maximum amount of letters one player can have.
 
-Значение по умолчанию: `10`
+Default value: `10`
 
 #### `maxlotterycost`
 
-Максимальная сумма, которую мэр может установить для участия в лотерее.
+Maximum amount a mayor can set for participation in lottery.
 
-Значение по умолчанию: `250`
+Default value: `250`
 
 #### `maxvehicles`
 
-Максимальное количество транспортных средств, которые можно купить.
+Maximum amount of vehicles a player can buy.
 
-Значение по умолчанию: `5`
+Default value: `5`
 
 #### `microwavefoodcost`
 
-Устанавливает цену продажи еды из микроволновой печи.
+Sets food selling price from microwave.
 
-Значение по умолчанию: `30`
+Default value: `30`
 
 #### `gunlabguncost`
 
-Начальная цена оружия из оружейной лаборатории. Обратите внимание, что владелец оружейной лаборатории может изменить эту цену.
+Initial weapon price from weapon shop. Note that weapon shop owner can change this price.
 
-Значение по умолчанию: `200`
+Default value: `200`
 
 #### `druglabdrugcost`
 
-Начальная цена наркотиков из нарколаборатории. Обратите внимание, что владелец нарколаборатории может изменить эту цену.
+Initial drug price from drug lab. Note that drug lab owner can change this price.
 
-Значение по умолчанию: `100`
+Default value: `100`
 
 #### `minlotterycost`
 
-Минимальная сумма, которую мэр может установить для участия в лотерее.
+Minimum amount a mayor can set for participation in lottery.
 
-Значение по умолчанию: `30`
+Default value: `30`
 
 #### `moneyRemoveTime`
 
-Время, через которое деньги будут удалены, если они не будут подобраны. Установите на `0`, чтобы отключить.
+Wait time before money is removed if not picked up. Set to `0` to disable.
 
-Значение по умолчанию: `600`
+Default value: `600`
 
 #### `mprintamount`
 
-Сумма денег, печатаемая денежным принтером за одну ходку.
+Amount of money printed by money printer per spin.
 
-Значение по умолчанию: `250`
+Default value: `250`
 
 #### `normalsalary`
 
-Начальная зарплата для вновь присоединившихся игроков.
+Initial salary for newly joined players.
 
-Значение по умолчанию: `45`
+Default value: `45`
 
 #### `npckillpay`
 
-Сумма денег, выдаваемая за каждое убийство NPC.
+Amount of money given for each NPC kill.
 
-Значение по умолчанию: `10`
+Default value: `10`
 
 #### `paydelay`
 
-Время, через которое игроки получают зарплату.
+Wait time players get salary.
 
-Значение по умолчанию: `160`
+Default value: `160`
 
 #### `pocketitems`
 
-Максимальное количество объектов, которые сможет вместить карман игрока.
+Maximum amount of objects a player's pocket can hold.
 
-Значение по умолчанию: `10`
+Default value: `10`
 
 #### `pricecap`
 
-Максимальная цена предметов (с использованием команды /price).
+Maximum item price (using /price command).
 
-Значение по умолчанию: `500`
+Default value: `500`
 
 #### `pricemin`
 
-Минимальная цена предметов (с использованием команды /price).
+Minimum item price (using /price command).
 
-Значение по умолчанию: `50`
+Default value: `50`
 
 #### `propcost`
 
-Сколько должен стоить спаун предмета (значение `proppaying` должно быть включено, чтобы эта настройка работала).
+How much should spawn item cost (proppaying value must be enabled for this setting to work).
 
-Значение по умолчанию: `10`
+Default value: `10`
 
-#### `quakechance` <Badge type="danger" text="осторожно" />
+#### `quakechance` <Badge type="danger" text="be careful" />
 
-Шанс возникновения землетрясения.
+Earthquake chance.
 
-Значение по умолчанию: `4000`
+Default value: `4000`
 
-#### `respawntime` <Badge type="warning" text="обратите внимание" />
+#### `respawntime` <Badge type="warning" text="pay attention" />
 
-Минимальное количество секунд, которое игрок должен подождать перед респауном.
+Minimum wait time before respawn.
 
-Значение по умолчанию: `1`
+Default value: `1`
 
-#### `changejobtime` <Badge type="warning" text="обратите внимание" />
+#### `changejobtime` <Badge type="warning" text="pay attention" />
 
-Минимальное количество секунд, которое игрок должен подождать перед сменой работы.
+Minimum wait time before changing work.
 
-Значение по умолчанию: `10`
+Default value: `10`
 
-#### `runspeed` <Badge type="warning" text="обратите внимание" />
+#### `runspeed` <Badge type="warning" text="pay attention" />
 
-Устанавливает максимальную скорость бега.
+Sets maximum running speed.
 
-Значение по умолчанию: `240`
+Default value: `240`
 
 #### `runspeedcp`
 
-Устанавливает максимальную скорость бега для полицейских профессий.
+Sets maximum running speed for police professions.
 
-Значение по умолчанию: `255`
+Default value: `255`
 
 #### `searchtime`
 
-Количество секунд, на которое действителен ордер на обыск.
+Wait time for search order to be valid.
 
-Значение по умолчанию: `30`
+Default value: `30`
 
 #### `ShipmentSpamTime`
 
-Кулдаун между спауном каждого shipment.
+Cooldown between spawning each shipment.
 
-Значение по умолчанию: `3`
+Default value: `3`
 
 #### `shipmentspawntime`
 
-Количество секунд, которое требуется для полного спауна shipment.
+Wait time for full shipment spawning.
 
-Значение по умолчанию: `10`
+Default value: `10`
 
-#### `startinghealth` <Badge type="warning" text="обратите внимание" />
+#### `startinghealth` <Badge type="warning" text="pay attention" />
 
-Здоровье которое выдается игроку при спауне.
+Health given to player when spawning.
 
 ![starting amount of money](/images/games/gmod/darkrp/startinghealth.png){data-zoomable}
 
-Значение по умолчанию: `100`
+Default value: `100`
 
-#### `startingmoney` <Badge type="warning" text="обратите внимание" />
+#### `startingmoney` <Badge type="warning" text="pay attention" />
 
-Сумма денег в кошельке при первом заходе на сервер.
+Amount of money in wallet when first logging in to server.
 
 ![starting amount of money](/images/games/gmod/darkrp/startingmoney.png){data-zoomable}
 
-Значение по умолчанию: `500`
+Default value: `500`
 
-#### `stunstickdamage` <Badge type="warning" text="обратите внимание" />
+#### `stunstickdamage` <Badge type="warning" text="pay attention" />
 
-Количество урона, наносимого электрошокером объектам. Когда значение между 0 и 1, урон относительный, где 1 убирает все здоровье объекта. Когда значение больше 1, урон абсолютный.
+Amount of damage stunstick does to objects. When value between 0 and 1, damage is relative, where 1 removes all object health. When value is more than 1, damage is absolute.
 
-Значение по умолчанию: `1000`
+Default value: `1000`
 
 #### `vehiclecost`
 
-Стоимость транспортного средства (для владения им).
+Vehicle cost (for owning it).
 
-Значение по умолчанию: `40`
+Default value: `40`
 
 #### `wallettaxmax`
 
-Максимальный процент налога, который должен быть уплачен.
+Maximum tax percentage to be paid.
 
-Значение по умолчанию: `5`
+Default value: `5`
 
 #### `wallettaxmin`
 
-Минимальный процент налога, который должен быть уплачен.
+Minimum tax percentage to be paid.
 
-Значение по умолчанию: `1`
+Default value: `1`
 
 #### `wallettaxtime`
 
-Время в секундах между налогообложением игроков. Требует перезапуск сервера.
+Wait time in seconds between taxing players. Requires server restart.
 
-Значение по умолчанию: `600`
+Default value: `600`
 
-#### `wantedtime` <Badge type="warning" text="обратите внимание" />
+#### `wantedtime` <Badge type="warning" text="pay attention" />
 
-Количество секунд, на которые игрок становится в розыск.
+Wait time player becomes wanted.
 
-Значение по умолчанию: `120`
+Default value: `120`
 
-#### `walkspeed` <Badge type="warning" text="обратите внимание" />
+#### `walkspeed` <Badge type="warning" text="pay attention" />
 
-Устанавливает максимальную скорость ходьбы.
+Sets maximum walking speed.
 
-Значение по умолчанию: `160`
+Default value: `160`
 
 #### `falldamagedamper`
 
-Амортизатор урона от падений. Значение по умолчанию: `15`. Уменьшите это значение для большего урона.
+Fall damage damper. Default value: `15`. Decrease this value for more damage.
 
-Значение по умолчанию: `15`
+Default value: `15`
 
 #### `falldamageamount`
 
-Минимальный урон от падений. Значение по умолчанию: `10`.
+Minimum fall damage. Default value: `10`.
 
-Значение по умолчанию: `10`
+Default value: `10`
 
 #### `printeroverheatchance`
 
-Вероятность перегрева принтера. Чем выше это число, тем менее вероятно (минимум 3, по умолчанию 22).
+Money printer overheating chance. The higher this number, the less likely (minimum 3, default 22).
 
-Значение по умолчанию: `22`
+Default value: `22`
 
 #### `printerreward`
 
-Вознаграждение за уничтожение денежного принтера.
+Money printer destruction reward.
 
-Значение по умолчанию: `950`
+Default value: `950`
 
-### Chat distance settings <Badge type="warning" text="обратите внимание" />
+### Chat distance settings <Badge type="warning" text="pay attention" />
 
-Расстояние указано в единицах Source Engine (похожие на дюймы)
+Distance is given in Source Engine units (similar to inches)
 
 #### `talkDistance`
 
-Расстояние для обычных разговоров.
+Distance for normal conversations.
 
-Значение по умолчанию: `250`
+Default value: `250`
 
 #### `whisperDistance`
 
-Расстояние для шёпота (в текстовом чате).
+Distance for whispering (in text chat).
 
-Значение по умолчанию: `90`
+Default value: `90`
 
 #### `yellDistance`
 
-Расстояние для крика (в текстовом чате).
+Distance for yelling (in text chat).
 
-Значение по умолчанию: `550`
+Default value: `550`
 
 #### `meDistance`
 
-Расстояние для команды /me (в текстовом чате).
+Distance for /me command (in text chat).
 
-Значение по умолчанию: `250`
+Default value: `250`
 
 #### `voiceDistance`
 
-Расстояние для работы голосового чата.
+Distance for voice chat work.
 
-Значение по умолчанию: `550`
+Default value: `550`
 
 ### Other settings
 
 #### `MoneyClass`
 
-Класс имени денежных пакетов. Используйте это значение для создания собственного денежного объекта!
+Money packet class name. Use this value to create your own money object!
 
-Примечание: денежный пакет должен поддерживать метод "Setamount" (или переменную DTVar).
+Note: money packet must support "Setamount" (or DTVar variable).
 
-Значение по умолчанию: `spawned_money`
+Default value: `spawned_money`
 
-Рекомендуется оставить значение по умолчанию.
+We recommend leaving the default value.
 
 #### `moneyModel`
 
-Если вы хотите изменить модельку денег, отредактируйте это значение.
+If you want to change money model, edit this value.
 
-Значение по умолчанию: `models/props/cs_assault/money.mdl`
+Default value: `models/props/cs_assault/money.mdl`
 
-Рекомендуется оставить значение по умолчанию.
+We recommend leaving the default value.
 
 #### `lockdownsound`
 
-Вы можете установить свой собственный звук, который будет воспроизводиться для всех игроков при запуске комендантского часа.
+You can set your own sound that will be played for all players when starting mayor's hour.
 
 ::: tip
-Примечание: Не забудьте написать полный путь к папке, где находится звуковой файл.
+Note: Don't forget to write full path to folder where sound file is located.
 :::
 
-Значение по умолчанию: `npc/overwatch/cityvoice/f_confirmcivilstatus_1_spkr.wav`
+Default value: `npc/overwatch/cityvoice/f_confirmcivilstatus_1_spkr.wav`
 
 #### `DarkRPSkin`
 
-Тема интерфейса DarkRP. Установите значение на "`default`", чтобы перейти на стандартную тему GMod.
+DarkRP theme. Set value to "`default`" to switch to standard GMod theme.
 
-Значение по умолчанию: `DarkRP`
+Default value: `DarkRP`
 
 #### `currency`
 
-Символ валюты, используется в F4-интерфейсах и HUD.
+Currency symbol used in F4 interfaces and HUD.
 
-Значение по умолчанию: `$`
+Default value: `$`
 
 #### `currencyThousandSeparator`
 
-Разделитель тысяч для валюты.
+Currency thousand separator.
 
-Значение по умолчанию: `,`
+Default value: `,`
 
 #### `chatCommandPrefix`
 
-Префикс для команд чата.
+Chat command prefix.
 
-Значение по умолчанию: `/`
+Default value: `/`
 
 #### `F1MenuHelpPage`
 
-Страница справки для F1-меню.
+F1 menu help page.
 
-Значение по умолчанию: `https://darkrp.miraheze.org/wiki/Main_Page`
+Default value: `https://darkrp.miraheze.org/wiki/Main_Page`
 
 #### `F1MenuHelpPageTitle`
 
-Заголовок страницы справки в F1-меню.
+F1 menu help page title.
 
-Значение по умолчанию: `DarkRP Wiki`
+Default value: `DarkRP Wiki`
 
 #### `notificationSound`
 
-Звук, воспроизводимый при появлении уведомления от DarkRP.
+Sound played when DarkRP notification appears.
 
-Значение по умолчанию: `buttons/lightswitch2.wav`
+Default value: `buttons/lightswitch2.wav`
 
 #### `DefaultPlayerGroups`
 
-SteamID и ранги по умолчанию для игроков при присоединении.
+SteamID and default ranks for players when joining.
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -928,11 +928,11 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-#### `DisabledCustomModules` <Badge type="warning" text="обратите внимание" />
+#### `DisabledCustomModules` <Badge type="warning" text="pay attention" />
 
-Отключение модулей DarkRP.
+Disabling DarkRP modules.
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -941,12 +941,12 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-#### `DisallowDrop` <Badge type="warning" text="обратите внимание" />
+#### `DisallowDrop` <Badge type="warning" text="pay attention" />
 
-Список оружия, которое игроки не смогут выбросить или потерять.
-Предметы, установленные на `true`, никак нельзя потерять.  
+List of weapons players cannot throw away or lose.
+Items set to `true`, cannot be lost.  
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -967,11 +967,11 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-#### `DefaultWeapons` <Badge type="warning" text="обратите внимание" />
+#### `DefaultWeapons` <Badge type="warning" text="pay attention" />
 
-Список оружия, с которым игроки начинают игру.
+List of weapons players start with in game.
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -984,11 +984,11 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-#### `CategoryOverride` <Badge type="warning" text="обратите внимание" />
+#### `CategoryOverride` <Badge type="warning" text="pay attention" />
 
-Переопределение категорий. Используется для переопределения категорий _по умолчанию_ для всяких профессий, вещей и оружий.  
+Category override. Used to override default categories for any professions, items, and weapons.  
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -1031,11 +1031,11 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-#### `AdminWeapons` <Badge type="warning" text="обратите внимание" />
+#### `AdminWeapons` <Badge type="warning" text="pay attention" />
 
-Список оружия, с которым администраторы начинают игру, в дополнение к стандартному оружию и оружию от `GM.Config.AdminsCopWeapons`.
+List of weapons administrators start with in game, in addition to standard weapon and weapon from `GM.Config.AdminsCopWeapons`.
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -1043,11 +1043,11 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-#### `DefaultLaws` <Badge type="warning" text="обратите внимание" />
+#### `DefaultLaws` <Badge type="warning" text="pay attention" />
 
-Стандартные законы, которые не могут быть изменены в игре.
+Default laws that cannot be changed in the game.
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -1057,11 +1057,11 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-#### `PocketBlacklist` <Badge type="warning" text="обратите внимание" />
+#### `PocketBlacklist` <Badge type="warning" text="pay attention" />
 
-Список вещей, которые нельзя поместить в карман.
+List of items that cannot be placed in pocket.
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -1093,17 +1093,17 @@ SteamID и ранги по умолчанию для игроков при пр�
 
 #### `noStripWeapons`
 
-Оружие, которое считается 'легальным' при проверке оружия и не изымается при конфискации.
+Weapon considered 'legal' when checking weapon and not taken away when confiscated.
 
-Эта настройка используется В ДОПОЛНЕНИИ к `GM.Config.weaponCheckerHideDefault` и `GM.Config.weaponCheckerHideNoLicense`.
+This setting is used IN ADDITION to `GM.Config.weaponCheckerHideDefault` and `GM.Config.weaponCheckerHideNoLicense`.
 
 #### `preventClassItemRemoval`
 
-Список энтити, которые не будут удаляться при смене работы игрока. Это применяется только когда значение `removeclassitems` установлено на `true`.  
+List of entities that will not be removed when player changes work. This applies only when `removeclassitems` is set to `true`.  
 
-Примечание: энтити будут удаляться только при смене работы на ту, которая не имеет права на эту энтити.
+Note: entities will only be removed when changing work to one that doesn't have right to that entity.
 
-Значение по умолчанию:
+Default value:
 
 {
     ["gunlab"] = false,
@@ -1111,13 +1111,13 @@ SteamID и ранги по умолчанию для игроков при пр�
     ["spawned_shipment"] = false,
 }
 
-#### `allowedProperties` <Badge type="warning" text="обратите внимание" />
+#### `allowedProperties` <Badge type="warning" text="pay attention" />
 
-Свойства из C-меню, которые разрешено использовать любому игроку.
+Properties from C-menu that are allowed to be used by any player.
 
-Значения, установленные на `true`, разрешены, в то время как значения, установленные на `false` - запрещены.
+Values set to `true`, are allowed, while values set to `false` - forbidden.
 
-Значение по умолчанию:
+Default value:
 
 ```lua
 {
@@ -1132,27 +1132,27 @@ SteamID и ранги по умолчанию для игроков при пр�
 }
 ```
 
-## Настройка `jobs.lua`
+## Configuring `jobs.lua`
 
-### Создание файла `jobs.lua`
+### Creating jobs.lua file
 
-Для начала откройте файл jobs.lua, который находится по пути:
+First, open jobs.lua file, located at:
 
 `/garrysmod/addons/darkrpmodification/lua/darkrp_customthings/jobs.lua`.
 
-Если файла не существует, его нужно будет создать. В этот файл вы будете добавлять настройки для каждой профессии.
+If file doesn't exist, it needs to be created. In this file you will add settings for each profession.
 
-### Пример создания простой профессии
+### Example of creating simple profession
 
-Давайте рассмотрим пример создания базовой профессии — "Полицейский":
+Let's look at an example of creating a basic profession - "Police":
 
 ::: code-group
 
 ```lua:line-numbers [jobs.lua]
 ...
-TEAM_POLICE = DarkRP.createJob("Полицейский", { -- [!code focus]
+TEAM_POLICE = DarkRP.createJob("Police", { -- [!code focus]
     color = Color(25, 25, 170, 255), -- [!code focus]
-    description = [[Вы полицейский, ваша задача поддерживать порядок в городе.]], -- [!code focus]
+    description = [[You are a police, your task is to maintain order in the city.]], -- [!code focus]
     weapons = {"arrest_stick", "unarrest_stick", "weapon_pistol", "stunstick", "door_ram", "weaponchecker"}, -- [!code focus]
     command = "police", -- [!code focus]
     max = 4, -- [!code focus]
@@ -1160,46 +1160,46 @@ TEAM_POLICE = DarkRP.createJob("Полицейский", { -- [!code focus]
     admin = 0, -- [!code focus]
     vote = true, -- [!code focus]
     hasLicense = true, -- [!code focus]
-    category = "Государственные Службы" -- [!code focus]
+    category = "Government Services" -- [!code focus]
 })-- [!code focus]
 ...
 ```
 
 :::
 
-#### Параметры профессии
+#### Profession parameters
 
-`TEAM_POLICE`: Переменная-идентификатор профессии. Название переменной должно быть уникальным.
+`TEAM_POLICE`: Profession variable-identifier. Variable name must be unique.
 
-`DarkRP.createJob("Полицейский", {...})`: Эта функция создаёт новую профессию с именем "Полицейский".
+`DarkRP.createJob("Police", {...})`: This function creates a new profession with name "Police".
 
-`color`: Определяет цвет профессии в списке. Используется формат RGBA.
+`color`: Defines profession color in list. Uses RGBA format.
 
-`model`: Указывает модель игрока для данной профессии. Можно указать несколько моделей.
+`model`: Specifies player model for this profession. You can specify multiple models.
 
-`description`: Описание профессии, которое увидят игроки.
+`description`: Profession description that players will see.
 
-`weapons`: Список оружия, которое получит игрок при выборе профессии.
+`weapons`: List of weapons player will get when choosing profession.
 
-`command`: Команда для выбора этой профессии. Игроки могут вводить её в чате для смены профессии.
+`command`: Profession choice command. Players can enter it in chat to change profession.
 
-`max`: Максимальное количество игроков, которые могут одновременно быть в этой профессии.
+`max`: Maximum amount of players that can be in this profession at the same time.
 
-`salary`: Зарплата, которую игрок будет получать каждый игровой цикл.
+`salary`: Salary player will get each game cycle.
 
-`admin`: Определяет, доступна ли профессия только администраторам (0 - доступна всем, 1 - только админам, 2 - только супер-админам).
+`admin`: Defines if profession is accessible only to administrators (0 - accessible to all, 1 - only admins, 2 - only super-admins).
 
-`vote`: Определяет, нужно ли голосование для получения профессии. Если true, другие игроки должны будут проголосовать.
+`vote`: Defines if profession should be obtained by voting. If true, other players must vote.
 
-`hasLicense`: Определяет, имеет ли игрок лицензию на оружие по умолчанию.
+`hasLicense`: Defines if player has default weapon license.
 
-`category`: Категория, к которой относится профессия. Позволяет группировать профессии в меню.
+`category`: Profession category to which it belongs. Allows grouping professions in menu.
 
-### Настройка дополнительных параметров
+### Additional parameters
 
-#### Дополнительные модели игроков
+#### Additional player models
 
-Если вы хотите, чтобы профессия имела несколько моделей на выбор, просто добавьте их к ней:
+If you want profession to have multiple models to choose from, simply add them to it:
 
 ::: code-group
 
@@ -1212,25 +1212,25 @@ model = {
 
 :::
 
-#### Добавление уникальных привилегий
+#### Adding unique privileges
 
-Если вы хотите, чтобы у профессии были особые привилегии, например, доступ к определённым командам или правам, вы можете использовать параметр customCheck:
+If you want profession to have unique privileges, for example, access to certain commands or rights, you can use customCheck:
 
 ::: code-group
 
 ```lua:line-numbers [jobs.lua]
 
 customCheck = function(ply) return ply:IsUserGroup("vip") end,
-CustomCheckFailMsg = "Эта профессия доступна только для VIP игроков.",
+CustomCheckFailMsg = "This profession is available only for VIP players.",
 ```
 
 :::
 
-Здесь customCheck проверяет, принадлежит ли игрок к группе "VIP". Если нет, он не сможет выбрать профессию.
+Here customCheck checks if player belongs to "VIP" group. If not, he won't be able to choose profession.
 
-#### Ограничения по здоровью и броне
+#### Health and armor restrictions
 
-Можно установить стартовое количество здоровья и брони для профессии:
+You can set starting health and armor for profession:
 
 ::: code-group
 
@@ -1241,19 +1241,19 @@ armor = 50,
 
 :::
 
-#### Уникальные свойства
+#### Unique properties
 
-Если профессии нужно добавить уникальные способности, вы можете это сделать с помощью параметра `customCheck` и дополнительных условий в коде, который будет проверять эти способности.
+If profession needs to add unique abilities, you can do it with customCheck parameter and additional conditions in code that will check these abilities.
 
-### Создание пользовательских профессий
+### Creating custom professions
 
-Вы можете создавать свои профессии с любым параметрами. Например, создадим профессию "Мэр":
+You can create your own professions with any parameters. For example, let's create profession "Mayor":
 
 ```lua:line-numbers [jobs.lua]
-TEAM_MAYOR = DarkRP.createJob("Мэр", {
+TEAM_MAYOR = DarkRP.createJob("Mayor", {
     color = Color(150, 20, 20, 255),
     model = "models/player/breen.mdl",
-    description = [[Как мэр, вы управляете городом. Вы можете вводить законы и работать над улучшением жизни граждан.]],
+    description = [[As mayor, you control the city. You can make laws and work on improving citizens' lives.]],
     weapons = {"weapon_fists"},
     command = "mayor",
     max = 1,
@@ -1262,17 +1262,17 @@ TEAM_MAYOR = DarkRP.createJob("Мэр", {
     vote = true,
     hasLicense = false,
     mayor = true,
-    category = "Государственные Службы"
+    category = "Government Services"
 })
 ```
 
-### Организация профессий в категории
+### Organizing professions in categories
 
-Для удобства игроков, профессии можно группировать по категориям. Например, все профессии государственных служб могут быть объединены в категорию "Государственные Службы":
+For convenience for players, professions can be grouped by categories. For example, all government services professions can be grouped into "Government Services" category:
 
 ```lua:line-numbers [jobs.lua]
 DarkRP.createCategory{
-    name = "Государственные Службы",
+    name = "Government Services",
     categorises = "jobs",
     startExpanded = true,
     color = Color(0, 107, 0, 255),
@@ -1281,70 +1281,52 @@ DarkRP.createCategory{
 }
 ```
 
-### Перезагрузка сервера
+### Server restart
 
-После внесения изменений в файл `jobs.lua`, сохраните файл и перезапустите сервер, чтобы изменения вступили в силу. Теперь новые профессии будут доступны для ваших игроков.
+After making changes to jobs.lua file, save file and restart server, so changes take effect. Now new professions will be available for your players.
 
-## Подключение базы данных MySQL
+## Connecting MySQL database
 
-Для хранения данных игроков мы строго рекомендуем использовать базы данных MySQL — так данными управлять намного удобнее и безопаснее.
+For storing player data, we strictly recommend using MySQL databases - it's much easier and safer to manage data.
 
-### Установка MySQLOO
+### Installing MySQLOO
 
-По умолчанию Garry's Mod не умеет устанавливать подключение к базам данных MySQL.
-Это решается установкой lua-модулей, которые позволяют устанавливать подключения и записывать данные в базы данных прямо в аддонах Garry's Mod.
-Одним из самых популярных модулей является **MySQLOO** — его мы и будем использовать в качестве примера в этой статье.
+By default, Garry's Mod doesn't know how to install MySQL database connection.
+This is solved by installing lua modules that allow installing connections and writing data directly to databases in Garry's Mod addons.
+One of the most popular modules is **MySQLOO** - we'll use it as an example in this article.
 
-#### Скачивание MySQLOO
+#### Downloading MySQLOO
 
-Первым делом нужно будет скачать сам модуль.
+First, you need to download the module itself.
 
-Последняя версия модуля на момент написания этой статьи — `9.7.6`.
+Latest version of the module at the time of writing this article - `9.7.6`.
 
-Прямые ссылки на скачивание:
+Direct download links:
 
 **[MySQLOO Linux 32bit](https://github.com/FredyH/MySQLOO/releases/download/9.7.6/gmsv_mysqloo_linux.dll)** | **[MySQLOO Linux 64bit](https://github.com/FredyH/MySQLOO/releases/download/9.7.6/gmsv_mysqloo_linux64.dll)**
 
 **[MySQLOO Windows 32bit](https://github.com/FredyH/MySQLOO/releases/download/9.7.6/gmsv_mysqloo_win32.dll)** | **[MySQLOO Windows 64bit](https://github.com/FredyH/MySQLOO/releases/download/9.7.6/gmsv_mysqloo_win64.dll)**
 
-Серверы, расположенные на нашем игровом хостинге, по умолчанию используют 32-битную Linux версию Garry's Mod. В случае перехода на 64-битную версию Garry's Mod, нужно будет скачать соответствующую версию модуля.
+Servers located on our game hosting, by default, use 32-bit Linux version of Garry's Mod. In case of switching to 64-bit version of Garry's Mod, you need to download corresponding module version.
 
-#### Загрузка MySQLOO на сервер
+#### Loading MySQLOO on server
 
-После скачивания модуля MySQLOO необходимо разместить соответствующий файл `.dll` в директории вашего сервера Garry's Mod:
+After downloading MySQLOO module, you need to place corresponding file `.dll` in your server Garry's Mod directory:
 
-1. Перейдите в папку `/garrysmod/lua/bin/` на вашем сервере. Создайте папку `bin`, если её не существует.
-2. Загрузите соответствующий файл MySQLOO в эту папку.
+1. Go to `/garrysmod/lua/bin/` on your server. Create folder `bin`, if it doesn't exist.
+2. Upload corresponding MySQLOO file to this folder.
 
-Убедитесь, что вы используете правильную версию модуля в зависимости от ОС и битности сервера (32bit или 64bit).
+Make sure you use correct module version depending on OS and server bitness (32bit or 64bit).
 
-### Настройка MySQL в DarkRP
+### Configuring MySQL in DarkRP
 
-#### Подключение базы данных
+#### Connecting database
 
-После установки модуля нужно настроить DarkRP для работы с базой данных MySQL.
+After installing module, you need to configure DarkRP to work with MySQL database.
 
-1. Откройте файл `mysql.lua`, который находится по пути `/garrysmod/addons/darkrpmodification/lua/darkrp_config/`.
+1. Open mysql.lua file, located at `/garrysmod/addons/darkrpmodification/lua/darkrp_config/`.
 
-2. Найдите и раскомментируйте следующие строки, заменив их на ваши данные для подключения к базе данных MySQL:
-
-```lua
---[[---------------------------------------------------------------------------
-Database configuration
----------------------------------------------------------------------------]]
-MySQLite_config = {}
-MySQLite_config.EnableMySQL = true
-MySQLite_config.Host = "localhost" -- IP вашего MySQL сервера
-MySQLite_config.Username = "root" -- Имя пользователя MySQL
-MySQLite_config.Password = "password" -- Пароль пользователя MySQL
-MySQLite_config.Database_name = "darkrp" -- Название базы данных
-MySQLite_config.Database_port = 3306 -- Порт MySQL, по умолчанию 3306
-MySQLite_config.Preferred_module = "mysqloo"
-```
-
-Данные можно найти во вкладке "Базы данных" в игровой панели управления, подробнее о вкладке можно узнать тут: [💿 Базы данных](/panel/databases.html#%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8-%D0%BE-%D0%B1%D0%B0%D0%B7%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
-
-Пример настроек:
+2. Find and uncomment the following lines, replacing them with your MySQL database connection data:
 
 ```lua
 --[[---------------------------------------------------------------------------
@@ -1352,18 +1334,36 @@ Database configuration
 ---------------------------------------------------------------------------]]
 MySQLite_config = {}
 MySQLite_config.EnableMySQL = true
-MySQLite_config.Host = "db.snk.wtf" -- IP вашего MySQL сервера
-MySQLite_config.Username = "senkowiki.acf78z1a" -- Имя пользователя MySQL
-MySQLite_config.Password = "gbp_ced0PQV-jwp6nvz" -- Пароль пользователя MySQL
-MySQLite_config.Database_name = "darkrp" -- Название базы данных
-MySQLite_config.Database_port = 3306 -- Порт MySQL, по умолчанию 3306
+MySQLite_config.Host = "localhost" -- IP your MySQL server
+MySQLite_config.Username = "root" -- MySQL user name
+MySQLite_config.Password = "password" -- MySQL user password
+MySQLite_config.Database_name = "darkrp" -- Database name
+MySQLite_config.Database_port = 3306 -- MySQL port, default 3306
 MySQLite_config.Preferred_module = "mysqloo"
 ```
 
-#### Тестирование подключения
+Data can be found in "Databases" tab in game control panel, more about tab can be found here: [💿 Databases](/panel/databases.html#%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8-%D0%BE-%D0%B1%D0%B0%D0%B7%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
 
-После выполнения вышеуказанных шагов, проверьте, подключился ли успешно сервер к базе данных MySQL.
+Example settings:
 
-Запустите сервер и следите за консолью сервера. Если настройка выполнена корректно, то вы не увидите каких-либо ошибок, связанных с MySQL.
+```lua
+--[[---------------------------------------------------------------------------
+Database configuration
+---------------------------------------------------------------------------]]
+MySQLite_config = {}
+MySQLite_config.EnableMySQL = true
+MySQLite_config.Host = "db.snk.wtf" -- IP your MySQL server
+MySQLite_config.Username = "senkowiki.acf78z1a" -- MySQL user name
+MySQLite_config.Password = "gbp_ced0PQV-jwp6nvz" -- MySQL user password
+MySQLite_config.Database_name = "darkrp" -- Database name
+MySQLite_config.Database_port = 3306 -- MySQL port, default 3306
+MySQLite_config.Preferred_module = "mysqloo"
+```
 
-Готово! Вы успешно настроили базу данных MySQL, и теперь все данные игроков будут сохраняться в базу данных заместо файла `sv.db`.
+#### Testing connection
+
+After performing above steps, check if server successfully connected to MySQL database.
+
+Start server and watch server console. If settings are done correctly, you won't see any MySQL related errors.
+
+Done! You successfully configured MySQL database, and now all player data will be stored in database instead of sv.db file.

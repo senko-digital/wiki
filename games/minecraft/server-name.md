@@ -1,42 +1,42 @@
 ---
-title: "Изменение MOTD сервера Minecraft"
-description: "Пошаговая инструкция по изменению MOTD сервера Minecraft. Научитесь создавать красивые и привлекательные названия для вашего сервера."
+title: "Changing Minecraft Server MOTD"
+description: "Step-by-step guide for changing a Minecraft server MOTD. Learn how to create beautiful and attractive names for your server."
 head:
   - - meta
     - name: keywords
-      content: minecraft, motd, server.properties, название сервера, майнкрафт сервер, minecraft server, изменение motd
+      content: minecraft, motd, server.properties, server name, minecraft server, changing motd
   - - meta
     - property: og:title 
-      content: "Minecraft - Изменение MOTD сервера"
+      content: "Minecraft - Changing Server MOTD"
   - - meta
     - property: og:description
-      content: "Пошаговая инструкция по изменению MOTD сервера Minecraft. Научитесь создавать красивые и привлекательные названия для вашего сервера."
+      content: "Step-by-step guide for changing a Minecraft server MOTD. Learn how to create beautiful and attractive names for your server."
 ---
 
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <MinecraftLogo>Изменение MOTD сервера</MinecraftLogo>
+# <MinecraftLogo>Changing Server MOTD</MinecraftLogo>
 
-Краткое руководство по изменению MOTD Minecraft сервера в игровой панели управления.
+Quick guide for changing a Minecraft server MOTD in the game control panel.
 
 ***
 
 ::: tip
-Для генерации красивого MOTD рекомендуем воспользоваться **[MCTools](https://mctools.org/motd-creator)**
+For generating a beautiful MOTD, we recommend using **[MCTools](https://mctools.org/motd-creator)**
 :::
 
-Перейдите в управление нужным сервером.
+Go to the management of the server you need.
 
-Войдите в файловый менеджер, и откройте файл `server.properties`.
+Enter the file manager and open the `server.properties` file.
 
 ![old server name](/images/games/minecraft/server-name/old-name.png){data-zoomable}
 
-Введите новое название сервера либо сгенерируйте его с помощью раннее упомянутого сервиса и замените старое название.
+Enter a new server name or generate one using the previously mentioned service, and replace the old name.
 
 ![new server name](/images/games/minecraft/server-name/new-name.png){data-zoomable}
 
-Готово! Теперь название вашего сервера будет сверкать по настоящему :sparkles:
+Done! Now your server name will truly sparkle :sparkles:
 
 ![server name in minecraft](/images/games/minecraft/server-icon/old.png){data-zoomable}

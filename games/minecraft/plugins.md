@@ -1,61 +1,61 @@
 ---
-title: "Установка плагинов Minecraft"
-description: "Руководство по установке и настройке плагинов на сервере Minecraft. Поддержка PaperMC, CraftBukkit, Mohist и других популярных ядер."
+title: "Installing Minecraft Plugins"
+description: "Guide for installing and configuring plugins on a Minecraft server. Support for PaperMC, CraftBukkit, Mohist, and other popular cores."
 head:
   - - meta
     - name: keywords
-      content: minecraft, plugins, bukkit, spigot, paper, mohist, плагины майнкрафт
+      content: minecraft, plugins, bukkit, spigot, paper, mohist, minecraft plugins
   - - meta
     - property: og:title 
-      content: "Minecraft - Установка плагинов"
+      content: "Minecraft - Installing Plugins"
   - - meta
     - property: og:description
-      content: "Руководство по установке и настройке плагинов на сервере Minecraft. Поддержка PaperMC, CraftBukkit, Mohist и других популярных ядер."
+      content: "Guide for installing and configuring plugins on a Minecraft server. Support for PaperMC, CraftBukkit, Mohist, and other popular cores."
 ---
 
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <MinecraftLogo>Установка плагинов</MinecraftLogo>
+# <MinecraftLogo>Installing Plugins</MinecraftLogo>
 
-Краткое руководство по установке плагинов на сервер Minecraft.
+Quick guide for installing plugins on a Minecraft server.
 
 ***
 
 ::: tip
-Плагины работают лишь в паре с соответствующими ядрами, например [PaperMC](https://papermc.io/), [CraftBukkit](https://getbukkit.org/), [Mohist](https://mohistmc.com/) и [Fabric](https://fabricmc.net/). Для полной инструкции по их установке посетите наше [руководство](/games/minecraft/core)
+Plugins only work with corresponding cores, such as [PaperMC](https://papermc.io/), [CraftBukkit](https://getbukkit.org/), [Mohist](https://mohistmc.com/), and [Fabric](https://fabricmc.net/). For complete installation instructions, visit our [guide](/games/minecraft/core)
 :::
 
-Каждый плагин создается с упором на конкретное ядро. Например плагин для PaperMC не будет работать с CraftBukkit, и наоборот. Поэтому перед установкой убедитесь, что плагин который вы собираетесь установить - подходит для вашего конкретного ядра.
+Each plugin is created with a specific core in mind. For example, a plugin for PaperMC won't work with CraftBukkit, and vice versa. Therefore, before installation, make sure that the plugin you're going to install is compatible with your specific core.
 
-Во избежание ошибок и неработающих плагинов, пользуйтесь официальными ресурсами конкретных плагинов, например для PaperMC это [Hangar](https://hangar.papermc.io/), для CraftBukkit - [Bukkit](https://dev.bukkit.org/bukkit-plugins), Spigot - [Spigot resources](https://www.spigotmc.org/resources/categories/spigot.4/). Также можем порекомендовать [Modrinth](https://modrinth.com/plugins), в нём содержится большое количество плагинов для всех популярных ядер.
+To avoid errors and non-working plugins, use official resources for specific plugins, for example, for PaperMC it's [Hangar](https://hangar.papermc.io/), for CraftBukkit - [Bukkit](https://dev.bukkit.org/bukkit-plugins), Spigot - [Spigot resources](https://www.spigotmc.org/resources/categories/spigot.4/). We can also recommend [Modrinth](https://modrinth.com/plugins), which contains a large number of plugins for all popular cores.
 
-### Скачивание плагинов
+### Downloading Plugins
 
-В этом руководстве мы возьмём за пример сайт [Modrinth](https://modrinth.com/plugins), так как по нашему мнению он является наиболее удобным.
-Начнём с фильтров.
+In this guide, we'll use [Modrinth](https://modrinth.com/plugins) as an example, as we believe it's the most convenient.
+Let's start with the filters.
 
-Основными фильтрами являются ядро (платформа) и версия сервера.
+The main filters are the core (platform) and server version.
 
 ![plugin filters](/images/games/minecraft/plugins/filters.png){data-zoomable}
 
-После того как Вы выбрали плагин и зашли на его страницу, нажмите на кнопку "Download".
+After you've selected a plugin and gone to its page, click on the "Download" button.
 
 ![plugin download button](/images/games/minecraft/plugins/plugin-download-button.png){data-zoomable}
 
-Дальше появится окно, где нужно будет выбрать версию и ядро (платформу).
+Next, a window will appear where you'll need to select the version and core (platform).
 
 ![plugin download popup](/images/games/minecraft/plugins/plugin-download-popup.png){data-zoomable}
 
-### Установка плагина на сервер
+### Installing the Plugin on the Server
 
-После скачивания плагина перейдите в управление файлами сервера, после - в папку `plugins`, и загрузите туда файл(-ы) самого плагина. В нашем случае это `worldedit-bukkit-7.3.6.jar`.
+After downloading the plugin, go to the server file management, then to the `plugins` folder, and upload the plugin file(s) there. In our case, it's `worldedit-bukkit-7.3.6.jar`.
 
 ![plugin upload to the server](/images/games/minecraft/plugins/file-upload.png){data-zoomable}
 
-### Проверка работоспособности плагина
+### Checking Plugin Functionality
 
-После установки сервера, нужно запустить сервер дабы удостовериться в его работоспобосности. После этого достаточно прописать команду `plugins` в консоль. Если в списке есть только что установленный плагин - значит установка прошла успешно!
+After installing the server, you need to start the server to ensure it's working properly. After that, just type the `plugins` command in the console. If the newly installed plugin is in the list - that means the installation was successful!
 
 ![plugin working](/images/games/minecraft/plugins/plugin-working.png){data-zoomable}

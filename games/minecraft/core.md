@@ -1,33 +1,33 @@
 ---
-title: "Установка кастомного ядра"
-description: "Руководство по установке и настройке кастомных ядер на сервере Minecraft. PaperMC, CraftBukkit, Mohist и другие популярные ядра."
+title: "Installing a Custom Core"
+description: "Guide for installing and configuring custom cores on a Minecraft server. PaperMC, CraftBukkit, Mohist and other popular cores."
 head:
   - - meta
     - name: keywords
-      content: minecraft, paper, bukkit, spigot, mohist, fabric, forge, ядро сервера
+      content: minecraft, paper, bukkit, spigot, mohist, fabric, forge, server core
   - - meta
     - property: og:title 
-      content: "Minecraft - Установка кастомного ядра"
+      content: "Minecraft - Installing a Custom Core"
   - - meta
     - property: og:description
-      content: "Руководство по установке и настройке кастомных ядер на сервере Minecraft. PaperMC, CraftBukkit, Mohist и другие популярные ядра."
+      content: "Guide for installing and configuring custom cores on a Minecraft server. PaperMC, CraftBukkit, Mohist and other popular cores."
 ---
 
 <script setup>
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# <MinecraftLogo>Установка кастомного ядра</MinecraftLogo>
+# <MinecraftLogo>Installing a Custom Core</MinecraftLogo>
 
-Краткое руководство по установке кастомного ядра на сервер Minecraft.
+Quick guide for installing a custom core on a Minecraft server.
 
 ***
 
-Для начала стоит определиться с тем, какое ядро вы хотели бы установить. Из самых популярных мы можем порекомендовать [PaperMC](https://papermc.io/), [CraftBukkit](https://getbukkit.org/), [Mohist](https://mohistmc.com/) и [Fabric](https://fabricmc.net/). В этом руководстве для примера мы покажем как установить PaperMC.
+First, you should decide which core you would like to install. Among the most popular, we can recommend [PaperMC](https://papermc.io/), [CraftBukkit](https://getbukkit.org/), [Mohist](https://mohistmc.com/), and [Fabric](https://fabricmc.net/). In this guide, we'll show you how to install PaperMC as an example.
 
-## Скачивание ядра
+## Downloading the Core
 
-Перейдите на сайт [PaperMC](https://papermc.io/), нажмите на кнопку "Downloads", после этого нажмите на "Paper" и "Paper 1.21.1" (вместо 1.21.1 может быть любая другая, более новая версия)
+Go to the [PaperMC](https://papermc.io/) website, click on the "Downloads" button, then click on "Paper" and "Paper 1.21.1" (instead of 1.21.1, there could be any other, newer version)
 
 ![papermc website main page](/images/games/minecraft/core/papermc-main.png){data-zoomable}
 
@@ -35,17 +35,17 @@ import MinecraftLogo from '/components/MinecraftLogo.vue';
 
 ![papermc website download page](/images/games/minecraft/core/papermc-download.png){data-zoomable}
 
-## Загрузка ядра на сервер
+## Uploading the Core to the Server
 
-Для загрузки ядра Вам нужно перейти в панель управления сервером, затем в "файлы", где вы можете использовать кнопку "загрузить", либо же просто перетащить файл с ядром сервера в окно браузера.
-После этого удалите старое ядро (`server.jar`) и переименуйте новое на `server.jar`.
+To upload the core, you need to go to the server control panel, then to "files," where you can use the "upload" button or simply drag and drop the server core file into the browser window.
+After that, delete the old core (`server.jar`) and rename the new one to `server.jar`.
 
 ::: tip
-Вы также можете изменить название файла который будет запускаться, изменив значение в "параметрах запуска" с помощью пункта "Server Jar File".
+You can also change the name of the file that will be executed by changing the value in the "startup parameters" using the "Server Jar File" option.
 :::
 
-## Проверка работоспособности ядра на сервере
+## Checking Core Functionality on the Server
 
-После установки ядра, нужно запустить сервер дабы удостовериться в его работоспобосности.
+After installing the core, you need to start the server to ensure it's working properly.
 
 ![screenshot of the game panel](/images/games/minecraft/core/working-server.png){data-zoomable}

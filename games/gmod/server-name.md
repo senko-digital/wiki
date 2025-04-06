@@ -1,34 +1,34 @@
 ---
-title: "Изменение названия сервера Garry's Mod"
-description: "Руководство по изменению названия сервера Garry's Mod. Узнайте, как быстро и легко изменить название вашего сервера через файл server.cfg."
+title: "Changing Garry's Mod Server Name"
+description: "Guide to changing the name of a Garry's Mod server. Learn how to quickly and easily change your server name through the server.cfg file."
 head:
   - - meta
     - name: keywords
-      content: gmod, garrys mod, server name, server.cfg, hostname, название сервера, гаррис мод
+      content: gmod, garrys mod, server name, server.cfg, hostname, server title, garry's mod
   - - meta
     - property: og:title 
-      content: "Изменение названия сервера Garry's Mod"
+      content: "Changing Garry's Mod Server Name"
   - - meta
     - property: og:description
-      content: "Руководство по изменению названия сервера Garry's Mod. Узнайте, как быстро и легко изменить название вашего сервера через файл server.cfg."
+      content: "Guide to changing the name of a Garry's Mod server. Learn how to quickly and easily change your server name through the server.cfg file."
 ---
 
 <script setup>
 import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <GmodLogo>Изменение названия сервера</GmodLogo>
+# <GmodLogo>Changing Server Name</GmodLogo>
 
-Краткое руководство по изменению названия игрового сервера Garry's Mod.
+Quick guide to changing the name of a Garry's Mod game server.
 
 ***
 
-Перейдите в управление нужным сервером.
+Go to the management panel of your server.
 
-Войдите в файловый менеджер, и перейдите в папку `garrysmod`, потом `cfg`, и откройте файл `server.cfg`.
+Enter the file manager, navigate to the `garrysmod` folder, then `cfg`, and open the `server.cfg` file.
 
 ![old server name](/images/games/gmod/server-name/old.png){data-zoomable}
 
-В файле найдите строчку `hostname`, и измените содержимое внутри кавычек на предпочительное вам название сервера и сохраните файл.
+In the file, find the `hostname` line, and change the content inside the quotes to your preferred server name and save the file.
 
 ![new server name](/images/games/gmod/server-name/new.png){data-zoomable}

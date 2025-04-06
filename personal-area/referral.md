@@ -1,46 +1,46 @@
 ---
-title: "Реферальная программа"
-description: "Зарабатывайте 5% от заказов клиентов, которых вы привлекли в Senko Digital."
+title: "Referral Program"
+description: "Earn 5% from orders made by clients you've referred to Senko Digital."
 head:
   - - meta
     - name: keywords
-      content: реферальная программа, заработок, партнерская программа, Senko Digital, доход
+      content: referral program, earnings, affiliate program, Senko Digital, income
   - - meta
     - property: og:title
-      content: "Реферальная программа Senko Digital"
+      content: "Senko Digital Referral Program"
   - - meta
     - property: og:description
-      content: "Приглашайте клиентов и получайте 5% с каждого их заказа без ограничений."
+      content: "Invite clients and receive 5% from each of their orders without limitations."
 ---
 
-# Реферальная программа
+# Referral Program
 
-Senko Digital предлагает вам зарабатывать на привлечении клиентов. Вы получаете **5% от каждого их заказа**, и это начисление остаётся за вами навсегда.
+Senko Digital offers you the opportunity to earn by referring clients. You receive **5% from each of their orders**, and this payment remains yours forever.
 
-![реферальная программа в личном кабинете](/images/personal-area/referral/1.png){data-zoomable}
+![referral program in personal account](/images/personal-area/referral/1.png){data-zoomable}
 
-## Как это работает?
+## How it works?
 
-- **Получите реферальную ссылку** в [личном кабинете](https://my.senko.digital/billmgr?clickstat=yes&startform=affiliate.client).  
-- **Поделитесь ссылкой** — разместите её на сайте, в соцсетях и форумах.  
-- **Клиент регистрируется** по ссылке или вводит ваш промокод при заказе.  
-- **Вы получаете 5% от его платежей** — без ограничений по времени и сумме.  
+- **Get your referral link** in your [personal account](https://my.senko.digital/billmgr?clickstat=yes&startform=affiliate.client).  
+- **Share the link** — place it on your website, social media, and forums.  
+- **The client registers** via your link or enters your promo code when ordering.  
+- **You receive 5% from their payments** — without time or amount limitations.  
 
-Если клиент зарегистрировался без ссылки, он всё равно может ввести ваш промокод при первом заказе, и система закрепит его за вами.
+If a client registers without using your link, they can still enter your promo code during their first order, and the system will assign them to you.
 
-## Где отслеживать доход?
+## Where to track your income?
 
-- В разделе **«Доход»** можно посмотреть начисления с заказов.  
-- В разделе **«Статистика»** доступен список всех привлечённых клиентов.  
+- In the **"Income"** section, you can view earnings from orders.  
+- In the **"Statistics"** section, you can see a list of all referred clients.  
 
-## Выплаты и ограничения
+## Payouts and limitations
 
-- **Минимальная сумма для вывода** – 50€.  
-- **Доступные способы выплат**: криптовалюта, банковские карты, PayPal.  
-- **Запрещены саморефералы, спам и обман клиентов**.  
+- **Minimum withdrawal amount** – 50€.  
+- **Available payout methods**: cryptocurrency, bank cards, PayPal.  
+- **Self-referrals, spam, and client deception are prohibited**.  
 
-Программа действует без скрытых условий — ваша доля сохраняется за вами, пока клиент остаётся активным.
+The program operates without hidden conditions — your share remains yours as long as the client stays active.
 
-## Начните зарабатывать
+## Start earning
 
-Просто скопируйте ссылку, поделитесь ею и получайте доход с каждого заказа.  
+Simply copy the link, share it, and receive income from each order.  

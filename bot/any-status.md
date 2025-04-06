@@ -1,27 +1,27 @@
 ---
-title: "Статус любого сервера"
-description: "Мониторинг статуса любых игровых серверов через Discord бота Senko Digital. Поддержка Garry's Mod, Minecraft, CS2 и других игр."
+title: "Any Server Status"
+description: "Monitoring any game server status through Senko Digital Discord bot. Support for Garry's Mod, Minecraft, CS2, and other games."
 head:
   - - meta
     - name: keywords
-      content: discord бот, статус сервера, мониторинг, gmod, minecraft, cs2, игровые сервера
+      content: discord bot, server status, monitoring, gmod, minecraft, cs2, game servers
   - - meta
     - property: og:title 
-      content: "Discord бот - Статус любого сервера"
+      content: "Discord Bot - Any Server Status"
   - - meta
     - property: og:description
-      content: "Мониторинг статуса любых игровых серверов через Discord бота Senko Digital. Поддержка Garry's Mod, Minecraft, CS2 и других игр."
+      content: "Monitoring any game server status through Senko Digital Discord bot. Support for Garry's Mod, Minecraft, CS2, and other games."
 ---
 
-# 🔁 Статус любого сервера
+# 🔁 Any Server Status
 
-С помощью бота вы можете просматривать статус любого игрового сервера, который им поддерживается.
+With the bot, you can view the status of any game server that it supports.
 
-Для использования команды авторизация в боте не требуется, достаточно следовать синтаксису команды и всё заработает.
+Bot authorization is not required to use this command, just follow the command syntax and everything will work.
 
-## Поддерживаемые игры
+## Supported Games
 
-На момент написания статьи ботом поддерживаются следующие игры:
+At the time of writing this article, the bot supports the following games:
 
 - Garry's Mod
 - Counter-Strike 2
@@ -36,26 +36,26 @@ head:
 - Half-Life: Deathmatch
 - Half-Life 2: Deathmatch
 
-Если вы считаете, что какой-то игры не хватает, и вы хотели бы увидеть её в нашем боте, вы можете сообщить об этом нашей команде разработчиков по e-mail адресу [`admin@senko.digital`](mailto:admin@senko.digital)
+If you believe that a game is missing and you would like to see it in our bot, you can contact our development team via the email address [`admin@senko.digital`](mailto:admin@senko.digital)
 
-## Синтаксис команды
+## Command Syntax
 
 ```lua
 /server-status address: [ip:port] game: [game]
 ```
 
-Например
+For example
 
 ```lua
 /server-status address: 193.135.137.140:27015 game: CS:GO
 ```
 
-Отправит вот такое сообщение:
+Will send a message like this:
 
 ![sample autoupdate status of a random game server](/images/bot/any-status.png){data-zoomable}
 
 ::: tip
-Команду можно использовать в любом канале, где у бота есть права на просмотр и отправку сообщений.
+The command can be used in any channel where the bot has permissions to view and send messages.
 :::
 
-Вы так же можете воспользоваться реакциями которые оставил бот у сообщения для перехода по различным вкладкам, среди которых есть список игроков и переменные (CVars) которые используются на игровом сервере.
+You can also use the reactions that the bot leaves on the message to navigate through different tabs, including the player list and variables (CVars) used on the game server.

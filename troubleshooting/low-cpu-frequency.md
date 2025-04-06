@@ -1,46 +1,46 @@
 ---
-title: "Низкая частота процессора в виртуальной машине"
-description: "Объяснение причин отображения низкой частоты процессора в виртуальных машинах и особенности работы CPU в виртуализированной среде."
+title: "Low CPU Frequency in Virtual Machines"
+description: "Explanation of why low CPU frequency appears in virtual machines and how CPU operates in virtualized environments."
 head:
   - - meta
     - name: keywords
-      content: cpu frequency, процессор, частота процессора, виртуализация, kvm, qemu, vps
+      content: cpu frequency, processor, cpu frequency, virtualization, kvm, qemu, vps
   - - meta
     - property: og:title
-      content: "Низкая частота процессора в виртуальной машине"
+      content: "Low CPU Frequency in Virtual Machines"
   - - meta
     - property: og:description
-      content: "Объяснение причин отображения низкой частоты процессора в виртуальных машинах и особенности работы CPU в виртуализированной среде."
+      content: "Explanation of why low CPU frequency appears in virtual machines and how CPU operates in virtualized environments."
 ---
 
-# Низкая частота процессора в виртуальной машине
+# Low CPU Frequency in Virtual Machines
 
-## Введение
+## Introduction
 
-При работе с виртуальными машинами (VPS) нередко возникает ситуация, когда отображаемая частота процессора кажется ниже ожидаемой. Это нормальное поведение, связанное с особенностями работы виртуализации.
+When working with virtual machines (VPS), it's common to encounter situations where the displayed CPU frequency seems lower than expected. This is normal behavior related to the specifics of virtualization.
 
-## Причины
+## Causes
 
-Основной причиной является то, что реальная частота процессора не отражается в реальном времени в виртуальной машине из-за ограничений виртуализации QEMU/KVM. Это стандартное поведение для виртуальных машин.
+The main reason is that the real CPU frequency is not reflected in real-time in the virtual machine due to the limitations of QEMU/KVM virtualization. This is standard behavior for virtual machines.
 
-Частота процессора, которую вы видите в вашем сервере, является базовой частотой, которая была передана от гипервизора (QEMU) в виртуальную машину. В виртуализированной среде нет возможности видеть текущую частоту процессора в реальном времени.
+The CPU frequency you see in your server is the base frequency that was passed from the hypervisor (QEMU) to the virtual machine. In a virtualized environment, there is no way to see the current CPU frequency in real-time.
 
-## Особенности работы
+## How It Works
 
-1. **Отображение частоты**: 
-   - В виртуальной машине отображается базовая частота процессора
-   - Реальная частота всегда отличается от отображаемой
-   - Это никак не влияет на производительность системы
+1. **Frequency Display**: 
+   - The virtual machine displays the base CPU frequency
+   - The real frequency always differs from the displayed one
+   - This does not affect system performance in any way
 
-2. **Производительность**:
-   - Несмотря на отображение низкой частоты, система работает на полную мощность
-   - Ресурсы процессора выделяются в соответствии с тарифным планом
-   - Производительность соответствует заявленным характеристикам
+2. **Performance**:
+   - Despite showing a low frequency, the system operates at full power
+   - CPU resources are allocated according to your service plan
+   - Performance corresponds to the stated specifications
 
-## Проверка производительности
+## Performance Testing
 
-Для оценки реальной производительности процессора рекомендуется провести тесты производительности через специальные утилиты, например Geekbench.
+To evaluate the real CPU performance, it's recommended to run performance tests using special utilities, such as Geekbench.
 
-## Заключение
+## Conclusion
 
-Отображение низкой частоты процессора в виртуальной машине является нормальным поведением и не свидетельствует о проблемах с производительностью. Это особенность работы виртуализации QEMU/KVM, которая не влияет на реальную производительность системы.
+Displaying a low CPU frequency in a virtual machine is normal behavior and does not indicate performance problems. This is a characteristic of QEMU/KVM virtualization that does not affect the real performance of the system.

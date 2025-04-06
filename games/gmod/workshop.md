@@ -1,44 +1,40 @@
 ---
-title: "Установка аддонов из Workshop"
-description: "Руководство по установке и настройке аддонов из Steam Workshop на сервере Garry's Mod. Управление коллекцией аддонов и их конфигурация."
+title: "Installing Addons from Workshop"
+description: "Guide for installing and configuring addons from Steam Workshop on a Garry's Mod server. Managing the addon collection and configuration."
 head:
   - - meta
     - name: keywords
-      content: gmod, workshop, steam workshop, аддоны, моды, garry's mod, установка аддонов
+      content: gmod, workshop, steam workshop, addons, mods, garry's mod, installing addons
   - - meta
     - property: og:title 
-      content: "Garry's Mod - Установка аддонов из Workshop"
+      content: "Garry's Mod - Installing Addons from Workshop"
   - - meta
     - property: og:description
-      content: "Руководство по установке и настройке аддонов из Steam Workshop на сервере Garry's Mod. Управление коллекцией аддонов и их конфигурация."
+      content: "Guide for installing and configuring addons from Steam Workshop on a Garry's Mod server. Managing the addon collection and configuration."
 ---
 
 <script setup>
 import GmodLogo from '/components/GmodLogo.vue';
 </script>
 
-# <GmodLogo>Установка своей коллекции</GmodLogo>
+# <GmodLogo>Installing Your Collection</GmodLogo>
 
-Краткое руководство по установке своей коллекции на игровой сервер Garry's Mod.
+Quick guide for installing your collection on a Garry's Mod game server.
 
-## Настройка коллекции на стороне сервера
+## Setting up the Collection on the Server Side
 
-Перейдите в управление нужным сервером.
+Go to the management panel of your server.
 
-Перейдите в параметры запуска сервера и найдите параметр "Workshop ID коллекции".
+Navigate to the server startup parameters and find the "Workshop Collection ID" parameter.
 
-Введите цифры из ссылки на коллекцию, например `248302805`.
+Enter the numbers from the collection link, for example `248302805`.
 
-Перезапустите сервер для применения изменений.
+Restart the server to apply the changes.
 
-Готово! Теперь при запуске сервера он будет скачивать и проверять обновления в аддонах из вашей коллекции Steam Workshop.
+Done! Now when the server starts, it will download and check for updates on addons from your Steam Workshop collection.
 
-## Настройка скачивания аддонов на стороне игроков
+## Setting up Addon Downloads for Players
 
-Теперь нужно настроить файл `workshop.lua`. Благодаря нему при подключении к серверу у игроков будет начинаться скачивание аддонов напрямую из Steam Workshop, при этом не оформляя подписок на коллекцию сервера.
+Now you need to configure the `workshop.lua` file. Thanks to this, when connecting to the server, players will begin downloading addons directly from the Steam Workshop, without subscribing to the server's collection.
 
-Для генерации этого файла мы воспользуемся сайтом [ConfigCreator](https://beta.configcreator.com/create/gmod/resources.lua)
-
-Перейдите в управление нужным сервером.
-
-Перейдите в файловый менеджер, перейдите по пути `/garrysmod/lua/autorun/server`. Откройте файл `workshop.lua`.
+To generate this file, we'll use the [ConfigCreator](https://beta.configcreator.com/create/gmod/resources.lua) website.

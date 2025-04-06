@@ -1,49 +1,49 @@
 ---
-title: "Автообновляемый статус"
-description: "Настройка автоматического обновления статуса игровых серверов в Discord. Мониторинг серверов в реальном времени."
+title: "Auto-updating Status"
+description: "Setting up automatic game server status updates in Discord. Real-time server monitoring."
 head:
   - - meta
     - name: keywords
-      content: discord бот, автообновление статуса, мониторинг серверов, senko bot, игровые сервера
+      content: discord bot, auto-update status, server monitoring, senko bot, game servers
   - - meta
     - property: og:title 
-      content: "Discord бот - Автообновляемый статус"
+      content: "Discord Bot - Auto-updating Status"
   - - meta
     - property: og:description
-      content: "Настройка автоматического обновления статуса игровых серверов в Discord. Мониторинг серверов в реальном времени."
+      content: "Setting up automatic game server status updates in Discord. Real-time server monitoring."
 ---
 
-# 🔁 Автообновляемый статус
+# 🔁 Auto-updating Status
 
-С помощью нашего бота вы так же можете отправить сообщение, которое будет автоматически обновлять статуса любого игрового сервера.
+With our bot, you can also send a message that will automatically update the status of any game server.
 
-Принцип работы команды такой же, как и у [**[🔁 Статус любого сервера](/bot/any-status)**] - единственным отличием будет сама команда.
+The command works the same way as [**[🔁 Any Server Status](/bot/any-status)**] - the only difference is the command itself.
 
-Для использования команды авторизация в боте не требуется, достаточно следовать синтаксису команды и всё заработает.
+Authorization in the bot is not required to use this command, just follow the command syntax and everything will work.
 
-## Синтаксис команды
+## Command Syntax
 
 ```lua
 /refresh-status [ip:port] [game]
 ```
 
-Например
+For example
 
 ```lua
 /refresh-status 193.135.137.140:27015 garrysmod
 ```
 
-Отправит вот такое сообщение:
+Will send a message like this:
 
 ![sample status of a random game server](/images/bot/any-status.png){data-zoomable}
 
 ::: tip
-Команду можно использовать в любом канале, где у бота есть права на просмотр, отправку, редактирование и удаление сообщений.
+The command can be used in any channel where the bot has permissions to view, send, edit, and delete messages.
 :::
 
-## Удаление автообновляемого статуса
+## Removing Auto-updating Status
 
-Для удаления автообновляемого статуса обязательно нужно написать команду:
+To remove the auto-updating status, you must use this command:
 
 ```lua
 /remove-refresh
@@ -52,5 +52,5 @@ head:
 ![remove refreshable status](/images/bot/remove-status.png){data-zoomable}
 
 ::: danger
-Удалять сообщение с самим статусом не стоит, иначе вы не сможете создать новое сообщение такого вида пока не введёте вышеприведённую команду.
+You should not delete the message with the status itself, otherwise you won't be able to create a new message of this type until you enter the command above.
 :::

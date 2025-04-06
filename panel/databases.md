@@ -1,91 +1,91 @@
 ---
-title: "Базы данных"
-description: "Руководство по управлению базами данных MySQL в игровой панели. Создание, настройка и управление базами данных для вашего сервера."
+title: "Databases"
+description: "Guide to managing MySQL databases in the game panel. Creating, configuring, and managing databases for your server."
 head:
   - - meta
     - name: keywords
-      content: базы данных, mysql, phpmyadmin, игровая панель, управление данными
+      content: databases, mysql, phpmyadmin, game panel, data management
   - - meta
     - property: og:title 
-      content: "Панель управления - Базы данных"
+      content: "Control Panel - Databases"
   - - meta
     - property: og:description
-      content: "Руководство по управлению базами данных MySQL в игровой панели. Создание, настройка и управление базами данных для вашего сервера."
+      content: "Guide to managing MySQL databases in the game panel. Creating, configuring, and managing databases for your server."
 ---
 
-# 💿 Базы данных
+# 💿 Databases
 
-Краткое руководство по созданию и настройке баз данных в игровой панели управления.
+Quick guide to creating and configuring databases in the game control panel.
 
-## Описание страницы
+## Page Description
 
-С помощью данной вкладки можно создавать новые базы данных MySQL для вашего игрового сервера.
+With this tab, you can create new MySQL databases for your game server.
 
-Они очень полезны в хранении данных игроков, например в Garry's Mod это могут быть профессии, привилегии, ники игроков и многое другое.
+They are very useful for storing player data; for example, in Garry's Mod, this can be professions, privileges, player nicknames, and much more.
 
 ::: tip
-По умолчанию к каждой услуге предоставляется одна база данных, для запроса дополнительных обратитесь в поддержку.
+By default, one database is provided for each service; contact support to request additional ones.
 :::
 
 ![database management](/images/panel/databases.png){data-zoomable}
 
-## Создание новой базы данных
+## Creating a New Database
 
-Для создания новой базы данных нажмите на кнопку **«Новая база данных»**.
+To create a new database, click on the **"New Database"** button.
 
-В открывшемся окне введите желаемое название базы данных латиницей, и в поле **«Подключения от»** впишите `%` или IP вашего игрового сервера.
+In the window that opens, enter the desired database name in Latin characters, and in the **"Connections from"** field, enter `%` or the IP of your game server.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/create-database.mp4" type="video/mp4" />
 </video>
 
-## Удаление базы данных
+## Deleting a Database
 
-Нажмите на название базы данных чтобы скопировать его, после напротив от названия базы данных нажмите на иконку удаления и вставьте название базы данных, и подтвердите удаление.
+Click on the database name to copy it, then next to the database name, click on the delete icon and paste the database name, and confirm the deletion.
 
 ::: danger
-**Внимание**: при удалении базы данных потеряются все данные из неё, настоятельно рекомендуем сохранить данные перед совершением данной операции.
+**Warning**: when deleting a database, all data from it will be lost; we strongly recommend saving the data before performing this operation.
 :::
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/delete-database.mp4" type="video/mp4" />
 </video>
 
-## Просмотр информации о базе данных
+## Viewing Database Information
 
-Напротив от названия базы данных нажмите на иконку глаза, и в открывшемся окне вам будут предоставлены данные для подключения к базе данных.
+Next to the database name, click on the eye icon, and in the window that opens, you will be provided with the data for connecting to the database.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/view-database.mp4" type="video/mp4" />
 </video>
 
-## Изменение пароля базы данных
+## Changing the Database Password
 
-Напротив от названия базы данных нажмите на иконку глаза, и в открывшемся окне нажмите на кнопку **«Сменить пароль»** - пароль будет изменён мгновенно и все подключения будут сброшены.
+Next to the database name, click on the eye icon, and in the window that opens, click on the **"Change Password"** button - the password will be changed instantly and all connections will be reset.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/change-password.mp4" type="video/mp4" />
 </video>
 
-## Подключение через PHPMyAdmin
+## Connecting via PHPMyAdmin
 
-Напротив от названия базы данных нажмите на иконку глаза, и в открывшемся окне вам будут предоставлены данные для подключения к базе данных - скопируйте их, перейдите на страницу [PHPMyAdmin](https://db.senko.digital) и воспользуйтесь этими данными для входа в панель.
+Next to the database name, click on the eye icon, and in the window that opens, you will be provided with the data for connecting to the database - copy them, go to the [PHPMyAdmin](https://db.senko.digital) page and use this data to log into the panel.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/connect-to-phpmyadmin.mp4" type="video/mp4" />
 </video>
 
-## Импортирование базы данных через PHPMyAdmin
+## Importing a Database via PHPMyAdmin
 
-Войдите в панель управления PHPMyAdmin, перейдите в управление нужной базой данных, перейдите во вкладку "**Import**", загрузите свой файл базы данных и нажмите на кнопку "**Import**".
+Log into the PHPMyAdmin control panel, go to the management of the needed database, go to the "**Import**" tab, upload your database file and click on the "**Import**" button.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/import-database.mp4" type="video/mp4" />
 </video>
 
-## Экспортирование базы данных через PHPMyAdmin
+## Exporting a Database via PHPMyAdmin
 
-Войдите в панель управления PHPMyAdmin, перейдите в управление нужной базой данных, перейдите во вкладку "**Export**" и нажмите на кнопку "**Export**".
+Log into the PHPMyAdmin control panel, go to the management of the needed database, go to the "**Export**" tab and click on the "**Export**" button.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/export-database.mp4" type="video/mp4" />

@@ -1,56 +1,56 @@
 ---
-title: "Авторизация в боте Discord"
-description: "Руководство по авторизации в Discord боте Senko Digital. Подключение бота к панели управления для мониторинга серверов."
+title: "Discord Bot Authorization"
+description: "Guide for authorizing with the Senko Digital Discord bot. Connecting the bot to the control panel for server monitoring."
 head:
   - - meta
     - name: keywords
-      content: discord бот, авторизация, api токен, senko bot, игровая панель, мониторинг серверов
+      content: discord bot, authorization, api token, senko bot, game panel, server monitoring
   - - meta
     - property: og:title 
-      content: "Discord бот - Авторизация"
+      content: "Discord Bot - Authorization"
   - - meta
     - property: og:description
-      content: "Руководство по авторизации в Discord боте Senko Digital. Подключение бота к панели управления для мониторинга серверов."
+      content: "Guide for authorizing with the Senko Digital Discord bot. Connecting the bot to the control panel for server monitoring."
 ---
 
-# 👤 Авторизация
+# 👤 Authorization
 
-Установка ~~телепатической связи с лисичками~~ связи между панелью и нашим ботом в Discord.
+Setting up ~~telepathic connection with foxes~~ the connection between the panel and our Discord bot.
 
-## Создание API токена
+## Creating an API Token
 
-Для начала вам нужно войти в нашу [игровую панель управления](https://panel.senko.digital).
+First, you need to log into our [game control panel](https://panel.senko.digital).
 
-Перейдите во вкладку **«управление аккаунтом»** нажав на аватарку в верхнем меню, и потом перейдите во вкладку **«[данные для API](https://panel.senko.digital/account/api)»**:
+Go to the **"account management"** tab by clicking on the avatar in the top menu, then navigate to the **"[API credentials](https://panel.senko.digital/account/api)"** tab:
 
 ![api token creation](/images/bot/api-menu.png){data-zoomable}
 
-В поле описание впишите любое название, которое будет вам понятно при использовании API ключей.
+In the description field, enter any name that will make sense to you when using API keys.
 
-Поле **«разрешенные IP»** рекомендуется **оставить пустым**.
+It's recommended to **leave the "allowed IPs" field empty**.
 
 ![api token params](/images/bot/api-params.png){data-zoomable}
 
-Создайте новый ключ.
+Create a new key.
 
 ![api token generated](/images/bot/api-generated.png){data-zoomable}
 
-Сгенерированный ключ рекомендуется сохранить в безопасном месте, например в менеджере паролей, абы у вас была возможность переавторизоваться с помощью этого же токена.
+It's recommended to save the generated key in a secure location, such as a password manager, so that you can re-authorize using the same token if needed.
 
 ::: danger
-Ни в коем случае не передавайте ключ третьим лицам - с помощью этого ключа можно управлять питанием сервера и отправлять команды на него.
+Never share the key with third parties - this key can be used to control server power and send commands to it.
 :::
 
-## Авторизация в боте
+## Bot Authorization
 
-Теперь нужно авторизоваться с помощью этого ключа в нашем боте Discord.
+Now you need to authorize with this key in our Discord bot.
 
-Перейдите в личные сообщения с ботом `senko//bot#4900` - его можно найти на [нашем Discord сервере](https://snk.wtf/d).
+Go to direct messages with the bot `senko//bot#4900` - you can find it on [our Discord server](https://snk.wtf/d).
 
-Отправьте команду `/auth API-ключ`, где `API-ключ` - должен быть сгенерированный вами ключ для авторизации в боте.
+Send the command `/auth API-key`, where `API-key` should be the key you generated for authorization in the bot.
 
 ![successfully authenticated](/images/bot/authenticated.png){data-zoomable}
 
-Успех! Телепатическая связь с лисичками была успешно установлена! :fox_face:
+Success! Telepathic connection with foxes has been successfully established! :fox_face:
 
-Теперь вы можете управлять питанием и отправлять команды на свои игровые сервера с панели управления, а так же устанавливать автообновляемый статус в удобном вам канале на своём Discord сервере.
+Now you can control power and send commands to your game servers from the control panel, as well as set up auto-updating status in any convenient channel on your Discord server.

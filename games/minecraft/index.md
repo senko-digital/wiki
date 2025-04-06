@@ -2,14 +2,14 @@
 import MinecraftLogo from '/components/MinecraftLogo.vue';
 </script>
 
-# Навигация по статьям
+# Article Navigation
 
-#### <MinecraftLogo>[Изменение MOTD сервера](/games/minecraft/server-name)</MinecraftLogo>
+#### <MinecraftLogo>[Changing Server MOTD](/games/minecraft/server-name)</MinecraftLogo>
 
-#### <MinecraftLogo>[Изменение иконки сервера](/games/minecraft/server-icon)</MinecraftLogo>
+#### <MinecraftLogo>[Changing Server Icon](/games/minecraft/server-icon)</MinecraftLogo>
 
-#### <MinecraftLogo>[Настройка server.properties](/games/minecraft/server-properties)</MinecraftLogo>
+#### <MinecraftLogo>[Configuring server.properties](/games/minecraft/server-properties)</MinecraftLogo>
 
-#### <MinecraftLogo>[Установка кастомного ядра](/games/minecraft/core)</MinecraftLogo>
+#### <MinecraftLogo>[Installing a Custom Core](/games/minecraft/core)</MinecraftLogo>
 
-#### <MinecraftLogo>[Установка плагинов](/games/minecraft/plugins)</MinecraftLogo>
+#### <MinecraftLogo>[Installing Plugins](/games/minecraft/plugins)</MinecraftLogo>

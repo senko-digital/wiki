@@ -1,72 +1,72 @@
 ---
-title: "Файловый менеджер"
-description: "Руководство по использованию файлового менеджера в игровой панели. Загрузка, редактирование и управление файлами сервера."
+title: "File Manager"
+description: "Guide to using the file manager in the game panel. Uploading, editing, and managing server files."
 head:
   - - meta
     - name: keywords
-      content: файловый менеджер, загрузка файлов, редактирование файлов, игровая панель
+      content: file manager, file upload, file editing, game panel
   - - meta
     - property: og:title 
-      content: "Панель управления - Файловый менеджер"
+      content: "Control Panel - File Manager"
   - - meta
     - property: og:description
-      content: "Руководство по использованию файлового менеджера в игровой панели. Загрузка, редактирование и управление файлами сервера."
+      content: "Guide to using the file manager in the game panel. Uploading, editing, and managing server files."
 ---
 
-# 📁 Файловый менеджер
+# 📁 File Manager
 
-Краткое руководство по использованию файлового менеджера в игровой панели управления.
+Quick guide to using the file manager in the game control panel.
 
-## Описание страницы
+## Page Description
 
-С помощью файлового менеджера можно управлять файлами вашего игрового сервера: загружать и скачивать файлы, создавать новые и распаковывать старые архивы, редактировать код с подсветкой без сторонних редакторов и многое другое.
+With the file manager, you can manage your game server files: upload and download files, create new and unpack old archives, edit code with highlighting without third-party editors, and much more.
 
 ![server console](/images/panel/files.png){data-zoomable}
 
-## Создание нового файла
+## Creating a New File
 
-В окне файлового менеджера нажмите на кнопку **«новый файл»**, вставьте нужное вам содержимое и сохраните файл с помощью кнопки ниже.
+In the file manager window, click on the **"new file"** button, paste the content you need, and save the file using the button below.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/files/new-file.mp4" type="video/mp4" />
 </video>
 
-## Удаление файла <Badge type="danger" text="осторожно" />
+## Deleting a File <Badge type="danger" text="caution" />
 
-Выберите нужный файл, щелкните ПКМ по нему и выберите опцию **«удалить»**.
+Select the file you need, right-click on it, and select the **"delete"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/files/delete-file.mp4" type="video/mp4" />
 </video>
 
-## Создание новой папки
+## Creating a New Folder
 
-В окне файлового менеджера нажмите на кнопку **«новая папка»**, введите название и нажмите на **«создать»**.
+In the file manager window, click on the **"new folder"** button, enter the name, and click on **"create"**.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/files/new-folder.mp4" type="video/mp4" />
 </video>
 
-## Запаковка файлов
+## Packing Files
 
-Выберите нужные папки и файлы, которые Вы хотите запаковать, потом щелкните ПКМ по любому из файлов и выберите опцию **«запаковать»**.
+Select the folders and files you want to pack, then right-click on any of the files and select the **"archive"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/files/zip-archive.mp4" type="video/mp4" />
 </video>
 
 ::: tip
-Новый архив будет создан в формате tar.gz для меньшего размера и более удобного использования на любой ОС.
+A new archive will be created in tar.gz format for smaller size and more convenient use on any OS.
 :::
 
-## Распаковка файлов
+## Unpacking Files
 
-Выберите нужный вам архив для распаковки, щелкните ПКМ по нему, и выберите опцию **«распаковать»**.
+Select the archive you want to unpack, right-click on it, and select the **"unarchive"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/files/unzip-archive.mp4" type="video/mp4" />
 </video>
 
 ::: tip
-Файлы будут распакованы в той же папке, в которой вы находитесь.
+Files will be unpacked in the same folder where you are located.
 :::
