@@ -168,7 +168,7 @@ export default defineConfig({
           { text: "Поддержка", link: "https://senko.digital/contacts" },
           { text: "Личный кабинет", link: "https://my.senko.digital/billmgr" },
         ],
-        outlineTitle: "Содержимое",
+        outlineTitle: "Содержание",
         lastUpdated: {
           text: 'Последнее редактирование',
           formatOptions: {
