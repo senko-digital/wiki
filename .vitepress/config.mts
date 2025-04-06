@@ -6,6 +6,11 @@ export default defineConfig({
   title: "Senko Digital Wiki",
   description: "Official wiki of Senko Digital hosting provider - the fluffiest hosting in the world!",
   head: [
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-3J3DHZQDVX' }],
+    ['script', {}, `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3J3DHZQDVX');`],
     ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicons/apple-touch-icon.png"}],
     ['link', { rel: "manifest", href: "/assets/favicons/site.webmanifest"}],
     ['link', { rel: "mask-icon", href: "/assets/favicons/safari-pinned-tab.svg", color: "#3a0839"}],
