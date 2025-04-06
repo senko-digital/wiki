@@ -1,25 +1,25 @@
 ---
-title: "Registration in Personal Account"
-description: "Quick guide on registration and getting started with the personal account of Senko Digital hosting provider."
+title: "Registration in the Personal Area"
+description: "Quick guide on registration and getting started with the personal area of Senko Digital hosting provider."
 head:
   - - meta
     - name: keywords
-      content: registration, personal account, vps, getting started, guide
+      content: registration, personal area, vps, getting started, guide
   - - meta
     - property: og:title
-      content: "Registration in Personal Account"
+      content: "Registration in the Personal Area"
   - - meta
     - property: og:description
-      content: "Quick guide on registration and getting started with the personal account of Senko Digital hosting provider."
+      content: "Quick guide on registration and getting started with the personal area of Senko Digital hosting provider."
 ---
 
-# Registration in Personal Account
+# Registration in Personal Area
 
-Quick guide on registration and getting started with the personal account of Senko Digital hosting provider.
+Quick guide on registration and getting started with the personal area of Senko Digital hosting provider.
 
 ## Account Registration
 
-Go to the [personal account](https://my.senko.digital/billmgr) and click the "Register" button.
+Go to the [personal area](https://my.senko.digital/billmgr) and click the "Register" button.
 
 After that, you will be redirected to the account creation page.
 
@@ -29,7 +29,7 @@ Fill in all contact information. The mandatory requirements are a valid email ad
 
 Review the attached documents in the registration form - terms of use and privacy policy. Accept the terms if you agree with them.
 
-After clicking the "Register" button, you will be automatically redirected to the main page of your personal account.
+After clicking the "Register" button, you will be automatically redirected to the main page of your personal area.
 
 ![personal account](/images/personal-area/register/2.png){data-zoomable}
 
