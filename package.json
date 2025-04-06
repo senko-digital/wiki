@@ -1,6 +1,6 @@
 {
   "name": "digital-wiki",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Senko Digital Wiki. Built on VitePress and Vue.",
   "main": "index.js",
   "scripts": {
