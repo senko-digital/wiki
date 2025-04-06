@@ -24,7 +24,7 @@ import MinecraftLogo from '/components/MinecraftLogo.vue';
 ***
 
 ::: tip
-Плагины работают лишь в паре с соответствующими ядрами, например [PaperMC](https://papermc.io/), [CraftBukkit](https://getbukkit.org/), [Mohist](https://mohistmc.com/) и [Fabric](https://fabricmc.net/). Для полной инструкции по их установке посетите наше [руководство](/games/minecraft/core)
+Плагины работают лишь в паре с соответствующими ядрами, например [PaperMC](https://papermc.io/), [CraftBukkit](https://getbukkit.org/), [Mohist](https://mohistmc.com/) и [Fabric](https://fabricmc.net/). Для полной инструкции по их установке посетите наше [руководство](/ru/games/minecraft/core)
 :::
 
 Каждый плагин создается с упором на конкретное ядро. Например плагин для PaperMC не будет работать с CraftBukkit, и наоборот. Поэтому перед установкой убедитесь, что плагин который вы собираетесь установить - подходит для вашего конкретного ядра.

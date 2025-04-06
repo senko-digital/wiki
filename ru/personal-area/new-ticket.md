@@ -24,7 +24,7 @@ head:
 
 ### Войдите в личный кабинет
 
-Перейдите в [личный кабинет](https://my.senko.digital/billmgr) и авторизуйтесь в системе. Если у вас ещё нет аккаунта, [создайте его](/personal-area/register.md).
+Перейдите в [личный кабинет](https://my.senko.digital/billmgr) и авторизуйтесь в системе. Если у вас ещё нет аккаунта, [создайте его](/ru/personal-area/register.md).
 
 ![вход в систему](/images/personal-area/new-ticket/1.png){data-zoomable}
 

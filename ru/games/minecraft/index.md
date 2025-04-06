@@ -4,12 +4,12 @@ import MinecraftLogo from '/components/MinecraftLogo.vue';
 
 # Навигация по статьям
 
-#### <MinecraftLogo>[Изменение MOTD сервера](/games/minecraft/server-name)</MinecraftLogo>
+#### <MinecraftLogo>[Изменение MOTD сервера](/ru/games/minecraft/server-name)</MinecraftLogo>
 
-#### <MinecraftLogo>[Изменение иконки сервера](/games/minecraft/server-icon)</MinecraftLogo>
+#### <MinecraftLogo>[Изменение иконки сервера](/ru/games/minecraft/server-icon)</MinecraftLogo>
 
-#### <MinecraftLogo>[Настройка server.properties](/games/minecraft/server-properties)</MinecraftLogo>
+#### <MinecraftLogo>[Настройка server.properties](/ru/games/minecraft/server-properties)</MinecraftLogo>
 
-#### <MinecraftLogo>[Установка кастомного ядра](/games/minecraft/core)</MinecraftLogo>
+#### <MinecraftLogo>[Установка кастомного ядра](/ru/games/minecraft/core)</MinecraftLogo>
 
-#### <MinecraftLogo>[Установка плагинов](/games/minecraft/plugins)</MinecraftLogo>
+#### <MinecraftLogo>[Установка плагинов](/ru/games/minecraft/plugins)</MinecraftLogo>
