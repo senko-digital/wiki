@@ -29,28 +29,28 @@ layout: home
     <div class="card-icon">📚</div>
     <h3>Документация</h3>
     <p>Полные руководства по всем нашим услугам и функциям</p>
-    <a href="/ru/faq" class="card-link">Читать руководства →</a>
+    <a href="/ru/faq" class="card-link">Читать руководства</a>
   </div>
   
   <div class="feature-card">
     <div class="card-icon">🛠️</div>
     <h3>Игровые сервера</h3>
     <p>Пошаговые инструкции для игр, таких как Minecraft и Garry's Mod</p>
-    <a href="/ru/games/minecraft/server-properties" class="card-link">Посмотреть инструкции →</a>
+    <a href="/ru/games/minecraft/server-properties" class="card-link">Посмотреть инструкции</a>
   </div>
   
   <div class="feature-card">
     <div class="card-icon">🔒</div>
     <h3>Виртуальные серверы</h3>
     <p>Советы по оптимизации и рекомендации по настройке ваших серверов</p>
-    <a href="/ru/vps/getting-started" class="card-link">Узнать больше →</a>
+    <a href="/ru/vps/getting-started" class="card-link">Узнать больше</a>
   </div>
   
   <div class="feature-card">
     <div class="card-icon">❓</div>
     <h3>Поддержка</h3>
     <p>Не нашли то, что искали? Наша служба поддержки всегда готова помочь</p>
-    <a href="https://senko.digital/contacts" class="card-link">Связаться с поддержкой →</a>
+    <a href="https://senko.digital/contacts" class="card-link">Связаться с поддержкой</a>
   </div>
 </div>
 
