@@ -1,25 +1,25 @@
 ---
-title: "VPS Server Order"
-description: "Quick guide for ordering a VPS server on Senko Digital hosting."
+title: "How to order a Virtual (VPS/VDS) Server"
+description: "Quick guide for ordering a Virtual server (VPS) on Senko Digital hosting."
 head:
   - - meta
     - name: keywords
       content: vps order, virtual server order, server order, server order in germany, server order in usa, server order in germany
   - - meta
     - property: og:title 
-      content: "VPS Server Order"
+      content: "How to order a Virtual (VPS/VDS) Server"
   - - meta
     - property: og:description
-      content: "Quick guide for ordering a VPS server on Senko Digital hosting."
+      content: "Quick guide for ordering a Virtual server (VPS) on Senko Digital hosting."
 ---
 
-# VPS Server Order
+# How to order a Virtual (VPS/VDS) Server
 
-Quick guide for ordering a VPS server on Senko Digital hosting.
+Quick guide for ordering a Virtual server (VPS) on Senko Digital hosting.
 
 ## How to order a server?
 
-To order a VPS server, follow this simple instruction:
+To order a Virtual server, follow this simple instruction:
 
 ### Step 1: Choose a plan
 
