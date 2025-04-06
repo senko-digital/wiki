@@ -80,7 +80,7 @@ export default defineConfig({
               collapsed: false,
             },
             {
-              text: "💻 VPS Servers",
+              text: "💻 Virtual Servers",
               items: [
                 { text: "❓ Getting Started", link: "/vps/getting-started" },
                 { text: "🔒 Let's Encrypt Configuration", link: "/vps/letsencrypt-ssl" },
@@ -213,7 +213,7 @@ export default defineConfig({
               collapsed: false,
             },
             {
-              text: "💻 VPS серверы",
+              text: "💻 Виртуальные серверы",
               items: [
                 { text: "❓ Начало работы", link: "/ru/vps/getting-started" },
                 { text: "🔒 Настройка Let's Encrypt", link: "/ru/vps/letsencrypt-ssl" },
