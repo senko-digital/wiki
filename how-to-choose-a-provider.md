@@ -23,12 +23,12 @@ Choosing the right hosting provider is one of the key factors in your project's 
 
 **What to look for:**
 
-- Guaranteed availability level (SLA) — should be at least 99.9%
+- Guaranteed availability level (SLA) — should be at least 99.2%
 - Downtime history — it's worth checking reviews about service stability
 - Transparency in reporting — a good provider openly communicates about any problems that arise
 
 ::: tip
-99.9% stability means no more than 43 minutes of downtime per month. Every minute can mean loss of your nerves, money, and most importantly - your customers.
+99.2% stability means no more than 6 hours of downtime per month. Every minute can mean loss of your nerves, money, and most importantly - your customers.
 :::
 
 ### 2. Hardware Specifications
