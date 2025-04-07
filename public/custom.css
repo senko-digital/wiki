@@ -262,33 +262,20 @@ html {
   letter-spacing: -0.02em;
   color: var(--vp-c-text-1);
   position: relative;
-  display: inline-block;
+  display: block;
   background: none !important;
   -webkit-background-clip: initial !important;
   background-clip: initial !important;
+  margin-bottom: 1rem;
 }
 
 .vp-doc h1:after,
 .vp-doc h2:after {
-  content: '';
-  position: absolute;
   width: 30%;
-  height: 6px;
-  background: var(--custom-gradient);
-  bottom: -8px;
-  left: 0;
-  border-radius: 6px;
 }
 
 .vp-doc h3:after {
-  content: '';
-  position: absolute;
   width: 20%;
-  height: 4px;
-  background: var(--custom-gradient);
-  bottom: -6px;
-  left: 0;
-  border-radius: 4px;
 }
 
 .vp-doc table {
