@@ -143,10 +143,6 @@ layout: home
   text-decoration: none;
 }
 
-.card-link:hover {
-  text-decoration: underline;
-}
-
 .wiki-contents {
   background: var(--vp-c-bg-soft);
   border-radius: 8px;
@@ -156,7 +152,6 @@ layout: home
   position: relative;
 }
 
-/* Remove any horizontal separators before the wiki-contents section */
 .wiki-contents::before {
   display: none !important;
 }
