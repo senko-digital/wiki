@@ -36,7 +36,7 @@ layout: home
     <div class="card-icon">🛠️</div>
     <h3>Игровые сервера</h3>
     <p>Пошаговые инструкции для игр, таких как Minecraft и Garry's Mod</p>
-    <a href="/ru/games/minecraft/server-properties" class="card-link">Посмотреть инструкции</a>
+    <a href="/ru/games" class="card-link">Смотреть инструкции</a>
   </div>
   
   <div class="feature-card">
