@@ -1,16 +1,16 @@
 ---
 title: "Руководство по установке и использованию панели 3x-ui"
-description: "Краткое руководство по настройке вашего нового VPS сервера. Будет полезно для новичков, и даже опытных пользователей."
+description: "Установка панели 3x-ui на VPS/VDS сервер для настройки VPN VLESS, ShadowSocks, Wireguard и VMess."
 head:
   - - meta
     - name: keywords
-      content: игровая панель, управление сервером, начало работы, pterodactyl, руководство
+      content: vpn, 3x-ui, xray, vless, vmess, trojan, shadowsocks, wireguard, reality, управление сервером, руководство
   - - meta
     - property: og:title 
       content: "VPN - Руководство по установке и использованию панели 3x-ui"
   - - meta
     - property: og:description
-      content: "Краткое руководство по настройке вашего нового VPS сервера. Будет полезно для новичков, и даже опытных пользователей."
+      content: "Установка панели 3x-ui на VPS/VDS сервер для настройки VPN VLESS, ShadowSocks, Wireguard и VMess."
 ---
 
 # Руководство по установке и использованию панели 3x-ui

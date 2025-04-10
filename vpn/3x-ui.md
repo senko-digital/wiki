@@ -1,16 +1,16 @@
 ---
 title: "Installation and Usage Guide for 3x-ui Panel"
-description: "Quick guide to setting up your new VPS server. Useful for beginners and even experienced users."
+description: "Installation of 3x-ui panel on VPS/VDS servers for VPN protocol configuration, such as VLESS, ShadowSocks, Wireguard and VMess"
 head:
   - - meta
     - name: keywords
-      content: game panel, server management, getting started, pterodactyl, guide
+      content: vpn, 3x-ui, xray, vless, vmess, trojan, shadowsocks, wireguard, reality, server management, guide
   - - meta
     - property: og:title 
       content: "VPN - Installation and Usage Guide for 3x-ui Panel"
   - - meta
     - property: og:description
-      content: "Quick guide to setting up your new VPS server. Useful for beginners and even experienced users."
+      content: "Learn how to install, configure and manage your VPN server with the powerful 3x-ui panel. Complete setup instructions for all protocols."
 ---
 
 # Installation and Usage Guide for 3x-ui Panel
