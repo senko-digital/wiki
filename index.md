@@ -138,8 +138,17 @@ layout: home
   display: inline-block;
   margin-top: auto;
   padding-top: 1rem;
-  color: var(--vp-c-brand);
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: var(--vp-c-brand);
+  border-radius: 4px;
   font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.card-link:hover {
+  background-color: var(--vp-c-brand-dark, #0366d6);
   text-decoration: none;
 }
 

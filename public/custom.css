@@ -389,7 +389,7 @@ html {
 }
 
 .card-link {
-  color: var(--vp-c-brand-1) !important;
+  color: white !important;
   font-weight: 600 !important;
   transition: color 0.3s ease !important;
   display: inline-flex !important;
