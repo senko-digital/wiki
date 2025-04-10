@@ -4,7 +4,7 @@ description: "A brief guide to setting up your new VPS server. Useful for both b
 head:
   - - meta
     - name: keywords
-      content: game panel, server management, getting started, pterodactyl, guide
+      content: game panel, server management, getting started, guide
   - - meta
     - property: og:title 
       content: "VPS Servers - Getting Started with Your VPS Server"
