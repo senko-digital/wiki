@@ -520,6 +520,12 @@ function submitFeedback(isHelpful) {
   }
 }
 
+@media (max-width: 2130px) and (min-width: 769px) {
+  .language-selector {
+    top: 75px;
+  }
+}
+
 @media (max-width: 480px) {
   .language-selector {
     top: auto;
