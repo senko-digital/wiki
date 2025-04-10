@@ -7,7 +7,6 @@ import { ref, onMounted, computed, watch } from 'vue'
 const { Layout } = DefaultTheme
 const { isDark, page, frontmatter, theme, lang, localeIndex, site } = useData()
 
-const isLanguageSelectorWrapped = ref(false)
 const isSidebarCollapsed = ref(false)
 const screenWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1200)
 
@@ -22,9 +21,6 @@ function getCookie(name) {
 onMounted(() => {
   setTimeout(() => {
     checkFeedbackState()
-
-    const wrappedState = getCookie('wiki_lang_wrapped')
-    isLanguageSelectorWrapped.value = wrappedState === 'true'
 
     const sidebarState = getCookie('wiki_sidebar_collapsed')
     if (window.innerWidth < 960) {
@@ -48,20 +44,6 @@ onMounted(() => {
   }, 200)
 })
 
-function toggleLanguageSelectorWrap() {
-  isLanguageSelectorWrapped.value = !isLanguageSelectorWrapped.value
-  document.cookie = `wiki_lang_wrapped=${isLanguageSelectorWrapped.value}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
-
-  setTimeout(() => {
-    if (typeof document !== 'undefined') {
-      const container = document.querySelector('.language-selector-container')
-      if (container) {
-        container.style.transition = 'all 0.3s ease'
-      }
-    }
-  }, 50)
-}
-
 function toggleSidebar() {
   isSidebarCollapsed.value = !isSidebarCollapsed.value
   document.cookie = `wiki_sidebar_collapsed=${isSidebarCollapsed.value}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
@@ -72,51 +54,6 @@ watch(() => isSidebarCollapsed.value, (isCollapsed) => {
     document.documentElement.setAttribute('data-sidebar-collapsed', isCollapsed)
   }
 }, { immediate: true })
-
-watch(() => lang.value, (newLang) => {
-  if (typeof document !== 'undefined') {
-    document.cookie = `wiki_lang=${newLang}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
-  }
-})
-
-const availableLocales = computed(() => {
-  const locales = site.value.locales || {}
-  return Object.entries(locales).map(([key, locale]) => {
-    return {
-      key: key === 'root' ? '' : key,
-      label: locale.label,
-      lang: locale.lang
-    }
-  })
-})
-
-function switchLanguage(localeKey) {
-  if (typeof window === 'undefined') return
-
-  const path = window.location.pathname
-  const currentLang = lang.value
-
-  const newLang = localeKey ? 'ru' : 'en'
-  document.cookie = `wiki_lang=${newLang}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
-  console.log(`Set wiki_lang cookie to ${newLang} before navigation`)
-
-  let targetPath = '/'
-
-  if (localeKey) {
-    if (currentLang === 'en') {
-      targetPath = `/${localeKey}${path}`
-    } else if (path.startsWith(`/${currentLang}/`)) {
-      const pathWithoutLang = path.replace(`/${currentLang}/`, '/')
-      targetPath = `/${localeKey}${pathWithoutLang}`
-    }
-  } else {
-    if (path.startsWith(`/${currentLang}/`)) {
-      targetPath = path.replace(`/${currentLang}/`, '/')
-    }
-  }
-
-  window.location.pathname = targetPath
-}
 
 const feedbackSubmitted = ref(false)
 const feedbackValue = ref(null)
@@ -210,23 +147,6 @@ function submitFeedback(isHelpful) {
   <Layout>
     <template #layout-top>
       <ProgressBar />
-      <div class="language-selector" :class="{ 'wrapped': isLanguageSelectorWrapped }">
-        <div class="language-selector-container">
-          <div class="language-selector-buttons">
-            <button v-for="locale in availableLocales" :key="locale.key"
-              :class="['language-button', locale.lang === lang ? 'active' : '']" @click="switchLanguage(locale.key)">
-              <span v-if="locale.lang === 'en'">🇬🇧</span>
-              <span v-else-if="locale.lang === 'ru'">🇷🇺</span>
-              <span class="language-name">{{ locale.label }}</span>
-            </button>
-          </div>
-          <button class="wrap-toggle" @click="toggleLanguageSelectorWrap" title="Toggle language selector">
-            <span v-if="isLanguageSelectorWrapped">📖</span>
-            <span v-else>📘</span>
-          </button>
-        </div>
-      </div>
-
       <div class="sidebar-toggle" v-if="screenWidth < 960">
         <button @click="toggleSidebar" :title="isSidebarCollapsed ? 'Show sidebar' : 'Hide sidebar'"
           class="sidebar-toggle-button">
@@ -470,193 +390,6 @@ function submitFeedback(isHelpful) {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.language-selector {
-  position: fixed;
-  top: 25px;
-  right: 25px;
-  z-index: 100;
-}
-
-.language-selector-container {
-  background: var(--vp-c-bg-soft);
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-  padding: 8px 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid var(--vp-c-divider);
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.language-selector.wrapped .language-selector-container {
-  padding: 5px;
-}
-
-.language-selector.wrapped .wrap-toggle {
-  margin-left: 0;
-}
-
-.language-selector-buttons {
-  display: flex;
-  gap: 8px;
-  transition: opacity 0.3s ease, max-width 0.3s ease, visibility 0.3s ease;
-  opacity: 1;
-  max-width: 300px;
-  overflow: hidden;
-  visibility: visible;
-}
-
-.language-selector.wrapped .language-selector-buttons {
-  max-width: 0;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.wrap-toggle {
-  background: transparent;
-  border: none;
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: var(--vp-c-text-2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
-  margin-left: 5px;
-  z-index: 2;
-}
-
-.wrap-toggle:hover {
-  background: var(--vp-c-bg-mute);
-  color: var(--vp-c-text-1);
-  transform: translateY(-2px);
-}
-
-.wrap-toggle span {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  display: inline-block;
-}
-
-.wrap-toggle:hover span {
-  transform: scale(1.15);
-}
-
-.language-button {
-  background: transparent;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--vp-c-text-2);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.25s ease;
-}
-
-.language-button:hover {
-  background: var(--vp-c-bg-mute);
-  color: var(--vp-c-text-1);
-  transform: translateY(-2px);
-}
-
-.language-button.active {
-  background: var(--vp-c-brand-1);
-  color: white;
-}
-
-.language-button span:first-child {
-  font-size: 1.4rem;
-}
-
-.language-name {
-  display: inline-block;
-}
-
-@media (max-width: 768px) {
-  .language-selector {
-    top: 15px;
-    right: 15px;
-  }
-
-  .language-button {
-    padding: 8px 14px;
-    font-size: 0.95rem;
-  }
-
-  .language-button span:first-child {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 2130px) and (min-width: 769px) {
-  .language-selector {
-    top: 75px;
-  }
-}
-
-@media (max-width: 480px) {
-  .language-selector {
-    top: auto;
-    bottom: 5.5rem;
-    right: 1.5rem;
-  }
-
-  .language-selector-container {
-    border-radius: 50px;
-    padding: 5px;
-  }
-
-  .language-selector-buttons {
-    gap: 3px;
-    max-width: 200px;
-  }
-
-  .language-name {
-    display: none;
-  }
-
-  .language-button {
-    padding: 10px;
-    border-radius: 50px;
-  }
-
-  .language-button span:first-child {
-    font-size: 1.5rem;
-    margin-right: 0;
-  }
-
-  .wrap-toggle {
-    padding: 10px;
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 350px) {
-  .language-selector {
-    bottom: 5.5rem;
-    right: 1.5rem;
-  }
-
-  .language-button {
-    padding: 8px;
-  }
-
-  .language-button span:first-child {
-    font-size: 1.3rem;
-  }
-
-  .wrap-toggle {
-    padding: 8px;
-    font-size: 1.1rem;
-  }
 }
 
 .sidebar-toggle {
