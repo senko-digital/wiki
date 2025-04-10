@@ -67,6 +67,10 @@ const currentPageId = computed(() => {
     path = path.slice(0, -1)
   }
 
+  if (path !== '/' && !path.includes('.')) {
+    path += '.html'
+  }
+
   return path
 })
 
