@@ -15,10 +15,10 @@ head:
 
 # Navigation
 
-#### [Control Panel](/panel)
+#### [Control Panel](/panel/)
 
-#### [Garry's Mod](/games/gmod)
+#### [Garry's Mod](/games/gmod/)
 
-#### [Minecraft](/games/minecraft)
+#### [Minecraft](/games/minecraft/)
 
-#### [Discord Bot](/bot)
+#### [Discord Bot](/bot/)

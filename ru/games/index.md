@@ -15,10 +15,10 @@ head:
 
 # Навигация по статьям
 
-#### [Панель управления](/ru/panel)
+#### [Панель управления](/ru/panel/)
 
-#### [Garry's Mod](/ru/games/gmod)
+#### [Garry's Mod](/ru/games/gmod/)
 
-#### [Minecraft](/ru/games/minecraft)
+#### [Minecraft](/ru/games/minecraft/)
 
-#### [Бот Discord](/ru/bot)
+#### [Бот Discord](/ru/bot/)
