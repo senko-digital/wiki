@@ -59,26 +59,26 @@ const feedbackSubmitted = ref(false)
 const feedbackValue = ref(null)
 
 const currentPageId = computed(() => {
-  if (typeof window === 'undefined') return ''
-
-  let path = window.location.pathname || ''
-
-  if (path !== '/' && path.endsWith('/')) {
-    path = path.slice(0, -1)
+  if (page.value && page.value.relativePath) {
+    return '/' + page.value.relativePath.replace(/\.(md|html)$/, '')
   }
-
-  if (path !== '/' && !path.includes('.')) {
-    path += '.html'
+  
+  if (typeof window !== 'undefined') {
+    let path = window.location.pathname || ''
+    
+    if (path !== '/' && path.endsWith('/')) {
+      path = path.slice(0, -1)
+    }
+    
+    return path
   }
-
-  return path
+  
+  return ''
 })
 
-watch(() => currentPageId.value, (newPath, oldPath) => {
-  if (newPath !== oldPath) {
-    setTimeout(checkFeedbackState, 100)
-  }
-}, { immediate: false })
+watch(() => page.value?.relativePath, () => {
+  setTimeout(checkFeedbackState, 100)
+}, { immediate: true })
 
 function checkFeedbackState() {
   if (typeof localStorage === 'undefined' || !currentPageId.value) return
@@ -145,6 +145,14 @@ function submitFeedback(isHelpful) {
     }
   }
 }
+
+function goBack() {
+  history.back()
+}
+
+function reloadPage() {
+  location.reload()
+}
 </script>
 
 <template>
@@ -172,7 +180,14 @@ function submitFeedback(isHelpful) {
       <div class="not-found-container">
         <h1 class="not-found-title">404</h1>
         <p class="not-found-desc">Page not found</p>
-        <a href="/" class="not-found-link">Go to Home</a>
+        <div class="not-found-actions">
+          <a href="/" class="not-found-link primary">Go to Home</a>
+          <button @click="goBack" class="not-found-link secondary">Go Back</button>
+        </div>
+        <p class="not-found-hint">
+          If you're experiencing persistent 404 errors, try clearing your browser cache or 
+          <a href="javascript:void(0)" @click="reloadPage">refreshing the page</a>.
+        </p>
       </div>
     </template>
     <template #doc-footer-before>
@@ -246,6 +261,38 @@ function submitFeedback(isHelpful) {
 .not-found-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(138, 43, 226, 0.6);
+}
+
+.not-found-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.not-found-link.secondary {
+  background: transparent;
+  border: 2px solid var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  box-shadow: none;
+}
+
+.not-found-link.secondary:hover {
+  background: rgba(var(--vp-c-brand-1-rgb), 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-hint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.not-found-hint a {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 .background-decoration {
