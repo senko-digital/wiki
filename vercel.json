@@ -1,9 +1,34 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/:path*",
-      "destination": "/:path*.html"
+      "has": [
+        {
+          "type": "cookie",
+          "key": "wiki_lang",
+          "value": "ru"
+        }
+      ],
+      "destination": "/ru/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept-Language",
+          "value": "ru.*"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "wiki_lang"
+        }
+      ],
+      "destination": "/ru/:path*",
+      "permanent": false
     }
-  ],
-  "cleanUrls": true
-} 
+  ]
+}

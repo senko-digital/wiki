@@ -5,50 +5,97 @@ import { useData } from 'vitepress'
 import { ref, onMounted, computed, watch } from 'vue'
 
 const { Layout } = DefaultTheme
-const { isDark, page, frontmatter, theme } = useData()
+const { isDark, page, frontmatter, theme, lang, localeIndex, site } = useData()
 
-// Page feedback state
+const isLanguageSelectorWrapped = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    checkFeedbackState()
+    
+    const wrappedState = getCookie('wiki_lang_wrapped')
+    isLanguageSelectorWrapped.value = wrappedState === 'true'
+  }, 200)
+})
+
+function toggleLanguageSelectorWrap() {
+  isLanguageSelectorWrapped.value = !isLanguageSelectorWrapped.value
+  document.cookie = `wiki_lang_wrapped=${isLanguageSelectorWrapped.value}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
+}
+
+watch(() => lang.value, (newLang) => {
+  if (typeof document !== 'undefined') {
+    document.cookie = `wiki_lang=${newLang}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
+  }
+})
+
+const availableLocales = computed(() => {
+  const locales = site.value.locales || {}
+  return Object.entries(locales).map(([key, locale]) => {
+    return {
+      key: key === 'root' ? '' : key,
+      label: locale.label,
+      lang: locale.lang
+    }
+  })
+})
+
+function switchLanguage(localeKey) {
+  if (typeof window === 'undefined') return
+  
+  const path = window.location.pathname
+  const currentLang = lang.value
+  
+  const newLang = localeKey ? 'ru' : 'en'
+  document.cookie = `wiki_lang=${newLang}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
+  console.log(`Set wiki_lang cookie to ${newLang} before navigation`)
+  
+  let targetPath = '/'
+  
+  if (localeKey) {
+    if (currentLang === 'en') {
+      targetPath = `/${localeKey}${path}`
+    } else if (path.startsWith(`/${currentLang}/`)) {
+      const pathWithoutLang = path.replace(`/${currentLang}/`, '/')
+      targetPath = `/${localeKey}${pathWithoutLang}`
+    }
+  } else {
+    if (path.startsWith(`/${currentLang}/`)) {
+      targetPath = path.replace(`/${currentLang}/`, '/')
+    }
+  }
+  
+  window.location.pathname = targetPath
+}
+
 const feedbackSubmitted = ref(false)
 const feedbackValue = ref(null)
 
-// Get a unique ID for the current page using the normalized path
 const currentPageId = computed(() => {
   if (typeof window === 'undefined') return ''
   
-  // Get the pathname and normalize it
   let path = window.location.pathname || ''
   
-  // Remove trailing slash if present (except for root)
   if (path !== '/' && path.endsWith('/')) {
     path = path.slice(0, -1)
-  }
-  
-  // Add a trailing .html for paths that don't have an extension
-  // This normalizes how VitePress handles routes for storage consistency
-  if (path !== '/' && !path.includes('.')) {
-    path += '.html'
   }
   
   return path
 })
 
-// Reset feedback state when route changes
 watch(() => currentPageId.value, (newPath, oldPath) => {
   if (newPath !== oldPath) {
     setTimeout(checkFeedbackState, 100)
   }
 }, { immediate: false })
 
-// Check if feedback was already submitted for this page
 function checkFeedbackState() {
   if (typeof localStorage === 'undefined' || !currentPageId.value) return
   
   try {
-    // Clear state first
     feedbackSubmitted.value = false
     feedbackValue.value = null
     
-    // Get stored feedback for this specific page
     const key = `page-feedback-${currentPageId.value}`
     const storedFeedback = localStorage.getItem(key)
     
@@ -67,12 +114,6 @@ function checkFeedbackState() {
   }
 }
 
-onMounted(() => {
-  // Initial check with a delay to ensure DOM and route are ready
-  setTimeout(checkFeedbackState, 200)
-})
-
-// Submit feedback function - pure client-side implementation
 function submitFeedback(isHelpful) {
   if (!currentPageId.value || feedbackSubmitted.value) return
   
@@ -92,7 +133,6 @@ function submitFeedback(isHelpful) {
       
       console.log(`Saved feedback for: ${currentPageId.value}`, isHelpful)
       
-      // Also store in a central feedback registry for later analysis
       try {
         const allFeedback = JSON.parse(localStorage.getItem('all-page-feedback') || '[]')
         allFeedback.push({
@@ -102,7 +142,6 @@ function submitFeedback(isHelpful) {
           url: window.location.href
         })
         
-        // Keep only the last 100 feedback items to avoid localStorage size issues
         if (allFeedback.length > 100) {
           allFeedback.splice(0, allFeedback.length - 100)
         }
@@ -122,6 +161,27 @@ function submitFeedback(isHelpful) {
   <Layout>
     <template #layout-top>
       <ProgressBar />
+      <div class="language-selector" :class="{ 'wrapped': isLanguageSelectorWrapped }">
+        <div class="language-selector-container">
+          <div class="language-selector-buttons" v-if="!isLanguageSelectorWrapped || window?.innerWidth > 480">
+            <button 
+              v-for="locale in availableLocales" 
+              :key="locale.key" 
+              :class="['language-button', locale.lang === lang ? 'active' : '']"
+              @click="switchLanguage(locale.key)"
+            >
+              <span v-if="locale.lang === 'en'">🇬🇧</span>
+              <span v-else-if="locale.lang === 'ru'">🇷🇺</span>
+              <span class="language-name">{{ locale.label }}</span>
+            </button>
+          </div>
+          <button class="wrap-toggle" @click="toggleLanguageSelectorWrap" title="Toggle language selector">
+            <span v-if="isLanguageSelectorWrapped">📖</span>
+            <span v-else>📘</span>
+          </button>
+        </div>
+      </div>
+      
       <div class="background-decoration">
         <div class="decoration-circle circle-1"></div>
         <div class="decoration-circle circle-2"></div>
@@ -356,5 +416,164 @@ function submitFeedback(isHelpful) {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.language-selector {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 100;
+}
+
+.language-selector-container {
+  background: var(--vp-c-bg-soft);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--vp-c-divider);
+  display: flex;
+  align-items: center;
+}
+
+.language-selector-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.language-button {
+  background: transparent;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--vp-c-text-2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.language-button:hover {
+  background: var(--vp-c-bg-mute);
+  color: var(--vp-c-text-1);
+  transform: translateY(-2px);
+}
+
+.language-button.active {
+  background: var(--vp-c-brand-1);
+  color: white;
+}
+
+.language-button span:first-child {
+  font-size: 1.4rem;
+}
+
+.language-name {
+  display: inline-block;
+}
+
+.wrap-toggle {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--vp-c-text-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  margin-left: 5px;
+}
+
+.wrap-toggle:hover {
+  background: var(--vp-c-bg-mute);
+  color: var(--vp-c-text-1);
+  transform: translateY(-2px);
+}
+
+.language-selector.wrapped .language-selector-container {
+  padding: 5px;
+}
+
+.language-selector.wrapped .wrap-toggle {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .language-selector {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .language-button {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+  
+  .language-button span:first-child {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-selector {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .language-selector-container {
+    border-radius: 100px;
+    padding: 5px;
+  }
+  
+  .language-selector-buttons {
+    gap: 3px;
+  }
+  
+  .language-name {
+    display: none;
+  }
+  
+  .language-button {
+    padding: 10px;
+    border-radius: 100px;
+  }
+  
+  .language-button span:first-child {
+    font-size: 1.5rem;
+  }
+  
+  .wrap-toggle {
+    padding: 10px;
+  }
+  
+  .language-selector.wrapped .wrap-toggle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .language-selector {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .language-button {
+    padding: 8px;
+  }
+  
+  .language-button span:first-child {
+    font-size: 1.3rem;
+  }
+  
+  .wrap-toggle {
+    padding: 8px;
+  }
 }
 </style> 
