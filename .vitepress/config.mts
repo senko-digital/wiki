@@ -221,6 +221,7 @@ export default defineConfig({
               text: "💻 Виртуальные серверы",
               items: [
                 { text: "❓ Начало работы", link: "/ru/vps/getting-started" },
+                { text: "🔒 Подключение к серверу (Linux)", link: "/ru/vps/how-to-connect-through-ssh" },
                 { text: "🔒 Настройка Let's Encrypt", link: "/ru/vps/letsencrypt-ssl" },
                 { text: "🚀 Деплой Node.js с PM2", link: "/ru/vps/nodejs-pm2-deploy" },
               ],
