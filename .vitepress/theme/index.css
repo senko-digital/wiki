@@ -38,3 +38,37 @@ main {
     transform: translateX(0);
   }
 }
+
+/*
+
+Fixes for default VitePress styles
+
+*/
+
+@media (min-width: 1440px) {
+  .VPNavBar.has-sidebar .content {
+    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
+  }
+
+  .VPNavBar:not(.home.top) .content-body {
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPDoc {
+    border-radius: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  button.menu { /* Disable default sidebar button on mobile */
+    display: none !important;
+  }
+}
+
+@media (max-width: 960px) {
+  html[data-sidebar-collapsed="true"] .VPContent.has-sidebar {
+    padding-left: 0 !important;
+  }
+}
