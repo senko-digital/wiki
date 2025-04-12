@@ -61,7 +61,13 @@ ssh -V
 
 Should display:
 
-![ssh -v output](/images/vps/ssh-version.png){data-zoomable}
+![ssh -v output on windows](/images/vps/ssh/from-windows/ssh-version.png){data-zoomable}
+
+##### If SSH is not found
+
+In case of an error that the command was not recognized or found (as shown in the screenshot below), it is recommended to try connecting to the server using [Method 2](/vps/how-to-connect-through-ssh#method-2-using-putty).
+
+![no ssh on windows](/images/vps/ssh/from-windows/no-ssh-on-windows.png){data-zoomable}
 
 #### Connecting to the server
 
@@ -78,16 +84,30 @@ where `port` - SSH port on your server, default is 22
 For example:
 
 ```bash
-ssh admin@192.168.1.100 -p 22
+ssh root@193.23.219.247 -p 22
 ```
 
-::: tip
-The `-p` parameter is optional when using the default SSH server port.
-:::
+![Example connection command to connect through SSH](/images/vps/ssh/from-windows/example-command-ssh.png){data-zoomable}
+
+Press `[Enter]` to send the command.
+
+![Confirm and trust first SSH connection](/images/vps/ssh/from-windows/confirm-connection-ssh.png){data-zoomable}
+
+On first connection, a warning will appear - type `yes` to confirm and press `[Enter]`.
+
+Now the program will ask you to enter the password.
+
+![Enter SSH password blindly](/images/vps/ssh/from-windows/enter-password-ssh.png){data-zoomable}
 
 ::: warning Important
-When entering a password in an SSH session, characters are not displayed on the screen - this is normal behavior for security. Just type the password and press Enter.
+When entering a password in an SSH session, characters are not displayed on the screen - this is normal behavior for security. You'll have to enter the password "blindly".
 :::
+
+Enter the password and press `[Enter]`. If the password was entered correctly, the program will successfully establish a connection to your server.
+
+![Successful SSH connection to server](/images/vps/ssh/from-windows/connection-established-ssh.png){data-zoomable}
+
+Done, now you can start working with your server.
 
 ### Method 2: Using PuTTY
 
@@ -103,7 +123,7 @@ PuTTY is a free program for connecting to servers via SSH. It's especially usefu
 8. Enter the server username and password
 
 ::: warning Important
-When entering a password in PuTTY, characters are not displayed on the screen - this is normal SSH protocol behavior. Just type the password and press `[Enter]`.
+When entering a password in PuTTY, characters are not displayed on the screen - this is normal SSH protocol behavior. You'll have to enter the password "blindly".
 :::
 
 ## Connecting from Linux and macOS
@@ -111,6 +131,8 @@ When entering a password in PuTTY, characters are not displayed on the screen - 
 On Linux and macOS, it's even simpler as SSH is already built into the system:
 
 1. Open Terminal (usually found in the applications menu or launched with Ctrl+Alt+T)
+
+![find terminal in your system](/images/vps/ssh/find-terminal.png){data-zoomable}
 
 2. Enter the command:
 
@@ -121,12 +143,34 @@ ssh username@ip-address -p port
 For example:
 
 ```bash
-ssh admin@192.168.1.100 -p 22
+ssh root@193.23.219.247 -p 22
 ```
 
+![example of a ssh connection](/images/vps/ssh/example-ssh-macos-to-linux.png){data-zoomable}
+
+Press `[Enter]` to send the command.
+
+On first connection, a warning will appear - type `yes` to confirm and press `[Enter]`.
+
+<video width="1440" autoplay controls loop muted>
+  <source src="/videos/vps/ssh/ssh-confirmation.mp4" type="video/mp4" />
+</video>
+
+Now the program will ask you to enter the server password.
+
+You can enter the password manually using the keyboard or paste it from the clipboard.
+
+In our case, the server password was received from the VPS control panel email.
+
+<video width="1440" autoplay controls loop muted>
+  <source src="/videos/vps/ssh/ssh-finalize.mp4" type="video/mp4" />
+</video>
+
 ::: warning Important
-When entering a password in an SSH session, characters are not displayed on the screen - this is normal protocol behavior for security. Just type the password and press `[Enter]`.
+When entering a password in an SSH session, characters are not displayed on the screen - this is normal protocol behavior for security. You'll have to enter the password "blindly".
 :::
+
+Done, now you can manage your server directly from your PC!
 
 ## Connecting from Android/iOS
 
@@ -134,14 +178,14 @@ For mobile devices, there are special applications:
 
 ### Android
 
-- Termux (free)
-- Termius (free with paid features)
+- [Termux](https://play.google.com/store/apps/details?id=com.termux&hl=en) (free)
+- [Termius](https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client&hl=en) (free with paid features)
 - JuiceSSH (free with paid features)
 
 ### iOS
 
-- Termius (free with paid features)
-- iTerminal (paid)
+- [Termius](https://apps.apple.com/us/app/termius-modern-ssh-client/id549039908) (free with paid features)
+- [iTerminal](https://apps.apple.com/us/app/iterminal-ssh-telnet-client/id581455211) (free with paid features)
 
 ## What to do if you can't connect?
 
