@@ -45,7 +45,11 @@ Fixes for default VitePress styles
 
 */
 
-@media (min-width: 1440px) {
+.VPDoc {
+  border-radius: 0 !important;
+}
+
+@media (min-width: 960px) {
   .VPNavBar.has-sidebar .content {
     padding-right: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
   }
@@ -55,20 +59,12 @@ Fixes for default VitePress styles
   }
 }
 
-@media (min-width: 960px) {
-  .VPDoc {
-    border-radius: 0 !important;
-  }
-}
-
-@media (min-width: 768px) {
-  button.menu { /* Disable default sidebar button on mobile */
-    display: none !important;
-  }
-}
-
 @media (max-width: 960px) {
   html[data-sidebar-collapsed="true"] .VPContent.has-sidebar {
     padding-left: 0 !important;
+  }
+
+  button.menu { /* Disable default sidebar button on mobile */
+    display: none !important;
   }
 }
