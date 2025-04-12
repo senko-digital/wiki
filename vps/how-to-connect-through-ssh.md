@@ -20,6 +20,7 @@ head:
 SSH (Secure Shell) is a special protocol that allows you to securely connect to and manage remote computers over the internet. Imagine being able to sit at your computer while working on another computer that's located somewhere far away - that's what SSH does.
 
 ::: tip Important to know
+
 - SSH provides a secure connection - all data is transmitted in encrypted form
 - You need the following to connect: server IP address, username, and password
 - By default, SSH operates on port `22`, but this can be changed
@@ -28,6 +29,7 @@ SSH (Secure Shell) is a special protocol that allows you to securely connect to 
 ## Preparation for connection
 
 Before you begin, make sure you have:
+
 1. Server IP address (e.g., `192.168.1.100`)
 2. Username on the server (usually `root`)
 3. Password for this user
@@ -57,6 +59,7 @@ Should display:
 #### Connecting to the server
 
 Use the following command to connect:
+
 ```bash
 ssh username@ip-address -p port
 ```
@@ -66,6 +69,7 @@ where `ip-address` - IPv4 address of your server
 where `port` - SSH port on your server, default is 22
 
 For example:
+
 ```bash
 ssh admin@192.168.1.100 -p 22
 ```
@@ -102,10 +106,13 @@ On Linux and macOS, it's even simpler as SSH is already built into the system:
 1. Open Terminal (usually found in the applications menu or launched with Ctrl+Alt+T)
 
 2. Enter the command:
+
 ```bash
 ssh username@ip-address -p port
 ```
+
 For example:
+
 ```bash
 ssh admin@192.168.1.100 -p 22
 ```
@@ -119,10 +126,13 @@ When entering a password in an SSH session, characters are not displayed on the 
 For mobile devices, there are special applications:
 
 ### Android
+
 - Termux (free)
+- Termius (free with paid features)
 - JuiceSSH (free with paid features)
 
 ### iOS
+
 - Termius (free with paid features)
 - iTerminal (paid)
 
@@ -138,6 +148,7 @@ For mobile devices, there are special applications:
 ## Security when working with SSH
 
 ::: warning Important
+
 - Never share your credentials with others
 - Use strong passwords
 - Change passwords regularly
