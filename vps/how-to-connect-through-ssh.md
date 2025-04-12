@@ -1,5 +1,5 @@
 ---
-title: "Connecting to a Linux Server via SSH"
+title: "How to connect to the server (Linux)"
 description: "A quick guide to connecting to a Linux server via SSH for beginners. Detailed instructions for Windows, Linux, and mobile devices."
 head:
   - - meta
@@ -7,13 +7,13 @@ head:
       content: server connection, ssh access, connect to linux server, ssh for beginners
   - - meta
     - property: og:title 
-      content: "Connecting to a Linux Server via SSH"
+      content: "How to connect to the server (Linux)"
   - - meta
     - property: og:description
       content: "A quick guide to connecting to a Linux server via SSH for beginners. Detailed instructions for Windows, Linux, and mobile devices."
 ---
 
-# Connecting to a Linux Server via SSH
+# How to connect to the server (Linux)
 
 ## What is SSH and why do we need it?
 
