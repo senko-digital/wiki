@@ -35,6 +35,13 @@ Before you begin, make sure you have:
 3. Password for this user
 4. SSH port (if it's different from the default `22`)
 
+::: tip
+
+If you've reinstalled the operating system on your server, be aware that the password will be different as it's automatically generated during the reinstallation process.
+To avoid this, you can enter your previously used password in the reinstallation window, or choose to send an email with the new password by ticking the appropriate option in the reinstallation window.
+
+:::
+
 ## Connecting from Windows
 
 ### Method 1: Through Command Prompt (CMD)
