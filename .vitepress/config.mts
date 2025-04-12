@@ -88,6 +88,7 @@ export default defineConfig({
               text: "💻 Virtual Servers",
               items: [
                 { text: "❓ Getting Started", link: "/vps/getting-started" },
+                { text: "🔒 How to connect to the server (Linux)", link: "/vps/how-to-connect-through-ssh" },
                 { text: "🔒 Let's Encrypt Configuration", link: "/vps/letsencrypt-ssl" },
                 { text: "🚀 Node.js Deployment with PM2", link: "/vps/nodejs-pm2-deploy" },
               ],
