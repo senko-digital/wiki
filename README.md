@@ -31,7 +31,7 @@ Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) before opening a pull request
 ## 🛡️ License
 
 - **Content**: Licensed under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)  
-- **Code**: All rights reserved. The code in this repository is **proprietary** and may not be reused without explicit permission. See [`LICENSE`](./LICENSE) for details.
+- **Code**: All rights reserved. The code in this repository is **proprietary** and may not be reused without explicit permission. See [`LICENSE`](https://github.com/senko-digital/wiki/blob/main/LICENSE) for details.
 
 If you're unsure whether something is covered or allowed — [contact us](https://senko.digital/contacts).
 
