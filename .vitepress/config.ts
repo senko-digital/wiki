@@ -382,5 +382,9 @@ export default defineConfig({
       { icon: "discord", link: "https://snk.wtf/d" },
       { icon: 'twitter', link: 'https://x.com/senkodigital' },
     ],
+    editLink: {
+      pattern: 'https://github.com/senko-digital/wiki/edit/main/:path',
+      text: 'Edit this page on GitHub'
+    },
   },
 });

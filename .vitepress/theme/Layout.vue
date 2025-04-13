@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
 import ProgressBar from './components/ProgressBar.vue'
+import PageContributors from '../components/PageContributors.vue'
 import { useData } from 'vitepress'
 import { ref, onMounted, computed, watch } from 'vue'
 import { FeedbackData, AllFeedbackItem } from './types'
@@ -214,6 +215,7 @@ function reloadPage(): void {
           </div>
         </template>
       </div>
+      <PageContributors />
       <div class="page-divider"></div>
     </template>
   </Layout>
