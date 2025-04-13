@@ -1,0 +1,29 @@
+{
+  "name": "digital-wiki",
+  "version": "1.0.8",
+  "description": "Senko Digital Wiki. Built on VitePress and Vue.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "admin@senko.digital",
+  "license": "SEE LICENSE",
+  "private": true,
+  "dependencies": {
+    "esbuild": "0.25.0",
+    "medium-zoom": "^1.1.0",
+    "vitepress": "^1.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}

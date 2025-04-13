@@ -1,0 +1,74 @@
+.medium-zoom-overlay {
+    z-index: 30;
+  }
+  
+  .medium-zoom-image {
+    z-index: 30;
+  }
+
+/* Add custom global styles for the theme here */
+:root {
+  --animation-duration: 0.5s;
+}
+
+html, body {
+  transition: background-color 0.3s ease;
+}
+
+/* Removed fade-in animation for main content */
+main {
+  /* No animations here */
+}
+
+.VPNavBar {
+  backdrop-filter: blur(10px);
+}
+
+.VPSidebar {
+  animation: fadeInLeft var(--animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*
+
+Fixes for default VitePress styles
+
+*/
+
+@media (min-width: 1440px) {
+  .VPNavBar.has-sidebar .content {
+    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
+  }
+
+  .VPNavBar:not(.home.top) .content-body {
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPDoc {
+    border-radius: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  button.menu { /* Disable default sidebar button on mobile */
+    display: none !important;
+  }
+}
+
+@media (max-width: 960px) {
+  html[data-sidebar-collapsed="true"] .VPContent.has-sidebar {
+    padding-left: 0 !important;
+  }
+}
