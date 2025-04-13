@@ -13,9 +13,7 @@ head:
       content: "Guide to changing the name of a Garry's Mod server. Learn how to quickly and easily change your server name through the server.cfg file."
 ---
 
-<script setup>
-import GmodLogo from '/components/GmodLogo.vue';
-</script>
+
 
 # <GmodLogo>Changing Server Name</GmodLogo>
 

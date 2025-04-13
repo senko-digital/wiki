@@ -13,10 +13,6 @@ head:
       content: "Тарифы на игровой хостинг от Senko Digital. Размещение серверов Garry's Mod, Minecraft, CS2 и других игр на мощном оборудовании с защитой от DDoS."
 ---
 
-<script setup>
-import IntelLogo from '/components/IntelLogo.vue';
-import AMDLogo from '/components/AMDLogo.vue';
-</script>
 
 # 🎮 Игровой хостинг
 

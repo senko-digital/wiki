@@ -1,6 +1,4 @@
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # Article Navigation
 

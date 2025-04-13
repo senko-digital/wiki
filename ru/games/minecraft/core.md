@@ -13,9 +13,7 @@ head:
       content: "Руководство по установке и настройке кастомных ядер на сервере Minecraft. PaperMC, CraftBukkit, Mohist и другие популярные ядра."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Установка кастомного ядра</MinecraftLogo>
 

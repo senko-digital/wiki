@@ -13,10 +13,6 @@ head:
       content: "Тарифы на Виртуальные сервера от Senko Digital. Мощные VPS на базе процессоров AMD Ryzen 9 с NVMe накопителями."
 ---
 
-<script setup>
-import IntelLogo from '/components/IntelLogo.vue';
-import AMDLogo from '/components/AMDLogo.vue';
-</script>
 
 # 💻 Виртуальные сервера
 

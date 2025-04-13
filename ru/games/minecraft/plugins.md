@@ -13,9 +13,7 @@ head:
       content: "Руководство по установке и настройке плагинов на сервере Minecraft. Поддержка PaperMC, CraftBukkit, Mohist и других популярных ядер."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Установка плагинов</MinecraftLogo>
 

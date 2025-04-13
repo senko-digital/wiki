@@ -13,9 +13,7 @@ head:
       content: "Guide for installing and configuring custom cores on a Minecraft server. PaperMC, CraftBukkit, Mohist and other popular cores."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Installing a Custom Core</MinecraftLogo>
 

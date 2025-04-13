@@ -1,10 +1,18 @@
 import { defineConfig } from "vitepress"
+import { fileURLToPath } from 'url'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   cleanUrls: true,
   title: "Senko Digital Wiki",
   description: "Official wiki of Senko Digital hosting provider - the fluffiest hosting in the world!",
+  vite: {
+    resolve: {
+      alias: {
+        '/components/': fileURLToPath(new URL('../components/', import.meta.url))
+      }
+    }
+  },
   head: [
     ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-Q7GRS625CP' }],
     ['script', {}, `window.dataLayer = window.dataLayer || [];

@@ -1,6 +1,4 @@
-<script setup>
-import GmodLogo from '/components/GmodLogo.vue';
-</script>
+
 
 # Article Navigation
 

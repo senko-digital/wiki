@@ -13,9 +13,7 @@ head:
       content: "Complete guide for installing and configuring DarkRP mode on a Garry's Mod server. Setting up jobs, items, and game economy."
 ---
 
-<script setup>
-import GmodLogo from '/components/GmodLogo.vue';
-</script>
+
 
 # <GmodLogo>Installing and Configuring DarkRP</GmodLogo>
 

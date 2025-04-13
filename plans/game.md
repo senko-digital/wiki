@@ -13,10 +13,6 @@ head:
       content: "Game hosting plans from Senko Digital. Host Garry's Mod, Minecraft, CS2 and other game servers on powerful hardware with DDoS protection."
 ---
 
-<script setup>
-import IntelLogo from '/components/IntelLogo.vue';
-import AMDLogo from '/components/AMDLogo.vue';
-</script>
 
 # 🎮 Game Hosting
 

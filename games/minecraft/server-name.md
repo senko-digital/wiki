@@ -13,9 +13,7 @@ head:
       content: "Step-by-step guide for changing a Minecraft server MOTD. Learn how to create beautiful and attractive names for your server."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Changing Server MOTD</MinecraftLogo>
 

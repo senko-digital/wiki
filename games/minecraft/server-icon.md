@@ -13,9 +13,7 @@ head:
       content: "Guide for installing and configuring an icon for a Minecraft server. Creating an attractive display in the server list."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Changing Server Icon</MinecraftLogo>
 

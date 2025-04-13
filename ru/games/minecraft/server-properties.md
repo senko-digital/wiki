@@ -13,9 +13,7 @@ head:
       content: "Подробное руководство по настройке файла server.properties в Minecraft. Оптимизация и конфигурация параметров сервера."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Настройка server.properties</MinecraftLogo>
 

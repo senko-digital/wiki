@@ -13,9 +13,7 @@ head:
       content: "Guide for installing and configuring plugins on a Minecraft server. Support for PaperMC, CraftBukkit, Mohist, and other popular cores."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Installing Plugins</MinecraftLogo>
 

@@ -13,9 +13,7 @@ head:
       content: "Полное руководство по настройке файла server.cfg в Garry's Mod. Оптимизация производительности и настройка параметров сервера."
 ---
 
-<script setup>
-import GmodLogo from '/components/GmodLogo.vue';
-</script>
+
 
 # <GmodLogo>Настройка server.cfg</GmodLogo>
 

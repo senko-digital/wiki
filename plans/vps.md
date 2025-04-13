@@ -13,10 +13,6 @@ head:
       content: "Virtual server plans from Senko Digital. Powerful VPS based on AMD Ryzen 9 processors with NVMe storage."
 ---
 
-<script setup>
-import IntelLogo from '/components/IntelLogo.vue';
-import AMDLogo from '/components/AMDLogo.vue';
-</script>
 
 # 💻 Virtual Servers
 

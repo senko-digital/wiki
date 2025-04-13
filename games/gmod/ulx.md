@@ -13,9 +13,7 @@ head:
       content: "Detailed guide on installing and configuring the ULX admin system on a Garry's Mod server. Managing administrator rights and commands."
 ---
 
-<script setup>
-import GmodLogo from '/components/GmodLogo.vue';
-</script>
+
 
 # <GmodLogo>Installing and Configuring ULX</GmodLogo>
 

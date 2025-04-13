@@ -5,9 +5,22 @@ import mediumZoom from 'medium-zoom';
 import Layout from './Layout.vue';
 import './index.css';
 
+// Import all game logo components globally
+import GmodLogo from '../../components/gmodLogo.vue';
+import MinecraftLogo from '../../components/minecraftLogo.vue';
+import IntelLogo from '../../components/intelLogo.vue';
+import AMDLogo from '../../components/amdLogo.vue';
+
 export default {
   extends: DefaultTheme,
   Layout,
+  enhanceApp({ app }) {
+    // Register components globally
+    app.component('GmodLogo', GmodLogo);
+    app.component('MinecraftLogo', MinecraftLogo);
+    app.component('IntelLogo', IntelLogo);
+    app.component('AMDLogo', AMDLogo);
+  },
   setup() {
     const route = useRoute();
     const { page } = useData();

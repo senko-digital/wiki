@@ -13,10 +13,6 @@ head:
       content: "Guide for installing and configuring addons from Steam Workshop on a Garry's Mod server. Managing the addon collection and configuration."
 ---
 
-<script setup>
-import GmodLogo from '/components/GmodLogo.vue';
-</script>
-
 # <GmodLogo>Installing Your Collection</GmodLogo>
 
 Quick guide for installing your collection on a Garry's Mod game server.

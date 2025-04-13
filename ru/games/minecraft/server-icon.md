@@ -13,9 +13,7 @@ head:
       content: "Руководство по установке и настройке иконки для сервера Minecraft. Создание привлекательного отображения в списке серверов."
 ---
 
-<script setup>
-import MinecraftLogo from '/components/MinecraftLogo.vue';
-</script>
+
 
 # <MinecraftLogo>Изменение иконки сервера</MinecraftLogo>
 
