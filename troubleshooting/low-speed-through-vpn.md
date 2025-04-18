@@ -37,9 +37,9 @@ If you identify speed issues on the server, we recommend contacting our support 
 
 ### MTU
 
-Due to the specifics of our network, for protocols using UDP (WireGuard, AmneziaWG, OpenVPN and others), the optimal MTU value on the server side is `1368`. This value prevents packet fragmentation and provides a more stable connection compared to the default MTU.
+Due to the specifics of our network, for protocols using UDP (WireGuard, AmneziaWG, OpenVPN and others), the optimal MTU value on the server side is `1420`. This value prevents packet fragmentation and provides a more stable connection compared to automatically determined MTU.
 
-To find the optimal MTU on your VPN client side, it's recommended to manually select a value between 1320 and 1390.
+On your VPN client side it is recommended to use a value of MTU `1332` or `1368`. If neither works well for you, try selecting a value between the two.
 
 ### SNI
 
