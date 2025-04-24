@@ -67,3 +67,9 @@ Please note that Google maintains complete control over their geolocation data a
 In some cases, we can offer a one-time IP address replacement free of charge. While this is more of a band-aid solution, and does not solve the problem entirely, it might resolve the issue temporarily.
 
 We have already contacted Google about this problem and are awaiting a response. However, since this is ultimately controlled by Google's systems, we cannot guarantee a full-on solution to this problem.
+
+--
+
+We are pleased to announce that on April 24, 2025, Google has completely updated their geolocation data for all our subnets, including IPv6! All your servers will now correctly display in their true location.
+
+We thank all our customers for their patience and support in resolving this issue.
