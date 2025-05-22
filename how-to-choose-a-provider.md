@@ -55,8 +55,8 @@ Good support is not just a quick response, but also qualified assistance in reso
 
 The location of data centers affects the speed of access to your project:
 
+- For projects targeting a European audience, locations in Eastern or Western Europe are optimal
 - For international projects — strategically located data centers or CDN
-- For projects targeting a Russian audience, locations in Russia or Eastern/Western Europe are optimal
 - Also consider the legal aspects of data storage in certain countries, especially in the EU
 
 ### 5. Scalability
