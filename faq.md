@@ -4,7 +4,7 @@ description: "Replies to the most frequently asked questions about Senko Digital
 head:
   - - meta
     - name: keywords
-      content: faq, вопросы, хостинг, оплата, ddos защита, установка сервера, техподдержка, игровой хостинг, minecraft сервер, garrys mod сервер
+      content: faq, questions, hosting, payment, ddos protection, server installation, technical support, game hosting, minecraft server, garrys mod server
   - - meta
     - property: og:title 
       content: "Frequently Asked Questions | Senko Digital Wiki"
@@ -19,7 +19,7 @@ head:
 
 Our servers are currently located in one main location: **Germany**, **Frankfurt**. We plan to expand in the future, so stay tuned for updates.
 
-## 🛡️ Do you offer any DDos protection?
+## 🛡️ Do you offer any DDoS protection?
 
 In Germany, we currently provide basic L4 DDoS protection **only**.
 
