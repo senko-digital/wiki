@@ -25,7 +25,9 @@ In Germany, we currently provide basic L4 DDoS protection **only**.
 
 ## 💵 What payment methods are available?
 
-We accept payments from cards worldwide, including cards issued in the **European Union**, **Ukraine** and **Russia**. Payment is also possible through **PayPal**, **YooMoney wallets**, and cryptocurrencies **USDT**/**TON**/**BTC**/**LTC**.
+We accept payments almost from almost all types of debit and credit cards, including those issued in **Europe**, **Asia** and **North America**.
+
+Payments are also accepted through **PayPal** and many popular cryptocurrencies such as **USDT**, **TON**, **Bitcoin**, **Litecoin**, **Monero** (and many others).
 
 ## 🕒 How long does server setup take?
 
