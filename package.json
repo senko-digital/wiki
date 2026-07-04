@@ -17,12 +17,12 @@
   "author": "admin@senko.digital",
   "license": "SEE LICENSE",
   "dependencies": {
-    "esbuild": "0.25.0",
+    "esbuild": "0.28.1",
     "medium-zoom": "^1.1.0",
-    "vitepress": "2.0.0-alpha.16"
+    "vitepress": "2.0.0-alpha.17"
   },
   "devDependencies": {
-    "@types/node": "^20.19.31",
-    "typescript": "^5.9.3"
+    "@types/node": "^26.1.0",
+    "typescript": "^6.0.3"
   }
 }
