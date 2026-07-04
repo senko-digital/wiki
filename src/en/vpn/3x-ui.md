@@ -26,9 +26,9 @@ head:
 
 This panel provides easy management of VPN connections, configuration of multiple users, and setting limits on traffic, expiration dates, and IP addresses.
 
-::: tip 
+<!-- ::: tip 
 Our hosting clients have access to fully automated 3X-UI panel installation script during initial service ordering, or through scripts in the VM control panel. All that remains is to create users and configure inbounds.
-:::
+::: -->
 
 ## 3x-ui Features
 
@@ -215,38 +215,6 @@ For each client you can configure:
 - Expiration date (in days)
 - Enable or disable the client
 - IP address limit (number of simultaneous connections)
-
-::: warning
-At the time of writing, panel version v3.2.8 **does not support** IP address limit configuration for clients directly through the panel. The section [IP limit configuration](#ip-limit-configuration) describes the setup process, but it is recommended only for advanced users.
-:::
-
-#### IP limit configuration
-
-::: warning
-Create a backup of the panel database before editing network requests from the browser. Incorrect changes can break client records. Example:
-
-```bash
-sudo cp /etc/x-ui/x-ui.db /etc/x-ui/x-ui.db.bak
-```
-:::
-
-1. Connect to your server via SSH or VNC.
-2. Enter the `x-ui` menu.
-3. Choose "IP Limit Management" (option 21).
-4. Select "Install Fail2ban and configure IP Limit" (option 1) and confirm the installation by pressing Enter.
-
-If installation succeeds you will see a success message:
-![successfull fail2ban installation](/images/vpn/3x-ui/ip_limit_install_success.png)
-
-5. Restart the panel (option 13).
-6. Open 3X-UI in your browser and go to the Clients list.
-7. Click "Edit" on the target client, open Developer Tools (right-click → Inspect) and switch to the Network tab.
-8. Click "Save" — a POST request to `<panel url>/panel/api/clients/update/<email>` will appear in the request list.
-9. Right-click that request and choose "Edit and Resend".
-10. In the request body find the `limitIp` field, change it to the desired value and send the modified request (Send).
-![ip limit body](/images/vpn/3x-ui/ip_limit_body.png)
-11. Verify the "IP Limit" value in the client's info.
-![ip limit client info](/images/vpn/3x-ui/ip_limit_client_info.png)
 
 ## Client Connection
 
