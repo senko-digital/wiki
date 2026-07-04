@@ -49,7 +49,7 @@ In the Netherlands, we utilize Skylink and Nikhef facilities.
 Great question! At this time, we don't offer a granular choice of individual data centers or facilities. While our current range of locations is limited, we're steadily expanding and regularly adding more locations, while also prefering quality over quantity *wink-wink*
 
 ### 🌍 Are your services available globally?
-Yes, you can order from anywhere in the world, subject to compliance with applicable export regulations and our own restrictions (e.g. sanctioned countries). Payment options are also available globally.
+Yes, you can order from almost anywhere in the world, subject to compliance with applicable export regulations and our own restrictions (e.g. sanctioned countries). Payment options are also available globally.
 
 ## 💻 VPS Plans & Resources
 
@@ -112,6 +112,11 @@ For all other plans, you may request the opening of ports 25 and/or 465 by submi
 
 ### 📡 Do you support rDNS / PTR records?
 Yes, we support rDNS/PTR records management on all of our plans except for the BUDGET lineup. Customers can configure and update rDNS for both IPv4 and IPv6 addresses directly through our VM control panel at any time.
+
+### 🌐 Do you provide free domain names or subdomains?
+No, we do not provide free domain names or subdomains with our services.
+
+Please note that the PTR record (the "domain" field you may see assigned to your IP addresses) is purely a technical record we automatically set on VPS server IP addresses for easier inventory management. It is not the same as an A record, which would allow a domain name to actually resolve to your server. The PTR record is primarily used when setting up your own email server, or for pure aesthetics when checking an IP address's PTR record through websites like [check-host.net](https://check-host.net).
 
 ### 🌐 Can I point my own domain to your VPS?
 Yes! You can point any domain you own to our VPS and manage DNS settings via our panel or your domain registrar's control panel. We also offer DNS record management for all virtual servers except BUDGET plans.
