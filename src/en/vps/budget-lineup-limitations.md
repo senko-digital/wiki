@@ -10,7 +10,6 @@ To keep pricing at this level, several limitations apply.
 - Technical support is not included; only basic guidance is provided if possible.
 - We will not ignore your requests, but response times will be significantly longer compared to standard plans.
 - Complex tasks (such as software installation, debugging, or configuration) will **not** be fulfilled by support.
-- Referral program payouts and discounts do not apply to the lineup.
 
 ## Operating system and installation limitations
 - Windows OS is not supported.
