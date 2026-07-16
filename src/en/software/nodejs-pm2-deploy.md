@@ -22,11 +22,9 @@ In this guide, we'll cover the process of deploying a Node.js application on a V
 PM2 (Process Manager 2) is an advanced process manager for Node.js applications that provides:
 
 - Automatic restart when an application crashes
-- Load balancing through clustering
 - Real-time process monitoring
 - Log management
 - Automatic startup on system boot
-- Zero-downtime deployment
 
 ## Prerequisites
 
@@ -45,7 +43,7 @@ sudo apt update
 sudo apt install curl
 
 # Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | bash
 
 source ~/.bashrc
 
@@ -99,17 +97,6 @@ pm2 start app.js --name "my-app"
 
 Where `my-app` is the name of your application, which you'll use to refer to PM2 for further management.
 
-### Launching in cluster mode
-
-To use multiple CPU cores and ensure high availability, you can use the following command:
-
-```bash
-# Automatically creates the optimal number of processes depending on the number of CPU cores
-pm2 start app.js --name "my-app" -i max
-```
-
-Note: your application must support clustering.
-
 ### Creating a PM2 configuration file
 
 For more detailed configuration, let's create an `ecosystem.config.js` file:
@@ -120,11 +107,9 @@ module.exports = {
   apps: [{
     name: "my-app",
     script: "app.js",
-    instances: "max",
-    exec_mode: "cluster",
-    autorestart: true,
+    autorestart: true,          // restart automatically if the process exits
     watch: false,
-    max_memory_restart: "200M",
+    max_memory_restart: "300M", // restart the process if it exceeds this memory limit
     env: {
       NODE_ENV: "development",
     },
@@ -136,6 +121,10 @@ module.exports = {
 }
 EOL
 ```
+
+::: warning ESM projects
+If your `package.json` contains `"type": "module"`, PM2 cannot load a `.js` config file (`ERR_REQUIRE_ESM`). Name the file `ecosystem.config.cjs` instead and reference it explicitly (`pm2 start ecosystem.config.cjs`), since PM2's auto-discovery only looks for the `.js` name.
+:::
 
 Starting the application using the configuration file:
 
@@ -160,6 +149,10 @@ pm2 save
 ```
 
 Now your application(s) will start even after server reboot without manual intervention.
+
+::: tip Avoid running your app as root
+`pm2 startup` generates a systemd service tied to the **current user**. For security, run your application under a dedicated non-root user rather than `root`, and run `pm2 startup` while logged in as that user so the service and its permissions are scoped correctly.
+:::
 
 ## Setting up Nginx as a reverse proxy
 
@@ -244,16 +237,22 @@ pm2 logs my-app
 pm2 logs --lines 200
 ```
 
-## Updating the application without downtime (Zero-Downtime Deployment)
+## Updating the application
 
-To update the application without interrupting its operation:
-
-1. Update the code (e.g., through git pull)
-2. Perform an application reload:
+To deploy a new version, pull the latest code, install any new dependencies, and restart the process:
 
 ```bash
-pm2 reload my-app
+# Pull the new code and install dependencies
+git pull
+npm install
+
+# Restart the application
+pm2 restart my-app
 ```
+
+::: warning Restart causes a brief interruption
+`pm2 restart` stops the process and starts it again, so there is a short window (typically well under a second) during which requests are not served. For most applications this is acceptable. If you need to survive that window, put a load balancer in front of two or more separate servers and update them one at a time, rather than relying on PM2 alone.
+:::
 
 ## Monitoring and statistics
 
@@ -267,14 +266,23 @@ pm2 plus
 
 ### Integration with Prometheus + Grafana
 
-Install pm2-prometheus:
+Metrics can be exported to Prometheus with a PM2 module such as `pm2-metrics`. PM2 modules are installed with `pm2 install` — there is no separate global `npm install` step:
 
 ```bash
-npm install -g pm2-prometheus
-pm2 install pm2-prometheus
+pm2 install pm2-metrics
 ```
 
-Then configure Prometheus to collect metrics from the `/metrics` endpoint and Grafana for data visualization.
+The module starts an HTTP server that exposes PM2 metrics at `http://<host>:9209/metrics`. Point Prometheus at that target:
+
+```yaml
+# prometheus.yml
+scrape_configs:
+  - job_name: pm2
+    static_configs:
+      - targets: ['localhost:9209']
+```
+
+Then use Grafana to visualize the collected data. Alternative community modules (e.g. `pm2-prom-module`) expose metrics on their own ports — check the module's documentation for the exact endpoint.
 
 ## Troubleshooting
 
