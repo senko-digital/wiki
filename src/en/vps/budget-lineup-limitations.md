@@ -10,6 +10,7 @@ To keep pricing at this level, several limitations apply.
 - Technical support is not included; only basic guidance is provided if possible.
 - We will not ignore your requests, but response times will be significantly longer compared to standard plans.
 - Complex tasks (such as software installation, debugging, or configuration) will **not** be fulfilled by support.
+- Free IP address replacements are not included into the plan lineup. The cost of such replacement will be 10 EUR (one-time charge) per IP.
 
 ## Operating system and installation limitations
 - Windows OS is not supported.
