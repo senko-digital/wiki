@@ -13,7 +13,7 @@ head:
       content: "Guide to automating server tasks using the game panel scheduler. Learn how to set up automated restarts, backups, and command execution on your game server."
 ---
 
-# 🕰️ Task Scheduler
+# Task Scheduler
 
 Quick guide to using the scheduling function in the game control panel.
 

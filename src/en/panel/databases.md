@@ -13,7 +13,7 @@ head:
       content: "Guide to managing MySQL databases in the game panel. Creating, configuring, and managing databases for your server."
 ---
 
-# 💿 Databases
+# Databases
 
 Quick guide to creating and configuring databases in the game control panel.
 

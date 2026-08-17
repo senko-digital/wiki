@@ -13,7 +13,7 @@ head:
       content: "Guide to using the game server console. Sending commands, monitoring logs, and managing the server through the console."
 ---
 
-# 💻 Console
+# Console
 
 Quick guide to using the server console in the game control panel.
 

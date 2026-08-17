@@ -13,7 +13,7 @@ head:
       content: "Guide to using the file manager in the game panel. Uploading, editing, and managing server files."
 ---
 
-# 📁 File Manager
+# File Manager
 
 Quick guide to using the file manager in the game control panel.
 

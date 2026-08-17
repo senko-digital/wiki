@@ -13,7 +13,7 @@ head:
       content: "Monitoring user actions on the server through the activity log. Tracking changes and security auditing."
 ---
 
-# 📖 Logs
+# Logs
 
 Brief description of the logs (activity journal) page in the game control panel.
 

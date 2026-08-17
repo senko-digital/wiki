@@ -13,7 +13,7 @@ head:
       content: "Guide for authorizing with the Senko Digital Discord bot. Connecting the bot to the game panel for server monitoring."
 ---
 
-# 👤 Authorization
+# Authorization
 
 Setting up a connection between the panel and our Discord bot.
 

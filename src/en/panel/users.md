@@ -13,7 +13,7 @@ head:
       content: "Guide to managing users in the game panel. Inviting new users, configuring access rights, and managing permissions."
 ---
 
-# 👥 Users
+# Users
 
 Quick guide to inviting and managing users in the game control panel.
 

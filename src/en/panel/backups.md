@@ -13,7 +13,7 @@ head:
       content: "Guide to creating and managing game server backups. Data protection and quick server recovery."
 ---
 
-# ❗️ Backups
+# Backups
 
 Quick guide to creating and using backups in the game control panel.
 

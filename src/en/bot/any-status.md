@@ -13,7 +13,7 @@ head:
       content: "Monitoring any game server status through Senko Digital Discord bot. Support for Garry's Mod, Minecraft, CS2, and other games."
 ---
 
-# 🔁 Any Server Status
+# Any Server Status
 
 With the bot, you can view the status of any game server that it supports.
 

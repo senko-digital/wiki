@@ -13,7 +13,7 @@ head:
       content: "Guide to configuring game server startup parameters. Managing server settings through the game control panel."
 ---
 
-# 🛠️ Startup Parameters
+# Startup Parameters
 
 Quick guide to using startup parameters in the game control panel.
 

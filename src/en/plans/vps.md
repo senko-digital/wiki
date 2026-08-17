@@ -14,7 +14,7 @@ head:
 ---
 
 
-# 💻 Virtual Servers
+# Virtual Servers
 
 Virtual servers are a versatile solution suitable for a wide range of tasks where stability, flexibility, and full control are required.
 

@@ -13,7 +13,7 @@ head:
       content: "Guide to viewing game server status through the Senko Digital Discord bot. Monitoring server conditions and managing them through Discord."
 ---
 
-# 🔁 Server Status from Panel
+# Server Status from Panel
 
 With the bot, you can also view the status of your servers from the game panel.
 
@@ -24,7 +24,7 @@ You can use the `/servers-list` command to display a list of servers with their 
 ![server status from the panel in a discord bot](/images/bot/servers-list.png){data-zoomable}
 
 ::: tip
-Please note that even if a server is shown as running, this does not guarantee that it is actually working. For a complete server status check, it is recommended to use [**[🔁 Any Server Status](/bot/any-status)**].
+Please note that even if a server is shown as running, this does not guarantee that it is actually working. For a complete server status check, it is recommended to use [**[Any Server Status](/bot/any-status)**].
 :::
 
 This command is also very useful if you have several servers in the game panel and need to manage power or send commands to a specific server.

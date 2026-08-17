@@ -14,7 +14,7 @@ head:
 ---
 
 
-# 🎮 Game Hosting
+# Game Hosting
 
 On our hosting service, you can easily set up your game server using our game control panel.
 

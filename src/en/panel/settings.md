@@ -13,7 +13,7 @@ head:
       content: "Guide to configuring a game server. Managing SFTP access, renaming the server, and other basic settings."
 ---
 
-# ⚙️ Settings
+# Settings
 
 Information about the settings page in the game control panel.
 

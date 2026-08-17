@@ -14,6 +14,6 @@ head:
 ---
 
 
-# 🌐 Inviting the Bot to Your Server
+# Inviting the Bot to Your Server
 
 To invite the bot to your server, head over through [this link](https://discord.com/oauth2/authorize?client_id=1179024014195310592), select "Add to Server", select the server you would like to add the bot into, and follow further instructions from Discord.

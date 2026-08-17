@@ -13,7 +13,7 @@ head:
       content: "Guide to sending commands to a game server through Discord bot. Control your server directly from Discord."
 ---
 
-# 📩 Sending Commands
+# Sending Commands
 
 With the bot, you can send commands to your server from the game control panel.
 

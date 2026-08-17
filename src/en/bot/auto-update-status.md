@@ -13,11 +13,11 @@ head:
       content: "Setting up automatic game server status updates in Discord. Real-time server monitoring."
 ---
 
-# 🔁 Auto-updating Status
+# Auto-updating Status
 
 With our bot, you can also send a message that will automatically update the status of any game server.
 
-The command works the same way as [**[🔁 Any Server Status](/bot/any-status)**] - the only difference is the command itself.
+The command works the same way as [**[Any Server Status](/bot/any-status)**] - the only difference is the command itself.
 
 Authorization in the bot is not required to use this command, just follow the command syntax and everything will work.
 
