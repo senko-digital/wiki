@@ -161,6 +161,7 @@ export default defineConfig({
             { text: '🦊 Home', link: '/' },
             { text: '🤔 Frequently Asked Questions', link: '/faq' },
             { text: '🤔 How to Choose a Hosting Provider', link: '/how-to-choose-a-provider' },
+            { text: '🌐 BGP Sessions', link: '/bgp-sessions' },
             {
               text: '💻 Client Area',
               items: [
@@ -358,6 +359,7 @@ export default defineConfig({
             { text: '🦊 Главная', link: '/ru/' },
             { text: '🤔 Частозадаваемые вопросы', link: '/ru/faq' },
             { text: '🤔 Как выбрать хостинг-провайдера', link: '/ru/how-to-choose-a-provider' },
+            { text: '🌐 BGP-сессии', link: '/ru/bgp-sessions' },
             {
               text: '💻 Личный кабинет',
               items: [
