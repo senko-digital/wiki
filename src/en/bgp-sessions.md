@@ -65,6 +65,9 @@ Yes - every announcement we receive from customers is checked, and anything that
 ### Do you support BGP communities and blackholing?
 Not at the moment - we offer neither communities nor blackhole announcements today. Both are on our roadmap and should arrive in the near future.
 
+### Are mail ports dropped on my announced prefixes?
+Yes - outgoing mail port 25 is dropped automatically for every newly announced prefix. It can be opened after announcement on request to our [support team](https://senko.digital/contacts).
+
 ## DDoS Protection
 
 ### Is protection included with a BGP session?
