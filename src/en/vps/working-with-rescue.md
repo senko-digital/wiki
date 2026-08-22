@@ -130,15 +130,7 @@ After launching the utility:
 
 You will then return to the initial menu. Select `Quit`, and press `q` when the welcome message appears.
 
-#### Enable the SSH Server
-
-```bash
-systemctl enable ssh --now
-```
-
-You can then [configure the firewall](#configuring-the-firewall) to allow incoming SSH connections to your server.
-
-## Configuring the Firewall
+### Configuring the Firewall
 
 #### 1. Flush Existing Rules
 ```bash
@@ -160,13 +152,33 @@ iptables -I INPUT -p tcp --dport 22 -j ACCEPT
 iptables -I INPUT -i lo -j ACCEPT
 ```
 
+### Enabling the SSH Server
+
+To connect to your server via SSH, you must set a password for the `root` user and start the SSH service.
+
+First, set a password for the `root` user:
+
+```bash
+passwd root
+```
+
+Then start the SSH server:
+
+```bash
+systemctl start ssh
+```
+
+You should now be able to connect to your server using the password you set.
+
 ## Using Rescue Mode
 
 This section covers common operations performed in rescue mode.
 
 ### Accessing Data on the Server's Disk
 
-Before continuing, [configure networking](#configuring-networking) and the [firewall rules](#configuring-the-firewall) **if you need to download/upload files**. Then follow the steps below.
+::: warning
+**If you need to download or upload files**, [configure networking](#configuring-networking), [configure the firewall](#configuring-the-firewall), and [enable the SSH server](#enabling-the-ssh-server) before continuing.
+:::
 
 #### 1. Find the Server's Disk
 
