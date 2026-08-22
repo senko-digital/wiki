@@ -96,6 +96,7 @@ layout: home
           <a href="/vps/os-reinstallation">OS Reinstallation</a>
           <a href="/vps/nodejs-pm2-deploy">Node.js Deployment</a>
           <a href="/vps/letsencrypt-ssl">Let's Encrypt SSL</a>
+          <a href="/vps/working-with-rescue">Working with rescue</a>
         </div>
         <a href="/vps/" class="category-view-all">View all articles →</a>
       </div>
