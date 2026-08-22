@@ -40,9 +40,17 @@ This guide demonstrates the manual installation process using a DE-BUDGET-1 virt
 1. Order a virtual server through your control panel or use an existing server
 2. For this example, we'll use:
    - Plan: DE-BUDGET-1
-   - Base OS: Ubuntu 24.04 (required for CHR deployment)
+   - Base OS: Ubuntu 26.04 (required for CHR deployment)
 
-## Installation Steps
+::: warning
+Not all operating systems can be used to install CHR. Our tests showed that only Debian 12, Debian 13 and Ubuntu 26.04 work. Installing CHR on any other OS might result in errors and issues during startup and/or operation. If you still wish to install CHR on an unlisted OS, we recommend trying older versions, specifically `6.49.20`, or installing CHR from rescue.
+:::
+
+## Installing from a working OS
+
+::: warning
+This option is not recommended, we strongly recommend to perform the installation via rescue mode.
+:::
 
 ### 1. Server Setup
 - Your server will be ready within 2 minutes after ordering
@@ -75,14 +83,14 @@ This process will **delete all data from your server**.
 Make sure to **back up any important data** before proceeding!
 :::
 
-Install gunzip:
+Refresh packages database and install unzip:
 ```bash
-apt -y install gunzip
+apt update && apt install unzip -y
 ```
 
 Extract the downloaded image:
 ```bash
-gunzip -c chr.img.zip > chr.img
+unzip -p chr.img.zip > chr.img
 ```
 
 Switch the disk system to read-only mode:
@@ -105,9 +113,57 @@ echo b > /proc/sysrq-trigger
 
 After executing the last command and pressing `[Enter]`, your SSH connection may appear to hang - this is expected behavior.
 
-You can safely disconnect from your virtual server at this point. The remaining setup will be performed through the web VNC interface.
+You can safely disconnect from your virtual server at this point. The remaining setup will be performed through the web VNC interface. Please see [Networking Configuration](#network-configuration) for further steps.
 
-### 4. Network Configuration
+## Installing from rescue
+
+### 1. Server Setup
+- Your server will be ready within 2 minutes after ordering
+- Login into your account in [VM control panel](https://vm.senko.digital/)
+- Attach rescue OS to your server of your choice and configure network or follow our [guide](/vps/working-with-rescue#using-iso)
+
+### 2. Downloading CHR Image
+- Visit the [official MikroTik download page](https://mikrotik.com/download/chr)
+- Download the **Raw disk image** version of CHR (we'll use version 7.20.8 in this example)
+![An image showing which version of MikroTik CHR to use for a virtual server](/images/vps/mikrotik-chr/select-mikrotik-chr-version.png){data-zoomable}
+- Right-click the download icon and copy the download link (e.g., https://download.mikrotik.com/routeros/7.20.8/chr-7.20.8.img.zip)
+- Download the image to your virtual server:
+```bash
+cd /tmp
+wget <LINK> -O chr.img.zip
+```
+
+For example:
+```bash
+cd /tmp
+wget https://download.mikrotik.com/routeros/7.20.8/chr-7.20.8.img.zip -O chr.img.zip
+```
+
+![An image showing a successful download of a MikroTik CHR image onto a virtual server](/images/vps/mikrotik-chr/successful-download-mikrotik-chr-rescue.png){data-zoomable}
+
+### 3. Image Deployment
+
+::: warning
+This process will **delete all data from your server**. 
+Make sure to **back up any important data** before proceeding!
+:::
+
+Extract the downloaded image:
+```bash
+unzip -p chr.img.zip > chr.img
+```
+
+Write the image to the virtual disk:
+```bash
+dd if=chr.img of=/dev/vda bs=4M oflag=direct
+sync
+```
+
+After executing the last command you need to unmount the ISO **and check the "The OS has been reinstalled"**.
+
+The remaining setup will be performed through the web VNC interface. Please see [Networking Configuration](#network-configuration) for further steps.
+
+## Network Configuration
 
 Now we need to access the VM control panel to connect to our server via VNC.
 
@@ -238,3 +294,17 @@ CHR offers four license levels:
 The default free license allows indefinite use but limits throughput to 1 Mbps per interface.
 
 For more information about licensing, visit the official [MikroTik documentation](https://help.mikrotik.com/docs/spaces/ROS/pages/18350234/Cloud+Hosted+Router+CHR).
+
+## Resolving errors during startup
+
+Most errors (XZ-compressed data is corrupt/opendir, No such file or directory, No valid harddrives found, etc.) can be resolved by performing one of those actions:
+- Reinstalling the OS to one listed in the prerequisites (Debian 12, Debian 13, Ubuntu 26.04)
+
+or
+
+- Installing an older version of CHR (e.g., the earlier mentioned 6.49.20)
+
+or
+
+<!-- #TODO - add link to rescue guide -->
+- [Installing CHR from rescue](#installing-from-rescue)
