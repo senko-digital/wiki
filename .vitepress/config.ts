@@ -198,6 +198,10 @@ export default defineConfig({
                 },
                 { text: '💻 How to reinstall the OS', link: '/vps/os-reinstallation' },
                 { text: '💾 How to create a backup', link: '/vps/how-to-create-a-backup' },
+                {
+                  text: '🛟 Working with Rescue Mode',
+                  link: '/vps/working-with-rescue',
+                },
               ],
               collapsed: false,
             },
@@ -401,6 +405,10 @@ export default defineConfig({
                 {
                   text: '💾 Как создать резервную копию ВМ',
                   link: '/ru/vps/how-to-create-a-backup',
+                },
+                {
+                  text: '🛟 Работа с режимом восстановления',
+                  link: '/ru/vps/working-with-rescue',
                 },
               ],
               collapsed: false,
