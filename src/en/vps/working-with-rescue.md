@@ -1,173 +1,186 @@
 ---
-title: "Working with rescue"
-description: "Step-by-step guide for booting your virtual server into rescue, setting up network and backing up data from the operating system of your server"
+title: "Working with Rescue Mode"
+description: "Step-by-step guide to booting your virtual server into rescue mode, configuring networking, and backing up data from your server's operating system."
 head:
   - - meta
     - name: keywords
       content: rescue, rescuecd, systemrescue, grml, grmllinux, virtual server, vps, network configuration, backup, backing up data, back up data
   - - meta
     - property: og:title
-      content: "Working with rescue"
+      content: "Working with Rescue Mode"
   - - meta
     - property: og:description
-      content: "Step-by-step guide for booting your virtual server into rescue, setting up network and backing up data from the operating system of your server"
+      content: "Step-by-step guide to booting your virtual server into rescue mode, configuring networking, and backing up data from your server's operating system."
 ---
 
 
-# Working with rescue
+# Working with Rescue Mode
 
-## Booting into rescue
+## Booting into Rescue Mode
 
-You have two ways to boot your server into rescue:
+You can boot your server into rescue mode in two ways:
 
-### Using "Recovery mode"
+### Using "Recovery Mode"
 
-1. Login into your account in [VM control panel](https://vm.senko.digital/)
-2. Select the server where you want to enable the recovery mode for
-3. Press the three dots either in the list of your servers or on the server's parameters page and select "Recovery mode"
+1. Log in to your account in the [VM control panel](https://vm.senko.digital/).
+2. Select the server on which you want to enable recovery mode.
+3. Click the three-dot menu in the server list or on the server's parameters page, then select "Recovery mode".
 ![Recovery mode in the menu](/images/vps/recovery/rescue-recovery-mode.png){data-zoomable}
-4. Press "Start mode and reboot" button
+4. Click the "Start mode and reboot" button.
 ![Recovery mode button](/images/vps/recovery/rescue-enable-recovery-mode.png){data-zoomable}
 
 After your VM's status changes to "Active", connect to your server via VNC.
 
 To set up networking, please refer to the [SystemRescue networking guide](#systemrescue).
 
-### Using .ISO
+### Using an ISO image
 
-<!-- We recommend this if you need to install another OS, for example, [Mikrotik CHR](/software/how-to-install-mikrotik-chr-on-a-virtual-server) -->
-
-1. Login into your account in [VM control panel](https://vm.senko.digital/)
-2. Select the server where you want to mount the .iso file
-3. Press the three dots either in the list of your servers or on the server's parameters page and select "Mount ISO image"
+1. Log in to your account in the [VM control panel](https://vm.senko.digital/).
+2. Select the server on which you want to mount the ISO file.
+3. Click the three-dot menu in the server list or on the server's parameters page, then select "Mount ISO image".
 ![Mount ISO image button in the menu](/images/vps/recovery/rescue-iso.png){data-zoomable}
-4. Change loading method from "Local file" to "Image URL"
-5. Copy the download link of [GRML](https://grml.org/download/) or [SystemRescue](https://www.system-rescue.org/Download/) from their respective pages.
-6. Paste the download link for one of .iso files in "Image URL", for example:
+4. Change the loading method from "Local file" to "Image URL".
+5. Copy the download link for [GRML](https://grml.org/download/) or [SystemRescue](https://www.system-rescue.org/Download/) from its respective download page.
+6. Paste the download link for one of the ISO files into the "Image URL" field. For example:
 
 - GRML: `https://download.grml.org/grml-full-2026.04-amd64.iso`
 - SystemRescue: `https://fastly-cdn.system-rescue.org/releases/13.01/systemrescue-13.01-amd64.iso`
-- or an image of your choice
+- An image of your choice
 
-6. Press "Upload image"
+7. Click "Upload image".
 
 ::: warning
-Take note of which distro you are choosing - this will impact how you set up the networking. If you've chosen another distro not listed in the list above, please consult the documentation of your distro on how to set up networking correctly.
+Take note of which distribution you choose, as it determines how you configure networking. If you choose a distribution that is not listed above, consult its documentation for the correct network configuration procedure.
 :::
 
 After your VM's status changes to "Active", connect to your server via VNC.
 
-To set up networking, please refer to the networking guide relevant to the selected distro ([SystemRescue](#systemrescue)/[GRML](#GRML)).
+To configure networking, refer to the guide for your selected distribution: [SystemRescue](#systemrescue) or [GRML](#grml).
 
-## Set up networking
+## Configuring Networking
 
 ### SystemRescue
 
-Network configuration for SystemRescue is done via NetworkManager CLI. In order to set up networking, first you need to have network configuration for your VM, which you can find in the "IP addresses" menu in the VM control panel. You will specifically need:
+SystemRescue networking is configured through the NetworkManager CLI. Before configuring it, obtain your VM's network settings from the "IP addresses" menu in the VM control panel. You will need:
 - IP address
 - Gateway
 
-After getting this information, you will need to execute the following commands:
+After obtaining this information, run the following commands:
 
-#### 1. Setup IP address:
+#### 1. Set Up the IP Address
 ```bash
 nmcli conn mod "Wired connection 1" ipv4.addr <IP>/32
 ```
 
-Replace `<IP>` with the IP address of your server
+Replace `<IP>` with your server's IP address.
 
-#### 2. Disable DHCP:
+#### 2. Disable DHCP
 
 ```bash
 nmcli conn mod "Wired connection 1" ipv4.method manual
 ```
 
-#### 3. Setup the gateway:
+#### 3. Set Up the Gateway
 
 ```bash
 nmcli conn mod "Wired connection 1" ipv4.gateway <GATEWAY>
 ```
 
-Replace `<GATEWAY>` with the gateway of your server (usually either `172.16.0.1` or `10.0.0.1`)
+Replace `<GATEWAY>` with your server's gateway (usually either `172.16.0.1` or `10.0.0.1`).
 
-#### 4. Setup DNS:
+#### 4. Set Up DNS
 
 ```bash
 nmcli conn mod "Wired connection 1" ipv4.dns 1.1.1.1
 ```
 
-#### 5. Enable the interface:
+#### 5. Enable the interface
 
 ```bash
 nmcli conn up "Wired connection 1"
 ```
 
-After this, you can also [set up firewall](#configuring-firewall) to allow SSH requests to connect to your server.
+#### 6. Enable the SSH Server
+
+```bash
+systemctl enable ssh --now
+```
+
+You can then [configure the firewall](#configuring-the-firewall) to allow incoming SSH connections to your server.
 
 ### GRML
 
-You can set up networking via the `grml-networking` utility, which you can access by executing the command `grml-networking`, or pressing `n` after the initial startup. In order to set up networking, first you need to have network configuration for your VM, which you can find in the "IP addresses" menu in the VM control panel. You will specifically need:
+You can configure networking with the `grml-networking` utility. Launch it by running `grml-networking` or by pressing `n` after the initial startup. Before configuring it, obtain your VM's network settings from the "IP addresses" menu in the VM control panel. You will need:
+
 - IP address
 - Mask
 - Gateway
 
-After executing the command:
+After launching the utility:
 
-1. Select `netcardconfig` and press `[Enter]`
+1. Select `netcardconfig` and press `[Enter]`.
 2. When asked to configure VLAN, select `No`.
-3. When asked if to use DHCP broadcast, select `No`.
-4. Input the IP address of your server and press `[Enter]`
-5. Input the network mask of your server (usually `255.255.255.255`) and press `[Enter]`
-6. Leave broadcast address empty (if your IP address is present - remove it) and press `[Enter]`
-7. Input your server's gateway (usually either `172.16.0.1` or `10.0.0.1`) and press `[Enter]`
-8. Input `1.1.1.1` as your nameservers. You can select any other nameservers. After that, press `[Enter]`
-9. When asked if to autoenable the interface on boot you can select either `Yes` or `No`.
+3. When asked whether to use DHCP broadcast, select `No`.
+4. Enter your server's IP address and press `[Enter]`.
+5. Enter your server's network mask (usually `255.255.255.255`) and press `[Enter]`.
+6. Leave the broadcast address empty. If your IP address is present, remove it, then press `[Enter]`.
+7. Enter your server's gateway (usually either `172.16.0.1` or `10.0.0.1`) and press `[Enter]`.
+8. Enter `1.1.1.1` as the DNS server. You may use another DNS server instead. Then press `[Enter]`.
+9. When asked whether to enable the interface automatically at boot, select either `Yes` or `No`.
 
-After this, you will returned to the initial menu, where you can just select `Quit` and press `q` when prompted with the welcome message.
+You will then return to the initial menu. Select `Quit`, and press `q` when the welcome message appears.
 
-## Configuring firewall
+#### Enable the SSH Server
 
-#### 1. Flush rules
+```bash
+systemctl enable ssh --now
+```
+
+You can then [configure the firewall](#configuring-the-firewall) to allow incoming SSH connections to your server.
+
+## Configuring the Firewall
+
+#### 1. Flush Existing Rules
 ```bash
 iptables -F
 ```
 
-#### 2. Allow traffic from already established connections.
+#### 2. Allow Traffic from Established and Related Connections
 ```bash
 iptables -I INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 ```
 
-#### 3. Allow all incoming SSH connections
+#### 3. Allow All Incoming SSH Connections
 ```bash
 iptables -I INPUT -p tcp --dport 22 -j ACCEPT
 ```
 
-#### 4. Allow all traffic originating from the VM itself
+#### 4. Allow Loopback Traffic
 ```bash
 iptables -I INPUT -i lo -j ACCEPT
 ```
 
-## Rescue mode
+## Using Rescue Mode
 
-In this section we will review common operations done in rescue mode.
+This section covers common operations performed in rescue mode.
 
-### Accessing data from the server's disk
+### Accessing Data on the Server's Disk
 
-For this you would need to [configure networking](#set-up-networking) and [firewall rules](#configuring-firewall) first. After this you can follow the steps.
+Before continuing, [configure networking](#configuring-networking) and the [firewall rules](#configuring-the-firewall) **if you need to download/upload files**. Then follow the steps below.
 
-#### 1. Find the server's disk
+#### 1. Find the Server's Disk
 
-First identify the disk of your server. For this execute the following command:
+First, identify your server's disk by running:
 ```bash
 lsblk -f
 ```
 
-Identify partition with your server's data. It should have `ext4` FSTYPE:
+Identify the partition containing your server's data. Its FSTYPE should be `ext4`:
 ![Lsblk command output](/images/vps/recovery/rescue-lsblk.png){data-zoomable}
 
-#### 2. Create mounting point and mount the disk
+#### 2. Create a Mount Point and Mount the Disk
 
-After that create the mounting point:
+Create the mount point:
 ```bash
 mkdir -p /mnt/vm
 ```
@@ -177,7 +190,7 @@ Then mount the partition:
 mount /dev/vda3 /mnt/vm
 ```
 
-Verify that it mounted correctly:
+Verify that the partition was mounted correctly:
 ```bash
 ls /mnt/vm
 ```
@@ -185,4 +198,4 @@ ls /mnt/vm
 For a Linux root filesystem, you would typically see directories such as:
 ![Mounted disk example](/images/vps/recovery/rescue-mounted-disk.png){data-zoomable}
 
-After that you can connect to your server via SFTP client (e.g. WinSCP) using SSH credentials and edit or download files on your server's disk.
+You can then connect to your server with an SFTP client (for example, WinSCP) using your SSH credentials and edit or download files from your server's disk.

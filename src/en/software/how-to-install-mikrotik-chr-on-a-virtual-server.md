@@ -22,13 +22,14 @@ head:
   </picture>
 </p>
 
-MikroTik Cloud Hosted Router (CHR) is a specialized version of RouterOS that's optimized for virtual machine environments, functioning as a complete operating system.
+MikroTik Cloud Hosted Router (CHR) is a specialized version of RouterOS optimized for virtual machine environments that functions as a complete operating system.
 
 In this guide, we'll walk you through the process of installing and configuring MikroTik CHR on your virtual server.
 
 ## System Requirements
 
 You can install MikroTik CHR on any of our virtual server plans, including the entry-level configuration with:
+
 - 1 CPU core
 - 1 GB RAM
 - 10 GB NVMe storage
@@ -37,27 +38,29 @@ This guide demonstrates the manual installation process using a DE-BUDGET-1 virt
 
 ## Prerequisites
 
-1. Order a virtual server through your control panel or use an existing server
+1. Order a virtual server through your control panel or use an existing server.
 2. For this example, we'll use:
    - Plan: DE-BUDGET-1
    - Base OS: Ubuntu 26.04 (required for CHR deployment)
 
 ::: warning
-Not all operating systems can be used to install CHR. Our tests showed that only Debian 12, Debian 13 and Ubuntu 26.04 work. Installing CHR on any other OS might result in errors and issues during startup and/or operation. If you still wish to install CHR on an unlisted OS, we recommend trying older versions, specifically `6.49.20`, or installing CHR from rescue.
+Not all operating systems can be used to install CHR. Our tests showed that only Debian 12, Debian 13, and Ubuntu 26.04 work. Installing CHR on any other OS might result in errors during startup or operation. If you still wish to install CHR on an unlisted OS, we recommend trying an older version, specifically `6.49.20`, or installing CHR from rescue mode.
 :::
 
-## Installing from a working OS
+## Installing from a Working OS
 
 ::: warning
-This option is not recommended, we strongly recommend to perform the installation via rescue mode.
+This option is not recommended. We strongly recommend performing the installation via rescue mode.
 :::
 
 ### 1. Server Setup
+
 - Your server will be ready within 2 minutes after ordering
 - Connect to the server using SSH credentials provided in your activation or OS reinstallation email
 - For SSH connection guidance, refer to our [How to connect to the server (Linux)](/vps/how-to-connect-through-ssh) guide
 
-### 2. Downloading CHR Image
+### 2. Downloading the CHR Image
+
 - Visit the [official MikroTik download page](https://mikrotik.com/download/chr)
 - Download the **Raw disk image** version of CHR (we'll use version 7.20.8 in this example)
 ![An image showing which version of MikroTik CHR to use for a virtual server](/images/vps/mikrotik-chr/select-mikrotik-chr-version.png){data-zoomable}
@@ -115,14 +118,16 @@ After executing the last command and pressing `[Enter]`, your SSH connection may
 
 You can safely disconnect from your virtual server at this point. The remaining setup will be performed through the web VNC interface. Please see [Networking Configuration](#network-configuration) for further steps.
 
-## Installing from rescue
+## Installing from Rescue Mode
 
 ### 1. Server Setup
-- Your server will be ready within 2 minutes after ordering
-- Login into your account in [VM control panel](https://vm.senko.digital/)
-- Attach rescue OS to your server of your choice and configure network or follow our [guide](/vps/working-with-rescue#using-iso)
 
-### 2. Downloading CHR Image
+- Your server will be ready within 2 minutes after ordering
+- Log in to your account in the [VM control panel](https://vm.senko.digital/)
+- Enter rescue by following our [guide](/vps/working-with-rescue)
+
+### 2. Downloading the CHR Image
+
 - Visit the [official MikroTik download page](https://mikrotik.com/download/chr)
 - Download the **Raw disk image** version of CHR (we'll use version 7.20.8 in this example)
 ![An image showing which version of MikroTik CHR to use for a virtual server](/images/vps/mikrotik-chr/select-mikrotik-chr-version.png){data-zoomable}
@@ -159,7 +164,7 @@ dd if=chr.img of=/dev/vda bs=4M oflag=direct
 sync
 ```
 
-After executing the last command you need to unmount the ISO **and check the "The OS has been reinstalled"**.
+After the last command finishes, unmount the ISO and **select the checkbox labelled "The OS has been reinstalled"**.
 
 The remaining setup will be performed through the web VNC interface. Please see [Networking Configuration](#network-configuration) for further steps.
 
@@ -168,7 +173,7 @@ The remaining setup will be performed through the web VNC interface. Please see 
 Now we need to access the VM control panel to connect to our server via VNC.
 
 #### Accessing the System
-- Log into our [VM control panel](https://vm.senko.digital/)
+- Log in to the [VM control panel](https://vm.senko.digital/)
 - Select the server where you installed MikroTik CHR
 - Connect to the server through the VNC console
 - Default credentials:
@@ -187,7 +192,7 @@ Now we need to access the VM control panel to connect to our server via VNC.
 
 Where:
 - `<IPv4>` is your server's IP address
-- `<Gateway>` is typically `172.16.0.1` (for RZ9, EP lineups) or `10.0.0.1` (for the DE-BUDGET lineup)
+- `<Gateway>` is typically `172.16.0.1` (for the RZ9 and EP lineups) or `10.0.0.1` (for the DE-BUDGET lineup)
 
 You can verify your server's internet connectivity by running:
 ```bash
@@ -295,16 +300,10 @@ The default free license allows indefinite use but limits throughput to 1 Mbps p
 
 For more information about licensing, visit the official [MikroTik documentation](https://help.mikrotik.com/docs/spaces/ROS/pages/18350234/Cloud+Hosted+Router+CHR).
 
-## Resolving errors during startup
+## Resolving Startup Errors
 
-Most errors (XZ-compressed data is corrupt/opendir, No such file or directory, No valid harddrives found, etc.) can be resolved by performing one of those actions:
-- Reinstalling the OS to one listed in the prerequisites (Debian 12, Debian 13, Ubuntu 26.04)
+Most startup errors, such as `XZ-compressed data is corrupt`, `opendir: No such file or directory`, or `No valid harddrives found`, can be resolved by taking one of the following actions:
 
-or
-
-- Installing an older version of CHR (e.g., the earlier mentioned 6.49.20)
-
-or
-
-<!-- #TODO - add link to rescue guide -->
-- [Installing CHR from rescue](#installing-from-rescue)
+- Reinstall the server with one of the operating systems listed in the prerequisites (Debian 12, Debian 13, or Ubuntu 26.04).
+- Install an older version of CHR (for example, the previously mentioned version `6.49.20`).
+- [Install CHR from rescue mode](#installing-from-rescue-mode).
