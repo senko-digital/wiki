@@ -36,14 +36,20 @@ No, all of our services are billed on a monthly basis by default, and there is n
 ## Server Locations & Infrastructure
 
 ### Where are your servers located?
-Our servers are provided in three main locations: **Germany**, **Frankfurt am Main**, **Finland**, **Helsinki** and **the Netherlands**, **Amsterdam**.
+Our servers are provided in three main locations: **Frankfurt am Main**, **Germany, **Helsinki**, **Finland** and **Amsterdam**, **the Netherlands**.
 
-### Which data centers do you use for your servers? Are they reliable?
-For our location in Germany, we utilize Firstcolo's data center facilities in Frankfurt am Main. Firstcolo is known for their powerful infrastructure and excellent connectivity within Central and Western Europe.
+### Which data centers do you use for your virtual servers? Are they reliable?
+For our location in Germany, we utilize **Firstcolo**'s data center facilities in Frankfurt am Main. **Firstcolo** is known for their powerful infrastructure and excellent connectivity within **Central** and **Western Europe**.
 
 In Finland, while the servers are colocated in Hetzner's Helsinki facility, virtual servers are not directly exposed through Hetzner's network. Instead, we use a different upstream provider to be able to provide DDoS protection, as well as ensure optimal performance and reliability for our customers.
 
 In the Netherlands, we utilize Skylink and Nikhef facilities.
+
+### In which data centers dedicated servers are located? 
+
+Dedicated servers [shown on our website](https://senko.digital/dedicated-servers) are provided from a German hosting provider Hetzner, with locations in **Falkenstein, Germany** and **Helsinki, Finland**.
+
+For custom-built servers through the Client Area, they are colocated in the **Firstcolo** data center in **Frankfurt, Germany**.
 
 ### Can I choose the exact data center or facility?
 Great question! At this time, we don't offer a granular choice of individual data centers or facilities. While our current range of locations is limited, we're steadily expanding and regularly adding more locations, while also prefering quality over quantity *wink-wink*
