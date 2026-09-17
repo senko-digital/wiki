@@ -19,10 +19,10 @@
   "dependencies": {
     "esbuild": "0.28.1",
     "medium-zoom": "^1.1.0",
-    "vitepress": "2.0.0-alpha.17"
+    "vitepress": "2.0.0-alpha.20"
   },
   "devDependencies": {
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.6.1",
     "typescript": "^6.0.3"
   }
 }
