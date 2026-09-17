@@ -30,52 +30,52 @@ layout: home
     </div>
     <div class="articles-grid">
       <a href="/ru/vps/getting-started" class="article-card">
-        <span class="article-icon">🚀</span>
+        <span class="article-icon"><IconRocket /></span>
         <div class="article-content">
           <h3>Начало работы с VPS</h3>
           <p>Всё, что нужно знать для начала использования виртуального сервера</p>
         </div>
-        <span class="article-arrow">→</span>
+        <span class="article-arrow"><IconArrowRight /></span>
       </a>
       <a href="/ru/faq" class="article-card">
-        <span class="article-icon">❓</span>
+        <span class="article-icon"><IconCircleHelp /></span>
         <div class="article-content">
           <h3>Часто задаваемые вопросы</h3>
           <p>Ответы на часто задаваемые вопросы</p>
         </div>
-        <span class="article-arrow">→</span>
+        <span class="article-arrow"><IconArrowRight /></span>
       </a>
       <a href="/ru/vpn/3x-ui" class="article-card">
-        <span class="article-icon">🔐</span>
+        <span class="article-icon"><IconLock /></span>
         <div class="article-content">
           <h3>Установка 3X-UI</h3>
           <p>Разверните собственный VPN сервер с панелью 3X-UI</p>
         </div>
-        <span class="article-arrow">→</span>
+        <span class="article-arrow"><IconArrowRight /></span>
       </a>
       <a href="/ru/vpn/wireguard" class="article-card">
-        <span class="article-icon">🛡️</span>
+        <span class="article-icon"><IconShieldCheck /></span>
         <div class="article-content">
           <h3>WireGuard VPN</h3>
           <p>Настройте быстрый и безопасный VPN сервер на WireGuard</p>
         </div>
-        <span class="article-arrow">→</span>
+        <span class="article-arrow"><IconArrowRight /></span>
       </a>
       <a href="/ru/panel/" class="article-card">
-        <span class="article-icon">📋</span>
+        <span class="article-icon"><IconLayoutDashboard /></span>
         <div class="article-content">
           <h3>Основы игровой панели</h3>
           <p>Научитесь использовать панель управления игровыми серверами</p>
         </div>
-        <span class="article-arrow">→</span>
+        <span class="article-arrow"><IconArrowRight /></span>
       </a>
       <a href="/ru/games/gmod/darkrp" class="article-card">
-        <span class="article-icon">🎮</span>
+        <span class="article-icon"><IconGamepad2 /></span>
         <div class="article-content">
           <h3>Настройка DarkRP</h3>
           <p>Установка и настройка игрового режима DarkRP для Garry's Mod</p>
         </div>
-        <span class="article-arrow">→</span>
+        <span class="article-arrow"><IconArrowRight /></span>
       </a>
     </div>
   </section>
@@ -88,7 +88,7 @@ layout: home
     <div class="categories-grid">
       <div class="category-card">
         <div class="category-header">
-          <span class="category-icon">💻</span>
+          <span class="category-icon"><IconServer /></span>
           <h3>Виртуальные серверы</h3>
         </div>
         <p class="category-desc">Настройка, оптимизация и управление VPS</p>
@@ -98,11 +98,11 @@ layout: home
           <a href="/ru/vps/nodejs-pm2-deploy">Деплой Node.js</a>
           <a href="/ru/vps/letsencrypt-ssl">Let's Encrypt SSL</a>
         </div>
-        <a href="/ru/vps/" class="category-view-all">Все статьи →</a>
+        <a href="/ru/vps/" class="category-view-all">Все статьи <IconArrowRight /></a>
       </div>
       <div class="category-card">
         <div class="category-header">
-          <span class="category-icon">🎮</span>
+          <span class="category-icon"><IconGamepad2 /></span>
           <h3>Игровой хостинг</h3>
         </div>
         <p class="category-desc">Minecraft, Garry's Mod и другие игровые серверы</p>
@@ -112,11 +112,11 @@ layout: home
           <a href="/ru/games/gmod/ulx">ULX Admin Mod</a>
           <a href="/ru/games/minecraft/plugins">Плагины Minecraft</a>
         </div>
-        <a href="/ru/games/" class="category-view-all">Все статьи →</a>
+        <a href="/ru/games/" class="category-view-all">Все статьи <IconArrowRight /></a>
       </div>
       <div class="category-card">
         <div class="category-header">
-          <span class="category-icon">🔐</span>
+          <span class="category-icon"><IconLock /></span>
           <h3>VPN решения</h3>
         </div>
         <p class="category-desc">Настройка собственного VPN сервера</p>
@@ -126,11 +126,11 @@ layout: home
           <a href="/ru/troubleshooting/speedtest-cli">Тест скорости сети</a>
           <a href="/ru/vps/how-to-install-mikrotik-chr-on-a-virtual-server">MikroTik CHR</a>
         </div>
-        <a href="/ru/vpn/" class="category-view-all">Все статьи →</a>
+        <a href="/ru/vpn/" class="category-view-all">Все статьи <IconArrowRight /></a>
       </div>
       <div class="category-card">
         <div class="category-header">
-          <span class="category-icon">📋</span>
+          <span class="category-icon"><IconLayoutDashboard /></span>
           <h3>Панель управления</h3>
         </div>
         <p class="category-desc">Освойте панель управления игровыми серверами</p>
@@ -140,7 +140,7 @@ layout: home
           <a href="/ru/panel/backups">Резервные копии</a>
           <a href="/ru/panel/schedules">Расписания</a>
         </div>
-        <a href="/ru/panel/" class="category-view-all">Все статьи →</a>
+        <a href="/ru/panel/" class="category-view-all">Все статьи <IconArrowRight /></a>
       </div>
     </div>
   </section>
@@ -160,7 +160,6 @@ layout: home
 .wiki-home a {
   background-image: none !important;
   background-size: initial !important;
-  transition: none !important;
 }
 
 .wiki-home {
@@ -304,6 +303,7 @@ layout: home
   border: 2px solid #e0e0e0;
   border-radius: 10px;
   text-decoration: none !important;
+  transition: border-color 0.2s ease;
 }
 
 .dark .article-card {
@@ -316,20 +316,20 @@ layout: home
 }
 
 .article-icon {
-  font-size: 1.25rem;
+  color: #8a2be2;
   line-height: 1;
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  background: rgba(138, 43, 226, 0.12);
-  border-radius: 50%;
+}
+
+.article-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .dark .article-icon {
-  background: rgba(138, 43, 226, 0.25);
+  color: #b78eff;
 }
 
 .article-content {
@@ -366,10 +366,15 @@ layout: home
 
 .article-arrow {
   color: #999;
-  font-size: 1.125rem;
   flex-shrink: 0;
   display: flex;
   align-items: center;
+  transition: color 0.2s ease;
+}
+
+.article-arrow svg {
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .dark .article-arrow {
@@ -397,6 +402,7 @@ layout: home
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
+  transition: border-color 0.2s ease;
 }
 
 .dark .category-card {
@@ -416,11 +422,20 @@ layout: home
 }
 
 .category-icon {
-  font-size: 1.375rem;
+  color: #8a2be2;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.dark .category-icon {
+  color: #b78eff;
+}
+
+.category-icon svg {
+  width: 1.375rem;
+  height: 1.375rem;
 }
 
 .category-header h3 {
@@ -462,6 +477,9 @@ layout: home
   background: #efefef;
   border-radius: 6px;
   border: 1px solid transparent;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .dark .category-links a {
@@ -479,8 +497,15 @@ layout: home
   font-weight: 500;
   color: #8a2be2 !important;
   text-decoration: none !important;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
   margin-top: auto;
+}
+
+.category-view-all svg {
+  width: 1em;
+  height: 1em;
 }
 
 .help-section {
@@ -536,11 +561,20 @@ layout: home
   border: 2px solid #8a2be2;
   border-radius: 8px;
   text-decoration: none !important;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .help-button:hover {
   background: #8a2be2 !important;
   color: #ffffff !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wiki-home * {
+    transition: none !important;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -608,10 +642,9 @@ layout: home
     padding: 0.875rem 1rem;
   }
 
-  .article-icon {
-    width: 2.25rem;
-    height: 2.25rem;
-    font-size: 1.125rem;
+  .article-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
   }
 
   .category-card {
