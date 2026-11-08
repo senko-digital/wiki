@@ -13,7 +13,7 @@ head:
       content: "A comprehensive guide on creating and managing backups for virtual servers at Senko Digital. Learn how to create manual backups, manage them, and restore your VMs when needed."
 ---
 
-# How to сreate a VM backup
+# How to create a VM backup
 
 A comprehensive guide on creating and managing backups for virtual servers at Senko Digital. Learn how to create manual backups, manage them, and restore your VMs when needed.
 
@@ -21,9 +21,13 @@ A comprehensive guide on creating and managing backups for virtual servers at Se
 
 Senko Digital now provides a robust backup solution for your virtual servers:
 
-- **Free backup storage**: Each server comes with free backup storage equal to roughly 50% of your server's disk size
+- **Free backup storage**: The included amount depends on your plan. Check your service details and the available space in the VM panel before creating a backup
 - **Expandable storage**: Need more space? Additional backup storage is available for just €0.03/GiB per month
-- **Secure storage**: All backups are stored on our reliable RAIDZ2-based backup cluster
+- **Secure storage**: Backups are stored separately from the VM nodes
+
+::: tip BUDGET plans
+Backup storage is not included with BUDGET plans. Purchase it through your service's addons before creating a backup.
+:::
 
 A backup is a complete disk image of your virtual server that can be used for recovery. Note that when a server is deleted (e.g. when you miss your payment), its backups are also deleted.
 
@@ -54,11 +58,15 @@ Done! Your server backup will be created shortly.
 
 The backup creation process goes through several stages:
 1. Creating an initial backup of your VM's disk on the node
-2. Transferring the backup to our RAIDZ2-based cluster
+2. Transferring the backup to our backup storage
 3. Verifying the backup's integrity
 4. Completing the backup creation process
 
 ## How do I restore my server from a backup?
+
+::: warning
+Restoring replaces the contents of the selected disk with the backup. Save any newer data elsewhere before continuing, and allow for server downtime.
+:::
 
 Backups are available in the [left menu](https://vm.senko.digital/vm/manager/backup/list), as well as in your server's card.
 
