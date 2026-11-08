@@ -19,16 +19,16 @@ To keep pricing at this level, several limitations apply.
 
 ## Performance limitations
 - Shared NVMe storage is used, with various IOPS caps depending on the plan used:  
- DE-BUDGET-1 - **8k IOPS** per VPS  
- DE-BUDGET-2 - **16k IOPS** per VPS  
- DE-BUDGET-3 - **24k IOPS** per VPS  
- DE-BUDGET-4 - **32k IOPS** per VPS  
+ BUDGET-1 - **8k IOPS** per VPS  
+ BUDGET-2 - **16k IOPS** per VPS  
+ BUDGET-3 - **24k IOPS** per VPS  
+ BUDGET-4 - **32k IOPS** per VPS  
 - Fair-share CPU model with guaranteed usage of **up to 10%** of the assigned vCPU, burstable up to 50% of the full vCPU share.
 - Sustained 100% network load may trigger traffic shaping under the **[Fair Use Policy](https://senko.digital/acceptable-use-policy)**.
 
 ## Network limitations
 - Network throughput is limited per plan specification.
-- Outgoing mail ports (SMTP, 25/465/587) cannot be opened under any circumstances.
+- Only outbound port 25 (SMTP) is blocked and cannot be opened.
 - Continuous uplink saturation is prohibited.
 
 ## Recommended use cases
