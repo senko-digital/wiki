@@ -66,7 +66,7 @@ After closing the recovery codes window, 2FA will be active on your account.
 
 ## Important security notes
 
-- Each code is valid for only 30 seconds. If the code isn't accepted, wait for the next code and try again.
+- The displayed code changes every 30 seconds. If the code isn't accepted, wait for the next code and try again.
 - Ensure the device running your authenticator has the correct time (enable automatic time sync) so codes match the server time.
 - Never share your secret key, recovery codes, or screenshots of the QR code.
 - If you lose access to your authenticator and don't have recovery codes, contact our [support team](https://senko.digital/contacts) for help after a simple identity verification.

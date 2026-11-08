@@ -68,7 +68,7 @@ Two-factor authentication consists of two consecutive steps:
 
 ## Important security notes
 
-- Remember that each code is valid for only 30 seconds. If the code is not accepted by the system, wait for a new code to be generated in the app and try again.
+- Remember that the displayed code changes every 30 seconds. If the code is not accepted by the system, wait for a new code to be generated in the app and try again.
 - For 2FA to work correctly, it's critical that the device with the authenticator has accurate time set. We recommend enabling automatic time synchronization.
 - Never share your secret key or publish screenshots with the QR code or key - this can compromise your security.
 - If desired, you can set up 2FA on multiple devices using the same QR code (while it's available) or secret key. Do this only for your personal devices.
