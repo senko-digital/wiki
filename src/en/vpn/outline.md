@@ -20,7 +20,7 @@ head:
 Outline is a modern, fast, and secure VPN solution developed by Jigsaw (a subsidiary of Google). It uses the Shadowsocks protocol and provides an easy-to-use management app for configuring your VPN server and clients. This guide will walk you through installing and configuring Outline on your server.
 
 :::: tip
-Our hosting clients have access to a fully automated Outline installation script during initial service ordering, or through scripts in the VM control panel. After the script finishes, you'll receive connection details for Outline Connect and management details for Outline Manager.
+To install Outline automatically, select its VPS script template when ordering your server, or run it from the VM control panel after your service is activated. The script installs and configures Outline on your server.
 ::::
 
 ## Prerequisites
@@ -28,8 +28,8 @@ Our hosting clients have access to a fully automated Outline installation script
 Before starting, ensure you have:
 
 - A server running a supported Linux distribution (Debian/Ubuntu, RHEL/CentOS/AlmaLinux/Rocky/Fedora)
-- Root or sudo access to the server
-- Basic knowledge of command line operations
+- Root or sudo access to the server for manual installation
+- Basic knowledge of command line operations for manual installation
 - The server's public IP address
 - A device to install the Outline Manager app (Windows, macOS, or Linux)
 
@@ -41,11 +41,11 @@ Supported operating systems: Debian 11, Debian 12, Debian 13, Ubuntu 22.04, Ubun
 
 #### During Service Order
 
-In the order menu, select "Outline" from the dropdown menu, complete the order and wait for service processing to finish.
+In the order form, select the "Outline" script template, complete the order, and wait for the script to finish running on your VPS.
 
 ![Selecting Outline script during server ordering in the client area](/images/vpn/outline/client-area.png){data-zoomable}
 
-Immediately after server activation, you will receive an email containing your Outline Manager URL and access credentials. You can use these to connect to your server through the Outline client, or manage your VPN server through the Outline Manager app.
+After the script finishes, you will receive an email containing your Outline Manager URL and access credentials. Use the management details in Outline Manager. To connect through Outline Connect, use the client access key beginning with `ss://` provided by the script. You can create additional keys in Manager.
 
 #### Through the VM Panel
 
@@ -53,11 +53,11 @@ Go to the [VM control panel](https://vm.senko.digital), navigate to the manageme
 
 ![Opening the Run script option from the VM panel menu](/images/vpn/outline/vm-run-script.png){data-zoomable}
 
-In the dialog, select the "Outline" option and enable "Send email associated with script".
+In the dialog, select the "Outline" script template, enable "Send email associated with script", and run the script.
 
 ![Run script wizard with Outline selected and email notification enabled](/images/vpn/outline/script-wizard.png){data-zoomable}
 
-After installation is complete, you will receive an email with your Outline Manager URL and access credentials. You can then use these to connect to your server through the Outline client, or manage your VPN server through the Outline Manager app.
+After installation is complete, you will receive an email with your Outline Manager URL and access credentials. Use the management details in Outline Manager and the client access key beginning with `ss://` in Outline Connect.
 
 #### What Gets Installed
 
@@ -69,10 +69,9 @@ After installation you receive:
 
 #### How to Connect
 
-1. Install [Outline Manager](https://getoutline.org/) on your PC/Mac
-2. Choose "Set up Outline anywhere" and paste the management URL from `connection-info.txt`
-3. Create access keys in Outline Manager and share them with users
-4. Users install the [Outline Client](https://getoutline.org/) and paste their access key
+1. Install [Outline Connect](https://getoutline.org/) on your device.
+2. Import the client access key provided by the script and connect.
+3. To manage the server or create additional keys, install [Outline Manager](https://getoutline.org/), choose "Set up Outline anywhere", and paste the management JSON containing `apiUrl` and `certSha256` from `connection-info.txt`.
 
 #### Firewall
 
@@ -88,7 +87,9 @@ cd /opt/outline-docker && docker compose logs -f   # logs
 
 ### Manual Installation
 
-The installation process varies depending on your Linux distribution. Make sure to use the correct commands for the installation process.
+If you already ran the "Outline" script template, skip this installation method and use the connection details it provided.
+
+Choose either automatic or manual installation. Run the manual commands as root (`sudo -i`). Install Docker first using the [official instructions](https://docs.docker.com/engine/install/) for your distribution. The diagnostics below use the official installer's default container name, `shadowbox`; for the hosting script, check the actual name with `docker ps`.
 
 ::: code-group
 
@@ -100,15 +101,7 @@ apt-get update -y
 apt-get install -y curl jq
 ```
 
-```bash [RHEL/CentOS/AlmaLinux/Rocky/Fedora]
-# Install EPEL repository (if not already installed)
-yum install -y epel-release
-# OR for newer systems:
-dnf install -y epel-release
-
-# Install required dependencies
-yum install -y curl jq
-# OR for newer systems:
+```bash [RHEL/AlmaLinux/Rocky/Fedora]
 dnf install -y curl jq
 ```
 
@@ -120,11 +113,12 @@ The Outline project provides an official installation script that handles all th
 
 ```bash
 # Download and run the official Outline installer
-curl -sS https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh | bash
+curl -fSL https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh -o install-outline.sh
+bash install-outline.sh
 ```
 
 This script will:
-- Install Docker and Docker Compose
+- Check that Docker is installed and running
 - Set up the Outline server with Shadowsocks
 - Configure the management interface
 - Generate server certificates
@@ -144,7 +138,7 @@ Download the Outline Manager app for your platform:
 
 ### Finding Your Server Configuration
 
-The installation script will output a JSON configuration containing your server details. Look for output similar to:
+If you used the VPS script template, take the management details from its email or `connection-info.txt`. If you ran the official installer manually, use the JSON printed in your SSH terminal. It looks like this:
 
 ```json
 {
@@ -155,12 +149,14 @@ The installation script will output a JSON configuration containing your server 
 
 Copy these details for later.
 
-If you can't find the server configuration, you can check the installation logs:
+For the official installer's default installation, the management details are saved here:
 
 ```bash
-# Check the installation log for the server configuration
-cat /var/log/outline-install.log | grep -E "(apiUrl|certSha256)"
+# Show the saved management details
+cat /opt/outline/access.txt
 ```
+
+Use those values to rebuild the JSON shown above. Keep `apiUrl` private: it grants management access to your server.
 
 ### Adding Your Server to Outline Manager
 
@@ -183,13 +179,13 @@ After successful setup, the app will take you straight to your server dashboard:
 Once your server is added to the Outline Manager app, you can configure it:
 
 1. **Set a server name** - Choose a descriptive name for your VPN server
-2. **Set data limits** - Optionally set monthly data limits for users
+2. **Set data limits** - Optionally set data limits for users over a rolling 30-day period
 
 ![Outline Manager server settings](/images/vpn/outline/settings.png){data-zoomable}
 
 ### Creating Access Keys
 
-Access keys are what clients use to connect to your Outline server. Each key represents a unique connection.
+Access keys are what clients use to connect to your Outline server. A key can be used on more than one device; create separate keys when you want to revoke access or track usage separately.
 
 #### Creating Your First Access Key
 
@@ -261,13 +257,13 @@ You can verify that your Outline server is running properly:
 
 ```bash
 # Check if Docker containers are running
-docker ps | grep outline
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
 # Check Outline server logs
-docker logs outline-server
+docker logs shadowbox
 
 # Check if the management interface is accessible
-curl -k https://localhost:your-port/your-server-id
+ss -lntup
 ```
 
 ### Test the VPN Connection
@@ -279,31 +275,26 @@ curl -k https://localhost:your-port/your-server-id
 
 ## Firewall Configuration
 
-Outline uses Shadowsocks protocol and typically runs on a custom port. Make sure your firewall allows the necessary traffic:
+Outline uses separate ports for management and client traffic. Use the port numbers printed by the installer: `API_PORT` is the TCP port in `apiUrl`; `KEY_PORT` is the access-key port shown in Outline Manager. Replace these placeholders before running the commands. If keys use different ports, allow each key port.
 
 ### For UFW (Ubuntu/Debian):
 
 ```bash
-# Allow the Outline port (check the actual port in your manager URL)
-ufw allow 443/tcp
-ufw allow 80/tcp
-
-# If using a custom port, replace 443 with your actual port
-ufw allow CUSTOM/tcp
+ufw allow API_PORT/tcp
+ufw allow KEY_PORT/tcp
+ufw allow KEY_PORT/udp
 ```
 
 ### For firewalld (RHEL/CentOS):
 
 ```bash
-# Allow the Outline port
-firewall-cmd --permanent --add-port=443/tcp
-firewall-cmd --permanent --add-port=80/tcp
-firewall-cmd --reload
-
-# If using a custom port, replace 443 with your actual port
-firewall-cmd --permanent --add-port=CUSTOM/tcp
+firewall-cmd --permanent --add-port=API_PORT/tcp
+firewall-cmd --permanent --add-port=KEY_PORT/tcp
+firewall-cmd --permanent --add-port=KEY_PORT/udp
 firewall-cmd --reload
 ```
+
+Ports `80` and `443` are not required unless you chose them. Where possible, restrict the management port to the addresses you use for administration.
 
 ## Managing Users and Access
 
@@ -317,8 +308,8 @@ firewall-cmd --reload
 ### User Management Features
 
 - **Usage statistics** - View data usage for each access key
-- **Connection monitoring** - See which keys are currently connected
-- **Data limits** - Set and enforce monthly data limits
+- **Traffic monitoring** - See traffic usage per key; this is not a list of live connections
+- **Data limits** - Set and enforce data limits over a rolling 30-day period
 - **Key management** - Rename, modify, or delete access keys
 
 ## Troubleshooting
@@ -326,7 +317,7 @@ firewall-cmd --reload
 ### Common Issues
 
 1. **Cannot connect to server in Outline Manager**:
-   - Check if the server is running: `docker ps | grep outline`
+   - Check if the server is running: `docker ps`
    - Verify the server configuration (apiUrl and certSha256) is correct
    - Ensure the port is open in your firewall
    - Check if the server is accessible from your network
@@ -344,8 +335,8 @@ firewall-cmd --reload
    - Check if there are any bandwidth limits set
 
 4. **Outline Manager app shows errors**:
-   - Check Docker container logs: `docker logs outline-server`
-   - Restart the Outline service: `docker restart outline-server`
+   - Check Docker container logs: `docker logs shadowbox`
+   - Restart the Outline service: `docker restart shadowbox`
    - Verify disk space and system resources
    - Try removing and re-adding the server in the Outline Manager app
 
@@ -353,13 +344,13 @@ firewall-cmd --reload
 
 ```bash
 # Check Outline server status
-docker ps | grep outline
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
 # View server logs
-docker logs outline-server
+docker logs shadowbox
 
 # Restart Outline server
-docker restart outline-server
+docker restart shadowbox
 
 # Check system resources
 htop
@@ -374,7 +365,7 @@ curl -I https://www.google.com
 
 ```bash
 # Check if the Outline port is listening
-netstat -tlnp | grep :your-port
+ss -lntup
 
 # Test port connectivity
 telnet your-server-ip your-port
@@ -388,7 +379,7 @@ firewall-cmd --list-all
 ## Security Considerations
 
 1. **Keep access keys secure**: Never share access keys publicly and rotate them regularly
-2. **Use strong passwords**: Set a strong password for the Outline Manager
+2. **Protect management access**: Keep the management JSON private and secure the computer running Outline Manager
 3. **Regular updates**: Keep your server and Outline software updated
 4. **Monitor usage**: Regularly check the management interface for unusual activity
 5. **Backup configuration**: Keep backups of your server configuration
@@ -398,20 +389,12 @@ firewall-cmd --list-all
 
 ### Custom Port Configuration
 
-If you need to change the default port:
-
-1. **Stop the Outline server**: `docker stop outline-server`
-2. **Edit the configuration** in the Docker compose file
-3. **Restart the server**: `docker start outline-server`
-4. **Update firewall rules** to allow the new port
+Use the port setting in Outline Manager for new access keys. Existing keys can keep their previous ports, so check each key before closing an old firewall port. After changing a key, share the updated access link. Restarting a Docker container does not apply changes to its Compose file.
 
 ### SSL Certificate Configuration
 
-For production use, consider replacing the self-signed certificate with a proper SSL certificate:
+The official installer creates a self-signed management certificate. Outline Manager checks it against `certSha256` from the management JSON, so a publicly trusted certificate is not required. Replacing this certificate also changes its fingerprint. See the [official installer](https://github.com/OutlineFoundation/outline-server/blob/master/src/server_manager/install_scripts/install_server.sh) for the installation details.
 
-1. **Obtain an SSL certificate** (Let's Encrypt recommended)
-2. **Update the Outline configuration** to use the new certificate
-3. **Restart the Outline server**
 
 ## Conclusion
 
