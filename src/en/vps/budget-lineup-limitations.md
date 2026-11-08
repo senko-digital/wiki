@@ -17,6 +17,9 @@ To keep pricing at this level, several limitations apply.
 - Custom ISO mounting is unavailable.
 - Only official OS templates may be used.
 
+## Backup storage
+Backup storage is not included with BUDGET plans and must be purchased through your service's addons. See the [VM backup guide](/vps/how-to-create-a-backup) for instructions on creating and restoring backups.
+
 ## Performance limitations
 - Shared NVMe storage is used, with various IOPS caps depending on the plan used:  
  BUDGET-1 - **8k IOPS** per VPS  
