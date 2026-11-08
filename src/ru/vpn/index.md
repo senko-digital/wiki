@@ -22,3 +22,5 @@ head:
 #### [WireGuard Easy](/ru/vpn/wireguard-easy)
 
 #### [Outline VPN](/ru/vpn/outline)
+
+#### [Прокси MTProto](/ru/vpn/mtproto)
