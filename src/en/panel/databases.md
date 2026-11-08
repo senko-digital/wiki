@@ -39,6 +39,8 @@ In the window that opens, enter the desired database name in Latin characters, a
   <source src="/videos/panel/databases/create-database.mp4" type="video/mp4" />
 </video>
 
+The `%` value allows connections from any source address, provided the username and password are correct. To restrict access to your game server, enter its public IPv4 address. Each game server has a dedicated public IPv4 address that is not shared with other servers.
+
 ## Deleting a Database
 
 Click on the database name to copy it, then next to the database name, click on the delete icon and paste the database name, and confirm the deletion.
@@ -61,7 +63,7 @@ Next to the database name, click on the eye icon, and in the window that opens, 
 
 ## Changing the Database Password
 
-Next to the database name, click on the eye icon, and in the window that opens, click on the **"Change Password"** button - the password will be changed instantly and all connections will be reset.
+Next to the database name, click on the eye icon, and in the window that opens, click on the **"Change Password"** button - the password will be changed instantly and new connections will require the new password. Update it in your addons or applications and reconnect them.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/databases/change-password.mp4" type="video/mp4" />
