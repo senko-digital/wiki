@@ -19,7 +19,7 @@ Information about the settings page in the game control panel.
 
 ## About the Page
 
-On this page, you can change the name of your server in the control panel, view the data for connecting to the server via SFTP (Secure File Transportation Protocol), view information about which node your server is located on, as well as reinstall it.
+On this page, you can change the name of your server in the control panel, view the data for connecting to the server via SFTP (SSH File Transfer Protocol), view information about which node your server is located on, as well as reinstall it.
 
 ![settings page](/images/panel/settings/showcase.png){data-zoomable}
 
