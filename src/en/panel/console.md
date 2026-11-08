@@ -34,3 +34,5 @@ Sending a command to the server is a very simple process. Just left-click on the
 <video width="960" height="320" autoplay loop muted controls>
   <source src="/videos/panel/console/send-command.mp4" type="video/mp4" />
 </video>
+
+This field accepts commands for your game server. Linux commands such as `apt` or `cd` will not work here.

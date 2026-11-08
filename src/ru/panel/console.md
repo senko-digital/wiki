@@ -34,3 +34,5 @@ head:
 <video width="960" height="320" autoplay loop muted controls>
   <source src="/videos/panel/console/send-command.mp4" type="video/mp4" />
 </video>
+
+В это поле вводятся команды игрового сервера. Команды Linux, например `apt` или `cd`, здесь не работают.
