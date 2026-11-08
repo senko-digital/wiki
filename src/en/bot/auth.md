@@ -53,4 +53,4 @@ Send the command `/auth API-key`, where `API-key` should be the key you generate
 
 Success! Telepathic connection with foxes has been successfully established! :fox_face:
 
-Now you can control power and send commands to your game servers from the control panel, as well as set up auto-updating status in any convenient channel on your Discord server.
+Now you can control power and send commands to your game servers from Discord, as well as set up auto-updating status in any convenient channel on your Discord server.
