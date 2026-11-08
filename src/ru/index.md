@@ -95,8 +95,8 @@ layout: home
         <div class="category-links">
           <a href="/ru/vps/how-to-connect-through-ssh">SSH подключение</a>
           <a href="/ru/vps/os-reinstallation">Переустановка ОС</a>
-          <a href="/ru/vps/nodejs-pm2-deploy">Деплой Node.js</a>
-          <a href="/ru/vps/letsencrypt-ssl">Let's Encrypt SSL</a>
+          <a href="/ru/software/nodejs-pm2-deploy">Деплой Node.js</a>
+          <a href="/ru/software/letsencrypt-ssl">Let's Encrypt SSL</a>
         </div>
         <a href="/ru/vps/" class="category-view-all">Все статьи <IconArrowRight /></a>
       </div>
@@ -124,7 +124,7 @@ layout: home
           <a href="/ru/vpn/wireguard-easy">WireGuard Easy</a>
           <a href="/ru/vpn/outline">Outline VPN</a>
           <a href="/ru/troubleshooting/speedtest-cli">Тест скорости сети</a>
-          <a href="/ru/vps/how-to-install-mikrotik-chr-on-a-virtual-server">MikroTik CHR</a>
+          <a href="/ru/software/how-to-install-mikrotik-chr-on-a-virtual-server">MikroTik CHR</a>
         </div>
         <a href="/ru/vpn/" class="category-view-all">Все статьи <IconArrowRight /></a>
       </div>
