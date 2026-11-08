@@ -147,7 +147,7 @@ DarkRP это база, основа самого режима, а с помощ
 
 #### `canforcedooropen`
 
-Позволяет игрокам открывать непринадлежащие им двери с помощью отмычек, ломов и т.д.
+Позволяет игрокам взламывать двери, которые нельзя приобрести, с помощью отмычки или тарана.
 
 #### `chatsounds` <Badge type="warning" text="обратите внимание" />
 
@@ -493,7 +493,7 @@ DarkRP это база, основа самого режима, а с помощ
 
 #### `deathfee`
 
-Сумма денег, которую теряет игрок при смерти.
+Сумма денег, которая выпадает при смерти, если включён `dropmoneyondeath`.
 
 Значение по умолчанию: `30`
 
@@ -1103,11 +1103,13 @@ SteamID и ранги по умолчанию для игроков при пр�
 
 Значение по умолчанию:
 
+```lua
 {
     ["gunlab"] = false,
     ["microwave"] = false,
     ["spawned_shipment"] = false,
 }
+```
 
 #### `allowedProperties` <Badge type="warning" text="обратите внимание" />
 
@@ -1132,6 +1134,8 @@ SteamID и ранги по умолчанию для игроков при пр�
 
 ## Настройка `jobs.lua`
 
+Примеры полицейского и мэра заменяют стандартные профессии. Перед добавлением замен выставьте `cp` и `mayor` в `true` в таблице `DarkRP.disabledDefaults["jobs"]` файла `lua/darkrp_config/disabled_defaults.lua`. Разместите профессии выше таблицы `GAMEMODE.CivilProtection` в `jobs.lua`, чтобы её ссылки на `TEAM_POLICE` и `TEAM_MAYOR` использовали новые профессии. См. [официальный файл профессий](https://github.com/FPtje/darkrpmodification/blob/master/lua/darkrp_customthings/jobs.lua).
+
 ### Создание файла `jobs.lua`
 
 Для начала откройте файл jobs.lua, который находится по пути:
@@ -1147,9 +1151,9 @@ SteamID и ранги по умолчанию для игроков при пр�
 ::: code-group
 
 ```lua:line-numbers [jobs.lua]
-...
 TEAM_POLICE = DarkRP.createJob("Полицейский", { -- [!code focus]
     color = Color(25, 25, 170, 255), -- [!code focus]
+    model = "models/player/police.mdl", -- [!code focus]
     description = [[Вы полицейский, ваша задача поддерживать порядок в городе.]], -- [!code focus]
     weapons = {"arrest_stick", "unarrest_stick", "weapon_pistol", "stunstick", "door_ram", "weaponchecker"}, -- [!code focus]
     command = "police", -- [!code focus]
@@ -1160,7 +1164,6 @@ TEAM_POLICE = DarkRP.createJob("Полицейский", { -- [!code focus]
     hasLicense = true, -- [!code focus]
     category = "Государственные Службы" -- [!code focus]
 })-- [!code focus]
-...
 ```
 
 :::
@@ -1212,7 +1215,7 @@ model = {
 
 #### Добавление уникальных привилегий
 
-Если вы хотите, чтобы у профессии были особые привилегии, например, доступ к определённым командам или правам, вы можете использовать параметр customCheck:
+Чтобы разрешить выбор профессии только определённой группе пользователей, используйте `customCheck`:
 
 ::: code-group
 
@@ -1228,20 +1231,23 @@ CustomCheckFailMsg = "Эта профессия доступна только д
 
 #### Ограничения по здоровью и броне
 
-Можно установить стартовое количество здоровья и брони для профессии:
+Добавьте функцию `PlayerSpawn` внутрь таблицы профессии, чтобы задать здоровье и броню. Если такая функция уже есть, добавьте вызовы в неё, а не создавайте вторую:
 
 ::: code-group
 
 ```lua:line-numbers [jobs.lua]
-health = 150,
-armor = 50,
+PlayerSpawn = function(ply)
+    ply:SetMaxHealth(150)
+    ply:SetHealth(150)
+    ply:SetArmor(50)
+end,
 ```
 
 :::
 
 #### Уникальные свойства
 
-Если профессии нужно добавить уникальные способности, вы можете это сделать с помощью параметра `customCheck` и дополнительных условий в коде, который будет проверять эти способности.
+`customCheck` определяет, кто может выбрать профессию, но не выдаёт способности. Для особого поведения используйте соответствующие поля профессии или хуки.
 
 ### Создание пользовательских профессий
 
@@ -1266,9 +1272,11 @@ TEAM_MAYOR = DarkRP.createJob("Мэр", {
 
 ### Организация профессий в категории
 
+Поместите определение категории ниже в `lua/darkrp_customthings/categories.lua`. Её название должно совпадать со значением `category` в профессиях.
+
 Для удобства игроков, профессии можно группировать по категориям. Например, все профессии государственных служб могут быть объединены в категорию "Государственные Службы":
 
-```lua:line-numbers [jobs.lua]
+```lua:line-numbers [categories.lua]
 DarkRP.createCategory{
     name = "Государственные Службы",
     categorises = "jobs",
@@ -1285,7 +1293,7 @@ DarkRP.createCategory{
 
 ## Подключение базы данных MySQL
 
-Для хранения данных игроков мы строго рекомендуем использовать базы данных MySQL — так данными управлять намного удобнее и безопаснее.
+По умолчанию DarkRP использует SQLite. MySQL полезен, если нужна внешняя база, но сам по себе не делает хранение безопаснее. Перед переключением сохраните резервную копию: изменение настроек подключения не переносит существующие данные автоматически.
 
 ### Установка MySQLOO
 
@@ -1332,10 +1340,10 @@ Database configuration
 ---------------------------------------------------------------------------]]
 MySQLite_config = {}
 MySQLite_config.EnableMySQL = true
-MySQLite_config.Host = "localhost" -- IP вашего MySQL сервера
-MySQLite_config.Username = "root" -- Имя пользователя MySQL
-MySQLite_config.Password = "password" -- Пароль пользователя MySQL
-MySQLite_config.Database_name = "darkrp" -- Название базы данных
+MySQLite_config.Host = "YOUR_DATABASE_HOST" -- IP вашего MySQL сервера
+MySQLite_config.Username = "YOUR_DATABASE_USER" -- Имя пользователя MySQL
+MySQLite_config.Password = "YOUR_DATABASE_PASSWORD" -- Пароль пользователя MySQL
+MySQLite_config.Database_name = "YOUR_DATABASE_NAME" -- Название базы данных
 MySQLite_config.Database_port = 3306 -- Порт MySQL, по умолчанию 3306
 MySQLite_config.Preferred_module = "mysqloo"
 ```
@@ -1350,10 +1358,10 @@ Database configuration
 ---------------------------------------------------------------------------]]
 MySQLite_config = {}
 MySQLite_config.EnableMySQL = true
-MySQLite_config.Host = "db.snk.wtf" -- IP вашего MySQL сервера
-MySQLite_config.Username = "senkowiki.acf78z1a" -- Имя пользователя MySQL
-MySQLite_config.Password = "gbp_ced0PQV-jwp6nvz" -- Пароль пользователя MySQL
-MySQLite_config.Database_name = "darkrp" -- Название базы данных
+MySQLite_config.Host = "YOUR_DATABASE_HOST" -- IP вашего MySQL сервера
+MySQLite_config.Username = "YOUR_DATABASE_USER" -- Имя пользователя MySQL
+MySQLite_config.Password = "YOUR_DATABASE_PASSWORD" -- Пароль пользователя MySQL
+MySQLite_config.Database_name = "YOUR_DATABASE_NAME" -- Название базы данных
 MySQLite_config.Database_port = 3306 -- Порт MySQL, по умолчанию 3306
 MySQLite_config.Preferred_module = "mysqloo"
 ```
@@ -1364,4 +1372,4 @@ MySQLite_config.Preferred_module = "mysqloo"
 
 Запустите сервер и следите за консолью сервера. Если настройка выполнена корректно, то вы не увидите каких-либо ошибок, связанных с MySQL.
 
-Готово! Вы успешно настроили базу данных MySQL, и теперь все данные игроков будут сохраняться в базу данных заместо файла `sv.db`.
+Убедитесь, что DarkRP создал таблицы в выбранной базе и данные тестового игрока сохраняются после перезапуска. Это подключение используется только для данных DarkRP; другие аддоны могут продолжать использовать `sv.db` или собственное хранилище.

@@ -48,7 +48,7 @@ Unzip these archives.
 
 To save space, after unzipping, you can delete the uploaded archives.
 
-The folder `DarkRP-master` must be renamed to `darkrp`.
+Rename `DarkRP-master` to `darkrp` and `darkrpmodification-master` to `darkrpmodification`, so the paths below match your files.
 
 After installing the addons, don't forget to go to "launch parameters" and change the mode from `sandbox` to `darkrp`.
 
@@ -147,7 +147,7 @@ Spawns players in god mode (prevents killing when spawning).
 
 #### `canforcedooropen`
 
-Allows players to open doors that don't belong to them using lock picks, hammers, etc.
+Allows players to force open doors that cannot be owned, using a lockpick or battering ram.
 
 #### `chatsounds` <Badge type="warning" text="pay attention" />
 
@@ -171,7 +171,7 @@ Enables or disables the ability for police to unfreeze other players' items.
 
 #### `copscanunweld` <Badge type="warning" text="pay attention" />
 
-Enables or disables the ability for police to weld other players' items.
+Allows police to remove welds from other players' props.
 
 #### `cpcanarrestcp` <Badge type="danger" text="be careful" />
 
@@ -245,7 +245,7 @@ Enables or disables the ability to drop current weapon when dying.
 
 #### `dropspawnedweapons`
 
-Allows or prevents weapon dropping when a player spawns.
+Allows or prevents players from dropping weapons they received on spawn.
 
 #### `dynamicvoice`
 
@@ -291,7 +291,7 @@ Enables or disables the need for a license to pick up weapons.
 
 #### `lockdown`
 
-Enables or disables the ability to start and end the mayor's hour using the `/lockdown` and `/unlockdown` commands.
+Enables or disables the ability to start and end the lockdown using the `/lockdown` and `/unlockdown` commands.
 
 ![mayor lockdown](/images/games/gmod/darkrp/lockdown.png){data-zoomable}
 
@@ -443,7 +443,7 @@ Hides weapon that doesn't require a license.
 
 ### Value settings
 
-This section contains parameters whose value can only be numeric.
+This section contains numeric settings and the weapon class name used by the gun lab.
 
 #### `adminnpcs` <Badge type="danger" text="be careful" />
 
@@ -483,7 +483,7 @@ Default value: `5`
 
 #### `chatsoundsdelay` <Badge type="warning" text="pay attention" />
 
-Sets wait time before player can speak again through chat.
+Sets the delay between chat-triggered sounds, in seconds. It does not limit ordinary text messages.
 
 We recommend setting this value to at least 5 seconds to prevent spamming sounds.
 
@@ -493,7 +493,7 @@ Default value: `5`
 
 #### `deathfee`
 
-Amount of money a player loses when dying.
+Amount of money dropped on death when `dropmoneyondeath` is enabled.
 
 Default value: `30`
 
@@ -535,7 +535,7 @@ Default value: `120`
 
 #### `lockdowndelay`
 
-Wait time mayor should wait before starting next mayor's hour.
+Wait time mayor should wait before starting next lockdown.
 
 Default value: `120`
 
@@ -863,7 +863,7 @@ We recommend leaving the default value.
 
 #### `lockdownsound`
 
-You can set your own sound that will be played for all players when starting mayor's hour.
+You can set your own sound that will be played for all players when starting lockdown.
 
 ::: tip
 Note: Don't forget to write full path to folder where sound file is located.
@@ -1103,11 +1103,13 @@ Note: entities will only be removed when changing work to one that doesn't have 
 
 Default value:
 
+```lua
 {
     ["gunlab"] = false,
     ["microwave"] = false,
     ["spawned_shipment"] = false,
 }
+```
 
 #### `allowedProperties` <Badge type="warning" text="pay attention" />
 
@@ -1132,6 +1134,8 @@ Default value:
 
 ## Configuring `jobs.lua`
 
+The police and mayor examples replace default jobs. In `lua/darkrp_config/disabled_defaults.lua`, set `cp` and `mayor` to `true` in `DarkRP.disabledDefaults["jobs"]` before adding their replacements. Add the jobs above the `GAMEMODE.CivilProtection` table in `jobs.lua`, so its `TEAM_POLICE` and `TEAM_MAYOR` references use the new jobs. See the [official custom jobs file](https://github.com/FPtje/darkrpmodification/blob/master/lua/darkrp_customthings/jobs.lua).
+
 ### Creating jobs.lua file
 
 First, open jobs.lua file, located at:
@@ -1147,10 +1151,10 @@ Let's look at an example of creating a basic profession - "Police":
 ::: code-group
 
 ```lua:line-numbers [jobs.lua]
-...
 TEAM_POLICE = DarkRP.createJob("Police", { -- [!code focus]
     color = Color(25, 25, 170, 255), -- [!code focus]
-    description = [[You are a police, your task is to maintain order in the city.]], -- [!code focus]
+    model = "models/player/police.mdl", -- [!code focus]
+    description = [[You are a police officer, your task is to maintain order in the city.]], -- [!code focus]
     weapons = {"arrest_stick", "unarrest_stick", "weapon_pistol", "stunstick", "door_ram", "weaponchecker"}, -- [!code focus]
     command = "police", -- [!code focus]
     max = 4, -- [!code focus]
@@ -1160,7 +1164,6 @@ TEAM_POLICE = DarkRP.createJob("Police", { -- [!code focus]
     hasLicense = true, -- [!code focus]
     category = "Government Services" -- [!code focus]
 })-- [!code focus]
-...
 ```
 
 :::
@@ -1212,7 +1215,7 @@ model = {
 
 #### Adding unique privileges
 
-If you want profession to have unique privileges, for example, access to certain commands or rights, you can use customCheck:
+To allow only members of a particular user group to choose the job, use `customCheck`:
 
 ::: code-group
 
@@ -1228,20 +1231,23 @@ Here customCheck checks if player belongs to "VIP" group. If not, he won't be ab
 
 #### Health and armor restrictions
 
-You can set starting health and armor for profession:
+Add a `PlayerSpawn` function inside the job table to set health and armor. If the job already has this function, add the calls to it instead of defining it twice:
 
 ::: code-group
 
 ```lua:line-numbers [jobs.lua]
-health = 150,
-armor = 50,
+PlayerSpawn = function(ply)
+    ply:SetMaxHealth(150)
+    ply:SetHealth(150)
+    ply:SetArmor(50)
+end,
 ```
 
 :::
 
 #### Unique properties
 
-If profession needs to add unique abilities, you can do it with customCheck parameter and additional conditions in code that will check these abilities.
+`customCheck` controls who may choose the job; it does not grant abilities. Use the appropriate job fields or hooks for custom behaviour.
 
 ### Creating custom professions
 
@@ -1266,9 +1272,11 @@ TEAM_MAYOR = DarkRP.createJob("Mayor", {
 
 ### Organizing professions in categories
 
+Put the category definition below in `lua/darkrp_customthings/categories.lua`. Its name must match the `category` value in each job.
+
 For convenience for players, professions can be grouped by categories. For example, all government services professions can be grouped into "Government Services" category:
 
-```lua:line-numbers [jobs.lua]
+```lua:line-numbers [categories.lua]
 DarkRP.createCategory{
     name = "Government Services",
     categorises = "jobs",
@@ -1285,7 +1293,7 @@ After making changes to jobs.lua file, save file and restart server, so changes 
 
 ## Connecting MySQL database
 
-For storing player data, we strictly recommend using MySQL databases - it's much easier and safer to manage data.
+DarkRP uses SQLite by default. MySQL is useful when you need an external database, but it is not automatically safer. Back up existing data before switching; changing the connection settings alone does not migrate it.
 
 ### Installing MySQLOO
 
@@ -1332,15 +1340,15 @@ Database configuration
 ---------------------------------------------------------------------------]]
 MySQLite_config = {}
 MySQLite_config.EnableMySQL = true
-MySQLite_config.Host = "localhost" -- IP your MySQL server
-MySQLite_config.Username = "root" -- MySQL user name
-MySQLite_config.Password = "password" -- MySQL user password
-MySQLite_config.Database_name = "darkrp" -- Database name
+MySQLite_config.Host = "YOUR_DATABASE_HOST" -- IP your MySQL server
+MySQLite_config.Username = "YOUR_DATABASE_USER" -- MySQL user name
+MySQLite_config.Password = "YOUR_DATABASE_PASSWORD" -- MySQL user password
+MySQLite_config.Database_name = "YOUR_DATABASE_NAME" -- Database name
 MySQLite_config.Database_port = 3306 -- MySQL port, default 3306
 MySQLite_config.Preferred_module = "mysqloo"
 ```
 
-Data can be found in "Databases" tab in game game panel, more about tab can be found here: [Databases](/panel/databases#viewing-database-information)
+Data can be found in "Databases" tab in game panel, more about tab can be found here: [Databases](/panel/databases#viewing-database-information)
 
 Example settings:
 
@@ -1350,10 +1358,10 @@ Database configuration
 ---------------------------------------------------------------------------]]
 MySQLite_config = {}
 MySQLite_config.EnableMySQL = true
-MySQLite_config.Host = "db.snk.wtf" -- IP your MySQL server
-MySQLite_config.Username = "senkowiki.acf78z1a" -- MySQL user name
-MySQLite_config.Password = "gbp_ced0PQV-jwp6nvz" -- MySQL user password
-MySQLite_config.Database_name = "darkrp" -- Database name
+MySQLite_config.Host = "YOUR_DATABASE_HOST" -- IP your MySQL server
+MySQLite_config.Username = "YOUR_DATABASE_USER" -- MySQL user name
+MySQLite_config.Password = "YOUR_DATABASE_PASSWORD" -- MySQL user password
+MySQLite_config.Database_name = "YOUR_DATABASE_NAME" -- Database name
 MySQLite_config.Database_port = 3306 -- MySQL port, default 3306
 MySQLite_config.Preferred_module = "mysqloo"
 ```
@@ -1364,4 +1372,4 @@ After performing above steps, check if server successfully connected to MySQL da
 
 Start server and watch server console. If settings are done correctly, you won't see any MySQL related errors.
 
-Done! You successfully configured MySQL database, and now all player data will be stored in database instead of sv.db file.
+Check that DarkRP creates its tables in the selected database and that a test player's data survives a restart. Only data managed by DarkRP uses this connection; other addons may still use `sv.db` or their own storage.
