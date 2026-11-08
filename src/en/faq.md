@@ -21,7 +21,7 @@ head:
 Detailed instructions for ordering a VPS server are [available in this article](/client-area/vps-order).
 
 ### How long does server setup take?
-Virtual servers are set up automatically within 120 seconds after payment. In rare cases, e.g. if you have selected Windows as your OS, server installation may take up to 10 minutes, or when a plan is in very high demand, the setup process may take up to 24 hours.
+Virtual servers are usually set up automatically within 120 seconds after payment. Windows installations may take up to 20 minutes. During periods of high demand, initial service activation may take up to 3 days in very rare cases.
 
 Instantly available dedicated servers are automatically activated within an hour, subject to availability and the OS chosen. We always do our best to activate these as quickly as possible; however, hardware shortages or supplier delays may occasionally delay the process.
 

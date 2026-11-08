@@ -49,7 +49,7 @@ Choose a convenient payment method, make the payment, and complete your order.
 
 ![Payment method selection](/images/client-area/ordering/4.png){data-zoomable}
 
-After successful payment, your VPS server will be set up within 120 seconds.
+After successful payment, your VPS server is usually set up within 120 seconds. Windows installations may take up to 20 minutes. During periods of high demand, initial service activation may take up to 3 days in very rare cases.
 
 Access to the control panel and server login credentials will be sent to the email you have provided during registration.
 
