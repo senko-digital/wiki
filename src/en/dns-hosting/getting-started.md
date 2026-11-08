@@ -26,7 +26,7 @@ In this guide we'll walk through how to delegate a domain to our nameservers and
 Before getting started, make sure you have everything in place:
 
 - **A domain name** (`.com`, `.org`, `.net` or any other) - if you don't have one yet, you can [register one with us](https://senko.digital/domains)
-- **An active virtual or dedicated server** at Senko Digital - that's the IP address we'll be pointing the domain at
+- **Your server's IP address** - if you want to point a website or other service to it
 - **Access to DNSmanager** - login details are sent in the DNS hosting service activation email
 
 ::: tip
@@ -35,7 +35,7 @@ DNSmanager is available free of charge to every customer - even those without ac
 
 ## Delegating Your Domain to Our Nameservers
 
-Before creating any records, the domain needs to be delegated to our NS - otherwise the records you create in the panel simply won't work.
+First add the domain and its records to DNSmanager using the steps below, then change the nameservers at your registrar. If you are moving an existing domain, copy all records you still need, including mail and verification records, before changing the nameservers. The new records become publicly available after delegation takes effect.
 
 Set the following nameservers at your domain registrar:
 
@@ -76,7 +76,7 @@ Delegation is only half the job. For our nameservers to actually start handling 
 If everything went through, the domain will show up in the **"Domain names"** list, and DNSmanager will automatically create the standard set of base records for it (`SOA`, `NS`, `A`).
 
 ::: tip
-After adding the domain, all that's left is to wait for the global DNS cache to refresh. Same story as with delegation - usually a few hours, in the worst case up to 72 hours.
+Check the automatically created records and add any records your site and email need. Then change the nameservers at your registrar. Cached records may continue to be used until their TTL expires.
 :::
 
 ## Managing DNS Records
@@ -128,6 +128,8 @@ The principle behind creating any record is the same - only the fields you fill 
 If a freshly added domain still isn't opening - that's perfectly normal. Wait a bit and try again. For domains that are already set up, new records usually propagate much faster than the very first delegation.
 :::
 
+A CNAME record cannot share its name with A, AAAA, MX, or TXT records. For example, choose either a CNAME or an A/AAAA record for `www`.
+
 ## What to Do If Nothing Works
 
 If after all the setup the domain or subdomain still won't open, the issue is most often one of the following:
@@ -138,7 +140,7 @@ If after all the setup the domain or subdomain still won't open, the issue is mo
 - **The trailing dot is missing in a fully qualified name** - without it the record gets "glued together" into the wrong name.
 - **The domain type in DNSmanager isn't set to `master`** - in that case our nameservers won't serve the records.
 
-You can check how your domain looks from the outside with the `dig` utility or online services like [dnschecker.org](https://dnschecker.org). If the NS servers there are correct but the domain still won't open - it's most likely your ISP's cache, and it's enough to just wait it out.
+You can check how your domain looks from the outside with the `dig` utility or online services like [dnschecker.org](https://dnschecker.org). Correct NS records alone do not confirm that the site is configured. Check its A and AAAA records, then check the web server, firewall, and HTTPS certificate.
 
 ### Flush Your Local DNS Cache
 
@@ -166,7 +168,7 @@ If online services already show the new records but on your computer the domain 
 After flushing the cache, try opening the domain again.
 
 ::: tip
-The fastest way to bypass both your ISP's and your system's caches at once is to open the site from your phone over mobile data. If it loads correctly there, the issue is definitely a cache somewhere along the way - not the records themselves.
+Try opening the site on your phone over mobile data. If it works there, compare DNS responses from both connections. The difference may be caused by caching, IPv4/IPv6 connectivity, or network restrictions.
 :::
 
 If you've gone through the list and the issue is still there - reach out to our [support team](https://senko.digital/contacts). We'll help you sort it out.
