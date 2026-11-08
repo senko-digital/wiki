@@ -13,3 +13,5 @@
 #### <GmodLogo>[Установка и настройка DarkRP](/ru/games/gmod/darkrp)</GmodLogo>
 
 #### <GmodLogo>[Установка и настройка ULX](/ru/games/gmod/ulx)</GmodLogo>
+
+#### <GmodLogo>[Запись консоли сервера в файл](/ru/games/gmod/logging)</GmodLogo>

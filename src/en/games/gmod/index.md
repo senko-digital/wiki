@@ -13,3 +13,5 @@
 #### <GmodLogo>[Installing and Configuring DarkRP](/games/gmod/darkrp)</GmodLogo>
 
 #### <GmodLogo>[Installing and Configuring ULX](/games/gmod/ulx)</GmodLogo>
+
+#### <GmodLogo>[Server console logging](/games/gmod/logging)</GmodLogo>
