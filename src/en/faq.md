@@ -36,7 +36,7 @@ No, all of our services are billed on a monthly basis by default, and there is n
 ## Server Locations & Infrastructure
 
 ### Where are your servers located?
-Our servers are provided in three main locations: **Frankfurt am Main**, **Germany, **Helsinki**, **Finland** and **Amsterdam**, **the Netherlands**.
+Our servers are provided in three main locations: **Frankfurt am Main**, **Germany**, **Helsinki**, **Finland** and **Amsterdam**, **the Netherlands**.
 
 ### Which data centers do you use for your virtual servers? Are they reliable?
 For our location in Germany, we utilize **Firstcolo**'s data center facilities in Frankfurt am Main. **Firstcolo** is known for their powerful infrastructure and excellent connectivity within **Central** and **Western Europe**.
@@ -52,7 +52,7 @@ Dedicated servers [shown on our website](https://senko.digital/dedicated-servers
 For custom-built servers through the Client Area, they are colocated in the **Firstcolo** data center in **Frankfurt, Germany**.
 
 ### Can I choose the exact data center or facility?
-Great question! At this time, we don't offer a granular choice of individual data centers or facilities. While our current range of locations is limited, we're steadily expanding and regularly adding more locations, while also prefering quality over quantity *wink-wink*
+Great question! At this time, we don't offer a granular choice of individual data centers or facilities. While our current range of locations is limited, we're steadily expanding and regularly adding more locations, while also preferring quality over quantity *wink-wink*
 
 ### Are your services available globally?
 Yes, you can order from almost anywhere in the world, subject to compliance with applicable export regulations and our own restrictions (e.g. sanctioned countries). Payment options are also available globally.
@@ -67,7 +67,8 @@ We typically offer two or three VPS lineups in each location.
 - **RZ9 lineup:** Best suited for users who need maximum single-threaded performance and significantly higher network speeds.
 
 ### Are VPS resources dedicated or shared?
-All VPS resources, such as RAM, storage, and network bandwidth are dedicated to your server. The only exception is CPU, which is provided as shared vCPU. The level of CPU share available to your VPS depends on the specific plan lineup you select, with clear details provided on our website (indicated by the tooltip next to the vCPU count for each plan).
+
+Your plan includes a set amount of RAM and disk space. CPU is provided as shared vCPU; the available CPU share depends on the plan lineup and is shown on our website. Network speed is limited by your plan and also depends on current network conditions. The listed port speed does not guarantee that every connection will reach that speed.
 
 ### Can I change my plan after purchase?
 Yes, you can always upgrade your server plan to a more powerful one within the same plan lineup. Plan changes are applied within a couple of minutes and do not require server reinstallation. 
@@ -81,7 +82,8 @@ Currently plan downgrades are not supported. If you need to switch to a lower pl
 At this time, resources such as vCPU, RAM, and storage cannot be added individually to an existing VPS. Each of our plans is carefully balanced to ensure fair resource allocation and performance within our infrastructure. To increase resources, you would need to upgrade to a higher plan.
 
 ### Can I transfer my virtual server between locations?
-Yes, you can transfer your virtual server between locations on any of our VPS plans. This process requires manual assistance from our support team and is possible as long as the destination plan's disk size is equal to or larger than your current server's disk.
+
+Contact support with your current plan, desired location, and destination plan. We will confirm whether the transfer is available for your service. The destination plan must have at least as much disk space as your current server.
 
 ## Networking & IP Addresses
 
@@ -90,15 +92,15 @@ Yes, you can transfer your virtual server between locations on any of our VPS pl
 Yes, we use our own autonomous system, [AS213520](https://as213520.net), registered with RIPE, for all VPS, dedicated server and game hosting services. This gives us full control to manage and optimize our network independently.
 
 ### Is IPv6 supported?
-Yes, all our VPS plans come with a on-link /64 IPv6 subnet by default.
+Yes, all our VPS plans come with an on-link /64 IPv6 subnet by default.
 
 ### Can I buy additional IP addresses?
 Yes, you can purchase up to 16 additional IPv4 addresses per VPS server. The cost is €1.5 per month for each IPv4 address. Please note that additional IPs are not available for BUDGET lineup plans due to plan limitations.
 
 ### Do you offer IP replacements?
-Yes, you can request one free IPv4 address replacement per VPS server, provided you have a valid reason. Any additional replacements are reviewed on a case-by-case basis and may incur a fee of €5 per IPv4 address. This policy is in place to prevent abuse.
+Yes, you can request one free IPv4 address replacement per VPS server, provided you have a valid reason. Any additional replacements are reviewed on a case-by-case basis and may incur a fee of €5 per IPv4 address. This policy is in place to prevent abuse. BUDGET plans have separate [IP replacement conditions](/vps/budget-lineup-limitations).
 
-### Can I get a IPv6 block larger than /64 for my VPS?
+### Can I get an IPv6 block larger than /64 for my VPS?
 Currently, it is not possible to assign IPv6 blocks larger than a /64 per VPS. However, this may become available as a paid option in the future, provided you have a valid technical reason for requiring a larger allocation.
 
 ### Do you offer IPv6-only VPS?
@@ -110,11 +112,11 @@ If this is a feature you are interested in, please let us know - customer demand
 No, all VPS come with dedicated IPv4 and IPv6 addresses. We currently do not offer NAT or shared IP plans.
 
 ### Are any ports initially restricted on VPS servers?
-To help protect our IP addresses and maintain network integrity, outbound port 25 (SMTP) is initially blocked on all VPS plans.
+To help protect our IP addresses and maintain network integrity, only outbound port 25 (SMTP) is initially blocked on all VPS plans.
 
-For the `BUDGET-1`, `BUDGET-2`, `BUDGET-3`, and `BUDGET-4` plans, these ports cannot be opened under any circumstances in any of the locations.
+For BUDGET plans, outbound port 25 cannot be opened. See [BUDGET limitations](/vps/budget-lineup-limitations).
 
-For all other plans, you may request the opening of ports 25 and/or 465 by submitting a support request via your client area. Please note that we will review the intended use as part of our verification process prior to approving such requests.
+For all other plans, you may request the opening of port 25 by submitting a support request via your client area. Please note that we will review the intended use as part of our verification process prior to approving such requests.
 
 ### Do you support rDNS / PTR records?
 Yes, we support rDNS/PTR records management on all of our plans except for the BUDGET lineup. Customers can configure and update rDNS for both IPv4 and IPv6 addresses directly through our VM control panel at any time.
@@ -125,31 +127,36 @@ No, we do not provide free domain names or subdomains with our services.
 Please note that the PTR record (the "domain" field you may see assigned to your IP addresses) is purely a technical record we automatically set on VPS server IP addresses for easier inventory management. It is not the same as an A record, which would allow a domain name to actually resolve to your server. The PTR record is primarily used when setting up your own email server, or for pure aesthetics when checking an IP address's PTR record through websites like [check-host.net](https://check-host.net).
 
 ### Can I point my own domain to your VPS?
-Yes! You can point any domain you own to our VPS and manage DNS settings via our panel or your domain registrar's control panel. We also offer DNS record management for all virtual servers except BUDGET plans.
+
+Yes! You can point your domain to your server through your registrar's DNS panel or our free DNS hosting. See our [DNSmanager guide](/dns-hosting/getting-started) for setup instructions.
 
 ### Do you provide BGP sessions?
-At this time, we are unable to offer BGP sessions from our AS due to current network topology constraints. However, we are actively working on adding this capability and expect to make BGP sessions available for everyone in the near future.
+
+Yes, BGP sessions are available for eligible servers in Germany. See [BGP sessions](/bgp-sessions) for requirements, supported plans, and setup instructions.
 
 ### Do you throttle or limit bandwidth during peak hours?
-There is no artificial throttling of bandwidth during peak hours. Your bandwidth and network performance are determined by your plan's parameters and current network conditions, as well as whether your service has went over the traffic allocation.
+There is no artificial throttling of bandwidth during peak hours. Your bandwidth and network performance are determined by your plan's parameters and current network conditions, as well as whether your service has gone over the traffic allocation.
 
 ## Operating Systems & Software
 
 ### What operating systems do you support?
-We support a wide range of operating systems including:
+The following operating systems are available for VPS installation:
 
 Linux distributions:
-- Debian (11 Bullseye, 12 Bookworm, 13 Trixie)
-- Ubuntu (22.04 Jammy, 24.04 Noble, 26.04 Resolute)
-- AlmaLinux (8, 9, 10)
-- CentOS (8 Stream, 9 Stream)
-- Oracle Linux (8, 9)
+- Debian: 13 (Trixie), 12 (Bookworm)
+- Ubuntu: 26.04 (Resolute), 24.04 (Noble), 22.04 (Jammy)
+- AlmaLinux: 10 (Purple Lily), 9 (Teal Serval), 8 (Cerulean Leopard)
+- Rocky Linux: 10, 9, 8
+- CentOS: 10 Stream, 9 Stream
+- Oracle Linux: 10, 9, 8
+- Alpine Linux: 3.24
+- Arch Linux: 2026.09.01
 
 Other operating systems:
-- Windows (10, 11, Server 2016/2022/2025)
-- FreeBSD (13, 14)
+- Windows (BYOL): Server 2025, Server 2022, Server 2016, 11, 10
+- FreeBSD: 15, 14
 
-We also support custom ISO uploads with up to 10 GB in size (except for BUDGET plans).
+You can also upload your own ISO image up to 10 GB in size. Windows and custom ISO uploads are unavailable on [BUDGET plans](/vps/budget-lineup-limitations).
 
 ### Do you support Windows licensing?
 We do not provide operating system licenses and are not a Microsoft partner (yet). If you wish to use Windows on your server, you must supply your own valid license (BYOL - Bring Your Own License). Our virtual and dedicated servers fully support customer-supplied Windows licenses.
@@ -178,7 +185,15 @@ Our backup storage is located in a different datacenter from the VM nodes. This 
 For plans where backup snapshots are included, you can restore available backups directly from the control panel, choosing from previous recovery points as needed (excluding BUDGET plans). If you experience issues, please reach out to support.
 
 ### How long will my data be stored if my service gets suspended?
-If your service is suspended due to non-payment, your server's data will be stored for up to 7 days. After this period, the server and all associated data will be automatically deleted from our systems.
+If payment is not made by the due date, your service is suspended immediately when it expires. A grace period then begins, during which you can restore the service by paying only its standard renewal price:
+
+- Domain names: 30 days
+- Virtual servers: 7 days
+- Game hosting: 7 days
+- Dedicated servers: 3 days
+- All other services: 7 days
+
+After the applicable grace period ends, the service and all associated data are permanently deleted. See [section 3.4 of our Terms of Service](https://senko.digital/terms) and keep your own backups.
 
 ### Can I request raw disk or VM images of my server?
 If you need a raw disk or VM image for migration or backup, contact support. We can assist with exporting your VM image in most cases, though processing times and limitations may apply.
@@ -253,9 +268,8 @@ From time to time, we may offer promotional credits, discounts, or free trial pe
 ## Technical Support
 
 ### What kind of technical support do you provide?
-We offer 24/7 technical support through multiple channels:
+Our support team works Monday to Saturday, from 07:00 to 00:00 UTC. You can contact us through:
 - [Ticket system](https://my.senko.digital/billmgr?startform=clientticket.edit)
-- [Live chat](https://senko.digital/)
 - [E-mail support](mailto:support@senko.digital)
 - [Discord server](https://senko.digital/discord)
 - [Telegram bot](https://t.me/senkosbot)
@@ -365,14 +379,15 @@ Yes, we offer an affiliate program that allows you to earn commission for referr
 Yes, we welcome all customer feedback! If there's a feature you'd like to see or an improvement you wish to suggest, please contact us via support or our community channels. Customer feedback influences our roadmap by a lot.
 
 ### Do you announce new features or updates?
-Yes, we publicize new features, releases, and policy changes via our socials, as well as our email netwsletter. For critical updates, registered customers receive email notifications directly.
+Yes, we publicize new features, releases, and policy changes via our socials, as well as our email newsletter. For critical updates, registered customers receive email notifications directly.
 
 ## SLA & Maintenance
 
 ### Do you have an SLA uptime guarantee?
-Our VPS servers and game hosting come with a guaranteed uptime of 99.9% per month, excluding planned maintenance and Force Majeure events. 
 
-If we fail to meet this SLA, you will receive compensation for unscheduled downtime in the form of a service extension equal to double the duration of the downtime.
+Eligible VPS and game hosting services have a 99.9% monthly uptime guarantee. BUDGET plans and services explicitly sold without an SLA are excluded. Planned maintenance and other exclusions are listed in our [Terms of Service](https://senko.digital/terms).
+
+If the SLA is not met, submit a claim within 30 days of the incident. Compensation is a service extension equal to twice the eligible downtime, subject to the terms above.
 
 ### Do you perform scheduled maintenance?
 Yes, we occasionally perform scheduled maintenance to improve our services or address underlying issues. When maintenance is planned, we notify affected customers in advance and post updates on our [status page](https://senkostatus.com/). You can also subscribe to receive all maintenance updates via email, Microsoft Teams, or Slack.
@@ -381,4 +396,4 @@ Yes, we occasionally perform scheduled maintenance to improve our services or ad
 In case of any hardware failure or issues affecting your VPS or dedicated server, our team will be able to proactively migrate your services to healthy hardware with as little downtime per your request, whenever it is possible. Critical infrastructure has redundancy to minimize impact.
 
 ## Didn't find your question?
-If you didn't find the answer to your question here, please reach out to our support team! We're happy to help via ticket, chat or email.
+If you didn't find the answer to your question here, please reach out to our support team! We're happy to help via ticket or email.
