@@ -176,13 +176,13 @@ At this time, nested virtualization is enabled only on our DE-RZ9 and DE-STORAGE
 ## Backups & Data Management
 
 ### Do you offer backup services?
-Yes, we provide backup solutions for all of our VPS plans. For most of the plans backups are included free of charge. Additional backup storage can be purchased separately. Find out more [here](/vps/how-to-create-a-backup).
+Yes, backups are available on all of our VPS plans. Most plans include free backup storage. BUDGET plans do not include backup storage; it must be purchased through your service's addons. Additional storage can also be purchased for other plans. Find out more [here](/vps/how-to-create-a-backup).
 
 ### Where are VM backups stored?
 Our backup storage is located in a different datacenter from the VM nodes. This provides additional redundancy and helps ensure that your backups remain safe even if there is an issue at the main site.
 
 ### Can I restore backups myself?
-For plans where backup snapshots are included, you can restore available backups directly from the control panel, choosing from previous recovery points as needed (excluding BUDGET plans). If you experience issues, please reach out to support.
+Yes, you can restore available backups directly from the VM control panel. This also applies to BUDGET plans with purchased backup storage. If you experience issues, please reach out to support.
 
 ### How long will my data be stored if my service gets suspended?
 If payment is not made by the due date, your service is suspended immediately when it expires. A grace period then begins, during which you can restore the service by paying only its standard renewal price:
