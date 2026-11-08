@@ -22,7 +22,7 @@ At Senko Digital we can set up a BGP session for your server, so you're free to 
 ### Where are BGP sessions available?
 In our Germany location, BGP is available only for:
 
-- **Virtual servers** - on every plan except the DE-BUDGET lineup ([lineup limitations](/vps/budget-lineup-limitations)).
+- **Virtual servers** - on every plan except the BUDGET lineup ([lineup limitations](/vps/budget-lineup-limitations)).
 - **Dedicated servers** - only on machines built through the configurator in the Client Area. The plans [listed on our website](https://senko.digital/dedicated-servers) are not eligible.
 
 BGP sessions are not yet available in Finland or the Netherlands.
