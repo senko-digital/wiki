@@ -28,14 +28,14 @@ MTProto Proxy is Telegram's own proxy protocol, purpose-built for the Telegram m
 - **Sponsor channels** - you can optionally promote a channel to all proxy users
 
 ::: tip
-Senko Digital hosting clients have access to a fully automated MTProto proxy installation script during initial service ordering, or through the "Run Script" option in the VM control panel.
+To install MTProto automatically, select its VPS script template when ordering your server, or run it from the VM control panel after your service is activated. The script installs and configures MTProto on your server.
 :::
 
 ## Prerequisites
 
 - VPS server with Linux (Ubuntu 24.04 is used as an example)
-- Root or sudo access
-- Docker installed and running
+- Root or sudo access for manual installation
+- Docker installed and running for manual installation
 - Port 443 (or your chosen port) open in the firewall
 
 ::: tip
@@ -50,11 +50,11 @@ Supported operating systems: Debian 11, Debian 12, Debian 13, Ubuntu 20.04, Ubun
 
 #### During Service Order
 
-In the order menu, select "MTProto" from the dropdown menu, complete the order and wait for service processing to finish.
+In the order form, select the "MTProto" script template, complete the order, and wait for the script to finish running on your VPS.
 
 ![Selecting MTProto script during server ordering in the client area](/images/vpn/mtproto/client-area.png){data-zoomable}
 
-Immediately after server activation, you will receive an email containing your MTProto proxy connection links and instructions.
+After the script finishes, you will receive an email containing your MTProto proxy connection links and instructions.
 
 #### Through the VM Panel
 
@@ -62,7 +62,7 @@ Go to the [VM control panel](https://vm.senko.digital), navigate to the manageme
 
 ![Opening the Run script option from the VM panel menu](/images/vpn/mtproto/vm-run-script.png){data-zoomable}
 
-In the dialog, select the "MTProto" option and enable "Send email associated with script".
+In the dialog, select the "MTProto" script template, enable "Send email associated with script", and run the script.
 
 ![Run script wizard with MTProto selected and email notification enabled](/images/vpn/mtproto/script-wizard.png){data-zoomable}
 
@@ -97,6 +97,8 @@ docker logs mtproto_proxy                          # view connection links
 ```
 
 ### Manual Installation
+
+If you already ran the "MTProto" script template, skip this installation method and use the connection details it provided.
 
 Run the server commands as root (`sudo -i`), or use sudo for Docker commands. MTProto proxies only Telegram traffic; it is not a VPN for other apps.
 
