@@ -23,9 +23,11 @@ With this tab, you can create new and restore old backups of your game server fi
 
 This function is very useful if you need regular backups of your server data, or if you need to export a collection of the most important files on your server.
 
-By default, each service is provided with one backup with a size of no more than 20 GB. Contact support to request additional space.
+By default, each service has one backup slot for a backup of up to 50 GB. Contact support to request additional space.
 
 ![backup management](/images/panel/backups.png){data-zoomable}
+
+A backup slot does not create backups automatically. Create one manually or set up a [schedule](./schedules). These backups contain server files; export databases managed in the [Databases tab](./databases) separately.
 
 ## Creating a New Backup
 
@@ -39,7 +41,7 @@ In the window that opens, enter the desired backup name in Latin characters; it'
 
 ## Downloading a Backup
 
-Next to the server name, click on the dropdown menu and select the **"download"** option.
+Next to the backup name, click on the dropdown menu and select the **"download"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/download-backup.mp4" type="video/mp4" />
@@ -47,7 +49,7 @@ Next to the server name, click on the dropdown menu and select the **"download"*
 
 ## Deleting a Backup
 
-Next to the server name, click on the dropdown menu and select the **"delete"** option.
+Next to the backup name, click on the dropdown menu and select the **"delete"** option.
 
 ::: danger
 **Warning**: when deleting a backup, all data from it will be lost; we strongly recommend downloading it before performing this operation.
@@ -59,21 +61,21 @@ Next to the server name, click on the dropdown menu and select the **"delete"** 
 
 ## Restoring from a Backup
 
-Next to the server name, click on the dropdown menu and select the **"restore"** option.
+Next to the backup name, click on the dropdown menu and select the **"restore"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/restore-backup.mp4" type="video/mp4" />
 </video>
 
 ::: warning
-When restoring from a backup, it is not recommended to delete all server files.
+Stop the server and save any current files you may need before restoring. If you choose to delete existing files, they will be removed before restoration. If you keep them, files that are absent from the backup will remain, which can leave unwanted files on the server.
 :::
 
-The server will immediately start downloading and will be restored from your created backup within a couple of minutes.
+Wait for restoration to finish before starting the server. The time required depends on the backup size.
 
 ## Restricting Backup Deletion
 
-Next to the server name, click on the dropdown menu and select the **"restrict deletion"** option.
+Next to the backup name, click on the dropdown menu and select the **"restrict deletion"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/lock-backup.mp4" type="video/mp4" />
@@ -85,7 +87,7 @@ Now you and other users will not be able to accidentally delete the backup.
 
 ## Allowing Backup Deletion
 
-Next to the server name, click on the dropdown menu and select the **"allow deletion"** option.
+Next to the backup name, click on the dropdown menu and select the **"allow deletion"** option.
 
 <video width="1440" autoplay loop muted controls>
   <source src="/videos/panel/backups/unlock-backup.mp4" type="video/mp4" />
