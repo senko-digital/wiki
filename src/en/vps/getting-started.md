@@ -42,7 +42,7 @@ After your server is activated, you'll receive the SSH login credentials:
 
 ### If You Already Have an Active Server
 
-In this case, you'll need to reinstall the OS if Ubuntu isn't already installed on your server.
+This guide uses Ubuntu. If your server runs another OS, adapt the package and service commands for it. Reinstall only if you want to replace the current OS, and back up your data before continuing.
 
 You'll need to access the virtual server control panel. The easiest way is through your account dashboard.
 Go to the server list using the side menu, select any server, and click the "To panel" button:
@@ -74,6 +74,7 @@ Set it up as follows:
 1. Make sure UFW is installed:
 
    ```bash
+   sudo apt update
    sudo apt install ufw
    ```
 
@@ -82,6 +83,8 @@ Set it up as follows:
    ```bash
    sudo ufw allow OpenSSH
    ```
+
+   This rule allows the default SSH port, `22/tcp`. If you use a different SSH port, allow that port before enabling UFW, for example `sudo ufw allow 2222/tcp`. Keep your current SSH session open and test a second connection.
 
 3. Enable UFW:
 
@@ -104,7 +107,7 @@ Status: active
 
 Then the firewall is working and blocking connections to unauthorized ports.
 
-If you plan to host a web server, game server, or any other application that needs internet access, you can allow connections to a port using:
+If you plan to host a web server, game server, or any other application that needs incoming connections, you can allow connections to a port using:
 
 ```bash
 ufw allow [port]
@@ -152,23 +155,25 @@ To give superuser privileges to your new user, use:
 sudo usermod -aG sudo username
 ```
 
-Done! Now you can log in as your new user with:
+Keep your root session open. On your computer, open a second terminal and log in as the new user:
 
 ```bash
-sudo login
+ssh username@server_ip
 ```
+
+Run `sudo whoami` in the new session. It should print `root`. Do not disable root login until both SSH access and sudo work for the new user.
 
 ## Disabling Root SSH Access
 
 To increase security, disable root login:
 
-1. Edit the SSH configuration:
+1. Create a local SSH configuration file:
 
    ```bash
-   sudo nano /etc/ssh/sshd_config
+   sudo nano /etc/ssh/sshd_config.d/00-local.conf
    ```
 
-2. Find and change the `PermitRootLogin` parameter to `no`:
+2. Add the following setting:
 
    ```bash
    PermitRootLogin no
@@ -177,10 +182,10 @@ To increase security, disable root login:
 3. Save the changes.
 Do this by pressing `[CTRL]`+`[X]`, then `[Y]`, and `[Enter]`.
 
-4. Restart the SSH service:
+4. Check the configuration and reload SSH:
 
    ```bash
-   sudo systemctl restart sshd
+   sudo sshd -t && sudo systemctl reload ssh
    ```
 
 ## Using SSH Keys Instead of Password
@@ -203,7 +208,7 @@ During key generation, you can specify a name for your key for easier access.
 
 The utility will also ask for a passphrase (password) for extra security.
 
-This step is optional but **strongly recommended**. If you set a key password, make sure to **remember it well** or **write it down and keep it safe**, as it cannot be changed later.
+This step is optional but **strongly recommended**. Keep the passphrase in a safe place. You can change it later with `ssh-keygen -p -f path/to/private-key` if you know the current passphrase.
 
 After generating the key, you should see something like this:
 
@@ -229,10 +234,10 @@ The key's randomart image is:
 ### Copy the Public Key to Your Server
 
    ```bash
-   ssh-copy-id username@server_ip
+   ssh-copy-id -i ~/.ssh/id_rsa.pub username@server_ip
    ```
 
-Replace `username` with your user's name and `server_ip` with your server's IP address.
+Replace `username` with your user's name and `server_ip` with your server's IP address. If you saved the key under another name, use that `.pub` file. `ssh-copy-id` is usually available on Linux and macOS; on Windows, use your SSH client's key installation feature or append the public key to `~/.ssh/authorized_keys` on the server. Never upload the private key.
 
 ### Test the Server Connection
 
@@ -266,7 +271,7 @@ Add this to the `config` file:
     IdentityFile ~/.ssh/private-key-name
    ```
 
-`ConnectionName` - an alias for your connection. Examples: `discord-bot`, `website-prod`, `gmod-server`. Used for quick connection without typing IP and login (`ssh aliasname`).
+`ConnectionName` - an alias for your connection. Examples: `discord-bot`, `website-prod`, `gmod-server`. Used for quick connection without typing IP and login (`ssh ConnectionName`).
 
 `server-ip` - your server's IP address.
 
@@ -279,7 +284,7 @@ Add this to the `config` file:
 After saving, try connecting:
 
    ```bash
-    ssh aliasname
+    ssh ConnectionName
    ```
 
 ### Disable Password Login in `sshd_config`
@@ -287,24 +292,25 @@ After saving, try connecting:
 On the server, edit the file:
 
    ```bash
-   sudo nano /etc/ssh/sshd_config
+   sudo nano /etc/ssh/sshd_config.d/00-local.conf
    ```
 
-Find `PasswordAuthentication` and set it to `no`:
+Only continue after key login works in a second SSH session. Add these settings to the same local configuration file:
 
    ```bash
    PasswordAuthentication no
+   KbdInteractiveAuthentication no
    ```
 
 Save the changes.
 
-### Restart SSH
+### Check and Reload SSH
 
    ```bash
-   sudo systemctl restart sshd
+   sudo sshd -t && sudo systemctl reload ssh
    ```
 
-Done! Now password login is disabled, and you can only connect using your private key.
+Check the effective settings with `sudo sshd -T | grep -E "permitrootlogin|passwordauthentication|kbdinteractiveauthentication"`. All three should show `no`. If they do not, check earlier files in `/etc/ssh/sshd_config.d/` and any `Match` blocks. Open another SSH session using your key before closing the existing sessions. See the [Ubuntu OpenSSH guide](https://ubuntu.com/server/docs/how-to/security/openssh-server/) for configuration details.
 
 ## Regular OS Updates
 
