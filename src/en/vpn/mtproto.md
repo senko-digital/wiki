@@ -33,7 +33,7 @@ Senko Digital hosting clients have access to a fully automated MTProto proxy ins
 
 ## Prerequisites
 
-- VPS server with Linux (Ubuntu 24 is used as an example)
+- VPS server with Linux (Ubuntu 24.04 is used as an example)
 - Root or sudo access
 - Docker installed and running
 - Port 443 (or your chosen port) open in the firewall
@@ -98,6 +98,8 @@ docker logs mtproto_proxy                          # view connection links
 
 ### Manual Installation
 
+Run the server commands as root (`sudo -i`), or use sudo for Docker commands. MTProto proxies only Telegram traffic; it is not a VPN for other apps.
+
 ## Installing Docker (Quick Reference)
 
 If Docker is not installed yet, the easiest way is to use the official convenience script:
@@ -158,6 +160,8 @@ Make sure the IP address in the link matches your server's public IP. If you run
 :::
 
 ## Custom Configuration
+
+The examples below are alternative deployments. If `mtproto-proxy` already exists, save its settings and stop and remove that container before recreating it. Keep the `proxy-config` volume. Generate your own secrets; the values below are examples only.
 
 ### Setting a Custom Secret
 
@@ -256,6 +260,8 @@ docker run -d \
   telegrammessenger/proxy:latest
 ```
 
+Docker publishes the container port using its own firewall rules. Published ports can bypass UFW filtering; see [Docker and UFW](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-and-ufw) before relying on UFW to restrict access.
+
 ## Opening the Firewall Port
 
 If you're using UFW (Uncomplicated Firewall), allow traffic on the proxy port:
@@ -330,7 +336,7 @@ docker rm -f mtproto-proxy
 
 ### Updating the Proxy
 
-To update to the latest version:
+Save the current port mapping and any `SECRET`, `TAG`, or `WORKERS` settings first. Reuse them when recreating the container; the command below shows the basic configuration:
 
 ```bash
 # Pull the latest image
@@ -374,7 +380,7 @@ The proxy fetches Telegram core IP addresses at startup. These addresses can cha
 crontab -e
 ```
 
-Add the following line to restart the proxy every day at 4:00 AM:
+Add the following line to restart the proxy every day at 4:00 AM in the server's configured timezone:
 
 ```
 0 4 * * * docker restart mtproto-proxy
@@ -425,12 +431,7 @@ docker logs mtproto-proxy
 
 Common causes:
 - Port 443 is already in use by another service (e.g. Nginx, Apache)
-- The Docker volume is corrupted - try removing it and starting fresh:
-  ```bash
-  docker rm -f mtproto-proxy
-  docker volume rm proxy-config
-  # Then re-run the docker run command
-  ```
+- Invalid environment variables, file permissions, or configuration errors. Check the log message before changing data. Do not delete `proxy-config` as a general troubleshooting step: it stores your secrets, and deleting it can invalidate existing client links.
 
 ## Conclusion
 
