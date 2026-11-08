@@ -15,32 +15,20 @@ head:
 
 # Low CPU Frequency in Virtual Machines
 
-## Introduction
+## Why the displayed frequency may be low
 
-When working with virtual machines (VPS), it's common to encounter situations where the displayed CPU frequency seems lower than expected. This is normal behavior related to the specifics of virtualization.
+A VPS does not show the physical CPU's current clock speed. Tools such as `lscpu` or `/proc/cpuinfo` usually show the CPU's base frequency, which the hypervisor passes to the guest OS. This value does not track changes in the physical CPU's frequency under load.
 
-## Causes
+A low displayed value alone does not show that your VPS is slow. It also does not rule out a real performance problem.
 
-The main reason is that the real CPU frequency is not reflected in real-time in the virtual machine due to the limitations of QEMU/KVM virtualization. This is standard behavior for virtual machines.
+## How to check performance
 
-The CPU frequency you see in your server is the base frequency that was passed from the hypervisor (QEMU) to the virtual machine. In a virtualized environment, there is no way to see the current CPU frequency in real-time.
+Check how your application performs under its usual workload. Compare results using the same application version, settings, and number of vCPUs.
 
-## How It Works
+While the application is running, use `top` to check CPU usage. The `st` (steal time) value shows time when a virtual CPU was waiting while the host was doing other work. A consistently high value can help explain slowdowns, but a low steal time value does not rule out other limits.
 
-1. **Frequency Display**: 
-   - The virtual machine displays the base CPU frequency
-   - The real frequency always differs from the displayed one
-   - This does not affect system performance in any way
+Shared vCPU allocations, your plan's limits, disk activity, and the application itself can all affect performance. A benchmark can help with comparisons, but its score does not directly measure the physical CPU's current frequency.
 
-2. **Performance**:
-   - Despite showing a low frequency, the system operates at full power
-   - CPU resources are allocated according to your service plan
-   - Performance corresponds to the stated specifications
+## When to contact support
 
-## Performance Testing
-
-To evaluate the real CPU performance, it's recommended to run performance tests using special utilities, such as Geekbench.
-
-## Conclusion
-
-Displaying a low CPU frequency in a virtual machine is normal behavior and does not indicate performance problems. This is a characteristic of QEMU/KVM virtualization that does not affect the real performance of the system.
+If your application is slower than expected, send support your plan, the time of the slowdown, the commands or workload used, and the results. Include CPU usage and steal time if available. This gives us more useful information than a screenshot of the frequency alone.
