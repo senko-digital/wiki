@@ -624,6 +624,8 @@ In the 3X-UI web panel, you can monitor user activity:
 
 Our hosting clients have access to a special IPv6 subnet without ads from popular services (e.g., YouTube). To use it correctly, additional configuration is required. This guide uses YouTube as an example to set up IPv6 routing only for that service.
 
+`ForceIPv6` requires working IPv6 connectivity and IPv6 addresses for the destination. It does not fall back to IPv4. If a matching service stops opening, check IPv6 connectivity or disable this routing rule. Ad availability also depends on the service and can change.
+
 ### Creating an Outbound
 
 In the left sidebar of the panel, open the Xray Configs tab, go to Outbounds, then click "+ Outbounds":
