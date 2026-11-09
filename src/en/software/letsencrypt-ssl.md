@@ -30,7 +30,7 @@ Using HTTPS has several advantages:
 
 ## Prerequisites
 
-- VPS with Linux OS installed (Ubuntu 24 used as an example)
+- VPS with Linux OS installed (Ubuntu 24.04 used as an example)
 - Already configured web server (Nginx or Apache)
 - Domain name pointing to your server's IP address
 - SSH access to the server with root privileges
@@ -80,6 +80,8 @@ sudo dnf install python3-certbot-apache
 
 :::
 
+Install only the plugin for your web server. On RHEL-based systems, EPEL setup depends on the distribution and version; follow the [Certbot installation instructions](https://certbot.eff.org/instructions).
+
 ## Obtaining a Certificate
 
 ::: code-group
@@ -100,13 +102,13 @@ sudo certbot --apache -d example.com -d www.example.com
 Replace `example.com` and `www.example.com` with your domain names. You can specify multiple domains by adding the `-d domain` parameter for each new domain you want to issue an SSL certificate for.
 :::
 
-Certbot will ask you to provide an email for notifications, accept the terms of service, and choose whether you want to redirect HTTP to HTTPS.
+Certbot will ask you to accept the terms of service and may ask for an email address and an HTTP-to-HTTPS redirect preference. Let's Encrypt no longer sends certificate expiration emails, so monitor certificate renewal yourself.
 
 You can also omit the email address by adding the `--register-unsafely-without-email` parameter.
 
 ## Verifying Automatic Renewal
 
-Let's Encrypt issues certificates that are only valid for 90 days, so automatic certificate renewal is critical to ensure your site operates without interruption.
+Let's Encrypt certificates have a short validity period. Configure automatic renewal and monitor failures so your site stays available.
 
 Check if automatic renewal is configured:
 
@@ -114,7 +116,7 @@ Check if automatic renewal is configured:
 sudo systemctl list-timers | grep certbot
 ```
 
-If the timer doesn't exist, you'll need to create it manually:
+For Debian/Ubuntu packages, enable the installed timer if it is inactive:
 
 ```bash
 sudo systemctl enable certbot.timer
@@ -127,7 +129,11 @@ You can also check the correctness of existing settings by running a test certif
 sudo certbot renew --dry-run
 ```
 
+If `certbot.timer` is not found, check the renewal method supplied by your installation: some packages use `certbot-renew.timer`, a snap timer, or cron. Enabling a missing unit does not create it. See the [Certbot renewal guide](https://eff-certbot.readthedocs.io/en/stable/using.html#renewing-certificates).
+
 ## Configuring Your Web Server for Optimal SSL Usage
+
+Certbot's Nginx and Apache plugins already configure HTTPS. The examples below are optional: update the existing HTTPS configuration instead of adding a duplicate server block. OCSP stapling is omitted because [Let's Encrypt ended OCSP support](https://letsencrypt.org/2024/12/05/ending-ocsp.html). Enable HSTS only after checking that HTTPS works for all names it will cover.
 
 ### Optimizing Nginx
 
@@ -146,14 +152,7 @@ ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
 ssl_session_cache shared:SSL:10m;
 ssl_session_timeout 1h;
 ssl_session_tickets off;
-ssl_stapling on;
-ssl_stapling_verify on;
-resolver 8.8.8.8 8.8.4.4 valid=300s;
-resolver_timeout 5s;
-add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";
-add_header X-Frame-Options DENY;
 add_header X-Content-Type-Options nosniff;
-add_header X-XSS-Protection "1; mode=block";
 ```
 
 And include it in your server configuration:
@@ -171,9 +170,11 @@ server {
 }
 ```
 
+Check Nginx settings with `sudo nginx -t` before running `sudo systemctl reload nginx`. On Nginx 1.25.1 or newer, use `listen 443 ssl;` and a separate `http2 on;` directive.
+
 ### Optimizing Apache
 
-For Apache, create or edit the file:
+On Debian/Ubuntu, create or edit the following Apache file. Other distributions use different paths and module-management commands:
 
 ```bash
 sudo nano /etc/apache2/conf-available/ssl-params.conf
@@ -187,12 +188,7 @@ SSLHonorCipherOrder on
 SSLCipherSuite ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
 SSLSessionCache shmcb:${APACHE_LOG_DIR}/ssl_scache(512000)
 SSLSessionTickets off
-SSLUseStapling on
-SSLStaplingCache "shmcb:${APACHE_LOG_DIR}/ocsp(1048576)"
-Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-Header always set X-Frame-Options DENY
 Header always set X-Content-Type-Options nosniff
-Header always set X-XSS-Protection "1; mode=block"
 ```
 
 Enable the necessary modules and configuration:
@@ -200,17 +196,17 @@ Enable the necessary modules and configuration:
 ```bash
 sudo a2enmod ssl headers http2
 sudo a2enconf ssl-params
-sudo systemctl restart apache2
+sudo apachectl configtest && sudo systemctl reload apache2
 ```
 
 ## Troubleshooting
 
 ### Certificate Has Expired
 
-If your certificate has expired, perform a forced renewal:
+If your certificate has expired, run renewal and check any reported errors:
 
 ```bash
-sudo certbot renew --force-renewal
+sudo certbot renew
 ```
 
 ### Certbot Cannot Verify Domain Ownership

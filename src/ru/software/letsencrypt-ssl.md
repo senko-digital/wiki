@@ -30,7 +30,7 @@ Let's Encrypt — это бесплатный, автоматизированн�
 
 ## Предварительные требования
 
-- VPS с установленной ОС Linux (как пример, используется ОС Ubuntu 24)
+- VPS с установленной ОС Linux (как пример, используется ОС Ubuntu 24.04)
 - Уже настроенный веб-сервер (Nginx или Apache)
 - Доменное имя, направленное на IP-адрес вашего сервера
 - SSH-доступ к серверу с правами root
@@ -80,6 +80,8 @@ sudo dnf install python3-certbot-apache
 
 :::
 
+Установите только плагин для вашего веб-сервера. На системах семейства RHEL настройка EPEL зависит от дистрибутива и версии; воспользуйтесь [инструкцией Certbot](https://certbot.eff.org/instructions).
+
 ## Получение сертификата
 
 ::: code-group
@@ -100,13 +102,13 @@ sudo certbot --apache -d example.com -d www.example.com
 Замените `example.com` и `www.example.com` на ваши доменные имена. Вы можете указать несколько доменов, добавляя параметр `-d домен` для выпуска SSL к каждому новому домену.
 :::
 
-Certbot предложит вам указать email для уведомлений, принять условия использования и выбрать, хотите ли вы перенаправлять HTTP на HTTPS.
+Certbot предложит принять условия использования и может запросить email и настройку перенаправления HTTP на HTTPS. Let's Encrypt больше не отправляет письма об истечении срока действия сертификатов, поэтому следите за работой продления самостоятельно.
 
 Вы также можете не указывать email адрес, добавив параметр `--register-unsafely-without-email`.
 
 ## Проверка автоматического обновления
 
-Let's Encrypt выдаёт сертификаты, действительные только на 90 дней, поэтому автоматическое обновление сертификатов критически важно для обеспечения бесперебойной работы сайта.
+Сертификаты Let's Encrypt имеют короткий срок действия. Настройте автоматическое продление и следите за ошибками, чтобы сайт оставался доступным.
 
 Проверьте, настроено ли автоматическое обновление:
 
@@ -114,7 +116,7 @@ Let's Encrypt выдаёт сертификаты, действительные 
 sudo systemctl list-timers | grep certbot
 ```
 
-Если таймера не существует, его нужно будет создать вручную:
+При установке из пакетов Debian/Ubuntu включите установленный таймер, если он неактивен:
 
 ```bash
 sudo systemctl enable certbot.timer
@@ -127,7 +129,11 @@ sudo systemctl start certbot.timer
 sudo certbot renew --dry-run
 ```
 
+Если `certbot.timer` не найден, проверьте способ продления для вашего варианта установки: это может быть `certbot-renew.timer`, таймер snap или cron. Команда включения не создаёт отсутствующую службу. Подробнее — в [документации Certbot](https://eff-certbot.readthedocs.io/en/stable/using.html#renewing-certificates).
+
 ## Настройка веб-сервера для оптимального использования SSL
+
+Плагины Certbot для Nginx и Apache уже настраивают HTTPS. Примеры ниже необязательны: изменяйте существующую конфигурацию HTTPS, не создавая повторный блок сервера. OCSP stapling здесь не используется, поскольку [Let's Encrypt прекратил поддержку OCSP](https://letsencrypt.org/2024/12/05/ending-ocsp.html). Включайте HSTS только после проверки HTTPS для всех доменов, на которые он будет распространяться.
 
 ### Оптимизация Nginx
 
@@ -146,14 +152,7 @@ ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
 ssl_session_cache shared:SSL:10m;
 ssl_session_timeout 1h;
 ssl_session_tickets off;
-ssl_stapling on;
-ssl_stapling_verify on;
-resolver 8.8.8.8 8.8.4.4 valid=300s;
-resolver_timeout 5s;
-add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";
-add_header X-Frame-Options DENY;
 add_header X-Content-Type-Options nosniff;
-add_header X-XSS-Protection "1; mode=block";
 ```
 
 И включите его в конфигурацию сервера:
@@ -171,9 +170,11 @@ server {
 }
 ```
 
+Проверьте настройки командой `sudo nginx -t`, затем выполните `sudo systemctl reload nginx`. В Nginx 1.25.1 и новее используйте `listen 443 ssl;` и отдельную директиву `http2 on;`.
+
 ### Оптимизация Apache
 
-Для Apache создайте или отредактируйте файл:
+В Debian/Ubuntu создайте или отредактируйте следующий файл Apache. В других дистрибутивах пути и команды управления модулями отличаются:
 
 ```bash
 sudo nano /etc/apache2/conf-available/ssl-params.conf
@@ -187,12 +188,7 @@ SSLHonorCipherOrder on
 SSLCipherSuite ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
 SSLSessionCache shmcb:${APACHE_LOG_DIR}/ssl_scache(512000)
 SSLSessionTickets off
-SSLUseStapling on
-SSLStaplingCache "shmcb:${APACHE_LOG_DIR}/ocsp(1048576)"
-Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-Header always set X-Frame-Options DENY
 Header always set X-Content-Type-Options nosniff
-Header always set X-XSS-Protection "1; mode=block"
 ```
 
 Включите нужные модули и конфигурацию:
@@ -200,17 +196,17 @@ Header always set X-XSS-Protection "1; mode=block"
 ```bash
 sudo a2enmod ssl headers http2
 sudo a2enconf ssl-params
-sudo systemctl restart apache2
+sudo apachectl configtest && sudo systemctl reload apache2
 ```
 
 ## Устранение проблем
 
 ### Срок действия сертификата истёк
 
-Если срок действия сертификата истёк, выполните принудительное обновление:
+Если срок действия сертификата истёк, запустите продление и проверьте сообщения об ошибках:
 
 ```bash
-sudo certbot renew --force-renewal
+sudo certbot renew
 ```
 
 ### Certbot не может проверить владение доменом
