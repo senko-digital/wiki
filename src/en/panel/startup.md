@@ -24,3 +24,5 @@ With this tab, you can manage the startup parameters of your game server without
 ![startup parameters for the server](/images/panel/startup/showcase.png){data-zoomable}
 
 You can edit any values specified in the startup parameters. Some of them must be filled out strictly according to the instructions in the form.
+
+Restart the server after changing startup parameters so the new values take effect.

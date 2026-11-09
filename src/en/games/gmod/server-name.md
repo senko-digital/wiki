@@ -30,3 +30,5 @@ Enter the file manager, navigate to the `garrysmod` folder, then `cfg`, and open
 In the file, find the `hostname` line, and change the content inside the quotes to your preferred server name and save the file.
 
 ![new server name](/images/games/gmod/server-name/new.png){data-zoomable}
+
+Save the file and restart the server to apply the name.
