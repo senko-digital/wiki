@@ -228,7 +228,7 @@ export default defineConfig({
                 { text: 'Network Speed Test', link: '/troubleshooting/speedtest-cli' },
                 { text: 'Low CPU Frequency', link: '/troubleshooting/low-cpu-frequency' },
                 {
-                  text: 'Wrong location in Google services',
+                  text: 'Wrong location in Google and other services',
                   link: '/troubleshooting/wrong-geolocation-in-google',
                 },
               ],
@@ -439,7 +439,7 @@ export default defineConfig({
                   link: '/ru/troubleshooting/low-cpu-frequency',
                 },
                 {
-                  text: 'Неверная локация в сервисах Google',
+                  text: 'Неверная локация в Google и других сервисах',
                   link: '/ru/troubleshooting/wrong-geolocation-in-google',
                 },
               ],
