@@ -57,4 +57,4 @@ In the password field, enter the desired password for server access. **It is man
 
 Optionally, you can enable or disable the option to send the password via email, but for security reasons, this option is recommended to be disabled.
 
-**Done**! Within a few minutes, the operating system will be reinstalled on your server, and **all data on the server will be completely deleted**.
+**Done**! OS reinstallation usually takes a few minutes. Windows installations may take up to 20 minutes. **All data on the server will be completely deleted** during reinstallation.
