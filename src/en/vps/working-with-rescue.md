@@ -65,7 +65,7 @@ SystemRescue networking is configured through the NetworkManager CLI. Before con
 - IP address
 - Gateway
 
-After obtaining this information, run the following commands:
+Run `nmcli connection show` to find the connection name. Replace `Wired connection 1` below if your connection has a different name. Run these commands from the VNC console:
 
 #### 1. Set Up the IP Address
 ```bash
@@ -86,7 +86,7 @@ nmcli conn mod "Wired connection 1" ipv4.method manual
 nmcli conn mod "Wired connection 1" ipv4.gateway <GATEWAY>
 ```
 
-Replace `<GATEWAY>` with your server's gateway (usually either `172.16.0.1` or `10.0.0.1`).
+Replace `<GATEWAY>` with your server's gateway (usually either `172.16.0.1`, or `10.0.0.1` for the DE-BUDGET plan lineup).
 
 #### 4. Set Up DNS
 
@@ -103,7 +103,7 @@ nmcli conn up "Wired connection 1"
 #### 6. Enable the SSH Server
 
 ```bash
-systemctl enable ssh --now
+systemctl start sshd
 ```
 
 You can then [configure the firewall](#configuring-the-firewall) to allow incoming SSH connections to your server.
@@ -132,9 +132,9 @@ You will then return to the initial menu. Select `Quit`, and press `q` when the 
 
 ### Configuring the Firewall
 
-#### 1. Flush Existing Rules
+#### 1. Check Existing Rules
 ```bash
-iptables -F
+iptables -S
 ```
 
 #### 2. Allow Traffic from Established and Related Connections
@@ -165,10 +165,11 @@ passwd root
 Then start the SSH server:
 
 ```bash
-systemctl start ssh
+systemctl start sshd  # SystemRescue
+# systemctl start ssh  # GRML
 ```
 
-You should now be able to connect to your server using the password you set.
+The password applies to the rescue environment, not the installed OS. If root password login is disabled in the selected rescue image, use an SSH key or configure access through VNC before reconnecting.
 
 ## Using Rescue Mode
 
@@ -187,7 +188,7 @@ First, identify your server's disk by running:
 lsblk -f
 ```
 
-Identify the partition containing your server's data. Its FSTYPE should be `ext4`:
+Identify the partition containing your server's data by its size and filesystem. The `FSTYPE` column will usually show `ext4`. LVM and encrypted volumes need to be activated or unlocked before mounting:
 ![Lsblk command output](/images/vps/recovery/rescue-lsblk.png){data-zoomable}
 
 #### 2. Create a Mount Point and Mount the Disk
@@ -197,7 +198,7 @@ Create the mount point:
 mkdir -p /mnt/vm
 ```
 
-Then mount the partition:
+Then mount the partition. `/dev/vda3` is an example: replace it with the partition you found above:
 ```bash
 mount /dev/vda3 /mnt/vm
 ```
@@ -211,3 +212,5 @@ For a Linux root filesystem, you would typically see directories such as:
 ![Mounted disk example](/images/vps/recovery/rescue-mounted-disk.png){data-zoomable}
 
 You can then connect to your server with an SFTP client (for example, WinSCP) using your SSH credentials and edit or download files from your server's disk.
+
+When finished, close file transfers and run `umount /mnt/vm`. Exit recovery mode or detach the ISO in the VM panel, then boot from the server disk.
