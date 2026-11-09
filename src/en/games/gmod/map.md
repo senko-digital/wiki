@@ -24,10 +24,6 @@ If you are unsure which maps you have installed on the server, you can easily fi
 
 ## Installing Maps from Steam Workshop
 
-If you're using a map from the Steam Workshop, it's recommended to download it manually and upload it to the `/garrysmod/maps/` path, otherwise the server may not start.
+Add the map to the server's [Workshop collection](/games/gmod/workshop). Start with a built-in map such as `gm_construct`, wait for the collection to finish downloading, and check the console for errors. Run `maps *` to find the installed map's name, then enter that name without `.bsp` in the startup parameters and restart.
 
-You can do this using the [SteamWorkshopDownloader](https://steamworkshopdownloader.io) utility - go to the website, enter the link to the map page in the Steam Workshop, and download the files to your PC.
-
-Extract the archive, go to the `maps` folder, and upload all files from it to the `/garrysmod/maps/` folder.
-
-Set the map variable in the startup parameters the same way as described above.
+If the map still cannot be loaded at startup, check its Workshop page for required content. If the author provides a direct `.bsp` download, upload it to `/garrysmod/maps/` and use its filename without the extension.
