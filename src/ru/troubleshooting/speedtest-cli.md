@@ -21,6 +21,20 @@ Speedtest CLI - это официальная утилита от Ookla для �
 
 ## Установка
 
+Проверьте поддержку вашей версии ОС на [официальной странице Speedtest CLI](https://www.speedtest.net/apps/cli). На FreeBSD устанавливайте только пакет для вашей версии системы.
+
+::: tip Ubuntu 24.04, Ubuntu 26.04 и Debian 13
+Для Debian 13 (Trixie) в репозитории Ookla пакеты уже есть, поэтому подменять версию не нужно.
+
+Для Ubuntu 24.04 (Noble) и Ubuntu 26.04 (Resolute) пакетов в репозитории пока нет. На этих версиях замените команду установки репозитория ниже на следующую, чтобы использовать репозиторий Ookla для Ubuntu 22.04 (Jammy):
+
+```bash
+curl -fsSL https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo env os=ubuntu dist=jammy bash
+```
+
+Это изменит только репозиторий Ookla, а не системные репозитории Ubuntu. Затем продолжите установку командами `sudo apt-get update` и `sudo apt-get install speedtest`.
+:::
+
 ::: code-group
 
 ```bash [Ubuntu/Debian]
@@ -28,16 +42,13 @@ Speedtest CLI - это официальная утилита от Ookla для �
 apt install sudo -y
 
 # Удаление неофициальных версий Speedtest CLI
-sudo rm /etc/apt/sources.list.d/speedtest.list
 sudo apt-get remove speedtest
 sudo apt-get remove speedtest-cli
 
 # Установка репозитория Speedtest CLI
 sudo apt-get install curl
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+curl -fsSL https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
 
-# Временное решение для Ubuntu 24.04 и выше
-sudo sed -i 's/noble/jammy/g' /etc/apt/sources.list.d/ookla_speedtest-cli.list
 
 # Установка программы Speedtest CLI
 sudo apt-get update
@@ -46,25 +57,14 @@ sudo apt-get install speedtest
 
 ```bash [Fedora/CentOS/RedHat]
 # Удаление неофициальных версий Speedtest CLI
-sudo rm /etc/yum.repos.d/bintray-ookla-rhel.repo
 sudo yum remove speedtest
-rpm -qa | grep speedtest | xargs -I {} sudo yum -y remove {}
 
 # Установка Speedtest CLI
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
 sudo yum install speedtest
 ```
 
-```bash [FreeBSD]
-# Обновление системы и установка зависимостей
-sudo pkg update && sudo pkg install -g libidn2 ca_root_nss
 
-# Установка Speedtest CLI для FreeBSD 12
-sudo pkg add "https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-freebsd12-x86_64.pkg"
-
-# Установка Speedtest CLI для FreeBSD 13
-sudo pkg add "https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-freebsd13-x86_64.pkg"
-```
 
 :::
 
