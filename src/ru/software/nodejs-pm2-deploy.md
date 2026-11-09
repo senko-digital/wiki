@@ -28,10 +28,12 @@ PM2 (Process Manager 2) — это продвинутый менеджер пр�
 
 ## Предварительные требования
 
-- VPS-сервер с Linux (в качестве примера используется Ubuntu 24)
-- Права root
+- VPS-сервер с Linux (в качестве примера используется Ubuntu 24.04)
+- Обычный пользователь с доступом к sudo
 - Базовые знания командной строки Linux
 - Готовый к развёртыванию проект на Node.js
+
+Выполняйте команды NVM, npm и PM2 от обычного пользователя. Используйте `sudo` только там, где это указано для установки системных пакетов и настройки служб. Если пользователя ещё нет, создайте его по [инструкции настройки VPS](/ru/vps/getting-started).
 
 ## Установка Node.js и npm
 
@@ -40,12 +42,13 @@ PM2 (Process Manager 2) — это продвинутый менеджер пр�
 ```bash
 # Установка curl, если его нет
 sudo apt update
-sudo apt install curl
+sudo apt install curl git nano
 
 # Установка NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash
 
-source ~/.bashrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Проверяем, успешно ли установился NVM
 nvm --version
@@ -174,7 +177,7 @@ server {
     server_name your-domain.com www.your-domain.com;
 
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://127.0.0.1:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -188,13 +191,14 @@ server {
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/my-app /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl restart nginx
+sudo nginx -t && sudo systemctl reload nginx
 ```
 
 ::: tip
 После настройки Nginx рекомендуется установить SSL-сертификат с помощью Let's Encrypt для защищённого соединения. Инструкцию можно найти в нашей [статье о настройке Let's Encrypt](/ru/software/letsencrypt-ssl).
 :::
+
+Если доступ к приложению нужен только через Nginx, настройте его на прослушивание `127.0.0.1:3000`. Направьте домены из конфигурации на VPS и разрешите TCP-порты 80 и 443 в файрволе. После обновления Node.js через NVM заново настройте службу PM2 командами `pm2 unstartup` и `pm2 startup`, выполните команды из их вывода, затем запустите `pm2 save`.
 
 ## Базовые команды PM2
 
@@ -270,9 +274,10 @@ pm2 plus
 
 ```bash
 pm2 install pm2-metrics
+pm2 set pm2-metrics:host 127.0.0.1
 ```
 
-Модуль запускает HTTP-сервер, который отдаёт метрики PM2 по адресу `http://<host>:9209/metrics`. Направьте Prometheus на этот адрес:
+Модуль запускает HTTP-сервер, который отдаёт метрики PM2 по адресу `http://127.0.0.1:9209/metrics`. Направьте Prometheus на этот адрес:
 
 ```yaml
 # prometheus.yml

@@ -28,10 +28,12 @@ PM2 (Process Manager 2) is an advanced process manager for Node.js applications 
 
 ## Prerequisites
 
-- VPS server with Linux (Ubuntu 24 is used as an example)
-- Root access
+- VPS server with Linux (Ubuntu 24.04 is used as an example)
+- A regular user with sudo access
 - Basic knowledge of Linux command line
 - Node.js project ready for deployment
+
+Run NVM, npm, and PM2 commands as the same regular user. Use `sudo` only where shown for system packages and services. See [VPS setup](/vps/getting-started) if you need to create a user first.
 
 ## Installing Node.js and npm
 
@@ -40,12 +42,13 @@ First, let's install Node.js and npm using NVM (Node Version Manager), which all
 ```bash
 # Install curl if you don't have it
 sudo apt update
-sudo apt install curl
+sudo apt install curl git nano
 
 # Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash
 
-source ~/.bashrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Check if NVM was successfully installed
 nvm --version
@@ -174,7 +177,7 @@ server {
     server_name your-domain.com www.your-domain.com;
 
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://127.0.0.1:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -188,13 +191,14 @@ Activate the configuration and restart Nginx:
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/my-app /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl restart nginx
+sudo nginx -t && sudo systemctl reload nginx
 ```
 
 ::: tip
 After configuring Nginx, it's recommended to set up an SSL certificate using Let's Encrypt for secure connections. Instructions can be found in our [Let's Encrypt setup article](/software/letsencrypt-ssl).
 :::
+
+Configure your application to listen on `127.0.0.1:3000` when Nginx is its only entry point. Point the domain names in the configuration to your VPS and allow TCP ports 80 and 443 in the firewall. After upgrading Node.js through NVM, regenerate the PM2 startup service using `pm2 unstartup` and `pm2 startup`, following the commands they print, then run `pm2 save`.
 
 ## Basic PM2 commands
 
@@ -270,9 +274,10 @@ Metrics can be exported to Prometheus with a PM2 module such as `pm2-metrics`. P
 
 ```bash
 pm2 install pm2-metrics
+pm2 set pm2-metrics:host 127.0.0.1
 ```
 
-The module starts an HTTP server that exposes PM2 metrics at `http://<host>:9209/metrics`. Point Prometheus at that target:
+The module starts an HTTP server that exposes PM2 metrics at `http://127.0.0.1:9209/metrics`. Point Prometheus at that target:
 
 ```yaml
 # prometheus.yml
