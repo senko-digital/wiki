@@ -31,6 +31,7 @@ Backup storage is not included with BUDGET plans and must be purchased through y
 
 ## Network limitations
 - Network throughput is limited per plan specification.
+- PTR records cannot be changed.
 - Only outbound port 25 (SMTP) is blocked and cannot be opened.
 - Continuous uplink saturation is prohibited.
 
