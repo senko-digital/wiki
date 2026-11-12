@@ -34,8 +34,10 @@ Visit the [PaperMC](https://papermc.io/) website. Click on the "Downloads" butto
 
 ## Uploading the Software to the Server
 
+Stop the server and back up the world, plugins, and configuration before changing software. Check the Java requirement for the chosen release in the [Paper installation guide](https://docs.papermc.io/paper/getting-started/). This JAR replacement method is for Paper; Fabric, Forge, and other mod loaders may need their own installer and startup command.
+
 In your server control panel, navigate to the "Files" section. Use the "Upload" button or drag and drop your server software file into your browser window.
-Afterwards, delete the old `server.jar` file (if it exists) and rename your new PaperMC jar to `server.jar`.
+Afterwards, rename the old `server.jar` file to `server.jar.bak` (if it exists) and rename your new PaperMC jar to `server.jar`.
 
 ::: tip
 You can specify a different file to run by editing the "Server Jar File" option in the "Startup parameters" section.
