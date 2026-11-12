@@ -640,9 +640,9 @@ Choose the lists according to what you want to block:
 
 | List | Purpose |
 | --- | --- |
-| [antiscanner.list](https://github.com/shadow-netlab/traffic-guard-lists/blob/main/public/antiscanner.list) | Extended list for protection against scanning |
-| [government_networks.list](https://github.com/shadow-netlab/traffic-guard-lists/blob/main/public/government_networks.list) | Networks of government agencies and organizations, as listed by the maintainer |
-| [skipa_cidr.txt](https://github.com/tread-lightly/CyberOK_Skipa_ips/blob/main/lists/skipa_cidr.txt) | Addresses associated with CyberOK/Skipa scanning |
+| [antiscanner.list](https://raw.githubusercontent.com/shadow-netlab/traffic-guard-lists/main/public/antiscanner.list) | Extended list for protection against scanning |
+| [government_networks.list](https://raw.githubusercontent.com/shadow-netlab/traffic-guard-lists/main/public/government_networks.list) | Networks of government agencies and organizations, as listed by the maintainer |
+| [skipa_cidr.txt](https://raw.githubusercontent.com/tread-lightly/CyberOK_Skipa_ips/main/lists/skipa_cidr.txt) | Addresses associated with CyberOK/Skipa scanning |
 
 The commands use `antiscanner.list` and `skipa_cidr.txt`. You can add `government_networks.list` separately for broader blocking. It is not a list of confirmed scanners. These rules block listed sources, but do not cover unknown scanners or passive traffic analysis.
 

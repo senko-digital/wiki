@@ -640,9 +640,9 @@ UUID, публичный ключ и Short ID должны относиться 
 
 | Список | Назначение |
 | --- | --- |
-| [antiscanner.list](https://github.com/shadow-netlab/traffic-guard-lists/blob/main/public/antiscanner.list) | Расширенный список для защиты от сканирования |
-| [government_networks.list](https://github.com/shadow-netlab/traffic-guard-lists/blob/main/public/government_networks.list) | Сети государственных органов и организаций по данным автора списка |
-| [skipa_cidr.txt](https://github.com/tread-lightly/CyberOK_Skipa_ips/blob/main/lists/skipa_cidr.txt) | Адреса, связанные со сканированием CyberOK/Skipa |
+| [antiscanner.list](https://raw.githubusercontent.com/shadow-netlab/traffic-guard-lists/main/public/antiscanner.list) | Расширенный список для защиты от сканирования |
+| [government_networks.list](https://raw.githubusercontent.com/shadow-netlab/traffic-guard-lists/main/public/government_networks.list) | Сети государственных органов и организаций по данным автора списка |
+| [skipa_cidr.txt](https://raw.githubusercontent.com/tread-lightly/CyberOK_Skipa_ips/main/lists/skipa_cidr.txt) | Адреса, связанные со сканированием CyberOK/Skipa |
 
 В командах используются `antiscanner.list` и `skipa_cidr.txt`. Для более широкой блокировки можно отдельно добавить `government_networks.list`. Это не список подтверждённых сканеров. Правила блокируют перечисленные источники, но не защищают от неизвестных сканеров или пассивного анализа трафика.
 
