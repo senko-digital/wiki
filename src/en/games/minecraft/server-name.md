@@ -31,10 +31,10 @@ Enter the file manager and open the `server.properties` file.
 
 ![old server name](/images/games/minecraft/server-name/old-name.png){data-zoomable}
 
-Enter a new server name or generate one using the previously mentioned service, and replace the old name.
+Stop the server and replace the value after `motd=` with your new text. You can generate formatting with the service above. This changes the description shown in the multiplayer list, not the name players save locally.
 
 ![new server name](/images/games/minecraft/server-name/new-name.png){data-zoomable}
 
-Done! Now your server name will truly sparkle :sparkles:
+Save the file, start the server, and refresh the multiplayer list. Now your server's name will truly sparkle :sparkles:
 
 ![server name in minecraft](/images/games/minecraft/server-icon/old.png){data-zoomable}
