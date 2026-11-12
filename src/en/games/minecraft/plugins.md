@@ -22,16 +22,12 @@ A quick guide to installing plugins on your Minecraft server.
 ***
 
 ::: tip
-Plugins require compatible server software (core) to function, such as [PaperMC](https://papermc.io/), [CraftBukkit](https://getbukkit.org/), [Mohist](https://mohistmc.com/), or [Fabric](https://fabricmc.net/). For instructions on installing these server types, see our [custom server software guide](/games/minecraft/software).
+These instructions are for Bukkit/Spigot plugins on compatible servers such as [Paper](https://papermc.io/). Fabric and Forge use mods, usually installed in the `mods` folder. See our [server software guide](/games/minecraft/software) before choosing a download.
 :::
 
-Each plugin is designed for a particular Minecraft core. For instance, Paper plugins will not work with CraftBukkit, and the reverse is also true. Always check that any plugin you download is compatible with your server’s core and game version.
+Paper supports Bukkit and Spigot plugins. Plugins that use Paper-only features will not work on CraftBukkit or Spigot. Check the supported server software, Minecraft version, Java version, and required dependencies on the plugin's page. See the [Paper plugin guide](https://docs.papermc.io/paper/adding-plugins/).
 
-To ensure stability and avoid broken or malicious plugins, download plugins from official or trusted sources:
-- [Hangar (PaperMC)](https://hangar.papermc.io/)
-- [Bukkit Plugins (CraftBukkit)](https://dev.bukkit.org/bukkit-plugins)
-- [Spigot Resources (Spigot)](https://www.spigotmc.org/resources/categories/spigot.4/)
-- [Modrinth (multi-platform)](https://modrinth.com/plugins)
+Download plugins from their developers or trusted platforms such as [Hangar](https://hangar.papermc.io/), [Bukkit](https://dev.bukkit.org/bukkit-plugins), [Spigot Resources](https://www.spigotmc.org/resources/), and [Modrinth](https://modrinth.com/plugins).
 
 ### Downloading Plugins
 
@@ -51,12 +47,12 @@ A popup will prompt you to pick the version and core (platform). Choose the ones
 
 ### Installing the Plugin on the Server
 
-After downloading the plugin, access your server's file manager and open the `plugins` directory. Upload the downloaded `.jar` file here (for example, `worldedit-bukkit-7.3.6.jar`).
+Stop the server before installing or replacing a plugin. After downloading the plugin, access your server's file manager and open the `plugins` directory. Upload the downloaded `.jar` file here (for example, `worldedit-bukkit-7.3.6.jar`).
 
 ![plugin upload to the server](/images/games/minecraft/plugins/file-upload.png){data-zoomable}
 
 ### Testing That the Plugin Works
 
-Restart your Minecraft server to load the new plugin. Once the server is running, type the `plugins` command in the server console. If you see your newly added plugin listed, the installation was successful!
+Restart your Minecraft server to load the new plugin. Once the server is running, type the `plugins` command in the server console. Check that the plugin is enabled, not just listed. If it appears in red or fails to load, check the startup console for missing dependencies or version errors.
 
 ![plugin working](/images/games/minecraft/plugins/plugin-working.png){data-zoomable}
