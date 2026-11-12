@@ -299,10 +299,13 @@ Currently, we do not provide a dedicated DDoS protection management panel. Howev
 ### What security measures are in place to protect my data?
 Our infrastructure is protected by state-of-the-art firewalls, regular security audits, 24/7 monitoring, and access is limited to authorized personnel only. Backup data is stored separately in secure environments to maximize safety.
 
-### How can I report abuse (spam, attacks, DMCA, etc.) from your IPs?
-Please email your abuse reports (including all relevant logs and evidence) to [abuse@senko.digital](mailto:abuse@senko.digital). We support the [XARF](https://xarf.org/) abuse report format and strongly prefer reports to be submitted using XARF whenever possible, as it enables us to process your request more efficiently.
+### How can I report abuse or a violation of your Acceptable Use Policy?
+Send reports of spam, attacks, illegal content or other [Acceptable Use Policy](https://senko.digital/acceptable-use-policy) violations to [abuse@senko.digital](mailto:abuse@senko.digital). Include the affected IP addresses or domains, exact URLs where relevant, timestamps with the timezone, and logs or other evidence. We also support reports in [XARF](https://xarf.org/) format.
 
-Our abuse team investigates each case promptly and will follow up as required by law and best practices.
+We begin investigating standard reports within 24 hours, or within 48 hours if advanced technical analysis is needed. Depending on the violation, we may require the customer to resolve it, suspend the service or terminate it under our [Terms of Service](https://senko.digital/terms). Serious threats may require immediate action.
+
+### Where should I send legal requests?
+Send legal requests and official correspondence to [legal@senko.digital](mailto:legal@senko.digital). Include your contact details, the subject of your request and any relevant documents.
 
 ### What happens if there is a DDoS attack on another customer?
 Our DDoS protection aims to isolate malicious traffic and minimize collateral impact. While your service should remain unaffected, extreme situations may cause brief disturbances. Our team prioritizes mitigation and transparent status updates.
