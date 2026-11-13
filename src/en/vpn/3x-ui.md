@@ -390,6 +390,16 @@ curl --fail --http2 --tlsv1.3 --resolve site.example.com:8443:127.0.0.1 https://
 
 The `curl` command should print your page's HTML without certificate errors and end with `HTTP version: 2`. This checks the TLS 1.3 and HTTP/2 support required by REALITY. If an error appears or the version is not `2`, resolve it before continuing.
 
+::: info Warnings when scanning a local Target in 3X-UI
+When you click **Scan** next to Target `127.0.0.1:8443`, the panel may report that the address is private and not reachable from the internet. This is expected, since Xray connects to the website locally.
+
+If the result shows **SNI used: 127.0.0.1**, you may also see `certificate not trusted` or `cannot validate certificate for 127.0.0.1 because it doesn't contain any IP SANs`. The scan is checking the certificate against the IP address, while your certificate is issued for your domain.
+
+![3X-UI certificate warning when scanning the local REALITY target](/images/vpn/3x-ui/reality-local-target-certificate-warning.png){data-zoomable}
+
+Keep **Target** as `127.0.0.1:8443` and use your domain in **SNI / Server Names**. The `curl --resolve` check above connects to the same local address but uses your domain for SNI and certificate verification. If that check succeeds, the scan's IP mismatch is not a certificate problem. If it fails, fix the reported error. Do not disable certificate verification or ignore certificate warnings when opening the website by its domain.
+:::
+
 Set up automatic certificate renewal. After renewal, Nginx will reload its configuration to use the new certificate:
 
 ```bash
@@ -943,11 +953,11 @@ Simply enable the desired configuration in the panel, create an account, and add
 
 ## Accessing the panel on port 443 (optional) {#panel-on-443}
 
-You can use `https://site.example.com/your-panel-path/` for the panel and close its separate public port. Xray will continue to handle VPN connections on `443`, while Nginx serves the website and forwards the panel's path to 3X-UI. This uses the self-SNI setup above, with Xray running directly on the VPS or using Docker host networking.
+You can use `https://site.example.com/your-panel-path/` for the panel and close its separate public port. Xray will continue to handle VPN connections on `443`, while Nginx or Caddy serves the website and forwards the panel's path to 3X-UI. This uses the self-SNI setup above, with Xray running directly on the VPS or using Docker host networking. Choose one of the web servers below. Both examples also forward subscription requests. Use the [panel URL and subscription settings](#panel-and-subscription-urls) below with either option.
 
-::: details Setup and SSH access
+::: details Nginx setup and SSH access
 
-**1. Save your access details.** Keep your SSH session open and save the panel's current port, secret URL path and certificate paths. Below, replace `2053` with your panel's actual port and `your-panel-path` with its existing secret path. Keep a long, random path rather than using the example literally.
+**1. Save your access details.** Keep your SSH session open and save the panel's current port, secret URL path and certificate paths. Below, replace `2053` with your panel's actual port and `your-panel-path` with its existing secret path. Keep a long, random path rather than using the example literally. Replace `2096` with your subscription port and the three subscription paths with the matching values from the [settings table](#panel-and-subscription-urls). Keep these paths separate from the panel path.
 
 **2. Add the panel to Nginx.** Open `/etc/nginx/conf.d/self-sni.conf` and add the following inside the HTTPS `server` block that listens on `127.0.0.1:8443`, before its closing `}`:
 
@@ -966,6 +976,33 @@ You can use `https://site.example.com/your-panel-path/` for the panel and close 
         proxy_read_timeout 3600s;
         proxy_send_timeout 3600s;
     }
+
+    location /your-sub-path/ {
+        proxy_pass http://127.0.0.1:2096;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+
+    location /your-json-path/ {
+        proxy_pass http://127.0.0.1:2096;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+
+    location /your-clash-path/ {
+        proxy_pass http://127.0.0.1:2096;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+    }
 ```
 
 Keep `proxy_pass` without a trailing `/` so the panel receives its full URL path. The WebSocket headers are needed for live updates. See the [3X-UI reverse proxy documentation](https://docs.sanaei.dev/docs/operations/reverse-proxy/).
@@ -976,17 +1013,17 @@ Check and reload Nginx:
 nginx -t && systemctl reload nginx
 ```
 
-**3. Make the panel accessible only locally.** In **Panel Settings**, set the panel's listening IP (`webListen`) to `127.0.0.1`. Keep its current port and secret path. Clear both certificate fields, **Public Key Path** and **Private Key Path**, so Nginx handles HTTPS and the panel uses HTTP only on localhost. Make all these changes before saving, then save and restart the panel. Do not change the VPN inbound's listening address or port.
+**3. Make the panel accessible only locally.** In **Panel Settings**, set the panel's listening IP (`webListen`) to `127.0.0.1`. Keep its current port and secret path. Clear both certificate fields, **Public Key Path** and **Private Key Path**, so Nginx handles HTTPS and the panel uses HTTP only on localhost. Apply the [subscription settings](#panel-and-subscription-urls) too, then save all changes and restart the panel so both local listeners use the new settings. Do not change the VPN inbound's listening address or port.
 
 The old public panel address will stop working. Open `https://site.example.com/your-panel-path/`, using your own domain and path, and check that you can sign in and see live updates. Also check that the website at `/` and the VPN still work.
 
-**4. Check the local listener.** Run this on the VPS, replacing `2053` with your panel port:
+**4. Check the local listener.** Run this on the VPS, using your actual panel and subscription ports:
 
 ```bash
-ss -ltnp 'sport = :2053'
+ss -ltnp '( sport = :2053 or sport = :2096 )'
 ```
 
-The listening address should be `127.0.0.1:2053`, not `0.0.0.0`, `*` or `[::]`. Remove any firewall rule that allowed public access to this panel port. Keep SSH and ports `80` and `443` available. This step only changes panel access, it does not move a separately configured subscription service.
+The listeners should be `127.0.0.1:2053` and `127.0.0.1:2096`, not `0.0.0.0`, `*` or `[::]`. After checking both the panel and a subscription, remove firewall rules that allowed public access to these internal ports. Keep SSH and ports `80` and `443` available.
 
 Nginx now uses the website certificate for panel access too. Keep its renewal and Nginx reload hook. If you created `/etc/letsencrypt/renewal-hooks/deploy/restart-self-sni-panel.sh` earlier, move that hook out of the renewal directory so certificate renewal no longer restarts the panel:
 
@@ -1003,5 +1040,171 @@ ssh -N -L 127.0.0.1:18053:127.0.0.1:2053 root@YOUR_SERVER_IP
 ```
 
 If SSH uses a different port, add `-p YOUR_SSH_PORT`. Keep the command running and open `http://127.0.0.1:18053/your-panel-path/` in your browser. The SSH tunnel encrypts the connection to your server. You can use it to fix Xray settings or restore the panel's previous HTTPS settings. To restore public panel access, set both certificate paths before changing the listening IP back to its previous value, then restore the firewall rule if needed.
+
+:::
+
+### Caddy alternative {#panel-caddy}
+
+Caddy can serve the same website and panel, with automatic certificate issuance and renewal. This option replaces Nginx on ports `80` and `127.0.0.1:8443`. Xray stays on public `443`, with **Target** set to `127.0.0.1:8443` and **Xver** set to `0`.
+
+::: details Caddy setup and SSH access
+
+These steps are for the single website configured in this guide. If Nginx or Caddy already serves other sites, their configurations also need to be taken into account. Keep SSH open and save the panel's current port, secret path and certificate paths before starting. Use your own domain, panel port and secret path throughout. Replace `2096` and the three subscription paths with the matching values from the [settings table](#panel-and-subscription-urls).
+
+**1. Install Caddy.** Run as root on Ubuntu or Debian. Stop Nginx to free port `80` before installing the [official Caddy package](https://caddyserver.com/docs/install#debian-ubuntu-raspbian). The website will be unavailable during the switch, and VPN connections may be affected until the HTTPS website works again.
+
+```bash
+systemctl stop nginx
+apt install -y debian-keyring debian-archive-keyring apt-transport-https curl gnupg
+curl -fsSL https://dl.cloudsmith.io/public/caddy/stable/gpg.key -o /tmp/caddy-stable.gpg.key &&
+gpg --dearmor --yes -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg /tmp/caddy-stable.gpg.key
+curl -fsSL https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt -o /etc/apt/sources.list.d/caddy-stable.list
+chmod 644 /usr/share/keyrings/caddy-stable-archive-keyring.gpg /etc/apt/sources.list.d/caddy-stable.list
+apt update
+apt install -y caddy
+```
+
+Continue only if installation succeeds. If installation or the checks below fail, stop Caddy with `systemctl stop caddy` and start Nginx again with `systemctl start nginx` while you resolve the error.
+
+**2. Configure the website and panel.** Save a copy of `/etc/caddy/Caddyfile`, then replace its contents with the following configuration:
+
+```text
+{
+    auto_https disable_redirects
+    servers {
+        protocols h1 h2
+    }
+}
+
+http://site.example.com {
+    redir https://site.example.com{uri} permanent
+}
+
+https://site.example.com:8443 {
+    bind 127.0.0.1
+    tls {
+        issuer acme {
+            disable_tlsalpn_challenge
+        }
+    }
+
+    redir /your-panel-path /your-panel-path/ 308
+    handle /your-panel-path/* {
+        reverse_proxy 127.0.0.1:2053
+    }
+    @subscriptions path /your-sub-path/* /your-json-path/* /your-clash-path/*
+    handle @subscriptions {
+        reverse_proxy 127.0.0.1:2096
+    }
+    handle {
+        root * /var/www/self-sni
+        file_server
+    }
+}
+```
+
+Keep the website files from the earlier steps in `/var/www/self-sni`, readable by the `caddy` user. Use `handle`, not `handle_path`, so the panel receives its full secret path. Caddy handles WebSocket proxying automatically.
+
+The HTTPS block listens on `127.0.0.1:8443`: `:8443` sets the port and `bind 127.0.0.1` limits it to the VPS itself. Xray forwards website and panel visits from public `443` to this address. HTTP/3 is disabled because this setup forwards TCP through Xray. Caddy obtains and renews its certificate using HTTP validation on public port `80`, so keep that port reachable. See Caddy's [site addresses](https://caddyserver.com/docs/caddyfile/concepts#addresses) and [ACME settings](https://caddyserver.com/docs/caddyfile/directives/tls#acme).
+
+**3. Start Caddy and check HTTPS.**
+
+```bash
+caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile &&
+systemctl enable --now caddy &&
+systemctl restart caddy
+journalctl -u caddy -n 50 --no-pager
+```
+
+Wait for successful certificate issuance in the log, then check the local HTTPS website, replacing the domain:
+
+```bash
+curl --http2 --tlsv1.3 --tls-max 1.3 --resolve site.example.com:8443:127.0.0.1 https://site.example.com:8443/ -w '\nHTTP version: %{http_version}\n'
+```
+
+The command should return the website without certificate errors and report `HTTP version: 2`. Also open `https://site.example.com/` from your computer and test the VPN before continuing.
+
+**4. Switch the panel to local access.** In **Panel Settings**, set the panel's listening IP (`webListen`) to `127.0.0.1`, keep its port and secret path, and clear both **Public Key Path** and **Private Key Path**. Apply the [subscription settings](#panel-and-subscription-urls) too, then save all changes and restart the panel. Caddy now handles HTTPS, while the panel and subscription server use HTTP only on localhost. Open `https://site.example.com/your-panel-path/` and check that you can sign in and see live updates.
+
+Run `ss -ltnp '( sport = :2053 or sport = :2096 )'` with your actual ports. It should show the panel and subscription server listening only on `127.0.0.1`. After checking both the panel and a subscription, remove firewall rules for their old public ports. Keep SSH and ports `80` and `443` available.
+
+**5. Finish the switch.** Once the website, panel, subscriptions and VPN all work, disable Nginx startup:
+
+```bash
+systemctl disable nginx
+```
+
+Caddy manages its own certificate storage. If the old Certbot certificate is no longer used by any service, remove it from Certbot with `certbot delete --cert-name site.example.com`, using its actual name from `certbot certificates`. Move the guide's `reload-self-sni-nginx.sh` and `restart-self-sni-panel.sh` hooks, if present, from `/etc/letsencrypt/renewal-hooks/deploy/` to a backup directory under `/root/`. Keep Certbot renewal enabled for any other certificates you still use. After deleting the old certificate, returning to Nginx requires obtaining a certificate for it again.
+
+With **Xver: 0**, Caddy sees forwarded browser connections as coming from localhost, so the panel's IP logs and restrictions cannot distinguish their original addresses.
+
+**If the public panel address becomes unavailable**, run this on your computer with your SSH account, server address and actual panel port:
+
+```bash
+ssh -N -L 127.0.0.1:18053:127.0.0.1:2053 root@YOUR_SERVER_IP
+```
+
+Add `-p YOUR_SSH_PORT` if SSH uses another port. Keep the command running and open `http://127.0.0.1:18053/your-panel-path/`. This reaches the running panel directly through the encrypted SSH tunnel, even if Xray or Caddy has stopped.
+
+:::
+
+### Panel URL and subscriptions {#panel-and-subscription-urls}
+
+These settings apply to both Nginx and Caddy above. Configure the chosen proxy first, then apply these values in 3X-UI and restart the panel. Replace the example domain, paths and ports with your own matching values.
+
+::: details Panel settings, subscription links and checks
+
+**Panel address.** In **Panel Settings**, use:
+
+| Setting | Value |
+| --- | --- |
+| Listening IP (`webListen`) | `127.0.0.1` |
+| Panel Port (`webPort`) | Your internal panel port, `2053` in the examples |
+| Panel URL Path (`webBasePath`) | `/your-panel-path/`, with both slashes |
+| Listening Domain (`webDomain`) | Leave empty to keep direct access through the SSH tunnel available |
+| Public Key Path / Private Key Path | Both empty, HTTPS is handled by Nginx or Caddy |
+
+**Panel URL Path takes only the path**, not a full URL. The browser address is `https://site.example.com/your-panel-path/`, without `:2053` or `:8443`. Keep the internal panel port unchanged. The domain is set in the Nginx or Caddy configuration. Listening Domain restricts accepted hostnames, it does not set a public URL.
+
+**Subscription server.** Open **Settings → Subscription → Panel settings**. Subscriptions use a separate listener from the panel:
+
+| Setting | Value |
+| --- | --- |
+| Enable Subscription (`subEnable`) | On |
+| Listening IP (`subListen`) | `127.0.0.1` |
+| Subscription Port (`subPort`) | A separate free internal port, `2096` in the examples |
+| Subscription Domain (`subDomain`) | Leave empty in this example |
+| Subscription Path (`subPath`) | `/your-sub-path/` |
+| Subscription URI (`subURI`) | `https://site.example.com/your-sub-path/` |
+| Subscription certificate and key paths (`subCertFile`, `subKeyFile`) | Both empty |
+
+Keep your existing subscription path if you already use one, and use that same path in the proxy configuration. The panel, raw subscription, JSON and Clash paths must be different. Keep a trailing `/` in each URI. Enter the public HTTPS address without an internal port or a client's Sub ID, 3X-UI appends the Sub ID when it generates each client's link.
+
+**Additional formats.** Enable JSON or Clash/Mihomo subscriptions only if your app needs them. In **Settings → Subscription Formats**, set their paths and public URIs too:
+
+| Format | Path | Public URI |
+| --- | --- | --- |
+| JSON (`subJsonPath`, `subJsonURI`) | `/your-json-path/` | `https://site.example.com/your-json-path/` |
+| Clash/Mihomo (`subClashPath`, `subClashURI`) | `/your-clash-path/` | `https://site.example.com/your-clash-path/` |
+
+Both proxy examples forward all three paths to the same subscription port. The format must be enabled in 3X-UI before its path works. For this guide's XHTTP setup, leave ordinary Mux disabled in the JSON subscription settings as well. Subscription formats and paths are described in the [3X-UI documentation](https://docs.sanaei.dev/docs/config/subscription/).
+
+**Check a client's subscription.** Save the settings, restart the panel and reopen it through the public HTTPS address. Copy the client's subscription link again. A raw subscription should now look like:
+
+```text
+https://site.example.com/your-sub-path/CLIENT_SUB_ID
+```
+
+The panel supplies `CLIENT_SUB_ID`, it is not the client's UUID or the panel's secret path. Keep subscription links private, since they provide VPN connection details. Replace the old subscription URL in your VPN app and refresh it. Existing URLs with the old port will not update themselves.
+
+Check that the imported profiles use your public server address and port `443`, your domain as SNI, and the correct transport, XHTTP path and Flow. The subscription download address and the VPN connection address are separate settings. If the profile contains a local address, correct the inbound's sharing address or its attached Host and refresh the subscription.
+
+A browser may show a subscription information page instead of raw configurations. You can check the raw response from your computer with the full client URL:
+
+```bash
+curl --fail --show-error -H 'Accept: text/plain' 'https://site.example.com/your-sub-path/CLIENT_SUB_ID'
+```
+
+Expect a subscription response, normally Base64 text for the raw format, rather than your website's HTML or the panel's login page. If you get `502`, check that the subscription server is running on the configured local port with both certificate fields empty. For `404`, check the path, Sub ID and format toggle. If generated links contain `http://` or an internal port, correct the URI field for that format, then copy the link again. Finally, test an imported VPN connection. A successful subscription download alone does not confirm that the VPN works.
 
 :::
